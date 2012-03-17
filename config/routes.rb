@@ -1,4 +1,6 @@
 Planet::Application.routes.draw do
+  resources :types
+
   get "planet/index"
 
   get "planet/contact"
