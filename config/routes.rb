@@ -1,4 +1,6 @@
 Planet::Application.routes.draw do
+  resources :sites
+
   resources :types
 
   get "planet/index"
