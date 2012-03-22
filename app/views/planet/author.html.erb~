@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Autores</title>
+</head>
+<body>
+<h1>
+Información sobre los creadores
+</h1>
+
+<p>En esta página podrá encontrar varios datos sobre los creadores
+</p>
+<h4>Alberto Moreno Díaz</h4>
+<%= image_tag('alberto_contador.jpg') %>
+<ul>
+  <li>Dirección de correo: <a href="mailto:alberto.moreno.diaz@alumnos.upm.es">
+contact@planet.travel.com</a></li>
+  <li>Dirección física: C/Sin nombre 7, 9ºB Madrid</li>
+</ul>
+<%= image_tag('pedriza2-m.png') %>
+<h4>Francisco José Gil García</h4>
+
+<p>Feel free to use it for your 
+convenience and pleasure.</p>
+</body>
+</html>
