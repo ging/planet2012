@@ -16,3 +16,4 @@
 
 # ignore al .DS_store files of MAC OSX
 .DS_Store
+*~

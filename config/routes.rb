@@ -6,6 +6,8 @@ Planet::Application.routes.draw do
   get "planet/contact"
 
   get "planet/ejemplo"
+  
+  get "planet/author"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
