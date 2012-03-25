@@ -1,16 +1,32 @@
 <html>
-<h1>
-Autores
-</h1>
+<head>
+<link rel='stylesheet' type='text/css' href='author.css'>
+ <!--<%= stylesheet_link_tag    "author", :media => "author" %>-->
+</head>
 <body>
+<div class='container'>
+<h1 class='cabecera'> Autores </h1>
+<div class='autor1'>
 <form>
 <p>Nombre: <input type="text" name='nombre' size='25' value='Arturo'></input></p><BR>
 <p>Direccion postal: <input type="text" name='post' size='25' value='C/Holanda,6'></input></p><BR>
 <p>Direccion electronica: <input type="text" name='elec' size='25' value='a.romerob@alumnos.upm.es'></input></p><BR>
 
-<%= image_tag('1.jpg') %>
+<%= image_tag('rails.png') %>
 
-<p> Curriculum:</p><br> <TEXTAREA NAME="cur" ROWS=3 COLS=30 WRAP="hard" value='Estudio'> </TEXTAREA>
+<p> Curriculum:<br>Estudio Ingenieria de telecomunicaciones</p>
 </form>
+</div>
+<div class='autor2'>
+<form>
+<p>Nombre: <input type="text" name='nombre' size='25' value='David'></input></p><BR>
+<p>Direccion postal: <input type="text" name='post' size='25' value='C/Holanda,6'></input></p><BR>
+<p>Direccion electronica: <input type="text" name='elec' size='25' value='a.romerob@alumnos.upm.es'></input></p><BR>
+
+<%= image_tag('rails.png') %>
+
+<p> Curriculum:<br>Estudio Ingenieria de telecomunicaciones</p>
+</div>
+</div>
 </body>
 </html>

@@ -83,5 +83,8 @@ class TypesController < ApplicationController
  # GET /types
  def ordered_index
   @types = Type.find(:all, :order => :name) 
+  respond_to do |format|
+      format.html # ordered_index.html.erb
+  end
  end
 end
