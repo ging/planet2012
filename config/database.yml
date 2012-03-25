@@ -15,7 +15,7 @@ development:
   database: planet2012_development
   pool: 5
   username: root
-  password:
+  password:,132465
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: planet2012_test
   pool: 5
   username: root
-  password:
+  password:,132465
   socket: /tmp/mysql.sock
 
 production:
@@ -38,5 +38,5 @@ production:
   database: planet2012_production
   pool: 5
   username: root
-  password:
+  password:,132465
   socket: /tmp/mysql.sock
