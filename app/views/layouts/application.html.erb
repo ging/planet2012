@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<p>
+	<%= link_to 'Index', planet_index_path %>
+	<%= link_to 'Contact', planet_contact_path %>
+	<%= link_to 'Example', planet_ejemplo_path %>
+	<%= link_to 'Author', planet_author_path %>
+	<%= link_to 'Types', types_path %>	
+	<%= link_to 'Ordered Types', types_ordered_index_path %>
+	</p>
 
 <%= yield %>
+
+	<p>
+	<%= link_to 'Index', planet_index_path %>
+	<%= link_to 'Contact', planet_contact_path %>
+	<%= link_to 'Example', planet_ejemplo_path %>
+	<%= link_to 'Author', planet_author_path %>
+	<%= link_to 'Types', types_path %>	
+	<%= link_to 'Ordered Types', types_ordered_index_path %>
+	</p>
 
 </body>
 </html>
