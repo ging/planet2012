@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Planet::Application.config.secret_token = '1d0b0986958355469c26d5d36d0531ad5dccaa0483eefce0085cc8d90ae919113f57fc251d0a77dbcbe194736ae1f33a77fd54e95f4c72eb4851fdb4749f2b4a'
+Planet2012::Application.config.secret_token = '70b8de5564a094332126fc8d2143823763502b1dbf735c886f3ae7d5cc195d3d5ff3c0111c10249d60a125260199456b4c18c69091d7ffa0f11b8519489a2c06'

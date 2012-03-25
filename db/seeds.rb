@@ -5,16 +5,3 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-Type.create(
-            name: 'Monumento',
-            description: 'Edificio de interes turistico o artistico')
-
-Type.create(
-            name: 'Naturaleza',
-            description: 'Lugar al aire libre de interes natural o de recreo')
-
-Type.create(
-            name: 'Ruina',
-            description: 'Lugar o resto de interes arquelogico')
-
