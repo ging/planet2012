@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description , :rows => 4 %>
   </div>
   <div class="field">
     <%= f.label :type_id %><br />
-    <%= f.number_field :type_id %>
+    <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :image_url %><br />

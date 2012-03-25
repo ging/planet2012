@@ -15,7 +15,7 @@
   <tr>
     <td><%= site.name %></td>
     <td><%= site.description %></td>
-    <td><%= site.type_id %></td>
+    <td><%= site.type.name if site.type %></td>
     <td><%= site.image_url %></td>
     <td><%= link_to 'Show', site %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
