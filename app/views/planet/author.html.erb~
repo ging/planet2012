@@ -1,13 +1,29 @@
 <h1>Autores del sitio WEB</h1>
 
-<%= image_tag('marina.JPG') %>  
+<ul>
+  <%= image_tag('Daniel.jpg') %> 
+  <li><b> Nombre:</b> Daniel García León </li>
+  <li><b> Dirección:</b> Calle Ramiro de Maeztu, 2 </li>
+  <li><b> Mail: </b><a href="mailto:dgarciale@gmail.com"> dgarciale@gmail.com</a> </li>
+  <li><b> Curriculum:</b>
+    <ul>
+      <li> Estudiante de 4º de Ingeniería en Telecomunicación en la Universidad Politécnica de Madrid.</li>
+    </ul>
+  </li>
+</ul>
 
-<p><b>Nombre:</b> Marina González</p>
+<ul>
+  <%= image_tag('marina.JPG') %>  
+  <li><b>Nombre:</b> Marina González</li>
+  <li><b>Dirección postal:</b> Paseo Juan XXIII, Madrid</li>
+  <li> Mail: <a href="mailto:m.gonzalezc@alumnos.upm.es"> m.gonzalezc@alumnos.upm.es</a> </li>
+  <li><b>Currículum:</b>
+    <ul>
+      <li> Estudiante de 4º de Ingeniería en Telecomunicación en la Universidad Politécnica de Madrid.</li>
+    </ul>
+  </li>
+</ul>
 
-<p><b>Dirección postal:</b> Paseo Juan XXIII, Madrid</p>
 
-<p><b>email:</b> m.gonzalezc@alumnos.upm.es</p>
-
-<p><b>Currículum:</b> Estudiante de Ingeniería Superior en la ETSIT.</p>
 
 
