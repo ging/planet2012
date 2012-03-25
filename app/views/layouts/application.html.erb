@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html> 
+<html> 
+<head> 
   <title>Planet</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    $(function() {
+      $( "#trip_description" ).cleditor();
+    });
+  </script>
+
 </head>
-<body>
-
-  <div>      <%= link_to "Sitios", sites_path %>     <%= link_to "Tipos",  types_path %>   </div>
-
-<%= yield %>
-
-</body>
-</html>
+<body id="planet"> 
+  <div id="banner"> 
+    <%= image_tag("logo3.png") %>
+    <%= @page_title || "Planet Travel Site" %>
+  </div> 
+  <div id="columns"> 
+    <div id="side"> 
+      <%= link_to "Home", planet_index_path %><br /> 
+      <%= link_to "Tipos",  types_path %><br /> 
+      <%= link_to "Sitios", sites_path %><br /> 
+      <%= link_to "Contact", planet_contact_path %>
+    </div> 
+    <div id="main"> 
+      <%= yield %>
+    </div> 
+  </div> 
+</body> 
+</html> 
