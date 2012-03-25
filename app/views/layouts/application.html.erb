@@ -7,10 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to('Index', planet_index_path) +  ... %>
+<%= link_to('Index', planet_index_path) + link_to('Contact', planet_contact_path) + link_to('Ejemplo', planet_ejemplo_path) + link_to('Authors', planet_authors_path) + link_to('Index', types_index_path) + link_to('Ordered-index', types_ordered-index_path)%>
 
 <%= yield %>
 
-<%= link_to('Index', planet_index_path) +  ... %>
+<%= link_to('Index', planet_index_path) + link_to('Contact', planet_contact_path) + link_to('Ejemplo', planet_ejemplo_path) + link_to('Authors', planet_authors_path) + link_to('Index', types_index_path) + link_to('Ordered-index', types_ordered-index_path)%>
 </body>
 </html>
