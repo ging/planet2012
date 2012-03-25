@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Última actualización</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= type.name %></td>
     <td><%= type.description %></td>
+    <td><%= type.updated_at %></td>
     <td><%= link_to 'Show', type %></td>
     <td><%= link_to 'Edit', edit_type_path(type) %></td>
     <td><%= link_to 'Destroy', type, confirm: 'Are you sure?', method: :delete %></td>
@@ -25,5 +27,5 @@
 <%= link_to 'New Type', new_type_path %>
 
 <br />
-
+<b>Última actualización: </b>
 <br />
