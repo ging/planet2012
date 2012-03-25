@@ -12,7 +12,7 @@
 
 <p>
   <b>Actualizado en:</b>
-  <%= @type.updated_at %>
+  <%= @type.update_at %>
 </p>
 
 
