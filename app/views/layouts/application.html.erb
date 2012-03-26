@@ -9,7 +9,7 @@
 <body>
 <div class='container'>
 <div id='enla1'>
-<%= link_to('Index', planet_index_path) + " " + link_to('Contact', planet_contact_path) + " " + link_to('Ejemplo', planet_ejemplo_path) + " " + link_to('Authors', planet_author_path)%>
+<%= link_to('Index', planet_index_path) + " " + link_to('Contact', planet_contact_path) + " " + link_to('Ejemplo', planet_ejemplo_path) + " " + link_to('Authors', planet_author_path + " " + link_to('Index', types_index_path))%>
 </div>
 
 <%= yield %>
