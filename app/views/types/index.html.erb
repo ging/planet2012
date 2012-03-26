@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-<h1>Listing types</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Fecha de última modificación</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @types.each do |type| %>
-  <tr>
-    <td><%= type.name %></td>
-    <td><%= type.description %></td>
-    <td><%= type.updated_at %></td>
-    <td><%= link_to 'Show', type %></td>
-    <td><%= link_to 'Edit', edit_type_path(type) %></td>
-    <td><%= link_to 'Destroy', type, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-=======
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
@@ -49,7 +24,7 @@
   <% end %>
   </table> 
 </div> 
->>>>>>> jq_planet/master
+
 
 <br />
 
