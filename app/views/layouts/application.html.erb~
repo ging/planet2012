@@ -12,9 +12,6 @@
 <%=link_to('Ejemplo', planet_ejemplo_path)%>
 <%=link_to('Contacto', planet_contact_path)%>
 <%= yield %>
-<%=link_to('Home', planet_index_path)%>
-<%=link_to('Autores', planet_author_path)%>
-<%=link_to('Ejemplo', planet_ejemplo_path)%>
-<%=link_to('Contacto', planet_contact_path)%>
+
 </body>
 </html>
