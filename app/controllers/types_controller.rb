@@ -12,7 +12,11 @@ class TypesController < ApplicationController
 
 
   def ordered_index
+   @types = Type.find(:all, :order => :name) 
 
+   respond_to do |format|
+   format.html # index.html.erb
+   format.json { render json: @types }
   end 
 
   # GET /types/1

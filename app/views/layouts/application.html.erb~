@@ -5,22 +5,7 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-<<<<<<< HEAD
-</head>
-<body>
-<%=link_to('Home', planet_index_path)%>
-<%=link_to('Autores', planet_author_path)%>
 
-<%=link_to('Index', types_index_path)%>
-<%= yield %>
-<%=link_to('Home', planet_index_path)%>
-<%=link_to('Autores', planet_author_path)%>
-<%=link_to('Ejemplo', planet_ejemplo_path)%>
-<%=link_to('Contacto', planet_contact_path)%>
-<%=link_to('Index', types_index_path)%>
-</body>
-</html>
-=======
 
   <script type="text/javascript">
     $(function() {
@@ -38,8 +23,8 @@
     <div id="side"> 
       <%= link_to "Home", planet_index_path %><br /> 
       <%= link_to "Tipos",  types_path %><br /> 
-      <%=link_to('Ejemplo', planet_ejemplo_path)%><br /> 
-      <%=link_to('Contacto', planet_contact_path)%><br /> 
+      <%=link_to 'Ejemplo', planet_ejemplo_path %><br /> 
+      <%=link_to 'Authors', planet_author_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
       <%= link_to "Contact", planet_contact_path %>
     </div> 
@@ -49,4 +34,4 @@
   </div> 
 </body> 
 </html> 
->>>>>>> jq_planet/master
+
