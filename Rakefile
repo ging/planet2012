@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Planet2012::Application.load_tasks
+Planet::Application.load_tasks
