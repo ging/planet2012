@@ -6,34 +6,6 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-<<<<<<< HEAD
-<span class="header">
-	<%= 
-	link_to(' Home ', planet_index_path)+" | "+ 
-	link_to(' Contact ', planet_contact_path)+" | "+ 
-	link_to(' Author ', planet_author_path)+" | "+ 
-	link_to(' Ejemplo ', planet_ejemplo_path)
-	%>
-	
-</span>
-<hr>
-
-<%= yield %>
-
-<hr>
-<span class="footer">
-	<%= 
-	link_to(' Home ', planet_index_path)+" | "+ 
-	link_to(' Contact ', planet_contact_path)+" | "+ 
-	link_to(' Author ', planet_author_path)+" | "+ 
-	link_to(' Ejemplo ', planet_ejemplo_path)
-	%>
-	
-</span>
-
-</body>
-</html>
-=======
   <script type="text/javascript">
     $(function() {
       $( "#trip_description" ).cleditor();
@@ -41,7 +13,16 @@
   </script>
 
 </head>
-<body id="planet"> 
+<body id="planet">
+	<span class="header">
+		<%= 
+		link_to(' Home ', planet_index_path)+" | "+ 
+		link_to(' Contact ', planet_contact_path)+" | "+ 
+		link_to(' Author ', planet_author_path)+" | "+ 
+		link_to(' Ejemplo ', planet_ejemplo_path)
+		%>
+
+	</span>
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %>
@@ -56,7 +37,16 @@
     <div id="main"> 
       <%= yield %>
     </div> 
-  </div> 
+  </div>
+
+	<span class="footer">
+		<%= 
+		link_to(' Home ', planet_index_path)+" | "+ 
+		link_to(' Contact ', planet_contact_path)+" | "+ 
+		link_to(' Author ', planet_author_path)+" | "+ 
+		link_to(' Ejemplo ', planet_ejemplo_path)
+		%>
+
+	</span> 
 </body> 
 </html> 
->>>>>>> 74c6e85c483f9844d5590fe5b1231ecbce8b4cba
