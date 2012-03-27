@@ -1,5 +1,7 @@
 Planet::Application.routes.draw do
   
+  resources :types
+
   # Planet Controller
   get "planet/index"
   get "planet/author"
