@@ -1,4 +1,11 @@
-Planet::Application.routes.draw do
+Planet::Application.routes.draw do  
+  resources :types
+
+  resources :sites
+
+  resources :types do                     # Rutas anidadas /types/id/sites...,
+    resources :sites, :only => [ :index ] # Restringe a acción “index” 
+  end
   
   # Planet Controller
   get "planet/index"
