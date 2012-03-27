@@ -5,7 +5,7 @@ class TypesController < ApplicationController
     @types = Type.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html #index.html.erb
       format.json { render json: @types }
     end
   end
@@ -15,9 +15,10 @@ class TypesController < ApplicationController
    @types = Type.find(:all, :order => :name) 
 
    respond_to do |format|
-   format.html # index.html.erb
+   format.html { render action: 'index'}
    format.json { render json: @types }
-  end 
+   end 
+  end
 
   # GET /types/1
   # GET /types/1.json
