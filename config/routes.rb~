@@ -1,5 +1,8 @@
 Planet::Application.routes.draw do
-  resources :types
+
+  resources :types do
+  get 'index', :on => :collection
+  end
 
   get "planet/index"
 
@@ -7,7 +10,7 @@ Planet::Application.routes.draw do
 
   get "planet/ejemplo"
 
-get "planet/author"
+  get "planet/author"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,6 +64,7 @@ get "planet/author"
   # root :to => 'welcome#index'
     
   root :to => "planet#index"
+
     
   # See how all your routes lay out with "rake routes"
 

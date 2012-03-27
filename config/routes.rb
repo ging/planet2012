@@ -1,5 +1,8 @@
 Planet::Application.routes.draw do
-  resources :types
+
+  resources :types do
+  get 'ordered_index', :on => :collection
+  end
 
   get "planet/index"
 
@@ -61,6 +64,7 @@ Planet::Application.routes.draw do
   # root :to => 'welcome#index'
     
   root :to => "planet#index"
+
     
   # See how all your routes lay out with "rake routes"
 
