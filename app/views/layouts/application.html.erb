@@ -23,10 +23,26 @@
       <%= link_to "Home", planet_index_path %><br /> 
       <%= link_to "Tipos",  types_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
-      <%= link_to "Contact", planet_contact_path %>
+      <%= link_to "Contact", planet_contact_path %><br /> 
+      <%= link_to 'Ejemplo',planet_ejemplo_path%><br /> 
+      <%= link_to "Authors", planet_author_path %><br /> 
+      <%= link_to "Ordenados", ordered_index_types_path %><br /> 
     </div> 
     <div id="main"> 
-      <%= yield %>
+    <%= link_to 'Index',planet_index_path%>
+    <%= link_to 'Contact',planet_contact_path%>
+    <%= link_to 'Ejemplo',planet_ejemplo_path%>
+    <%= link_to "Authors", planet_author_path %>
+    <%= link_to "Tipos", types_path %>
+    <%= link_to "Ordenados", ordered_index_types_path %>
+      <%= yield %> 
+      <br /><br />
+    <%= link_to 'Index',planet_index_path%>
+    <%= link_to 'Contact',planet_contact_path%>
+    <%= link_to 'Ejemplo',planet_ejemplo_path%>
+    <%= link_to "Authors", planet_author_path %>
+    <%= link_to "Tipos", types_path %>
+    <%= link_to "Ordenados", ordered_index_types_path %>
     </div> 
   </div> 
 </body> 
