@@ -1,5 +1,5 @@
-<div id="site_list"> 
-  <h1>Listing Types</h1> 
+﻿<div id="site_list"> 
+  <h1>Listing ordered Types</h1> 
  
   <table> 
   <% @types.each do |type| %>
@@ -9,8 +9,8 @@
         <dl> 
           <dt><%= link_to type.name, type_sites_path(type) %></dt> 
           <dd><%= truncate(strip_tags(type.description),
-                 :length => 80) %></dd> 
-		  <strong>Last modified: </strong> <dt><%= type.updated_at %></dt>
+                 :length => 80) %></dd>
+          <dd>Ultima modificación: <%= type.updated_at %> </dd> 
         </dl> 
       </td> 
  
@@ -22,7 +22,7 @@
                     :method => :delete %>
       </td> 
     </tr> 
-  <% end %>
+  <% end if @types%>
   </table> 
 </div> 
 
