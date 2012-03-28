@@ -5,8 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-<<<<<<< HEAD
-=======
 
 Type.create(
             name: 'Monumento',
@@ -50,6 +48,3 @@ Site.create(
             description: 'Puerta del mercado de la antigua ciudad griega de Pergamo del museo arquelogico de Berlin',
             type_id: 3,
             image_url: 'pergamo.png')
-
-
->>>>>>> 74c6e85c483f9844d5590fe5b1231ecbce8b4cba

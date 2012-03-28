@@ -1,10 +1,10 @@
 Planet::Application.routes.draw do  
-  resources :types
-
-  resources :sites
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
-    resources :sites, :only => [ :index ] # Restringe a acción “index” 
+    resources :sites, :only => [ :index ] # Restringe a acción “index”
+    collection do
+      get 'ordered'                       # Adds the ordered view to the routing
+    end
   end
   
   # Planet Controller

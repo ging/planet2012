@@ -9,6 +9,15 @@ class TypesController < ApplicationController
       format.json { render json: @types }
     end
   end
+  
+  def ordered
+    @types = Type.find(:all, :order => :name) 
+
+    respond_to do |format|
+      format.html # ordered.html.erb
+      format.json { render json: @types }
+    end
+  end
 
   # GET /types/1
   # GET /types/1.json
