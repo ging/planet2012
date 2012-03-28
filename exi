@@ -1,0 +1,47 @@
+[33mcommit 540af5c8954cebdb1705a99a8624ab03d59aff5c[m
+Author: danirubio <danielrubiomesa@gmail.com>
+Date:   Tue Mar 27 19:53:48 2012 +0200
+
+    anadir accion ejemplo
+
+[33mcommit df46232168e8953e41d08d5bbe938466b63d7833[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sun Mar 18 00:28:22 2012 +0100
+
+    se añade seeds.rb
+
+[33mcommit 4d0b4bbc2de9eccbd0d24b55055c8daa2bd46f9d[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sun Mar 18 00:24:48 2012 +0100
+
+    migración base de datos
+
+[33mcommit 3a7e703449b7610f4f52cb88c2bda5eecf805770[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sun Mar 18 00:16:47 2012 +0100
+
+    creación de scaffold type
+
+[33mcommit c5aade1b24ba2cf926e0a2e8d051191b20616ccb[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sun Mar 18 00:12:51 2012 +0100
+
+    añadir acción ejemplo
+
+[33mcommit 37df8e02cce7975af25f3ff0ff60360fa4247519[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sun Mar 18 00:06:27 2012 +0100
+
+    vistas index y contact, y redirección de route
+
+[33mcommit 1e039877cc95c84e7a50db112559835f41fc0c5c[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sat Mar 17 23:48:43 2012 +0100
+
+    rails generate controller planet index contact
+
+[33mcommit b617c7af019dcf8b4d1596c07e59e6d3efcfb439[m
+Author: Juan Quemada <jquemada@dit.upm.es>
+Date:   Sat Mar 17 23:47:06 2012 +0100
+
+    new planet creado
