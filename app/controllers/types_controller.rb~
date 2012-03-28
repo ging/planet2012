@@ -21,8 +21,8 @@ class TypesController < ApplicationController
     end
   end
 
-  # GET /types/ordered_index
-  # GET /types/ordered_index.json
+  # GET /types/1
+  # GET /types/1.json
   def ordered_index
     @type = Type.find(params[:id])
 
