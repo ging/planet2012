@@ -22,12 +22,32 @@
     <div id="side"> 
       <%= link_to "Home", planet_index_path %><br /> 
       <%= link_to "Tipos",  types_path %><br /> 
+	  <%= link_to "Tipos Ordenados",  types_ordered_index_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
-      <%= link_to "Contact", planet_contact_path %>
+      <%= link_to "Contact", planet_contact_path %><br /> 
+	  <%= link_to "Autores", planet_author_path %>
     </div> 
     <div id="main"> 
-      <%= yield %>
-    </div> 
+		<%= link_to "Home", planet_index_path %> 
+		<%= link_to "Contact", planet_contact_path %>
+		<%= link_to "Ejemplo", planet_ejemplo_path %>
+		<%= link_to "Autores", planet_author_path %>
+		<%= link_to "Tipos",  types_path %>
+		<%= link_to "Tipos Ordenados",  types_ordered_index_path %> 		
+	
+	
+		<%= yield %>
+		</br></br>
+	
+	
+		<%= link_to "Home", planet_index_path %> 
+		<%= link_to "Contact", planet_contact_path %>
+		<%= link_to "Ejemplo", planet_ejemplo_path %>
+		<%= link_to "Autores", planet_author_path %>
+		<%= link_to "Tipos",  types_path %>
+		<%= link_to "Tipos Ordenados",  types_ordered_index_path %>
+    </div>
+	
   </div> 
 </body> 
 </html> 

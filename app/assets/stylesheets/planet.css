@@ -16,6 +16,34 @@
         border-bottom: 3px dotted #77d;
 }
 
+
+/* Styles for author/index */
+
+#tabla_autores{
+	width: 900px;
+	
+	margin-left: 50px;
+}
+#author_list table {
+        border-collapse: collapse;
+		text-align: center;
+}
+#author_list .rest {
+		width: 400px;
+}
+#author_list .first{
+		width: 100px;
+}
+#author_list table tr th {
+        font-size: 16px;
+}
+#author_list table tr td {
+		
+        padding: 5px;
+        vertical-align: top;
+}
+
+
 /* Styles for products/index */
 
 #site_list table {
