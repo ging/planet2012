@@ -1,9 +1,11 @@
 Planet::Application.routes.draw do
+  get "types/ordered_index"
+
   resources :sites
 
   get "types/index"
 
-  get "types/ordered_index"
+  
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
 
