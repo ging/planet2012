@@ -158,6 +158,6 @@
 
 /*layout para authors */
 #authors .imagenCV {
-  width: 120px;
+  width: 100px;
   height: 150px;
 }
