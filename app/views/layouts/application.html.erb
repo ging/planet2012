@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+   <div>
+    <%= link_to 'index', planet_index_path %>
+    <%= link_to 'contact', planet_contact_path %>
+    <%= link_to 'ejemplo', planet_ejemplo_path %>
+   </div>
 <%= yield %>
-
+ <%= link_to "Author", planet_author_path %>
+      <%= link_to "Index types", types_path %>
+      <%= link_to "Ordered Index types", types_ordered_index_path %>
 </body>
 </html>
