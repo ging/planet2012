@@ -1,11 +1,15 @@
 Planet::Application.routes.draw do
-  resources :types
+  resources :types do
+    get 'ordered_index', :on => :collection
+  end
 
   get "planet/index"
 
   get "planet/contact"
 
   get "planet/ejemplo"
+
+  get "planet/author"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
