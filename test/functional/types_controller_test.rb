@@ -11,6 +11,13 @@ class TypesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:types)
   end
 
+  #test de funcionalidad de GET /types/ordered_index
+  test "should get ordered_index" do
+    get :ordered_index
+    assert_response :success
+    assert_not_nil assigns(:types)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
