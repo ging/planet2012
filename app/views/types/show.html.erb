@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+﻿<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Última modificación:</b>
+  <%= @type.updated_at %>
+</p>
 
 <p>
   <b>Name:</b>
@@ -13,3 +18,4 @@
 
 <%= link_to 'Edit', edit_type_path(@type) %> |
 <%= link_to 'Back', types_path %>
+
