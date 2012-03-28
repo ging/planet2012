@@ -1,0 +1,1 @@
+<h1>Roberto Fuentes Martinez</h1><p>Direccion postal:Plaza Martinez Olmedilla, 828031 MADRIDEmail:rfm_it@yahoo.es</p><%= image_tag('foto.jpg') %><p>CVFormación:2005-Act  Estudiante de Ing.Sup.Telecomunicacion ETSIT-UPMExperiencia:2011-Act TecnocomAnalista Programador de aplicaciones con BBDD Oracle</p>
