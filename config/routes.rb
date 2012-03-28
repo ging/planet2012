@@ -1,4 +1,7 @@
 Planet::Application.routes.draw do
+
+  get "types/ordered_index" # se añade una nueva ruta a la acción "ordered_index"
+
   resources :types
 
   get "planet/index"
@@ -8,6 +11,7 @@ Planet::Application.routes.draw do
   get "planet/ejemplo"
 
   get "planet/author"   # se añande una nueva ruta a la acción "author"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
