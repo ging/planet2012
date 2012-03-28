@@ -1,28 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html> 
+<html> 
+<head> 
   <title>Planet</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    $(function() {
+      $( "#trip_description" ).cleditor();
+    });
+  </script>
+
 </head>
-<body>
-  <%= link_to "Inicio", planet_index_path %> 
-  <%= link_to "Contacto", planet_contact_path %>
-  <%= link_to "Ejemplo", planet_ejemplo_path %>
-  <%= link_to "Autores", planet_author_path %>
-  <%= link_to "Tipos", types_path %>
-  <%= link_to "Tipos ordenados", types_ordered_index_path %> <br>
-
-<%= yield %>
-
-<br>
-  <%= link_to "Inicio", planet_index_path %> 
-  <%= link_to "Contacto", planet_contact_path %>
-  <%= link_to "Ejemplo", planet_ejemplo_path %>
-  <%= link_to "Autores", planet_author_path %>
-  <%= link_to "Tipos", types_path %>
-  <%= link_to "Tipos ordenados", types_ordered_index_path %> <br>
-
-</body>
-</html>
+<body id="planet"> 
+  <div id="banner"> 
+    <%= image_tag("logo3.png") %>
+    <%= @page_title || "Planet Travel Site" %>
+  </div>
+  <div id="header_links">
+    <%= link_to "Inicio", planet_index_path %> 
+  	<%= link_to "Contacto", planet_contact_path %>
+  	<%= link_to "Ejemplo", planet_ejemplo_path %>
+  	<%= link_to "Autores", planet_author_path %>
+  	<%= link_to "Tipos", types_path %>
+  	<%= link_to "Tipos ordenados", types_ordered_index_path %>
+  </div> 
+  <div id="main"> 
+    <%= yield %>
+  </div> 
+  <div id="footer_links">
+ 	<%= link_to "Inicio", planet_index_path %> 
+  	<%= link_to "Contacto", planet_contact_path %>
+  	<%= link_to "Ejemplo", planet_ejemplo_path %>
+  	<%= link_to "Autores", planet_author_path %>
+  	<%= link_to "Tipos", types_path %>
+  	<%= link_to "Tipos ordenados", types_ordered_index_path %>
+  </div> 
+</body> 
+</html> 
