@@ -15,16 +15,6 @@
         color: #226;
         border-bottom: 3px dotted #77d;
 }
-/* Styles for authors/index */
-#fotoFer{
-	float: rigth;	
-}
-.cv{
-	float: left;
-}
-#fotoFer{
-	float: rigth;	
-}
 
 /* Styles for products/index */
 

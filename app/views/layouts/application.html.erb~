@@ -26,10 +26,10 @@
       <%= link_to "Contact", planet_contact_path %>
     </div> 
     <div id="main">
-      <%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path)%> 
+      <%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Authors', planet_authors_path)%> 
       <%= yield %>
       </br>
-      <%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path)%> 
+      <%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Authors', planet_authors_path)%> 
     </div> 
   </div> 
 </body> 
