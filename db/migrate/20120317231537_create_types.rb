@@ -7,4 +7,8 @@ class CreateTypes < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def self.down # destruye tabla types de la BBDD
+   drop_table :sites
+  end
 end
