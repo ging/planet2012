@@ -13,7 +13,9 @@
         <dl> 
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
-                 :length => 80) %></dd>
+                 :length => 80) %>
+          <br>Última modificación: <%= type.updated_at %>
+          </dd>
         </dl> 
       </td>
  
@@ -31,4 +33,4 @@
  
 <br /> 
  
-<%= link_to 'New site', new_site_path %>
+<%= link_to 'New Type', new_site_path %>
