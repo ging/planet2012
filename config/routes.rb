@@ -1,4 +1,7 @@
 Planet::Application.routes.draw do
+
+  get "types/ordered_index"
+
   resources :types
 
   get "planet/index"
