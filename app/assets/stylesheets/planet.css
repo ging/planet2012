@@ -16,6 +16,19 @@
         border-bottom: 3px dotted #77d;
 }
 
+/* Estilos para el resto de cabeceras definidas en author*/
+#planet h2 {
+        font: 135% sans-serif;
+        font-weight: bold;
+        color: #226;
+}
+
+#planet h3 {
+        font: 110% sans-serif;
+        font-weight: bold;
+        color: #226;
+}
+
 /* Styles for products/index */
 
 #site_list table {
@@ -91,6 +104,7 @@
   margin-left: 9em;  /* Ajuste de borde izquierdo */
   padding-top: 4ex;
   padding-left: 2em;
+  padding-bottom: 4ex;
   background: white;
 }
 
@@ -107,6 +121,24 @@
   color: #bfb;
   font-size: small;
 }
+
+#header_links {     /* Estilos para los hiperenlaces superiores e inferiores*/
+  position: top;
+  background: #bfb;
+  border: 1px solid;
+  font: small-caps 16px/16px "Times New Roman", serif;
+  text-align: left;
+}
+
+#footer_links {
+  position: bottom;
+  background: #bfb;
+  border: 1px solid;
+  font: small-caps 16px/16px "Times New Roman", serif;
+  text-align: left;
+}
+
+
 /* END:mainlayout */
 
 /* An entry in the store catalog (no utilizados de momento) */

@@ -1,30 +1,29 @@
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
-  <table> 
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Last modified</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
   <% @types.each do |type| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
- 
-      <td class="list_description"> 
-        <dl> 
-          <dt><%= link_to type.name, type_sites_path(type) %></dt> 
-          <dd><%= truncate(strip_tags(type.description),
-                 :length => 80) %></dd> 
-        </dl> 
-      </td> 
- 
-      <td class="list_actions"> 
-        <%= link_to 'Show', type %><br/> 
-        <%= link_to 'Edit', edit_type_path(type) %><br/> 
-        <%= link_to 'Destroy', type, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
-      </td> 
-    </tr> 
+    <tr>
+      <td><%= type.name %></td>
+      <td><%= type.description %></td>
+      <td><%= type.updated_at %></td>
+      <td><%= link_to 'Show', type %></td>
+      <td><%= link_to 'Edit', edit_type_path(type) %></td>
+      <td><%= link_to 'Destroy', type, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
   <% end %>
-  </table> 
+</table>
 </div> 
 
-<br />
+<br/>
 
 <%= link_to 'New Type', new_type_path %>
