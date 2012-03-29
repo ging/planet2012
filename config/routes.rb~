@@ -1,6 +1,6 @@
 Planet::Application.routes.draw do
   get "planet/author"
-  get "types/ordered_index"
+
   resources :sites
 
   resources :types do                     # Rutas anidadas /types/id/sites...,

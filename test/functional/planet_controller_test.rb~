@@ -17,7 +17,7 @@ class PlanetControllerTest < ActionController::TestCase
   end
 
   test "should get author" do
-    get :author
+    get :authors
     assert_response :success
   end
 
