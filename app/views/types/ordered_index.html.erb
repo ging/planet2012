@@ -1,10 +1,3 @@
-<%= link_to('Index', planet_index_path) %>
-<%= link_to('Contact', planet_contact_path) %>
-<%= link_to('Ejemplo', planet_ejemplo_path) %>
-<%= link_to('Author', planet_author_path) %>
-<%= link_to('Type/Index', types_index_path) %>
-<%= link_to('Type/OrderedIndex', types_ordered_index_path) %>
-
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
@@ -24,7 +17,6 @@
  
       <td class="list_actions"> 
         <%= link_to 'Show', type %><br/>
-        <%= link_to 'Ordered_index', type %><br/> 
         <%= link_to 'Edit', edit_type_path(type) %><br/> 
         <%= link_to 'Destroy', type, 
                     :confirm => 'Are you sure?',
@@ -39,9 +31,3 @@
 
 <%= link_to 'New Type', new_type_path %>
 
-<%= link_to('Index', planet_index_path) %>
-<%= link_to('Contact', planet_contact_path) %>
-<%= link_to('Ejemplo', planet_ejemplo_path) %>
-<%= link_to('Author', planet_author_path) %>
-<%= link_to('Type/Index', types_index_path) %>
-<%= link_to('Type/OrderedIndex', types_ordered_index_path) %>

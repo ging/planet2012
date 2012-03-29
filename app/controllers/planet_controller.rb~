@@ -8,4 +8,10 @@ class PlanetController < ApplicationController
   def ejemplo
   end
     
+  def author
+  end
+
+  def ordered_index
+  end
+
 end
