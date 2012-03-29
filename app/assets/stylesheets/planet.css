@@ -16,6 +16,11 @@
         border-bottom: 3px dotted #77d;
 }
 
+#planet h3 {
+        font:  120% sans-serif;
+        color: #226;       
+}
+
 /* Styles for products/index */
 
 #site_list table {
@@ -84,29 +89,46 @@
 }
 
 #columns {
-  background: #446;
+ 
 }
 
+
 #main {
-  margin-left: 9em;  /* Ajuste de borde izquierdo */
+  margin-left: 2em;  /* Ajuste de borde izquierdo */
+  margin-right: 2em;  /* Ajuste de borde izquierdo */
   padding-top: 4ex;
-  padding-left: 2em;
   background: white;
 }
 
-#side {
-  float: left;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-bottom: 1em;
-  width: 8em;          /* Ajuste de borde izquierdo */
+
+#footer {
   background: #446;
 }
 
-#side a {
+#footer a {  
+  background: #446;
+  padding-left: 2em;
   color: #bfb;
   font-size: small;
 }
+#footer a:hover {   
+  background: #446; 
+  color: #fff;
+  font-size: small;
+}
+
+#leftauthor{
+ width: 49%;
+ float: left;
+ margin-right: 5px;
+}
+#rightauthor{
+ width: 49%;
+ float: right;
+margin-right: 5px;
+}
+
+
 /* END:mainlayout */
 
 /* An entry in the store catalog (no utilizados de momento) */

@@ -1,5 +1,7 @@
 Planet::Application.routes.draw do
   resources :sites
+   
+  get "types/ordered_index"	
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
@@ -11,6 +13,9 @@ Planet::Application.routes.draw do
 
   get "planet/ejemplo"
 
+  get "planet/author"
+ 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
