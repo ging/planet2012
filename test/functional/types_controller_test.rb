@@ -46,4 +46,6 @@ class TypesControllerTest < ActionController::TestCase
 
     assert_redirected_to types_path
   end
+
+  
 end
