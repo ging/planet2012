@@ -3,31 +3,31 @@
  
   <table> 
   <% @types.each do |type| %>
- 	
+
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
  
       <td class="list_description"> 
         <dl> 
           <dt><%= link_to type.name, type_sites_path(type) %></dt> 
           <dd><%= truncate(strip_tags(type.description),
-                 :length => 80) %></dd> 
-          Última modificación: <%= type.updated_at %>          
+                 :length => 80) %></dd>
+          Última modificación: <%= type.updated_at %></dd>
         </dl> 
       </td> 
-       
+ 
       <td class="list_actions"> 
         <%= link_to 'Show', type %><br/> 
         <%= link_to 'Edit', edit_type_path(type) %><br/> 
         <%= link_to 'Destroy', type, 
                     :confirm => 'Are you sure?',
                     :method => :delete %><br/>
-       
+
       </td> 
     </tr> 
   <% end %>
-  </table>
+  </table> 
 </div> 
 
 <br/>
 
-<%= link_to 'New Type', new_type_path %>
+<%= link_to 'New Type', new_type_path %><p>
