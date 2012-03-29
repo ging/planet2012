@@ -1,31 +1,42 @@
 <html>
 <head>
-<link rel='stylesheet' type='text/css' href='author.css'>
+<!--<link rel='stylesheet' type='text/css' href='author.css'>-->
  <!--<%= stylesheet_link_tag    "author", :media => "author" %>-->
 </head>
 <body>
 <div class='container'>
-<h1 class='cabecera'> Autores </h1>
+<div id='cabecera'> <h1> Autores </h1></div>
+<div id='espa'><p>sepa</p>
+</div>
 <div class='autor1'>
 <form>
-<p>Nombre: <input type="text" name='nombre' size='25' value='Arturo'></input></p><BR>
+<p>Nombre: <input type="text" name='nombre' size='25' value="Arturo Romero Blanco"></input></p><BR>
 <p>Direccion postal: <input type="text" name='post' size='25' value='C/Holanda,6'></input></p><BR>
 <p>Direccion electronica: <input type="text" name='elec' size='25' value='a.romerob@alumnos.upm.es'></input></p><BR>
 
-<%= image_tag('rails.png') %>
+<%= image_tag('auto1.jpeg') %>
 
-<p> Curriculum:<br>Estudio Ingenieria de telecomunicaciones</p>
+<p> Curriculum:</p>
+<textarea name="cur" rows=5 cols=73>
+Estudiante de  Ingenieria de telecomunicaciones y actualmente cursando SWCM
+</textarea>
 </form>
-</div>
+</div><br>
+<div id='espacio'>
+<p>separacion</p>
+</div><br>
 <div class='autor2'>
 <form>
-<p>Nombre: <input type="text" name='nombre' size='25' value='David'></input></p><BR>
-<p>Direccion postal: <input type="text" name='post' size='25' value='C/Holanda,6'></input></p><BR>
-<p>Direccion electronica: <input type="text" name='elec' size='25' value='a.romerob@alumnos.upm.es'></input></p><BR>
+<p>Nombre: <input type="text" name='nombre' size='25' value="David Maroto Sadau"></input></p><BR>
+<p>Direccion postal: <input type="text" name='post' size='25' value='C/Realeza,25'></input></p><BR>
+<p>Direccion electronica: <input type="text" name='elec' size='25' value='da.maroto@gmail.com'></input></p><BR>
 
-<%= image_tag('rails.png') %>
+<%= image_tag('auto2.jpg') %>
 
-<p> Curriculum:<br>Estudio Ingenieria de telecomunicaciones</p>
+<p> Curriculum:</p>
+<textarea name="cur" rows=5 cols=73>
+Estudiante de  Ingenieria de telecomunicaciones y actualmente cursando SWCM
+</textarea>
 </div>
 </div>
 </body>

@@ -12,5 +12,12 @@
  *= require_tree .
 */
 
-#enla1{text-align:center;color:red;font-style:italic;}
-.enla2{clear:both;text-align:center;margin-top:auto;color:red;}
+
+#container{}
+#enla1{}
+#enla1 a{color:blue;}
+#cuerpo{}
+#enla2{}
+#enla2 a{color:blue;}
+
+

@@ -7,15 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class='container'>
+<div id='container'>
 <div id='enla1'>
-<%= link_to('Index', planet_index_path) + " " + link_to('Contact', planet_contact_path) + " " + link_to('Ejemplo', planet_ejemplo_path) + " " + link_to('Authors', planet_author_path + " " + link_to('Index', types_index_path))%>
+<%= link_to('Index', planet_index_path) + " " + link_to('Contact', planet_contact_path) + " " + link_to('Ejemplo', planet_ejemplo_path) + " " + link_to('Authors', planet_author_path) + " " + link_to('Index', types_path) + " " + link_to('ordered_index', types_ordered_index_path)%>
 </div>
 
+<div id='cuerpo'>
 <%= yield %>
+</div>
 
-<div class='enla2'>
-<%= link_to('Index', planet_index_path) + " " + link_to('Contact', planet_contact_path) + " " + link_to('Ejemplo', planet_ejemplo_path) + " " + link_to('Authors', planet_author_path)%>
+<div id='enla2'>
+<%= link_to('Index', planet_index_path) + " " + link_to('Contact', planet_contact_path) + " " + link_to('Ejemplo', planet_ejemplo_path) + " " + link_to('Authors', planet_author_path) + " " + link_to('Index', types_path) + " " + link_to('ordered_index', types_ordered_index_path)%>
 </div>
 </div>
 </body>
