@@ -4,6 +4,8 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+    <th>Created</th>
+    <th>Last Updated</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +15,8 @@
   <tr>
     <td><%= type.name %></td>
     <td><%= type.description %></td>
+    <td><%= type.created_at %></td>
+    <td><%= type.updated_at %></td>
     <td><%= link_to 'Show', type %></td>
     <td><%= link_to 'Edit', edit_type_path(type) %></td>
     <td><%= link_to 'Destroy', type, confirm: 'Are you sure?', method: :delete %></td>
