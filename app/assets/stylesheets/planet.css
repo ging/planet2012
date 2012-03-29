@@ -155,3 +155,11 @@
   font-weight: bold;
   margin-right: 2em;
 }
+#shortcuts a{
+  color: #2c556e;
+  font-size: 1.3em;
+}
+#shortcuts a:visited{
+  color: #306e2c;
+  font-size: 1.3em;
+}

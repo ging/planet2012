@@ -20,13 +20,31 @@
   </div> 
   <div id="columns"> 
     <div id="side"> 
-      <%= link_to "Home", planet_index_path %><br /> 
-      <%= link_to "Tipos",  types_path %><br /> 
-      <%= link_to "Sitios", sites_path %><br /> 
+      <%= link_to "Home", planet_index_path %>  
+      <%= link_to "Tipos",  types_path %>  
+      <%= link_to "Sitios", sites_path %>  
+      <%= link_to "Autores", planet_author_path %>  
+      <%= link_to "Tipos ordenados", types_ordered_index_path %> 
       <%= link_to "Contact", planet_contact_path %>
     </div> 
     <div id="main"> 
+      <div id="shortcuts">
+        <%= link_to "Home", planet_index_path %>  
+        <%= link_to "Tipos",  types_path %>  
+        <%= link_to "Sitios", sites_path %>  
+        <%= link_to "Autores", planet_author_path %>  
+        <%= link_to "Tipos ordenados", types_ordered_index_path %> 
+        <%= link_to "Contact", planet_contact_path %>
+      </div>
       <%= yield %>
+      <div id="shortcuts">
+        <%= link_to "Home", planet_index_path %>  
+        <%= link_to "Tipos",  types_path %>  
+        <%= link_to "Sitios", sites_path %>  
+        <%= link_to "Autores", planet_author_path %>  
+        <%= link_to "Tipos ordenados", types_ordered_index_path %> 
+        <%= link_to "Contact", planet_contact_path %>
+      </div>
     </div> 
   </div> 
 </body> 
