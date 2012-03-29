@@ -14,20 +14,51 @@
 
 </head>
 <body id="planet"> 
+
+    <div id = "links">
+
+    <%= link_to('contact',planet_contact_path) %>
+    <%= link_to('index',planet_index_path) %>
+    <%= link_to('ejemplo',planet_ejemplo_path) %>
+    <%= link_to('author',planet_author_path) %>
+    <%= link_to('Tipos',types_path) %>
+    <%= link_to('Tipos_ordenados',types_ordered_index_path) %>
+
+    </div>
+    
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %>
   </div> 
   <div id="columns"> 
     <div id="side"> 
-      <%= link_to "Home", planet_index_path %><br /> 
-      <%= link_to "Tipos",  types_path %><br /> 
-      <%= link_to "Sitios", sites_path %><br /> 
-      <%= link_to "Contact", planet_contact_path %>
+       
+          <%= link_to "Home", planet_index_path %><br /> 
+          <%= link_to "Tipos",  types_path %><br /> 
+          <%= link_to "Sitios", sites_path %><br /> 
+          <%= link_to "Contact", planet_contact_path %>
+
+        
     </div> 
     <div id="main"> 
+
+
       <%= yield %>
+   
     </div> 
-  </div> 
+  </div>
+  
+   <div id = "links">
+
+    <%= link_to('contact',planet_contact_path) %>
+    <%= link_to('index',planet_index_path) %>
+    <%= link_to('ejemplo',planet_ejemplo_path) %>
+    <%= link_to('author',planet_author_path) %>
+    <%= link_to('Tipos',types_path) %>
+    <%= link_to('Tipos_ordenados',types_ordered_index_path) %>
+    
+
+    </div> 
+   
 </body> 
 </html> 

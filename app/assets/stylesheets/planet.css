@@ -9,6 +9,27 @@
         font: bold smaller sans-serif;
 }
 
+#links a { color : #555;}
+
+#links  {  
+
+text-align:center;
+margin-top: 10px;
+margin-bottom: 10px;
+word-spacing:25pt; 
+
+}
+
+#cv  {font:sans-serif;}
+
+#personal-data {font:sans-serif;}
+
+#personal-data img {
+  padding-bottom:60px;
+  padding-right:30px;
+  float:left;
+}
+
 
 #planet h1 {
         font:  150% sans-serif;
