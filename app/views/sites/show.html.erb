@@ -1,0 +1,21 @@
+<div id="site">
+ 
+  <h1><%= @site.type.name if @site.type %></h1> 
+
+  <%= image_tag(@site.image_url, :class => 'site_image') %>
+
+  <h3><%= @site.name %></h3> 
+
+  <p><%=sanitize @site.description %></p>
+
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+
+</div> 
+
+<p />
+
+<% if @site.user == current_user %>
+	<%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>

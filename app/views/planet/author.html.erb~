@@ -12,14 +12,17 @@ Información sobre los creadores
 <h4>Alberto Moreno Díaz</h4>
 <%= image_tag('alberto_contador.jpg') %>
 <ul>
-  <li>Dirección de correo: <a href="mailto:alberto.moreno.diaz@alumnos.upm.es">
-contact@planet.travel.com</a></li>
-  <li>Dirección física: C/Sin nombre 7, 9ºB Madrid</li>
+  <li>Dirección de correo: <a href="mailto:alberto.moreno.diaz@alumnos.upm.es">alberto.moreno.diaz@alumnos.upm.es</a></li>
+  <li>Dirección física: Calle Falsa 123</li>
+  <li>Breve currículum: a rellenar</li>
 </ul>
-<%= image_tag('pedriza2-m.png') %>
 <h4>Francisco José Gil García</h4>
-
-<p>Feel free to use it for your 
-convenience and pleasure.</p>
+<%= image_tag('pizarro.jpg') %>
+<ul>
+  <li>Dirección de correo: <a href="mailto:fj.gil@alumnos.upm.es">fj.gil@alumnos.upm.es</a></li>
+  <li>Dirección física: 555 Evergreen Terrace</li>
+  <li>Breve currículum: a rellenar también</li>
+</ul>
+<p>Para cualquier duda o problema no dude en contactarnos.</p>
 </body>
 </html>
