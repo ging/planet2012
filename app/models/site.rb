@@ -1,6 +1,9 @@
 class Site < ActiveRecord::Base
   belongs_to :type
   belongs_to :user
+  has_many   :visits
+  has_many   :trips,   :through  =>  :visits 
+
   
   # Debe estar protegido para evitar accesos indeseados
   attr_protected :user_id    
