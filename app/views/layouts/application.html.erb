@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">    $(function() {      $( "#trip_description" ).cleditor();    });  </script>
+
 </head>
 
 <body id="planet"> 
@@ -19,6 +22,7 @@
       <%= link_to "Home", planet_index_path %><br /> 
       <%= link_to "Tipos",  types_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
+      <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
     </div> 

@@ -1,4 +1,8 @@
 class TripsController < ApplicationController
+  
+  # authenticate_user! ejecuta acción solo si sesión existe
+  before_filter :authenticate_user!, :except => [ :index, :show ]
+  
   # GET /trips
   # GET /trips.json
   def index
@@ -24,8 +28,8 @@ class TripsController < ApplicationController
   # GET /trips/new
   # GET /trips/new.json
   def new
-    @trip = Trip.new
-
+    @trip = current_user.trips.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trip }
@@ -34,13 +38,13 @@ class TripsController < ApplicationController
 
   # GET /trips/1/edit
   def edit
-    @trip = Trip.find(params[:id])
+    @trip = current_user.trips.find(params[:id])
   end
 
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(params[:trip])
+    @trip = current_user.trips.build(params[:trip])
 
     respond_to do |format|
       if @trip.save
@@ -56,8 +60,8 @@ class TripsController < ApplicationController
   # PUT /trips/1
   # PUT /trips/1.json
   def update
-    @trip = Trip.find(params[:id])
-
+    @trip = current_user.trips.find(params[:id])
+    
     respond_to do |format|
       if @trip.update_attributes(params[:trip])
         format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
@@ -72,7 +76,7 @@ class TripsController < ApplicationController
   # DELETE /trips/1
   # DELETE /trips/1.json
   def destroy
-    @trip = Trip.find(params[:id])
+    @trip = current_user.trips.find(params[:id])
     @trip.destroy
 
     respond_to do |format|
