@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329120003) do
+ActiveRecord::Schema.define(:version => 20120409085740) do
 
   create_table "sites", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "type_id"
     t.string   "image_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "trips", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "date"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -42,6 +52,10 @@ ActiveRecord::Schema.define(:version => 20120329120003) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+<<<<<<< HEAD
+=======
+    t.string   "name"
+>>>>>>> jq_planet/master
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

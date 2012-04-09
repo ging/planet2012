@@ -1,4 +1,9 @@
 Planet::Application.routes.draw do
+
+  resources :visits
+
+  resources :trips
+
   devise_for :users
 
   resources :sites
