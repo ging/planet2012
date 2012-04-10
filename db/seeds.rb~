@@ -54,5 +54,8 @@ Site.create(
             type_id: tr.id,
             image_url: 'pergamo.png')
 
+# user_id esta protegido con "attr_protected" y debe inicializarse asi,
+# Site.create(....) levantaria una excepcipón al intentar inicializarlo
+Site.all.each { |obj| obj.user_id = 1 ; obj.save }
 
 
