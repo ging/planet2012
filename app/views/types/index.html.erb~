@@ -27,5 +27,3 @@
 <%= link_to 'New Type', new_type_path %>
 
 <br />
-<b>Última actualización: </b>
-<br />
