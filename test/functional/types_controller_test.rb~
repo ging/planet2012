@@ -39,7 +39,7 @@ class TypesControllerTest < ActionController::TestCase
   end
 
   test "should update type" do
-    put :update, id: @type, type: @update
+    put :update, id: @type, type: @type.attributes
     assert_redirected_to type_path(assigns(:type))
   end
 
