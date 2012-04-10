@@ -1,5 +1,7 @@
 Planet::Application.routes.draw do
 
+  resources :sites
+
   resources :types do
   get 'ordered_index', :on => :collection
   end
