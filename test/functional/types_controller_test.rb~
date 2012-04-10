@@ -22,7 +22,7 @@ class TypesControllerTest < ActionController::TestCase
 
   test "should create type" do
     assert_difference('Type.count') do
-      post :create, type => @update
+      post :create, type: @type.attributes
     end
 
     assert_redirected_to type_path(assigns(:type))
@@ -39,7 +39,7 @@ class TypesControllerTest < ActionController::TestCase
   end
 
   test "should update type" do
-    put :update, id => @type, type=> @update
+    put :update, id: @type, type: @type.attributes
     assert_redirected_to type_path(assigns(:type))
   end
 
