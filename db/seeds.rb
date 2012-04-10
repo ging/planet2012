@@ -7,6 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 Type.delete_all
 
 tm = Type.create(
@@ -20,7 +21,6 @@ tn = Type.create(
 tr = Type.create(
             name: 'Ruina',
             description: 'Lugar o resto de interes arquelogico')
-
 
 Site.delete_all
 
@@ -58,7 +58,3 @@ Site.create(
 #  user_id esta protegido con "attr_protected" y debe inicializarse asi,
 #  Site.create(....) levantaria una excepcipón al intentar inicializarlo
 Site.all.each { |obj| obj.user_id = 1 ; obj.save }
-
-
-
-
