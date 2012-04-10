@@ -1,24 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @site.name %>
-</p>
+<div id="site">
+<h1><%= @site.type.name if @site.type %></h1>
+<%= image_tag(@site.image_url, :class => 'site_image') %>
+<h3><%= @site.name %></h3>
 
-<p>
-  <b>Description:</b>
-  <%= @site.description %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @site.type.name if @site.type %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @site.image_url %>
-</p>
-
+<p><%=sanitize @site.description %></p
+</div>
+<p />
 <%= link_to 'Edit', edit_site_path(@site) %> |
 <%= link_to 'Back', sites_path %>
+

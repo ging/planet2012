@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Planet</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<title>Planet Travel Site</title>
+<!-- START:stylesheet -->
+<%= stylesheet_link_tag "scaffold" %>
+<%= stylesheet_link_tag "planet", :media => "all" %>
+<!-- END:stylesheet -->
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
 </head>
-<body>
-
-<%= link_to('Index', planet_index_path) %>
-<%= link_to('Contact', planet_contact_path) %>
-<%= link_to('Ejemplo', planet_ejemplo_path) %>
-<%= link_to('Author', planet_author_path) %>
-<%= link_to('Tipos', types_path) %>
-<%= link_to('Tipos_ordenados', ordered_index_types_path) %>
-
+<body id="planet">
+<div id="banner">
+<%= image_tag("logo3.png") %>
+<%= @page_title || "Planet Travel Site" %>
+</div>
+<div id="columns">
+<div id="side">
+<%= link_to "Home", planet_index_path %><br />
+<%= link_to "Tipos", types_path %><br />
+<%= link_to('Tipos ordenados', ordered_index_types_path) %><br />
+<%= link_to "Sitios", sites_path %><br />
+<%= link_to "Contact", planet_contact_path %>
+</div>
+<div id="main">
 <%= yield %>
-
-
-<%= link_to('Index', planet_index_path) %>
-<%= link_to('Contact', planet_contact_path) %>
-<%= link_to('Ejemplo', planet_ejemplo_path) %>
-<%= link_to('Author', planet_author_path) %>
-<%= link_to('Tipos', types_path) %>
-<%= link_to('Tipos_ordenados', ordered_index_types_path) %>
-
+</div>
+</div>
 </body>
 </html>
+
