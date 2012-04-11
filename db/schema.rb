@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(:version => 20120411160020) do
   end
 
   create_table "trips", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.text     "description"
+    t.date     "date"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "types", :force => true do |t|
