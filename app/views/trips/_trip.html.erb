@@ -19,7 +19,7 @@
         <%= link_to 'Show', visit.site %><br/>
         <%= link_to 'Destroy', visit, 
                     :confirm => 'Are you sure?',
-                    :method => :delete if @trip.user == current_user  %>
+                    :method => :delete if trip.user == current_user  %>
 
       </td> 
     </tr> 

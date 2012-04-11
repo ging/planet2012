@@ -9,7 +9,7 @@
   <%= render(@trip) %>
 
   <% if @trip.user == current_user %>
-    <%= form_for(@visit) do |f| %>
+    <%= form_for(@visit, :remote => true) do |f| %>
   
       <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
       <%= f.collection_select(:site_id, 
