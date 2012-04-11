@@ -12,6 +12,7 @@
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
 
+  <p><b>Comentarios:</b></p>
 
 
 </div> 
