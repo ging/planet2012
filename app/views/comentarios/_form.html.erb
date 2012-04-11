@@ -1,0 +1,30 @@
+<%= form_for(@comentario) do |f| %>
+  <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+      <% @comentario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :coment %><br />
+    <%= f.text_area :coment, :rows => 4 %>
+  </div>
+  <!--<div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>-->
+  <div class="field">
+    <%= f.label :site_id %><br />
+    <!--<%= f.number_field :site_id %>-->
+    <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
