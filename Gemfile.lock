@@ -32,6 +32,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cleditor_rails (0.0.3)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -61,6 +62,11 @@ GEM
     mime-types (1.17.2)
     multi_json (1.1.0)
     orm_adapter (0.0.7)
+    paperclip (2.4.5)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -117,6 +123,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  paperclip
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
   sqlite3
