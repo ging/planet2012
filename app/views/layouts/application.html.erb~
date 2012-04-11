@@ -18,7 +18,7 @@
 <div id="side">
 <%= link_to "Home", planet_index_path %><br />
 <%= link_to "Tipos", types_path %><br />
-<%= link_to('Tipos_ordenados', ordered_index_types_path) %><br />
+<%= link_to('Tipos ordenados', ordered_index_types_path) %><br />
 <%= link_to "Sitios", sites_path %><br />
 <%= link_to "Contact", planet_contact_path %>
 </div>
