@@ -4,7 +4,7 @@
 <h1><%= @site.type.name if @site.type %></h1>
 <%= image_tag(@site.image_url, :class => 'site_image') %>
 <h3><%= @site.name %></h3>
-<!-- sanitize limpia virus, ... -->
+
 <p><%=sanitize @site.description %></p
 </div>
 <p />
