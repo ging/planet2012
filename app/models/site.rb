@@ -1,5 +1,10 @@
 class Site < ActiveRecord::Base
   belongs_to :type
+  belongs_to :user
+
+ # Debe estar protegido para evitar accesos indeseados
+    attr_protected :user_id    
+
 
  # Se añaden estas definiciones 
 
