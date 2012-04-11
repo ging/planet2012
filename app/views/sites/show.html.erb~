@@ -24,10 +24,7 @@
 	   <% end %><br>
         <% end %><br>
   <% end %>
-  
-  <form type="POST">
-  <div id="comment_description"></div>
-  <input type=button onclick="href:" value="Añadir Comentario">
+  <p>New comment
 </div> 
 
 
