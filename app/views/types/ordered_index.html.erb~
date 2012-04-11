@@ -12,7 +12,7 @@
 
 <% @types.each do |type| %>
   <tr>
-    <td><%= type.name %></td>
+    <td><%= link_to type.name,type_sites_path(type.id) %></td>
     <td><%= type.description %></td>
     <td><%= type.updated_at %></td>
     <td><%= link_to 'Show', type %></td>

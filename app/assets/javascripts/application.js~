@@ -11,6 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require cleditor
 //= require jquery_ujs
 //= require_tree .

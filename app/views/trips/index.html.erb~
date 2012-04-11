@@ -1,5 +1,5 @@
 <div id="site_list"> 
- <h1>Viajes</h1> 
+  <h1>Viajes</h1> 
  
   <table> 
   <% @trips.each do |trip| %>
@@ -7,24 +7,26 @@
  
       <td class="list_description"> 
         <dl> 
-          <dt><%= link_to trip.name, trip_path(trip) %></dt> 
+          <dt><%= link_to trip.name, trip_path(type) %></dt> 
           <dd><%= truncate(strip_tags(trip.description),
-                 :length => 80) + ',   ' + trip.date.to_s %></dd> 
+                 :length => 80)+', '+trip.date.to_s %></dd> 
         </dl> 
       </td> 
  
       <td class="list_actions"> 
         <%= link_to 'Show', trip %><br/> 
-        <% if trip.user == current_user %>
+        <%= if site.user == current_user %><br/> 
            <%= link_to 'Edit', edit_trip_path(trip) %><br/> 
            <%= link_to 'Destroy', trip, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
-        <% end %>
+        <%= end %><br/> 
       </td> 
     </tr> 
   <% end %>
   </table> 
-</div> <br />
+</div> 
 
-<%= link_to 'New Trip', new_trip_path %>
+<br />
+
+<%= link_to 'New Type', new_type_path %>

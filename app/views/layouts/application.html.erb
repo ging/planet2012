@@ -6,6 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
+  <script type="text/javascript">
+    $(function() {
+      $( "#trip_description" ).cleditor();
+    });
+  </script>
 
 </head>
 
@@ -29,6 +34,7 @@
       <%= link_to "Tipos",  types_path %><br /> 
       <%= link_to "Tipos ordenados",  ordered_index_types_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
+      <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
     </div> 
