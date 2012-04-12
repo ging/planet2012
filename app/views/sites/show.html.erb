@@ -11,9 +11,8 @@
 
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
-
-  <p><b><%= link_to 'Comentarios >>', site_comentarios_path(@site.id) %></b></p>
-
+  <p><b><%= (link_to 'Comentarios >>', site_comentarios_path(@site.id)) if (@site.comentarios.size > 0) %></b></p>
+  <p><b><%= link_to 'Añadir Comentario', new_comentario_path %>
 
 </div> <br/>
 
