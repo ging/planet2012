@@ -111,6 +111,12 @@
   padding-left: 10px;
 }
 
+#banner .user {
+  float: right;
+  color: #bfb;
+  font-size: small;
+}
+
 #columns {
   background: #446;
 }
@@ -183,3 +189,9 @@
   font-weight: bold;
   margin-right: 2em;
 }
+
+
+#main .visitas {
+  text-indent:   70%;
+}
+
