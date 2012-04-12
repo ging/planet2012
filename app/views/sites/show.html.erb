@@ -11,5 +11,9 @@
   <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
 </div> 
 
+<div class="visitas">
+  <b>Visitas:</b>  <%= @site.visitas %>
+</div>
+
 <p />
 <% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
