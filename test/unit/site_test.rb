@@ -1,23 +1,17 @@
 require 'test_helper'
 
-class SiteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+class TypeTest < ActiveSupport::TestCase
 
 
-  # site creado sin atributos es invalido y genera errores
-
-   test "Site attributes must not be empty" do
-
-   site = Site.new
-
-   assert site.invalid?      # Test pasa si validación no pasa 
-   assert site.errors[:name].any?
-   assert not(site.errors[:description].any?)
-   assert site.errors[:type_id].any?
-   assert site.errors[:image_url].any?
-
+  # Test añadido: comprueba que campos obligatorios vacios dan error
+  test "Site attributes must not be empty" do
+    site = Site.new
+    assert site.invalid? # Test pasa si validación no pasa
+    assert site.errors[:name].any?
+    assert not(site.errors[:description].any?)
+    assert site.errors[:type_id].any?
+    assert site.errors[:image_url].any?
    end
-
 end
+

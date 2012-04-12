@@ -3,10 +3,11 @@ require 'test_helper'
 class TypesControllerTest < ActionController::TestCase
   setup do
     @type = types(:one)
-    @update = {   # @update:  parametros diferentes
-       :name         => 'AnotherType',
-       :description  => 'AnotherText',
+    @update = { # @update: parametros diferentes
+     :name  => 'AnotherType',
+     :description => 'AnotherText',
     }
+
   end
 
   test "should get index" do

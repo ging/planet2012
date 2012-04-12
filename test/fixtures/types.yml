@@ -7,14 +7,3 @@ one:
 two:
   name: MyString
   description: MyText
-
-# Podriamos añadir nuevos datos de inicialización, que se referencian como #       ->  types(:monumento)   types(:naturaleza)
- monumento:   
- name: Monumento   
- description: “Edificio o construcción de valor historico” 
-
- naturaleza:   
- name: Naturaleza   
- description: “Lugar al aire libre de interés natural”
-
-\ No newline at end of file

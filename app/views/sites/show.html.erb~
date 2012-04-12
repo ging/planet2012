@@ -8,16 +8,8 @@
 
   <p><%=sanitize @site.description %></p>
 
-  <p><b>Autor:</b>
-     <%= @site.user.name if @site.user %></p>
-
-
 </div> 
 
 <p />
-
-<% if @site.user == current_user %>
-   <%= link_to 'Edit', edit_site_path(@site) %> |
-<% end %>
-
+<%= link_to 'Edit', edit_site_path(@site) %> |
 <%= link_to 'Back', sites_path %>

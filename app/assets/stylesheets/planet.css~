@@ -155,10 +155,3 @@
   font-weight: bold;
   margin-right: 2em;
 }
-
-#banner .user {
-  float: right;
-  color: #bfb;
-  font-size: small;
-}
-

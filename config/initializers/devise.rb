@@ -85,7 +85,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "f807173825cac6c9c837bda6b02a30347a55bf933bb79161023a13d6827452aca8150a7940b27a4abf741e0159050a7b80787f789373c4a8b4475e1b2b3a47f6"
+  # config.pepper = "1260110ba220b76c75b4d6ceb3485930be8c70276b928057f036060e1fb71d4a71667cf9bcb053f4bd59cd89280d77449f86ef9cead51fa75eb0575d2bec76ba"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -203,6 +203,7 @@ Devise.setup do |config|
   #
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ["*/*", :html]
+
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
@@ -211,24 +212,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
-
-
   # ==> Warden configuration
-
   # If you want to use other strategies, that are not supported by Devise, or
-
   # change the failure app, you can configure them inside the config.warden block.
-
   #
-
   # config.warden do |manager|
-
- #   manager.intercept_401 = false
-
+  #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
-
   # end
-
 end
-
-
