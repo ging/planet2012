@@ -7,7 +7,7 @@ Planet::Application.routes.draw do
   devise_for :users
 
   resources :sites do
-  	resources :comments
+	resources :comments
   end
 
   resources :types do   # Rutas anidadas /types/id/sites...,

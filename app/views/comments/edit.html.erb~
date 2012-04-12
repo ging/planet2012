@@ -1,0 +1,6 @@
+<h1>Editing Comment</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @site %> |
+<%= link_to 'Back', sites_path %>

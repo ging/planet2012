@@ -12,19 +12,29 @@
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
 
+  <h3>  Comentarios </h3>
   <% if @site.comments.any?%>
+
 	<% @site.comments.each do |comment| %>
-	   <p> <%= comment.user.name %> :
-	   <%=sanitize comment.comment %> </p>
-	   <% if @site.comment.user == current_user %>
+	<p> <%= comment.user.name %> :
+	   <%=sanitize comment.comment %> 
+	   <% if comment.user == current_user %>
   		<%= link_to 'Edit', edit_site_comment_path(@site, comment) %> |
-		<%= link_to 'Destroy', comment, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %> 
-	   <% end %><br>
+	   <% end %></p><br>
+	   
         <% end %><br>
   <% end %>
-  <p>New comment
+  
+<%= form_for([@site, @site.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment , :rows => 4 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 </div> 
 
 
