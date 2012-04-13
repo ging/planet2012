@@ -2,7 +2,7 @@
 
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image_url, :class => 'site_image') %>
+  <%= image_tag(@site.image.url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
 
@@ -11,11 +11,24 @@
   <p><b>Autor:</b>
    <%= @site.user.name if @site.user %></p>
 
+<<<<<<< HEAD
    <% if @site.user == current_user %>
+=======
+  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+</div> 
+>>>>>>> Entrega6/master
+
+<div class="visitas">
+  <b>Visitas:</b>  <%= @site.visitas %>
+</div>
 
 <p />
+<<<<<<< HEAD
 <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
 <%= link_to 'Back', sites_path %>
 
 </div> 
+=======
+<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+>>>>>>> Entrega6/master

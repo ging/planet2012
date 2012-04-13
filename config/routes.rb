@@ -1,4 +1,12 @@
 Planet::Application.routes.draw do
+<<<<<<< HEAD
+=======
+
+  resources :visits
+
+  resources :trips
+
+>>>>>>> Entrega6/master
   devise_for :users
 
   resources :sites

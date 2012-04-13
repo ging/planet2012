@@ -88,6 +88,12 @@
   padding-left: 10px;
 }
 
+#banner .user {
+  float: right;
+  color: #bfb;
+  font-size: small;
+}
+
 #columns {
  
 }
@@ -177,3 +183,9 @@ margin-right: 5px;
   font-weight: bold;
   margin-right: 2em;
 }
+
+
+#main .visitas {
+  text-indent:   70%;
+}
+
