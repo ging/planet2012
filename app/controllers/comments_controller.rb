@@ -1,16 +1,16 @@
 class CommentsController < ApplicationController
   def index
-    @site = current_user.sites.find(params[:site_id]) 
+    @site = Site.find(params[:site_id]) 
   end
 
   def edit
     @comment = current_user.comments.find(params[:id]) 
-    @site = current_user.sites.find(params[:site_id]) 
+    @site = Site.find(params[:site_id]) 
   end
 
   def update
     @comment = current_user.comments.find(params[:id])
-    @site = current_user.sites.find(params[:site_id]) 
+    @site = Site.find(params[:site_id]) 
     
     respond_to do |format|
       if @comment.update_attributes(params[:comment])

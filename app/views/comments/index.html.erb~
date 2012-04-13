@@ -1,14 +1,14 @@
  <% if @site.comments.any?%>
 
 	<% @site.comments.each do |comment| %>
-	<p> <%= comment.user.name %> :
+	 <b> <%= comment.user.name %> : </b>
 	   <%=sanitize comment.comment %> 
 	   <% if comment.user == current_user %>
   		<%= link_to 'Edit', edit_site_comment_path(@site, comment) %> | 
 		<%= link_to 'Delete', [@site, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
-	   <% end %></p><br>
+	   <br><% end %><br>
 	   
         <% end %><br>
   <% end %>
