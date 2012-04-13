@@ -25,7 +25,8 @@ class CommentsController < ApplicationController
 
   def create
     @site = Site.find(params[:site_id])
-    @comment = @site.comments.create(params[:comment]) 
+    @comment = @site.comments.create(params[:comment])
+    @comment.user_id = current_user.id 
     
     
     respond_to do |format|
