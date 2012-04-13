@@ -12,6 +12,12 @@
 
 </div> 
 
+<b>Comentarios</b>
+	<%= render @site.comments %>
+
+<b>Añada su comentario:</b>
+	<%= render "comments/form" %>
+
 <p />
 <% if @site.user == current_user %>
   <%= link_to 'Edit', edit_site_path(@site) %> |
