@@ -12,8 +12,11 @@
 
 </div> 
 
-<b>Comentarios</b>
+<% unless @site.comments %>
+<b>Comentarios:</b>
 	<%= render @site.comments %></p
+
+<% end %>
 
 <p><b>Añada su comentario:</b>
         <%= render "comments/form" %></p

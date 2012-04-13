@@ -2,8 +2,10 @@
   <%= comment.coment %>
 </p>
 
+<% if @site.user == current_user %>
 <p>
   <%= link_to 'Destroy Comment', [comment.site, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
 </p>
+<% end %>
