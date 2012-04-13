@@ -12,11 +12,12 @@
 
 </div> 
 
-<b>Comentarios</b>
-	<%= render @site.comments %>
+<b>Comentarios:</b>
+	<%= render @site.comments %></p
 
-<b>Añada su comentario:</b>
-	<%= render "comments/form" %>
+<p><b>Añada su comentario:</b>
+        <%= render "comments/form" %></p
+	
 
 <p />
 <% if @site.user == current_user %>

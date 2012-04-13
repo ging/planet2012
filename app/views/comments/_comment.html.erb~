@@ -1,6 +1,4 @@
-<p>
-  <%= comment.coment %>
-</p>
+
 
 <p>
   <%= link_to 'Destroy Comment', [comment.site, comment],
