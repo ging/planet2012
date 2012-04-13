@@ -16,6 +16,9 @@ Planet::Application.routes.draw do
   get "planet/ejemplo"
 
   get "planet/author"
+
+  delete "/users/sign_out"
+
  
   
   # The priority is based upon order of creation:
