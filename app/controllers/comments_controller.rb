@@ -2,11 +2,15 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
+    if params[:site_id].nil? or params[:site_id].empty?
     @comments = Comment.all
+    else 
+    @comments = Site.find(params[:site_id]).comments # path: /sites/id/coment
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @comments }
+      format.json { render json: @coments }
     end
   end
 

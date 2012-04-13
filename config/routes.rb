@@ -1,5 +1,5 @@
 Planet::Application.routes.draw do
-
+  resources :comments
 
   resources :trips
 
