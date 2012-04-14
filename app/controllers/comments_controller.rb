@@ -54,8 +54,7 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-     @site = Site.find(params[:site_id])
-     @coment = @site.comments.find(params[:id])
+     @comment = Comment.find(params[:id])
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
