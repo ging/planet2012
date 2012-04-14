@@ -14,10 +14,12 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
+           <% if site.comment !=[]  %>
+           	<b>Existen comentarios <b/>
+           <% end  %>
         </dl> 
       </td>
 
- <b><%= link_to 'Comentarios', site_comments_path(site.id) %><b/>
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
         <% if site.user == current_user %>
