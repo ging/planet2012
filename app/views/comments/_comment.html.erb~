@@ -10,10 +10,10 @@
 
       <td class="list_actions"> 
         <% if comment.user == current_user %>
-          <%= link_to 'Edit',  edit_site_comment_path(@site)  %><br/>
-          <%= link_to 'Destroy', [comment.site, comment], 
+          <%= link_to 'Edit',  edit_site_comment_path(comment.site, comment)  %><br/>
+          <%= link_to 'Update', [comment.site, comment], 
                     :confirm => 'Are you sure?',
-                    :method => :delete %>
+                    :method => :update %>
       </td> 
     </tr> 
   <% end %>

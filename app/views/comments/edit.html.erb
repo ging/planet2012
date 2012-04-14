@@ -1,6 +1,6 @@
 <h1>Editar comentario</h1>
 
-<%= form_for(@comment) do |f| %>
+<%= form_for(@comment) do |comment| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this site from being saved:</h2>
@@ -14,10 +14,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_area :coment %>
+    <%= comment.text_area :coment %>
   </div>
  
   <div class="actions">
-    <%= f.submit %>
+    <%= comment.submit  %>
   </div>
 <% end %>

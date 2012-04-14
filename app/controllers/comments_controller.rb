@@ -54,17 +54,10 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
+     @site = Site.find(params[:site_id])
      @comment = Comment.find(params[:id])
 
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to site_path(@site)
   end
 
   # DELETE /comments/1
