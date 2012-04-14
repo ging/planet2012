@@ -10,8 +10,7 @@
 
       <td class="list_actions"> 
         <% if comment.user == current_user %>
-          <%= link_to 'Edit', [comment.site, comment],
-                    :edit  %><br/>
+          <%= link_to 'Edit',  edit_site_comment_path(@site)  %><br/>
           <%= link_to 'Destroy', [comment.site, comment], 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
@@ -20,3 +19,4 @@
   <% end %>
   </table> 
 </div> 
+

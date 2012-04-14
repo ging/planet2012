@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
 
   def edit
    @site = Site.find(params[:site_id])
-   @comment = @site.comments.find(params[:comment])
+   @comment = @site.comments.find(params[:id])
   end
 
   # POST /comments
