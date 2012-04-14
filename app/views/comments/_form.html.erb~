@@ -1,10 +1,11 @@
 <%= form_for([@site, @site.comments.build]) do |f| %>
+<% if site.user == current_user %>
   <div class="field">
-    <%= f.label :coment %><br />
     <%= f.text_area :coment %>
   </div>
  
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
 <% end %>
