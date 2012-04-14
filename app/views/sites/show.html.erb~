@@ -19,9 +19,7 @@
 <% end %>
 
 <p><b>Añada su comentario:</b> <i>(Ingrese para comentar)</i>
-<% if @site.user == current_user %>
         <%= render "comments/form" %></p
-<% end %>
 	
 
 <p />

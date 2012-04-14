@@ -1,12 +1,17 @@
 class CommentsController < ApplicationController
+  
   # GET /comments
   # GET /comments.json
   def index
+    if params[:site_id].nil? or params[:site_id].empty?
     @comments = Comment.all
+    else 
+    @comments = Site.find(params[:site_id]).comments # path: /sites/id/coment
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @comments }
+      format.json { render json: @coments }
     end
   end
 
@@ -32,9 +37,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1/edit
   def edit
-    @comment = Comment.find(params[:id])
+    @site = Site.find(params[:site_id])
+    @coment = @site.comments.find(params[:id])
   end
 
   # POST /comments
@@ -49,7 +54,8 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-    @comment = Comment.find(params[:id])
+     @site = Site.find(params[:site_id])
+     @coment = @site.comments.find(params[:id])
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])

@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
-  after_filter :count_visit, :only => :show
+ 
   # GET /sites
   # GET /sites.json
  def index

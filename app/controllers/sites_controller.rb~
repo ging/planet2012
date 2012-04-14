@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
-  after_filter :count_visit, :only => :show
+ 
   # GET /sites
   # GET /sites.json
  def index
@@ -62,11 +62,11 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.json
   def update
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user 
 
     respond_to do |format|
       if @site.update_attributes(params[:site])
-        format.html { redirect_to @site, notice: 'Site was successfully updated.' }
+        format.html { redirect_to @site }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,7 +78,7 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
     @site.destroy
 
     respond_to do |format|
