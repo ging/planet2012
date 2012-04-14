@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if params[:site_id].nil? or params[:site_id].empty?
     @comments = Comment.all
     else 
-    @comments = Site.find(params[:site_id]).comments # path: /sites/id/coment
+    @comments = Site.find(params[:site_id]).comments # path: /sites/id/comment
     end
 
     respond_to do |format|
@@ -38,14 +38,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comments = Site.find(params[:site_id]).comments
+   @site = Site.find(params[:site_id])
+   @comment = @site.comments.find(params[:comment])
   end
 
   # POST /comments
   # POST /comments.json
   def create
     @site = Site.find(params[:site_id])
-    @coment = @site.comments.create(params[:comment])
+    @comment = @site.comments.create(params[:comment])
 
     redirect_to site_path(@site)
   end

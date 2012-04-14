@@ -11,7 +11,7 @@
       <td class="list_actions"> 
         <% if comment.user == current_user %>
           <%= link_to 'Edit', [comment.site, comment],
-		    :method => :edit %><br/>
+                    :method => :edit  %><br/>
           <%= link_to 'Destroy', [comment.site, comment], 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
