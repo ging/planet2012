@@ -14,10 +14,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_area :coment %>
+    <%= comment.text_area :coment %>
   </div>
  
   <div class="actions">
-    <%= f.submit  %>
+    #<%= comment.submit  %>
   </div>
 <% end %>

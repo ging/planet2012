@@ -1,4 +1,4 @@
 <p id="notice"><%= notice %> 
 
 
- <%= render "comments/form" %></p
+
