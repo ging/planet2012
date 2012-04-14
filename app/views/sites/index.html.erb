@@ -15,7 +15,7 @@
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
            <% if site.comments !=[]  %>
-           	<b>Existen comentarios <b/>
+           	<b>Existen <%= link_to 'comentarios', site %> <b/>
            <% end  %>
         </dl> 
       </td>
