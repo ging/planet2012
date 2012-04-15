@@ -11,4 +11,14 @@ class PlanetControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get ejemplo" do
+    get :ejemplo
+    assert_response :success
+  end
+
+  test "should get author" do
+    get :author
+    assert_response :success
+  end
+
 end

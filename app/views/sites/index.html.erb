@@ -6,7 +6,7 @@
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
  
       <td> 
-        <%= link_to image_tag(site.image.url, :class => 'list_image'), site %>
+        <%= link_to image_tag(site.image_url, :class => 'list_image'), site %>
       </td> 
  
       <td class="list_description"> 
@@ -15,20 +15,28 @@
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
         </dl> 
+     <div id="comentario">
+ <% if site.comentarios.empty? == false %>
+ <strong><%= link_to "Comentarios", comentarios_path %></strong>  
+ <%end%>
+     </div>
       </td>
- 
+
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
-        <% if site.user == current_user %>          <%= link_to 'Edit', edit_site_path(site) %><br/>
+        <% if site.user == current_user %>
+          <%= link_to 'Edit', edit_site_path(site) %><br/>
           <%= link_to 'Destroy', site, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
-        <% end %>      </td> 
+        <% end %>
+      </td> 
     </tr> 
   <% end %>
   </table> 
 </div> 
- 
+
 <br /> 
  
+
 <%= link_to 'New site', new_site_path %>

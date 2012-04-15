@@ -7,5 +7,9 @@ class PlanetController < ApplicationController
 
   def ejemplo
   end
+
+  def author
+  end
+
     
 end

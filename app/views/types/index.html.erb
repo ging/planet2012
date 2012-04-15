@@ -1,3 +1,4 @@
+
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
@@ -18,13 +19,17 @@
         <%= link_to 'Edit', edit_type_path(type) %><br/> 
         <%= link_to 'Destroy', type, 
                     :confirm => 'Are you sure?',
-                    :method => :delete %>
+                    :method => :delete %><br/> 
+	<%= type.updated_at%>
       </td> 
     </tr> 
   <% end %>
   </table> 
 </div> 
 
+
+
 <br />
 
 <%= link_to 'New Type', new_type_path %>
+
