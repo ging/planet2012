@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+
+<p>
+	email: <%= @user.email %><br>
+	Comentarios publicados: <%= link_to @user.comments.length,
+		user_comments_path(@user.id) %><br>
+
+	<!-- Información para el administrador -->
+	<% if current_user.name == 'admin' %>
+		Número de accesos: <%= @user.sign_in_count %><br>
+		Último acceso: <%= @user.current_sign_in_at %><br>
+		Última IP: <%= @user.last_sign_in_ip %><br>
+	<% end %>
+</p>
+<p><%= link_to "Back", users_path %></p>

@@ -9,7 +9,18 @@
   <b>Description:</b>
   <%= @type.description %>
 </p>
+<p>
+  <b>Updated at:</b>
+  <%= @type.updated_at %>
+</p>
 
-
-<%= link_to 'Edit', edit_type_path(@type) %> |
+<p>
+  <b>Updated at:</b>
+  <%= @type.updated_at %>
+</p>
+<% if current_user != nil %>
+	<% if current_user.name == 'admin' %>
+		<%= link_to 'Edit', edit_type_path(@type) %> |
+	<% end %>
+<% end %>
 <%= link_to 'Back', types_path %>

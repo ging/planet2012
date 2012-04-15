@@ -59,6 +59,9 @@ Site.create(
 #  Site.create(....) levantaria una excepcipón al intentar inicializarlo
 Site.all.each { |obj| obj.user_id = 1 ; obj.save }
 
-
-
-
+admin = User.create! do |u|
+      u.email = 'admin@planet.com'
+      u.password = 'planet'
+      u.password_confirmation = 'planet'
+      u.name = 'admin'
+end

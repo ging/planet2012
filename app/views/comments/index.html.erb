@@ -1,0 +1,6 @@
+<p><b>Comentarios de <%= @user.name %>:</b></p>
+<p>
+	<%= render "comments/list" %>
+</p>
+<%= link_to "Back", user_path(@user) %> | 
+<%= link_to "Back to users", users_path %>
