@@ -1,17 +1,14 @@
   <p>
-    <b>Commenter:</b>
-    <%= comment.user.name %>
-  </p>
- 
-  <p>
-    <b>Comment:</b>
+
+    <b><%= comment.user.name %>:</b>     
     <%= comment.comment %>
   </p>
 
   <p>
-  <% #if (comment.user_id == current_user.id) %>
-  <%= link_to 'Destroy Comment', [comment.site, comment],
+  <% if (comment.user_id == current_user.id) %>
+  <%= link_to 'Edit', edit_site_comment_path(@site, comment) %>
+  <%= link_to 'Destroy', [comment.site, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
-  <% #end %>
+  <% end %>
 </p>
