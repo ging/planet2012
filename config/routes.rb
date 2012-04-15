@@ -6,7 +6,9 @@ Planet::Application.routes.draw do
 
   devise_for :users
 
-  resources :sites
+  resources :sites do
+    resources :comments
+  end
 
   get "types/ordered_index"  
 
