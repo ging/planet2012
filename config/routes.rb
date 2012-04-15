@@ -1,5 +1,7 @@
 Planet::Application.routes.draw do
 
+  devise_for :users
+
   get "types/ordered_index" # se añade una nueva ruta a la acción "ordered_index"
 
   resources :sites
