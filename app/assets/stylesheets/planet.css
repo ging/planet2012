@@ -104,6 +104,19 @@ word-spacing:25pt;
   padding-left: 10px;
 }
 
+#banner .user {
+  margin-top: 50px;
+  margin-right:20px;
+  float: right;
+  color: #bfb;
+  font-size: small;
+
+}
+
+#banner .user a {
+  color:#555;
+}
+
 #columns {
   background: #446;
 }
