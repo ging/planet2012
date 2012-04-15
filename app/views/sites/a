@@ -1,0 +1,29 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+ $("#but").on("click", function() {
+ $(@site.comentarios.create(:coment=>"#coment".val()));
+ });
+});
+</script>
+<input type="text" name="comentario" id="coment" size=40><br>
+<input type="button" value="Nuevo comentario" id="but">
+ 
+
+version con pruebas y modificada, pero parece que no entiende el script...solo el formulario
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+ $("#but").on("click", function() {
+var com = eval($("#coment").val());
+ @site.comentarios.create(:coment=>com);
+ $("c").val($("#coment").val());
+ });
+});
+</script>
+<form>
+<input type="text" name="comentario" id="coment" size=40><br>
+<input type="button" value="Nuevo comentario" id="but">
+<input type="text" name="come" id="c" size=40><br>
+</form>	
