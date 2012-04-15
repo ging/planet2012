@@ -17,8 +17,13 @@
 
 <% end %>
 
-<p><b>Añada su comentario:</b> <i>(Ingrese para comentar)</i>
-        <%= render "comments/form" %></p
+<p><b>Añada su comentario:</b> 
+<% if current_user %>    
+       <%= render "comments/form" %></p
+<% else %>  
+	<i><%= link_to "Ingrese", new_user_session_path %> para comentar:</i>
+        
+<% end %>	
 	
 
 <p />

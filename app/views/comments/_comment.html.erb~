@@ -14,8 +14,6 @@
           <%= link_to 'Destroy', [comment.site, comment], 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
- <%= link_to 'Dd', [comment.site, comment], 
-                    :method => :update %>
       </td> 
     </tr> 
   <% end %>

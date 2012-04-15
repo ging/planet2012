@@ -3,7 +3,8 @@
   <table>  
       <td class="list_description"> 
         <dl> 
-          <dd><%= truncate(strip_tags(comment.coment),
+          <dt><%= comment.user.name %></dt>
+          <dd></p><%= truncate(strip_tags(comment.coment),
                  :length => 240) %></dd>
         </dl> 
       </td>
@@ -19,4 +20,3 @@
   <% end %>
   </table> 
 </div> 
-

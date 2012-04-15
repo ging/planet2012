@@ -47,8 +47,17 @@ class CommentsController < ApplicationController
   def create
     @site = Site.find(params[:site_id])
     @comment = @site.comments.create(params[:comment])
+    @comment.user_id = current_user.id
 
-    redirect_to site_path(@site)
+    respond_to do |format|
+    if @comment.save
+       format.html { redirect_to @site, notice: 'Comentario creado' }
+       format.json { head :no_content }
+    else
+       format.html { render action: "edit" }
+       format.json { render json: @comment.errors, status: :unprocessable_entity }
+    end
+   end
   end
 
   # PUT /comments/1
@@ -74,6 +83,9 @@ class CommentsController < ApplicationController
     @coment = @site.comments.find(params[:id])
     @coment.destroy
 
-    redirect_to site_path(@site)
+   respond_to do |format|
+      format.html { redirect_to site_path(@site) }
+      format.json { head :no_content }
+    end
   end
 end
