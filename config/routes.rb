@@ -11,7 +11,9 @@ Planet::Application.routes.draw do
 
   devise_for :users
 
-  resources :sites
+  resources :sites do
+   resources :comentarios
+  end
 
 
  

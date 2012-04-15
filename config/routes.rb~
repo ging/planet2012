@@ -42,7 +42,7 @@ Planet::Application.routes.draw do
 
   get "planet/author"
 
-  get "planet/comentarios"
+  
 
   
 

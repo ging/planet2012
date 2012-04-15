@@ -13,12 +13,15 @@
 
   <div class="field">
     <%= f.label :coment %><br />
-    <%= f.text_area :coment, :maxlength => 240,:rows => 6 %>
+    <%= f.text_field :coment %>
   </div>
-
   <div class="field">
-   <%= f.label :site_id %><br />
-   <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) %>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :site_id %><br />
+    <%= f.number_field :site_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

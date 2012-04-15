@@ -13,15 +13,15 @@
 <% @comentarios.each do |comentario| %>
   <tr>
     <td><%= comentario.coment %></td>
-    <td><%= comentario.user_id %></td>
-    <td><%= comentario.site_id %></td>
+    <td><%= comentario.user %></td>
+    <td><%= comentario.site %></td>
     <td><%= link_to 'Show', comentario %></td>
-    <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
-    <td><%= link_to 'Destroy', comentario, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_comentario_path(comentario) if comentario.user==current_user %></td>
+    <td><%= link_to 'Destroy', comentario, confirm: 'Are you sure?', method: :delete if comentario.user==current_user %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Comentario', new_comentario_path %>
+<%= link_to 'Añada su comentario', new_comentario_path %><br/>
