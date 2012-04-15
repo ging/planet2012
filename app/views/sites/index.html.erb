@@ -13,7 +13,13 @@
         <dl> 
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
-                 :length => 80) %></dd>
+                 :length => 80) %>
+          </dd>
+          <dd>
+              <% if site.comments != [] %>
+              <%=link_to "Comments", site_path(site) %> <%= site.comments.length %>
+            <% end %>
+          </dd>
         </dl> 
       </td>
  
