@@ -14,7 +14,7 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80)  %></dd>
-	  <%= link_to 'Comentarios', comentarios_path %><br/>
+	  <%= link_to 'Comentarios', comentarios_path %>
         </dl> 
       </td>
  

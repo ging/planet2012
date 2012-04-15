@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :sites
+  has_many :site
   has_many :trips
   has_many :comentarios
 

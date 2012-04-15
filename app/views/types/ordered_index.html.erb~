@@ -1,4 +1,3 @@
-
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
@@ -18,6 +17,7 @@
  
       <td class="list_actions"> 
         <%= link_to 'Show', type %><br/>
+        <%= link_to 'Ordered_index', type %><br/> 
         <%= link_to 'Edit', edit_type_path(type) %><br/> 
         <%= link_to 'Destroy', type, 
                     :confirm => 'Are you sure?',
@@ -31,5 +31,4 @@
 <br />
 
 <%= link_to 'New Type', new_type_path %>
-
 

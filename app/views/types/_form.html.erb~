@@ -1,0 +1,39 @@
+<%= link_to('Index', planet_index_path) %>
+<%= link_to('Contact', planet_contact_path) %>
+<%= link_to('Ejemplo', planet_ejemplo_path) %>
+<%= link_to('Author', planet_author_path) %>
+<%= link_to('Type/Index', types_index_path) %>
+<%= link_to('Type/OrderedIndex', ordered_index_types_path) %>
+
+<%= form_for(@type) do |f| %>
+  <% if @type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@type.errors.count, "error") %> prohibited this type from being saved:</h2>
+
+      <ul>
+      <% @type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to('Index', planet_index_path) %>
+<%= link_to('Contact', planet_contact_path) %>
+<%= link_to('Ejemplo', planet_ejemplo_path) %>
+<%= link_to('Author', planet_author_path) %>
+<%= link_to('Type/Index', types_index_path) %>
+<%= link_to('Type/OrderedIndex', ordered_index_types_path) %>

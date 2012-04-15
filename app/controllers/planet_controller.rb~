@@ -11,5 +11,7 @@ class PlanetController < ApplicationController
   def author
   end
 
-  
+  def ordered_index
+  end
+
 end
