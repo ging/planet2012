@@ -1,9 +1,11 @@
 class Site < ActiveRecord::Base
   belongs_to :type
-  belongs_to :user
+  belongs_to :user 
   has_many   :visits
   has_many   :trips,   :through  =>  :visits
   has_attached_file    :image
+  has_many :comments, :dependent => :destroy
+    
 
   
   # Debe estar protegido para evitar accesos indeseados
