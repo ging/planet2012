@@ -4,7 +4,8 @@ class Site < ActiveRecord::Base
   has_many   :visits
   has_many   :trips,   :through  =>  :visits
   has_attached_file    :image
-
+  #Tiene varios comentarios
+  has_many :comments
   
   # Debe estar protegido para evitar accesos indeseados
   attr_protected :user_id    

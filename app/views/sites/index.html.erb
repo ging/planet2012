@@ -14,18 +14,20 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %>
-          <br>Última modificación: <%= type.updated_at %>
+          
           </dd>
         </dl> 
       </td>
  
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
-        <% if site.user == current_user %>          <%= link_to 'Edit', edit_site_path(site) %><br/>
+        <% if site.user == current_user %>
+          <%= link_to 'Edit', edit_site_path(site) %><br/>
           <%= link_to 'Destroy', site, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
-        <% end %>      </td> 
+        <% end %>
+      </td> 
     </tr> 
   <% end %>
   </table> 
@@ -33,4 +35,4 @@
  
 <br /> 
  
-<%= link_to 'New Type', new_site_path %>
+<%= link_to 'New Site', new_site_path %>
