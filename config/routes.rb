@@ -8,7 +8,9 @@ Planet::Application.routes.draw do
 
   devise_for :users
 
-  resources :sites
+  resources :sites do
+    resources :comments, :only => [ :index ]
+  end
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
