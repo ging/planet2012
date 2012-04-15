@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   has_many :sites
   has_many :trips
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
