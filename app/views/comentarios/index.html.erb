@@ -1,0 +1,39 @@
+<div id='site_list'>
+<h1>Listing comentarios</h1>
+
+<table>
+  <tr>
+    <th>Coment</th>
+    <th>User</th>
+    <th>Site</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comentarios.each do |comentario| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">    
+    <!--<td><%= comentario.user_id%></td-->     
+ 
+    <td><%= comentario.user.name if comentario.user %></td>
+    <!--<td><%= comentario.site_id %></td>-->
+    <td class='list_description'>
+    <dl>
+    <dt> <%= link_to comentario.site.name, comentario.site if comentario.site %></dt>
+    <dd> <%= comentario.coment %> </dd>
+    </td>
+    <td class='list_actions'>
+    <!--<td><%= link_to 'Show', comentario %></td>-->
+    <% if comentario.user ==current_user %>   
+    <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
+    <td><%= link_to 'Destroy', comentario, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+
+<%= link_to 'Nuevo comentario', new_comentario_path %>

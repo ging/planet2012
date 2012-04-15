@@ -1,6 +1,7 @@
 class Site < ActiveRecord::Base
   belongs_to :type
   belongs_to :user
+  has_many :comentarios
   has_many   :visits
   has_many   :trips,   :through  =>  :visits
   has_attached_file    :image

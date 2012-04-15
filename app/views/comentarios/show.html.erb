@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Coment:</b>
+  <%= @comentario.coment %>
+</p>
+
+<p>
+  <b>Autor:</b>
+  <%= @comentario.user.name if @comentario.user %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @comentario.site.name if @comentario.site_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', comentarios_path %>
+<%= link_to 'Destroy', @comentario,
+	:confirm => 'Are you sure?',
+	:method => :delete %>
