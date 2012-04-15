@@ -1,0 +1,28 @@
+<div id="site_list">
+  <table> 
+    <% @comments.each do |comment| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+ 
+        <td class="list_description"> 
+          <dl>
+            <% if comment.user == current_user %>
+              <dt><%= link_to comment.user.name + ":", edit_user_registration_path %></dt> 
+            <% else %>
+              <dt><%= comment.user.name + ":" %></dt>
+            <% end %>
+            <dd><%= strip_tags(comment.comment) %></dd>
+          </dl> 
+        </td>
+ 
+        <td class="list_actions"> 
+          <% if comment.user == current_user %>
+            <%= link_to 'Edit', edit_comment_path(comment) %><br/>
+            <%= link_to 'Destroy', comment, 
+                      :confirm => 'Are you sure?',
+                      :method => :delete if comment.user == current_user %>
+          <% end %>
+        </td> 
+      </tr> 
+    <% end %>
+  </table> 
+</div>

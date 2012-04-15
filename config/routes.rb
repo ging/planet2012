@@ -1,8 +1,18 @@
 Planet::Application.routes.draw do
-  resources :types do
-    get 'ordered_index', :on => :collection
+
+  resources :comments, :except => [ :new, :index, :show ]
+
+  devise_for :users
+  
+  resources :sites do
+    resources :comments, :only => [ :index ]
   end
 
+  resources :types do                     
+    get 'ordered_index', :on => :collection
+    resources :sites, :only => [ :index ] # Rutas anidadas /types/id/sites. Restringe a acción “index” 
+  end
+  
   get "planet/index"
 
   get "planet/contact"
