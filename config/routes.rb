@@ -1,5 +1,7 @@
 Planet::Application.routes.draw do
   
+  devise_for :users
+
   resources :sites
 
   get "types/ordered_index"
