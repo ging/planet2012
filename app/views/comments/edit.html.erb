@@ -1,0 +1,11 @@
+<h1>Editing comment</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @comment %> |
+<% if @comment.site_id %>
+<%= link_to 'Back', site_comments_path(@comment.site_id) %>
+<% else %>
+<%= link_to 'Back', "javascript:history.back()" %>
+<% end %>
+
