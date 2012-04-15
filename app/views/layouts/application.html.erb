@@ -6,7 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript">    $(function() {      $( "#trip_description" ).cleditor();    });  </script>
+  <script type="text/javascript">
+    $(function() {
+      $( "#trip_description" ).cleditor();
+    });
+  </script>
 
 </head>
 
@@ -14,7 +18,14 @@
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
-    <div class="user">      <% if current_user %>        <%= link_to current_user.name,              edit_user_registration_path %> |        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>      <% else %>        <%= link_to "Sign in", new_user_session_path %>      <% end %>
+    <div class="user">
+      <% if current_user %>
+        <%= link_to current_user.name, 
+             edit_user_registration_path %> |
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
     </div> 
   </div> 
   <div id="columns"> 

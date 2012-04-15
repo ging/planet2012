@@ -22,7 +22,8 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-
+		@comments = @site.comments.build
+		
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }
@@ -93,4 +94,5 @@ class SitesController < ApplicationController
   def count_visita
     @site.increment!(:visitas)
   end
+  
 end
