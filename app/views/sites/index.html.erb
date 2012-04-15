@@ -14,15 +14,24 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
+                
         </dl> 
       </td>
  
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
+        <% if not(site.comentarios.empty?) %>
+        
+        <%= link_to 'Comentarios', site_comentarios_path(site) %>
+
+        <% end %>
+
+        <% if site.user == current_user %>
         <%= link_to 'Edit', edit_site_path(site) %><br/>
         <%= link_to 'Destroy', site, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
+        <% end %>
       </td> 
     </tr> 
   <% end %>

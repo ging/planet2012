@@ -7,9 +7,26 @@
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
-
+ <p><b>Autor:</b>
+       <%= @site.user.name if @site.user %> </p>
 </div> 
 
 <p />
+<% if @site.user == current_user %>
 <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
 <%= link_to 'Back', sites_path %>
+
+<% if not(@site.comentarios.empty?) %>
+<% @site.comentarios.each do |comentario| %>
+<td class="list_description"> 
+        <dl> 
+          
+          <dd><%= comentario.user.name if comentario.user %> : <%= strip_tags(comentario.coment)
+                  %></dd>
+                
+        </dl> 
+      </td>
+<% end %>
+<% end %>
+<%= link_to 'Añada Comentario', new_comentario_path %>
