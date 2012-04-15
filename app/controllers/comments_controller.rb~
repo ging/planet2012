@@ -63,18 +63,19 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-     @comment = Comment.find(params[:id])
+@site = Site.find(params[:site_id])
+@comment = @site.comments.find(params[:id])
 
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+respond_to do |format|
+if @comment.update_attributes(params[:comment])
+format.html { redirect_to @site, notice: 'Comentario actualizado' }
+format.json { head :no_content }
+else
+format.html { render action: "edit" }
+format.json { render json: @comment.errors, status: :unprocessable_entity }
+end
+end
+end
 
   # DELETE /comments/1
   # DELETE /comments/1.json
