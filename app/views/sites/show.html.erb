@@ -2,14 +2,34 @@
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image_url, :class => 'site_image') %>
+  <%= image_tag(@site.image.url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
 
+
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+
+  <h1> Comentarios </h1>
+
+  <p><b>Autor:</b>
+  	<%= @comentario.user_id %>
+  </p>
+
+  <p><b>Coment:</b>
+  	<%= @comentario.coment %>
+  </p>
+
 </div> 
 
+<div class="visitas">
+  <b>Visitas:</b>  <%= @site.visitas %>
+</div>
+
 <p />
-<%= link_to 'Edit', edit_site_path(@site) %> |
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
 <%= link_to 'Back', sites_path %>

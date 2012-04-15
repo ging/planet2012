@@ -1,7 +1,18 @@
 Planet::Application.routes.draw do
+
  
 
+
+  resources :comentarios
+
+  resources :visits
+
+  resources :trips
+
+  devise_for :users
+
   resources :sites
+
 
  
 
@@ -12,14 +23,14 @@ Planet::Application.routes.draw do
 
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
   
-collection do
-   get "ordered_index"
+	collection do
+   		get "ordered_index"
 
-end
+	end
 
 
 
- end
+    end
   
   
 
@@ -30,6 +41,8 @@ end
   get "planet/ejemplo"
 
   get "planet/author"
+
+  
 
   
 
