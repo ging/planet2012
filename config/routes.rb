@@ -4,12 +4,14 @@ Planet::Application.routes.draw do
 
   resources :trips
 
+  resources :comments
+
   devise_for :users
 
   resources :sites do
     resources :comments
   end
-  
+
   
   get "types/ordered_index"
   

@@ -23,3 +23,27 @@
   <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
 <%= link_to 'Back', sites_path %>
+
+<h2>Comentarios</h2>
+<% @site.comments.each do |comment| %>
+  <p>
+    <b>Usuario:</b>
+    <%= comment.user_id %>
+  </p>
+ 
+  <p>
+    <b>Comentario:</b>
+    <%= comment.coment %>
+  </p>
+<% end %>
+
+<h2>Añada su comentario:</h2>
+<%= form_for([@site, @site.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :comentario %><br />
+    <%= f.text_area :coment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
