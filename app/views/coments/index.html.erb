@@ -1,0 +1,39 @@
+<h1>Listing coments</h1>
+
+<table>
+  <tr>
+    <th>Coment</th>
+    <th>User</th>
+    <th>Site</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coments.each do |coment| %>
+  <tr>
+	<td><%= truncate(strip_tags(coment.coment),
+                 :length => 80) %></td>
+  
+   
+    <td><%= coment.user.name if coment.user %></td>
+    <td><%= coment.site.name if coment.site %></td>
+	
+	
+	<td class="list_actions"> 
+        <%= link_to 'Show', coment %><br/>
+		<% if coment.user == current_user %>
+			<%= link_to 'Edit', edit_coment_path(coment) %><br/>
+			<%= link_to 'Destroy', coment, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+		<% end %>
+      </td>
+	
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coment', new_coment_path %>

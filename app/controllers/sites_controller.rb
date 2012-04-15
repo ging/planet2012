@@ -1,4 +1,10 @@
 class SitesController < ApplicationController
+
+  # authenticate_user! ejecuta acción solo si sesión existe
+  before_filter :authenticate_user!, :except => [ :index, :show ]
+  after_filter :count_visita, :only => :show
+  
+
   # GET /sites
   # GET /sites.json
   def index
@@ -17,10 +23,14 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
+	
+
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }
+	  format.json { render json: @coments }
+
     end
   end
 
@@ -43,7 +53,7 @@ class SitesController < ApplicationController
   # POST /sites
   # POST /sites.json
   def create
-    @site = Site.new(params[:site])
+     @site = current_user.sites.build(params[:site]) # Asigna solo si sitio asociado a current_user
 
     respond_to do |format|
       if @site.save
@@ -59,7 +69,7 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.json
   def update
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
 
     respond_to do |format|
       if @site.update_attributes(params[:site])
@@ -75,7 +85,7 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
     @site.destroy
 
     respond_to do |format|
@@ -83,4 +93,9 @@ class SitesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+  def count_visita
+    @site.increment!(:visitas)
+  end
+  
 end

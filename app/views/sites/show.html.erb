@@ -7,9 +7,45 @@
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+  
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
 
 </div> 
 
-<p />
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+<div class="visitas">
+  <b>Visitas:</b>  <%= @site.visitas %>
+</div>
+
+<div class="comentarios">
+	
+	<h2>Comentarios:</h2>
+	<% @site.coments.each do |coment| %>
+	  <p>
+		<b><%= coment.user.name if coment.user %>:</b>	 
+		<%= coment.coment %>		
+	  </p>
+	  
+	  <p class="list_actions"> 
+		<% if coment.user == current_user %>
+			<%= link_to 'Edit', edit_coment_path(coment) %>
+			<%= link_to 'Destroy', coment, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+		<% end %>
+      </p>
+	  
+	<% end %>
+	
+	
+	<%= form_for([@site, @site.coments.build]) do |f| %>
+	  
+	  <div class="field">
+		<%= f.label :comentario %><br />
+		<%= f.text_field :coment %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+	<% end %>
+</div>

@@ -44,7 +44,7 @@ module Planet
     # like if you have constraints or database-specific column types
     # config.active_record.schema_format = :sql
 
-    # Enforce whitelist mode for mass assignment.
+   # Enforce whitelist mode for mass assignment.
     # This will create an empty whitelist of attributes available for mass-assignment for all models
     # in your app. As such, your models will need to explicitly whitelist or blacklist accessible
     # parameters by using an attr_accessible or attr_protected declaration.
@@ -55,5 +55,9 @@ module Planet
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Avoid problem when deploying to Heroku
+    # https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar#troubleshooting
+    config.assets.initialize_on_precompile = false
   end
 end

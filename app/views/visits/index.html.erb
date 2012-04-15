@@ -1,0 +1,27 @@
+<h1>Listing visits</h1>
+
+<table>
+  <tr>
+    <th>Trip</th>
+    <th>Site</th>
+    <th>Hour</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @visits.each do |visit| %>
+  <tr>
+    <td><%= visit.trip_id %></td>
+    <td><%= visit.site_id %></td>
+    <td><%= visit.hour %></td>
+    <td><%= link_to 'Show', visit %></td>
+    <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
+    <td><%= link_to 'Destroy', visit, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Visit', new_visit_path %>
