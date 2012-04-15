@@ -17,6 +17,14 @@
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %>
+    <div class="user">
+      <% if current_user %>
+      <%= link_to current_user.name, edit_user_registration_path %> |
+      <%= link_to "Sign out", destroy_user_session_path, :method=>:delete %>
+      <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
   </div>
   <div id="header_links">
     <%= link_to "Inicio", planet_index_path %> 
@@ -26,18 +34,20 @@
   	<%= link_to "Tipos", types_path %>
   	<%= link_to "Tipos ordenados", types_ordered_index_path %>
     <%= link_to "Sitios", sites_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
   </div> 
   <div id="main"> 
     <%= yield %>
   </div> 
   <div id="footer_links">
- 	<%= link_to "Inicio", planet_index_path %> 
+  	<%= link_to "Inicio", planet_index_path %> 
   	<%= link_to "Contacto", planet_contact_path %>
   	<%= link_to "Ejemplo", planet_ejemplo_path %>
   	<%= link_to "Autores", planet_author_path %>
   	<%= link_to "Tipos", types_path %>
   	<%= link_to "Tipos ordenados", types_ordered_index_path %>
     <%= link_to "Sitios", sites_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
   </div> 
 </body> 
 </html> 

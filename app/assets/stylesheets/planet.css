@@ -91,6 +91,13 @@
   text-align: center;
 }
 
+/* Estilo para el banner de registro de usuarios */
+#banner .user {
+  float: right;
+  color: #bfb;
+  font-size: small;
+}
+
 #banner img {
   float: left;
   padding-left: 10px;
