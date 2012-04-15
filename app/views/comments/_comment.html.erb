@@ -9,7 +9,9 @@
   </p>
 
   <p>
+  <% if (comment.user_id == current_user.id) %>
   <%= link_to 'Destroy Comment', [comment.site, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
+  <% end %>
 </p>
