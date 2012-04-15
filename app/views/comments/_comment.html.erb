@@ -1,6 +1,6 @@
   <p>
     <b>Commenter:</b>
-    <%= comment.user_id %>
+    <%= comment.user.name %>
   </p>
  
   <p>
@@ -9,9 +9,9 @@
   </p>
 
   <p>
-  <% if (comment.user_id == current_user.id) %>
+  <% #if (comment.user_id == current_user.id) %>
   <%= link_to 'Destroy Comment', [comment.site, comment],
                :confirm => 'Are you sure?',
                :method => :delete %>
-  <% end %>
+  <% #end %>
 </p>

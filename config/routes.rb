@@ -4,7 +4,7 @@ Planet::Application.routes.draw do
 
   resources :trips
 
-  #devise_for :users
+  devise_for :users
 
   resources :sites do
     resources :comments
@@ -17,9 +17,6 @@ Planet::Application.routes.draw do
     
   end
   
-  resources :users do
-    resources :comments
-  end
 
   get "planet/index"
 
