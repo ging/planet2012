@@ -15,8 +15,10 @@
     <%= f.label :coment %><br />
     <%= f.text_field :coment %>
   </div>
-
-  
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.collection_select(:user_id, User.find(:all, :order => :name), :id, :name) %>
+  </div>
   <div class="field">
     <%= f.label :site_id %><br />
     <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) %>

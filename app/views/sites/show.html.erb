@@ -26,6 +26,8 @@
 		<%= coment.coment %>		
 	  </p>
 	  
+																		
+	  
 	  <p class="list_actions"> 
 		<% if coment.user == current_user %>
 			<%= link_to 'Edit', edit_coment_path(coment) %>
@@ -44,6 +46,10 @@
 		<%= f.label :comentario %><br />
 		<%= f.text_field :coment %>
 	  </div>
+	  <div class="field">
+		<%= f.label :user_id %><br />
+		<%= f.collection_select(:user_id, User.find(:all, :order => :name), :id, :name) %>
+      </div>
 	  <div class="actions">
 		<%= f.submit %>
 	  </div>

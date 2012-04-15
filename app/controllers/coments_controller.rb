@@ -44,9 +44,10 @@ class ComentsController < ApplicationController
   # POST /coments
   # POST /coments.json
   def create
-    @coment = current_user.coments.build(params[:coment]) # Asigna solo si comentario asociado a current_user  
+    @coment = current_user.coments.build(params[:coment]) # Asigna solo si comentario asociado a current_user 
 	@site = Site.find(params[:site_id])
 	@coment = @site.coments.create(params[:coment]) 
+	 
 
 	respond_to do |format|
 		 if @coment.save
