@@ -1,0 +1,21 @@
+<div id="site_list"> 
+
+  <table>  
+      <td class="comments"> 
+        <dl> 
+          <dt><%= comment.user_id %>
+		  <%= truncate(strip_tags(comment.coment), :length => 240) %></dt>
+        </dl> 
+      </td>
+
+      <td class="list_actions"> 
+        <% if comment.user == current_user %>
+          <%= link_to 'Edit',  edit_site_comment_path(comment.site, comment)  %><br/>
+          <%= link_to 'Destroy', [comment.site, comment], 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+      </td> 
+    </tr> 
+  <% end %>
+  </table> 
+</div> 
