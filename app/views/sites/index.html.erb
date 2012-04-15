@@ -19,10 +19,12 @@
  
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
-        <%= link_to 'Edit', edit_site_path(site) %><br/>
-        <%= link_to 'Destroy', site, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
+        <% if site.user == current_user %>
+          <%= link_to 'Edit', edit_site_path(site) %><br/>
+          <%= link_to 'Destroy', site, 
+                      :confirm => 'Are you sure?',
+                      :method => :delete %>
+        <% end %>
       </td> 
     </tr> 
   <% end %>
