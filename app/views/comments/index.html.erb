@@ -2,18 +2,17 @@
 
 <table>
   <tr>
-    <th>Comment</th>
     <th>User</th>
+    <th>Comment</th>
     <th>Site</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @comments.each do |comment| %>
   <tr>
+    <td><%= comment.user.name %></td>
     <td><%= comment.comment %></td>
-    <td><%= comment.user_id %></td>
     <td><%= comment.site_id %></td>
     <td><%= link_to 'Show', comment %></td>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>

@@ -11,6 +11,7 @@ class SitesController < ApplicationController
       else
       @sites = Type.find(params[:type_id]).sites  # path: /types/id/sites
     end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sites }

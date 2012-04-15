@@ -1,6 +1,12 @@
 <h1>Editing comment</h1>
 
-<%= render 'form' %>
+<%= form_for(@comment) do |f| %>
+
+  <%= f.label :comment %><br/>
+  <%= f.text_area :comment, :characters=>240 %><br/>
+ 
+  <div><%= f.submit "Submit new comment" %></div>
+<% end %>
 
 <%= link_to 'Show', @comment %> |
 <%= link_to 'Back', comments_path %>

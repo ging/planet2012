@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Comment:</b>
-  <%= @comment.comment %>
+  <b>User:</b>
+   <%= @comment.user.name %>
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @comment.user_id %>
+  <b>Comment:</b>
+  <%= @comment.comment %>
 </p>
 
 <p>
@@ -16,5 +16,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% if @comment.user == current_user %>
+	<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<% end %>
 <%= link_to 'Back', comments_path %>

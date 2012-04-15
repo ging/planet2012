@@ -25,6 +25,11 @@
                       :confirm => 'Are you sure?',
                       :method => :delete %>
         <% end %>
+
+       <!--añado la vista de comments si hay comentarios-->
+        <% if site.comments %>  
+          <%= link_to 'Comments', comments_path %><br/>
+        <% end %>
       </td> 
     </tr> 
   <% end %>

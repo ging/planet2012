@@ -1,8 +1,17 @@
 class CommentsController < ApplicationController
+
+  # authenticate_user! ejecuta acción sólo si sesión existe
+  before_filter :authenticate_user!,:except=> [:index,:show]
+
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+      if params[:type_id].nil? or params[:type_id].empty?
+      @comments = Comment.all            
+      else
+      @@comments = Comment.find(params[:type_id]).sites  
+    end
+    # si no funciona cambiar esto por comments=comment.all q es lo q estaba
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +33,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = Comment.new
+    @comment = current_user.comments.build#cambio comment por current_user.comments.build -- crea comentario vacio asociado a current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +43,13 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])  #cambio Comment por current_user.comments -- busca solo en comentarios asociados a current_user
   end
 
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = current_user.comments.build(params[:comment])  #cambio Comment.new por current_user.comments.build -- asigna solo si comentario asociado a current_user
 
     respond_to do |format|
       if @comment.save
@@ -56,7 +65,7 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])   #cambio Comment por current_user.comments.-- busca solo en comentarios asociados a current_user
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
@@ -72,7 +81,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])   #cambiar Comment por current_user.comments -- busca solo en comentarios asociados a current_user
     @comment.destroy
 
     respond_to do |format|
