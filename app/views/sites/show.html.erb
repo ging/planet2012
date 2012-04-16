@@ -10,6 +10,9 @@
 
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
+  <div class="visitas">
+    <b>Visitas:</b>  <%= @site.visitas %>
+  </div>
           
   <p>
     <% if @site.comments != [] %>
