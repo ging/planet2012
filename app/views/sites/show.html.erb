@@ -1,19 +1,26 @@
-<div id="site">
- 
+<div id="site">     
+
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
+  <%= image_tag(@site.image_url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+   <% if @site.comments.present? %>
+    <p><b><%= link_to('Comentarios', site_comments_path(@site)) %></b></p>
+   <% end %>
+  <p><%= link_to('Añada su comentario', new_site_comment_path(@site)) %></p>
+  	
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
-</div> 
+  <p><b>Autor:</b>
+   <%= @site.user.name if @site.user %></p>
 
-<div class="visitas">
-  <b>Visitas:</b>  <%= @site.visitas %>
-</div>
+   <% if @site.user == current_user %>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
+
+</div> 
