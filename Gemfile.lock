@@ -62,12 +62,15 @@ GEM
     mime-types (1.17.2)
     multi_json (1.1.0)
     orm_adapter (0.0.7)
+<<<<<<< HEAD
+=======
     paperclip (2.4.5)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
     pg (0.13.2)
+>>>>>>> Entrega6/master
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)

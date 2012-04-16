@@ -1,12 +1,17 @@
 Planet::Application.routes.draw do
+<<<<<<< HEAD
+=======
 
   resources :visits
 
   resources :trips
 
+>>>>>>> Entrega6/master
   devise_for :users
 
   resources :sites
+   
+  get "types/ordered_index"	
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
@@ -18,6 +23,12 @@ Planet::Application.routes.draw do
 
   get "planet/ejemplo"
 
+  get "planet/author"
+
+  delete "/users/sign_out"
+
+ 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
