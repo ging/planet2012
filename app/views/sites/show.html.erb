@@ -8,7 +8,9 @@
 
   <p><%=sanitize @site.description %></p>
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+
 </div> 
 
 <div class="visitas">
@@ -16,4 +18,13 @@
 </div>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
+
+<h2>Commentarios</h2>
+<%= render @site.comments %>
+
+<h2>Añadir comentario:</h2>
+<%= render "comments/form" %>
