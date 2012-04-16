@@ -3,6 +3,6 @@ class Comment < ActiveRecord::Base
 	belongs_to :user
 	#Y de los sitios
  	belongs_to :site
- 	#protegido en función del usuario
- 	attr_protected :user_id
+ 	
+ 	validates :coment, :presence => true, :length => {:maximum => 240}
 end
