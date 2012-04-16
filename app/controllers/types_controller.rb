@@ -80,4 +80,13 @@ class TypesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def ordered_index
+  	@types = Type.order(:name)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @types }
+    end
+  end
 end

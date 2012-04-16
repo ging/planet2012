@@ -16,7 +16,11 @@
 
 # ignore al .DS_store files of MAC OSX
 .DS_Store
+<<<<<<< HEAD
+*~
+=======
 
 # ignore paperclip installation files
 public/system
 .project
+>>>>>>> upstream/master
