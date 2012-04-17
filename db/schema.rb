@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20120413181754) do
     t.text     "description"
     t.integer  "type_id"
     t.string   "image_url"
+    t.float    "longitud"
+    t.float    "latitud"
+    t.integer  "zoom"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.string   "image_file_name"

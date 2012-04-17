@@ -5,7 +5,10 @@ class CreateSites < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :type_id
-      t.string :image_url
+      t.string :image_url 
+      t.float :longitud
+      t.float :latitud
+      t.integer :zoom
       t.timestamps
     end
   end
