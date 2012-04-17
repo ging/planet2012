@@ -1,8 +1,12 @@
 Planet::Application.routes.draw do
 
+  resources :comments, :except => [ :new, :index ]
+
   devise_for :users
   
-  resources :sites
+  resources :sites do
+    resources :comments, :only => [ :index ]
+  end
 
   resources :types do                     
     get 'ordered_index', :on => :collection

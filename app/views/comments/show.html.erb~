@@ -9,15 +9,7 @@
   <p><%=sanitize @site.description %></p>
 
   <p><b>Autor:</b> 
-  <%= @site.user.name if @site.user %></p>
-
-  <% unless @site.comments.empty? %>
-	<p><b>Comentarios:</b></p>
-	<% @comments = @site.comments %>
-  	<%= render(@comment) %>
-  <% end %>
-
-  <%= render 'comments/form' %>
+          <%= @site.user.name if @site.user %></p>
 
 </div> 
 
