@@ -1,28 +1,32 @@
-<h1>Listing trips</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Date</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @trips.each do |trip| %>
-  <tr>
-    <td><%= trip.name %></td>
-    <td><%= trip.description %></td>
-    <td><%= trip.date %></td>
-    <td><%= trip.user_id %></td>
-    <td><%= link_to 'Show', trip %></td>
-    <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-    <td><%= link_to 'Destroy', trip, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div id="site_list"> 
+  <h1>Viajes</h1> 
+ 
+  <table> 
+  <% @trips.each do |trip| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+ 
+      <td class="list_description"> 
+        <dl> 
+          <dt><%= link_to trip.name, trip_path(trip) %></dt> 
+          <dd><%= truncate(strip_tags(trip.description),
+                 :length => 80) + ', ' + trip.date.to_s %></dd> 
+          <dd>Fecha última actualización : <%= trip.updated_at %></dd> 
+        </dl> 
+      </td> 
+ 
+      <td class="list_actions"> 
+        <%= link_to 'Show', trip %><br/> 
+        <% if trip.user == current_user %>
+        <%= link_to 'Edit', edit_trip_path(type) %><br/> 
+        <%= link_to 'Destroy', trip, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+        <% end %>
+      </td> 
+    </tr> 
+  <% end %>
+  </table> 
+</div> 
 
 <br />
 
