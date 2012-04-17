@@ -1,6 +1,10 @@
 <h1>Editing comentario</h1>
 
+Comentario Actual: <br />
+
+<%= strip_tags(@comentario.coment) %>
+                  
 <%= render 'form' %>
 
-<%= link_to 'Show', @comentario %> |
-<%= link_to 'Back', comentarios_path %>
+
+

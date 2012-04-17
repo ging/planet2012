@@ -17,16 +17,23 @@
 <% end %>
 <%= link_to 'Back', sites_path %>
 
+
 <% if not(@site.comentarios.empty?) %>
-<% @site.comentarios.each do |comentario| %>
-<td class="list_description"> 
-        <dl> 
-          
-          <dd><%= comentario.user.name if comentario.user %> : <%= strip_tags(comentario.coment)
-                  %></dd>
-                
-        </dl> 
-      </td>
+        
+<%= link_to 'Comentarios', site_comentarios_path(@site) %>
+
 <% end %>
+<br />
+<h2>Añadir Un Comentario:</h2>
+<%= form_for([@site, @site.comentarios.build]) do |f| %>
+ 
+  <div class="field">
+    <%= f.label :coment %><br />
+    <%= f.text_area :coment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
-<%= link_to 'Añada Comentario', new_comentario_path %>
+
+

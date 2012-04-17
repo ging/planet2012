@@ -11,21 +11,28 @@
       <td class="list_description"> 
         <dl> 
           
-          <dd><%= strip_tags(comentario.coment)
+          <dd><%= comentario.user.name if comentario.user %> : <%= strip_tags(comentario.coment)
                   %></dd>
                 
         </dl> 
       </td>
  
       <td class="list_actions"> 
-        <%= link_to 'Show', comentario %><br/>
+        
         
 
         <% if comentario.user == current_user %>
-        <%= link_to 'Edit', edit_comentario_path(comentario) %><br/>
-        <%= link_to 'Destroy', comentario, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
+        <p>
+       <%= link_to 'Eliminar', [comentario.site, comentario],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+               
+    <%= link_to 'Editar', edit_site_comentario_path(comentario.site,comentario) %>
+               
+
+      
+</p>
+       
         <% end %>
       </td> 
     </tr> 
@@ -34,8 +41,8 @@
 </div> 
  
 <br /> 
- 
-<%= link_to 'Añadir Comentario', new_comentario_path %>
+
+
 
 
 

@@ -1,4 +1,4 @@
-<%= form_for(@comentario) do |f| %>
+<%= form_for([:site, @comentario]) do |f| %>
   <% if @comentario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
+ <h2>Introduzca Texto del Comentario:</h2>
+
+
+ 
   <div class="field">
-    <%= f.label :coment %><br />
-    <%= f.text_field :coment %>
+   
+    <%= f.text_area :coment %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :site_id %><br />
-    <%= f.number_field :site_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

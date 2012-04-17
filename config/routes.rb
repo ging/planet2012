@@ -1,21 +1,32 @@
 Planet::Application.routes.draw do
   
-  resources :comentarios
+  
+  
 
+  resources :trips
 
   devise_for :users
 
-  resources :sites do
-    resources :comentarios, :only => [ :index ]
-  end
- 
-
-
   get "types/ordered_index"
 
-  resources :types do                     # Rutas anidadas /types/id/sites...,
+
+
+
+resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
   end
+  
+
+  
+ resources :sites do
+    resources :comentarios 
+     
+  end
+
+
+
+
+  
   
   get "planet/index"
 
