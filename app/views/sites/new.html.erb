@@ -1,3 +1,22 @@
+<script type="text/javascript">
+$(function() {
+        if (navigator.geolocation) {   //Check if browser supports W3C Geolocation API
+           navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+        } else {  alert('Geolocation is not supported in this page.'); }
+
+        function successFunction(position) {
+           var latitud = position.coords.latitude;
+           var longitud = position.coords.longitude;
+	   document.getElementById("site_latitud").value  = latitud;
+	   document.getElementById("site_longitud").value  = longitud
+           
+           alert('Your latitude is :' + latitud + ' and longitude is ' + longitud);
+        }
+
+        function errorFunction(position) {    alert('Error!');   }
+});
+</script>
+
 <h1>New site</h1>
 
 <%= render 'form' %>

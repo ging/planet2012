@@ -3,18 +3,7 @@ class SitesController < ApplicationController
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
   
-  # GET /comentarios
-  def comentarios
-  if params[:comentario_id].nil? or params[:comentario_id].empty?
-     @site = Site.all
-     else
-     @site = Comentario.find(params[:comentario_id]).sites
-     end
-     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @sites }
-    end
-  end
+ 
   # GET /sites
   # GET /sites.json
   def index
