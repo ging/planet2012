@@ -17,20 +17,39 @@
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %>
+  </div>
+
+  <div class="user">
+    <% if current_user %>
+      <%= link_to current_user.name, 
+           edit_user_registration_path %> |
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+    <% end %>
   </div> 
+  
   <div id="columns"> 
     <div id="side"> 
       <%= link_to "Home", planet_index_path %><br /> 
       <%= link_to "Tipos",  types_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
-      <%= link_to "Contact", planet_contact_path %>
+      <ul id="list">
+        <% Type.all.each do |type| %>
+          <li> <%= link_to type.name, type_sites_path(type) %> </li>
+        <% end %>
+      </ul>
+      <%= link_to "Contact", planet_contact_path %><br />
+      <%= link_to "Sign up", new_user_registration_path if !current_user %>
     </div> 
     <div id="main">
-<%= link_to('Index', planet_index_path) + "|" + link_to('Contact', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path)+ "|" + link_to('Autores', planet_author_path)+ "|" + link_to('Tipos', types_path) + "|" + link_to('Tipos_ordenados', ordered_index_path) %>
+      <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
+      <%= link_to('Index', planet_index_path) + "|" + link_to('Contact', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path)+ "|" + link_to('Autores', planet_author_path)+ "|" + link_to('Tipos', types_path) + "|" + link_to('Tipos_ordenados', ordered_index_types_path) %> 
       <%= yield %>
-<%= link_to('Index', planet_index_path) + "|" + link_to('Contact', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path)+ "|" + link_to('Autores', planet_author_path)+ "|" + link_to('Tipos', types_path) + "|" + link_to('Tipos_ordenados', ordered_index_path) %>
+      <p>
+      <%= link_to('Index', planet_index_path) + "|" + link_to('Contact', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path)+ "|" + link_to('Autores', planet_author_path)+ "|" + link_to('Tipos', types_path) + "|" + link_to('Tipos_ordenados', ordered_index_types_path) %>
+      </p>
     </div> 
   </div> 
 </body> 
 </html> 
-

@@ -39,6 +39,7 @@
           <li> <%= link_to type.name, type_sites_path(type) %> </li>
         <% end %>
       </ul>
+      <%= link_to "Viajes", trips_path %><br />
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
     </div> 

@@ -1,5 +1,9 @@
 Planet::Application.routes.draw do
 
+  resources :visits
+
+  resources :trips
+
   resources :comments, :except => [ :new, :index ]
 
   devise_for :users
