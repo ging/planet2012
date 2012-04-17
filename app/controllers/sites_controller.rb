@@ -60,7 +60,12 @@ class SitesController < ApplicationController
       end
     end
   end
-
+def createdos
+	puts 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'
+    @comment = Comment.new(params[:comment])
+	puts @comment
+    
+  end
   # PUT /sites/1
   # PUT /sites/1.json
   def update

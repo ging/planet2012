@@ -1,14 +1,43 @@
-<div id="site">
+﻿<div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
+  <%= image_tag(@site.image_url, :class => "site_image") %>
 
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+	
+<h3>Comentarios</h3>
+	<% if @site.comments.exists? %>
+		<% @site.comments.each do |comment| %>
+			<p><b><%= comment.user_id %>
+			: </b>
+			<%= comment.coment %>
+			<% if comment.user_id == current_user.id %>
+          <br/><%= link_to 'Edit', edit_comment_path(comment) %> 
+          <%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %>
+        <% end %></p>
+		<% end %>
+	<% end %>
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+
+<h3>Añadir un comentario:</h3>
+	<% if current_user.id %>    
+   <%= form_for([@site, @site.comments.build]) do |f| %>
+			<%= f.number_field :site_id, :value => @site.id, :hidden => true %>
+			<%= f.number_field :user_id, :value => current_user.id, :hidden => true %>
+ 			<%= f.text_field :coment %><br/>
+			<%= f.submit "Añadir comentario" %>
+		<% end %>
+	<% else %>  
+		<i><%= link_to "Ingrese", new_user_session_path %> para comentar:</i>
+	<% end %>
+	
+	
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+
 </div> 
 
 <div class="visitas">
@@ -16,4 +45,7 @@
 </div>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>

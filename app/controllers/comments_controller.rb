@@ -40,11 +40,14 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
-
+	puts 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+	@site = Site.find(params[:site_id])
+    @comment = @site.comments.create(params[:comment])
+	@comment.user_id = current_user.id
+	
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @site, notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }
@@ -53,6 +56,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def createdos
+	puts 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'
+    @comment = Comment.new(params[:comment])
+	puts @comment
+    
+  end
+  
+  
   # PUT /comments/1
   # PUT /comments/1.json
   def update
