@@ -4,8 +4,21 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+<<<<<<< HEAD
 one: {}
 # column: value
 #
 two: {}
+=======
+one: 
+    name: Jose Perez
+    email: jose.perez@gmail.com
+    encrypted_password: perez22222222222222222222222222222222
+# column: value
+#
+two:
+    name: Jose Perez
+    email: jose.perez@me.com
+    encrypted_password: perez333333333333333333333333333333333
+>>>>>>> planet2012/master
 #  column: value

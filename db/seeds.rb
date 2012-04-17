@@ -1,5 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# This file should contain all the record creation needed to seed the
+# database with its default values. The data can then be loaded with
+# the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
 #
@@ -53,6 +54,11 @@ Site.create(
             description: 'Puerta del mercado de la antigua ciudad griega de Pergamo del museo arquelogico de Berlin',
             type_id: tr.id,
             image_url: 'pergamo.png')
+
+
+#  user_id esta protegido con "attr_protected" y debe inicializarse asi,
+#  Site.create(....) levantaria una excepcipón al intentar inicializarlo
+Site.all.each { |obj| obj.user_id = 1 ; obj.save }
 
 
 

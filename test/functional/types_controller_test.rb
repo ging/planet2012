@@ -3,10 +3,12 @@ require 'test_helper'
 class TypesControllerTest < ActionController::TestCase
   setup do
     @type = types(:one)
-     @update = {   # @update:  parametros diferentes
+    @update = {   # @update:  parametros diferentes
       :name         => 'AnotherType',
       :description  => 'AnotherText',
     }
+  @user = users(:one)
+  sign_in @user
   end
 
   test "should get index" do
@@ -22,7 +24,7 @@ class TypesControllerTest < ActionController::TestCase
 
   test "should create type" do
     assert_difference('Type.count') do
-      post :create, type => @update
+      post :create, type: @update
     end
 
     assert_redirected_to type_path(assigns(:type))
@@ -39,7 +41,7 @@ class TypesControllerTest < ActionController::TestCase
   end
 
   test "should update type" do
-    put :update, id => @type, type=> @update
+    put :update, id: @type, type: @update
     assert_redirected_to type_path(assigns(:type))
   end
 

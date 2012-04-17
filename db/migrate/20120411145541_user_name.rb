@@ -6,7 +6,7 @@ class UserName < ActiveRecord::Migration
   end
 
   def down
-    change table :users do |t|
+    change_table :users do |t|
       t.remove :name
     end
   end

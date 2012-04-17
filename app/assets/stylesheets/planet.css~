@@ -64,6 +64,41 @@
   background:   #88b0f8;
 }
 
+<<<<<<< HEAD
+/* Styles for comments */
+
+#comment_list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+
+#comment_list .comment_description {
+  width:        60%;
+}
+
+#comment_list .comment_description dl {
+        margin: 0;
+}
+
+#comment_list .comment_description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    small;
+}
+
+#comment_list .comment_description dd {
+        margin: 0;
+}
+
+#comment_list .comment_actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+=======
+>>>>>>> planet2012/master
 
 /* START:mainlayout */
 /* Styles for main page */
@@ -161,3 +196,12 @@
   font-weight: bold;
   margin-right: 2em;
 }
+<<<<<<< HEAD
+=======
+
+
+#main .visitas {
+  text-indent:   70%;
+}
+
+>>>>>>> planet2012/master

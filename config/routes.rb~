@@ -1,16 +1,22 @@
 Planet::Application.routes.draw do
+<<<<<<< HEAD
   devise_for :users #añade rutas devise
 
   resources :comments
+
+  resources :visits
 
   resources :trips
 
   devise_for :users
 
+  resources :sites do
+    resources :comments 
+  end
+
   resources :types do # Rutas anidadas /types/id/sites...,
-    resources :sites, :only => [ :index ] do # Restringe a acción “index”
-        resources :comments 
-    end
+    resources :sites, :only => [ :index ] # Restringe a acción “index”
+    
     get 'ordered_index', :on => :collection
     end
 
