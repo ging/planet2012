@@ -64,6 +64,38 @@
   background:   #88b0f8;
 }
 
+/* Styles for comments */
+
+#comment_list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+
+#comment_list .comment_description {
+  width:        60%;
+}
+
+#comment_list .comment_description dl {
+        margin: 0;
+}
+
+#comment_list .comment_description dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    small;
+}
+
+#comment_list .comment_description dd {
+        margin: 0;
+}
+
+#comment_list .comment_actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
 
 /* START:mainlayout */
 /* Styles for main page */
