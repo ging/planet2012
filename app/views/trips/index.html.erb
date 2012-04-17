@@ -17,7 +17,7 @@
       <td class="list_actions"> 
         <%= link_to 'Show', trip %><br/> 
         <% if trip.user == current_user %>
-        <%= link_to 'Edit', edit_trip_path(type) %><br/> 
+        <%= link_to 'Edit', edit_trip_path(trip) %><br/> 
         <%= link_to 'Destroy', trip, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
