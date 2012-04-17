@@ -20,6 +20,14 @@
     <%= f.text_area :description , :rows => 4 %>
   </div>
   <div class="field">
+    <%= f.label :longitud %><br />
+    <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
     <%= f.label :type_id %><br />
     <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
   </div>

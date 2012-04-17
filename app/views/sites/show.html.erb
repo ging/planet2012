@@ -6,10 +6,15 @@
 
 <p><%=sanitize @site.description %></p
 
+<p><b>Coordenadas:</b> 
+         <i>Longitud</i> <%= @site.longitud %>
+         <i>Latitud:</i> <%= @site.latitud %>
+         <i>Zoom:</i> <%= @site.zoom %>
+
+<%= render "geo"%>
 <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
 
-</div> 
 
 <% if @site.comments!=[] %>
 <b>Comentarios:</b>
@@ -35,5 +40,5 @@
   <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
 <%= link_to 'Back', sites_path %></div>
-
+</div> 
 
