@@ -9,9 +9,11 @@
       <dt><%= link_to site.name, site %></dt> 
       <dd><%= truncate(strip_tags(site.description),
              :length => 80) %></dd>
-      <dd>
+      <dd><i>
+        Incluido en <%=site.visits.length%> viaje<%if site.visits.length != 1%>s<%end%>
+      </i>
         <% if site.comments != [] %>
-          <%=link_to "Comentarios", site_path(site) %> (<%= site.comments.length %>)
+          | <%=link_to "Comentarios", site_path(site) %> (<%= site.comments.length %>)
         <% end %>
       </dd>
     </dl> 

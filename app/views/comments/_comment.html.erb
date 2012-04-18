@@ -1,5 +1,9 @@
-<p>
+<div id = "comment">
+<table>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+	<td>
 	<%= comment.user.name %>: <i><%= comment.comment %></i><br>
+
 	<% if current_user != nil %>
 		<% if (comment.user_id == current_user.id) or (current_user.name == 'admin') %>
 			<%= link_to 'Editar', edit_site_comment_path(@site,comment) %> | 
@@ -8,4 +12,7 @@
 				:method => :delete %>
 		<% end %>
 	<% end %>
-</p>
+	</td>
+</tr>
+</table>
+</div>

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
         respond_to do |format|
             if @comment.save
                 format.html { redirect_to @site, notice: 'Comentario creado' }
-                format.json { head :no_content }
+                format.json { render json: @site, status: :created, location: @site }
             else
                 format.html { render action: "edit" }
                 format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -33,8 +33,10 @@ class CommentsController < ApplicationController
 
     # Controlador para actualizar un comentario
     def update
-        @site = Site.find(params[:site_id])
-        @comment = @site.comments.find(params[:id])
+        @comment = current_user.comments.find(params[:id])
+        @site = Site.find(params[:site_id]) 
+        # @site = Site.find(params[:site_id])
+        # @comment = @site.comments.find(params[:id])
 
         respond_to do |format|
             if @comment.update_attributes(params[:comment])

@@ -1,4 +1,31 @@
-<div id="site">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+  var map;
+  var latlng;
+  var myOptions
+  var marker;
+
+  function iniMap() {
+    var lat = <%= @site.latitud %>;
+    var lng = <%= @site.longitud %>;
+    latlng = new google.maps.LatLng(lat,lng);
+    myOptions = {
+      zoom: <%= @site.zoom %>,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    marker = new google.maps.Marker({
+            map: map,
+            position: latlng
+        });
+  }
+
+</script>
+
+<div id="site" >
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
@@ -10,10 +37,17 @@
 
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
+
   <div class="visitas">
-    <b>Visitas:</b>  <%= @site.visitas %>
+    <p><b>Visitas:</b>  <%= @site.visitas %></p>
   </div>
-          
+
+  <p>
+    Incluido en <%=@site.visits.length%> viaje<%if @site.visits.length != 1%>s<%end%>
+  </p>
+
+  <div id="map_canvas" style="width: 450px; height: 300px;"></div>
+  
   <p>
     <% if @site.comments != [] %>
       <b>Todos los comentarios:</b>

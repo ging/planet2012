@@ -1,3 +1,55 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+  var geocoder;
+  var map;
+  var marker;
+  var address
+  var pos;
+  var lat;
+  var lng;
+  var zoom;
+
+  function iniForm() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  }
+
+  function codeAddress() {
+    address = $('#address').val();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+
+  function copyParams() {
+    zoom = map.getZoom();
+    pos = map.getCenter();
+    lat = pos.lat();
+    lng = pos.lng();
+    $('#site_name').val(address);
+    $('#site_latitud').val(lat);
+    $('#site_longitud').val(lng);
+    $('#site_zoom').val(zoom);
+  }
+
+</script>
+
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -11,10 +63,31 @@
     </div>
   <% end %>
 
+  <input id="address" type="textbox">
+  <input type="button" value="Mostrar" onclick="iniForm(); codeAddress()">
+  <input type="button" value="Copiar parámetros" onclick="copyParams();">
+  <div id="map_canvas" style="width: 450px; height: 300px;"></div>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longitud %><br />
+    <%= f.text_field :longitud %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description , :rows => 4 %>

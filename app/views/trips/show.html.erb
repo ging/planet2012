@@ -1,3 +1,69 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+  var map;
+  var ne;
+  var sw;
+
+  <% @sites = @trip.sites %>
+  <% num_sites = @sites.length %>
+
+  function getCenter() {
+    var c_lat;
+    var c_lng;
+    var lat = 0;
+    var lng = 0;
+    <% @sites.each do  |s| %>
+      lat += <%= s.latitud %>;
+      lng += <%= s.longitud %>;
+    <% end %>
+    c_lat = lat/<%= num_sites %>;
+    c_lng = lng/<%= num_sites %>;
+    return new google.maps.LatLng(c_lat,c_lng);
+  }
+
+  function getZoom() {
+    var zoom;
+    <% @sites.each do  |s| %>
+      zoom += <%= s.zoom %>;
+    <% end %>
+    return 12;
+  }
+
+  function setMarkers() {
+    <% i = 1 %>
+    <% @sites.each do  |s| %>
+      lat = <%= s.latitud %>;
+      lng = <%= s.longitud %>;
+      center = new google.maps.LatLng(lat,lng); 
+      var marker<%= i %> = new google.maps.Marker({
+            map: map,
+            position: center
+        });
+      marker<%= i %>.setTitle("<%= s.name %>");
+      <% i+= 1 %>
+    <% end %>
+  }
+
+  function getCorners() {
+    ne = map.getBounds().getNorthEast();
+    sw = map.getBounds().getSouthWest();
+    alert("NE " + ne + "SW " + sw);
+  }
+
+  function iniMap() {
+    var myOptions = {
+      zoom: 12,
+      center: getCenter(),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    setMarkers();
+  }
+
+</script>
+
 <p>
   <b>Name:</b>
   <%= @trip.name %>
@@ -25,7 +91,7 @@
   <%= render(@trip) %>
 
   <% if @trip.user == current_user %>
-    <%= form_for(@visit) :remote => true do |f| %>
+    <%= form_for(@visit) do |f| %>
   
       <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
       <%= f.collection_select(:site_id, 
@@ -37,6 +103,9 @@
     <% end %>
   <% end %>
 </div>
+
+<input type="button" value="ver esquinas" onclick="getCorners()">
+<div id="map_canvas" style="width: 450px; height: 300px;"></div>
 
 <br />
 
