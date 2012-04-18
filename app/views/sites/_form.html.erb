@@ -37,12 +37,15 @@
 			function successFunction(position) {
 				var lat = position.coords.latitude;
 				var long = position.coords.longitude;
-				alert('Your latitude is :'+lat+' and longitude is '+long);
-				$('#lat').val() = lat;
+				$("#lat").attr("value", lat);
+				$("#long").attr("value", long);
 			}
 			function errorFunction(position) { alert('Error!'); }
 		</script>
-		<%= f.text_area :latitud, :id => "lat" %>
+		<%= f.label :latitud %>
+		<%= f.text_field :latitud, :id => "lat" %><br/>
+		<%= f.label :longitud %>
+		<%= f.text_field :longitud, :id => "long" %><br/>
   </div>
   <div class="actions">
     <%= f.submit %>
