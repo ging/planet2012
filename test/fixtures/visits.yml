@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  trip_id: 1
-  site_id: 1
-  hour: 1
+  trip: one
+  site: one
+  hour: 9
 
 two:
-  trip_id: 1
-  site_id: 1
-  hour: 1
+  trip: one
+  site: one
+  hour: 9
