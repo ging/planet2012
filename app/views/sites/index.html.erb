@@ -12,8 +12,7 @@
       <td class="list_description"> 
         <dl> 
           <dt><%= link_to site.name, site %></dt> 
-          <dd><%= truncate(strip_tags(site.description),
-                 :length => 80) %></dd>
+          <dd><%= truncate(strip_tags(site.description), :length => 80) %></dd>
 
           <dd></dd> <!-- muestra el enlace a comentarios (si los hay) despues de la descripcion-->
             <% if site.comments != [] %>

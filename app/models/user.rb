@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :sites
   has_many :comments
+  has_many :trips
 
   #validaciones para evitar código malicioso
   validates :name, :presence => true

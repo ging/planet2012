@@ -6,6 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
+  <!-- para usar cleditor -->
   <script type="text/javascript">
     $(function() {
       $( "#trip_description" ).cleditor();
@@ -34,6 +35,7 @@
   	<%= link_to "Tipos", types_path %>
   	<%= link_to "Tipos ordenados", types_ordered_index_path %>
     <%= link_to "Sitios", sites_path %>
+    <%= link_to "Viajes", trips_path %>
     <%= link_to "Sign up", new_user_registration_path %>
   </div> 
   <div id="main"> 
@@ -46,7 +48,7 @@
   You had sign in as: <%= link_to current_user.name, edit_user_registration_path %> |
   <%= link_to "Sign out", destroy_user_session_path, :method=>:delete %>
   <% else %>
-  You must <%= link_to "Sign in", new_user_session_path %> for create and edit sites and comments
+  You must <%= link_to "Sign in", new_user_session_path %> for create and edit sites, trips and comments
   <%end %>
 </body>
 
@@ -58,6 +60,7 @@
   	<%= link_to "Tipos", types_path %>
   	<%= link_to "Tipos ordenados", types_ordered_index_path %>
     <%= link_to "Sitios", sites_path %>
+    <%= link_to "Viajes", trips_path %>
     <%= link_to "Sign up", new_user_registration_path %>
   </div> 
 </body> 
