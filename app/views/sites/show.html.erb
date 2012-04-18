@@ -14,15 +14,7 @@
 </div> 
 	<h3>Comentarios</h3>
 	<% if @site.comments.exists? %>
-		<% @site.comments.each do |comment| %>
-			<p><b><%= comment.user_id %>
-			: </b>
-			<%= comment.coment %>
-			<% if comment.user_id == current_user.id %>
-          <br/><%= link_to 'Edit', edit_comment_path(comment) %> 
-          <%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %>
-        <% end %></p>
-		<% end %>
+		<%= render @site.comments %>
 	<% end %>
 	
 	<h3>Añadir un comentario:</h3>
