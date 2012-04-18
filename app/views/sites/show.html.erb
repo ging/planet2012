@@ -2,7 +2,7 @@
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
+  <%= image_tag(@site.image_url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
 
@@ -17,3 +17,33 @@
 
 <p />
 <% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+
+<div class="comentarios">
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @site.comments.each do |comment| %>
+  <tr>
+    <td><%= comment.comment %></td>
+    <td><%= comment.user.name if comment.user_id%></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) if comment.user == current_user %></td>
+    <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete  if comment.user == current_user %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<div class="new_comment">
+<h2>Add a comment:</h2>
+<%= form_for( @site.comments.build ) do |f| %>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+    <%= hidden_field_tag(:user_id, current_user) %>
+    <%= f.submit %>
+<% end %>
+</div>
