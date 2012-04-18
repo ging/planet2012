@@ -11,5 +11,5 @@ class Site < ActiveRecord::Base
   attr_protected :user_id    
 
   # Se añaden estas definiciones 
-  validates :name, :type_id,    :presence => true   # campo obligatorio
+	validates :coment, :site_id, :user_id,    :presence => true   # campo obligatorio
 end

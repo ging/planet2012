@@ -11,10 +11,11 @@
 <h3>Comentarios</h3>
 	<% if @site.comments.exists? %>
 		<% @site.comments.each do |comment| %>
-			<p><b><%= comment.user_id %>
+		
+			<p><b><%= comment.user.name if comment.user%>
 			: </b>
 			<%= comment.coment %>
-			<% if comment.user_id == current_user.id %>
+			<% if comment.user == current_user %>
           <br/><%= link_to 'Edit', edit_comment_path(comment) %> 
           <%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %>
         <% end %></p>
@@ -23,11 +24,22 @@
 
 
 <h3>Añadir un comentario:</h3>
-	<% if current_user.id %>    
-   <%= form_for([@site, @site.comments.build]) do |f| %>
+	<% if current_user %>    
+   <%= form_for ([@site, @comment]) do |f| %>
+    <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 			<%= f.number_field :site_id, :value => @site.id, :hidden => true %>
 			<%= f.number_field :user_id, :value => current_user.id, :hidden => true %>
- 			<%= f.text_field :coment %><br/>
+ 			<%= f.text_area :coment, :rows => 4  %><br/>
 			<%= f.submit "Añadir comentario" %>
 		<% end %>
 	<% else %>  
@@ -45,7 +57,9 @@
 </div>
 
 <p />
+<% if current_user %>
 <% if @site.user == current_user %>
   <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
 <% end %>
 <%= link_to 'Back', sites_path %>

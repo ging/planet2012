@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  
+  before_filter :authenticate_user!
+  
   # GET /comments
   # GET /comments.json
   def index
@@ -40,7 +43,6 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-	puts 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 	@site = Site.find(params[:site_id])
     @comment = @site.comments.create(params[:comment])
 	@comment.user_id = current_user.id
@@ -56,12 +58,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def createdos
-	puts 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'
-    @comment = Comment.new(params[:comment])
-	puts @comment
-    
-  end
+  
   
   
   # PUT /comments/1
