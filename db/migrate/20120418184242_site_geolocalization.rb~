@@ -1,0 +1,19 @@
+class SiteGeolocalization < ActiveRecord::Migration
+  def up
+	change_table :sites do |t|
+	 t.column :latitud, :float
+	change_table :sites do |t|
+	 t.column :longitud, :float
+	change_table :sites do |t|
+	 t.column :zoom, :integer
+  end
+
+  def down
+	change_table :sites do |t|
+	 t.remove :latitud
+	change_table :sites do |t|
+	 t.remove :longitud
+	change_table :sites do |t|
+	 t.remove :zoom
+  end
+end
