@@ -7,11 +7,11 @@
 one: 
     name: Jose Perez
     email: jose.perez@gmail.com
-    encrypted_password: perez22222222222222222222222222222222
+    encrypted_password: perez22222
 # column: value
 #
 two:
     name: Jose Perez
     email: jose.perez@me.com
-    encrypted_password: perez333333333333333333333333333333333
+    encrypted_password: perez33333
 #  column: value
