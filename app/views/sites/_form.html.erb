@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -26,6 +28,21 @@
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
+  </div>
+  <div>
+  	<script type="text/javascript">
+			if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+				navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
+			} else { alert('Geolocation is not supported in this browser.'); }
+			function successFunction(position) {
+				var lat = position.coords.latitude;
+				var long = position.coords.longitude;
+				alert('Your latitude is :'+lat+' and longitude is '+long);
+				$('#lat').val() = lat;
+			}
+			function errorFunction(position) { alert('Error!'); }
+		</script>
+		<%= f.text_area :latitud, :id => "lat" %>
   </div>
   <div class="actions">
     <%= f.submit %>
