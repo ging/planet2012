@@ -11,13 +11,14 @@
   <p><b>Autor:</b>
   	<%= @site.user.name if @site.user %></p>
 
-  <p><b>Comentarios:</b> 	
-  	<%= @site.comments if @site.comments %></p>	<!--se adjuntan los comentarios al final de la descripción del sitio, si los hubiera-->
-
 </div> 
 <p/>
 
 <% if @site.user == current_user %>
-	<%= link_to 'Edit', edit_site_path(@site) %> |
+	<%= link_to 'Edit site', edit_site_path(@site) %> |
 <% end %>
-<%= link_to 'Back', sites_path %>
+<%= link_to 'Back to Sites list', sites_path %> |
+<% if @site.comments != [] %>	<!--se adjuntan los comentarios al final de la descripción del sitio, si los hubiera-->
+	<%= link_to 'Comments', site_comments_path(@site) %> |
+<% end %>
+<%= link_to 'Add your comment', new_site_comment_path(@site) %>

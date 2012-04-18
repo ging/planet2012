@@ -1,26 +1,30 @@
-<h1>Listing comments</h1>
+<div id="site_list"> 
+  <h1>Listing comments</h1>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Comment</th>
-    <th>Site</th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table> 
+    <% @comments.each do |com| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
 
-<% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.user.name %></td>
-    <td><%= comment.comment %></td>
-    <td><%= comment.site_id %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+      <td class="list_description"> 
+        <dl> 
+          <dt><%= link_to com.user.name, com %></dt>           
+          <dd><%= truncate(strip_tags(com.comment), :length => 240) %></dd>
+        </dl> 
+      </td>
+ 
+      <td class="list_actions"> 
+        <%= link_to 'Show', com %><br/>
+        <% if com.user == current_user %>
+          <%= link_to 'Edit', edit_comment_path(com) %><br/>
+          <%= link_to 'Destroy', com, 
+                      :confirm => 'Are you sure?',
+                      :method => :delete %>
+        <% end %>
+      </td> 
+    </tr> 
+  <% end %>
+  </table> 
+</div> 
 <br />
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'Back to Sites list', sites_path %>

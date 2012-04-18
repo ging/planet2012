@@ -12,11 +12,11 @@
 
 <p>
   <b>Site:</b>
-  <%= @comment.site_id %>
+   <%= @comment.site_id %>
 </p>
 
 
 <% if @comment.user == current_user %>
-	<%= link_to 'Edit', edit_comment_path(@comment) %> |
+	<%= link_to 'Edit comment', edit_site_comment_path(@comment) %> |
 <% end %>
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back to site', site_path(@comment.site) %>

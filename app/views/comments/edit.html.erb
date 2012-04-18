@@ -1,12 +1,30 @@
 <h1>Editing comment</h1>
 
 <%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-  <%= f.label :comment %><br/>
-  <%= f.text_area :comment, :characters=>240 %><br/>
- 
-  <div><%= f.submit "Submit new comment" %></div>
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Comment %><br />
+    <%= f.text_area :comment, :maxlength => 240, :rows => 7 %>
+  </div>
+  <div class="field">
+    <%= f.label :site_id %><br />
+    <%= f.collection_select(:site_id, Site.find(:all,:order => :name), :id, :name) %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
 
 <%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back to site', site_path(@comment.site) %>

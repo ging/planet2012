@@ -1,3 +1,25 @@
+ <!-- para geolocalizacion GPS
+ <head>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+   </script>
+   <script type="text/javascript">
+      $(function(){
+      
+      /*navigator.geolocation.getCurrentPosition(successFunction, errorFunction);     
+
+      function successFunction(position) {
+         var lat = position.coords.latitude;
+         var lon = position.coords.longitude;*/
+         document.getElementById("site_latitude").value = 40.41; 
+         document.getElementById("site_longitude").value = -3.7;  
+      /*}
+
+      function errorFunction {alert('Error');}
+      */
+      });
+   </script>
+</head>-->
+
 <h1>New site</h1>
 
 <%= render 'form' %>

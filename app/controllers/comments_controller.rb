@@ -6,12 +6,11 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-      if params[:type_id].nil? or params[:type_id].empty?
+      if params[:site_id].nil? or params[:site_id].empty?
       @comments = Comment.all            
       else
-      @@comments = Comment.find(params[:type_id]).sites  
+      @comments = Site.find(params[:site_id]).comments  
     end
-    # si no funciona cambiar esto por comments=comment.all q es lo q estaba
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +32,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = current_user.comments.build#cambio comment por current_user.comments.build -- crea comentario vacio asociado a current_user
+    @comment = current_user.comments.build  #cambio comment por current_user.comments.build -- crea comentario vacio asociado a current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -50,7 +49,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = current_user.comments.build(params[:comment])  #cambio Comment.new por current_user.comments.build -- asigna solo si comentario asociado a current_user
-
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -85,7 +84,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to sites_url } #cambiar por sites_comments_url¿?¿?
       format.json { head :no_content }
     end
   end

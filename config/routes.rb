@@ -1,17 +1,18 @@
 Planet::Application.routes.draw do
 
+  resources :comments
+
   devise_for :users
+  resources :users
 
   get "types/ordered_index" # se añade una nueva ruta a la acción "ordered_index"
 
-  resources :sites do
-    resources :comments
-  end
-
-  resources :comments
-
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
+  end
+
+  resources :sites do
+    resources :comments
   end
   
   get "planet/index"

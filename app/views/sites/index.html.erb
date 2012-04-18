@@ -14,9 +14,16 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
+
+          <dd></dd> <!-- muestra el enlace a comentarios (si los hay) despues de la descripcion-->
+            <% if site.comments != [] %>
+            <de><%= link_to 'Comments', site_comments_path(site) %><de>
+            <% end %>
         </dl> 
       </td>
- 
+      
+      <dd></dd>
+         
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
         <% if site.user == current_user %>
@@ -24,11 +31,6 @@
           <%= link_to 'Destroy', site, 
                       :confirm => 'Are you sure?',
                       :method => :delete %>
-        <% end %>
-
-       <!--añado la vista de comments si hay comentarios-->
-        <% if site.comments %>  
-          <%= link_to 'Comments', comments_path %><br/>
         <% end %>
       </td> 
     </tr> 
