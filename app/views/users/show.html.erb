@@ -1,9 +1,31 @@
 <h1><%= @user.name %></h1>
 
 <p>
-	email: <%= @user.email %><br>
+	email: <%= @user.email %>
+</p>
+
+<p>
+	Sitios añadidos:
+	<ul>
+		<% @user.sites.each do |s|%>
+			<li><%= link_to s.name, site_path(@s) %>
+		<% end %>
+	</ul>
+</p>
+
+<p>
+	Viajes creados:
+	<ul>
+		<% @user.trips.each do |t|%>
+			<li><%= link_to t.name, trip_path(@t) %>
+		<% end %>
+	</ul>
+</p>
+
+<p>
 	Comentarios publicados: <%= link_to @user.comments.length,
-		user_comments_path(@user.id) %><br>
+	user_comments_path(@user.id) %>
+</p>
 
 	<!-- Información para el administrador -->
 	<% if current_user.name == 'admin' %>

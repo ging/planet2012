@@ -7,20 +7,21 @@
   var myOptions
   var marker;
 
-  function iniMap() {
+  function iniMapa() {
     var lat = <%= @site.latitud %>;
     var lng = <%= @site.longitud %>;
     latlng = new google.maps.LatLng(lat,lng);
     myOptions = {
       zoom: <%= @site.zoom %>,
       center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.HYBRID
     }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
     marker = new google.maps.Marker({
             map: map,
             position: latlng
         });
+    marker.setTitle("<%= @site.name %>");
   }
 
 </script>
@@ -46,7 +47,7 @@
     Incluido en <%=@site.visits.length%> viaje<%if @site.visits.length != 1%>s<%end%>
   </p>
 
-  <div id="map_canvas" style="width: 450px; height: 300px;"></div>
+  <div id="site_canvas"></div>
   
   <p>
     <% if @site.comments != [] %>

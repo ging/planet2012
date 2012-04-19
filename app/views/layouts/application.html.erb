@@ -14,7 +14,7 @@
 
 </head>
 
-<body id="planet" onload = "iniMap()" > 
+<body id="planet" onload = "iniMapa()" > 
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
@@ -42,6 +42,13 @@
       <%= link_to "Sign up", new_user_registration_path unless current_user %>
     </div> 
     <div id="main"> 
+      <p>
+        <%= form_tag planet_search_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        <% end %>
+        <br>
+      </p>
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
       <%= yield %>
     </div> 

@@ -2,47 +2,68 @@
 
 <script type="text/javascript">
 
-  var geocoder;
+  var geocoder = new google.maps.Geocoder();
   var map;
   var marker;
-  var address
-  var pos;
-  var lat;
-  var lng;
-  var zoom;
 
-  function iniForm() {
-    geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+  function iniMapa() {
+    var latlng = new google.maps.LatLng(0,0);
     var myOptions = {
-      zoom: 8,
+      zoom: 1,
       center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.HYBRID
     }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
   }
 
-  function codeAddress() {
-    address = $('#address').val();
+  function situarMapa() {
+    address = $('#site_name').val();
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
+        latlng = results[0].geometry.location;
+        map.setCenter(latlng);
+        map.setZoom(10);
+        marker = new google.maps.Marker({
+          map: map,
+          position: latlng,
+          title: address
         });
+        marker.setDraggable(true);
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
     });
   }
 
+  function ubicActual() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(displayPos, errorFunction);
+    } else { alert('Geolocation is not supported in this browser.'); }
+  }
+
+  function errorFunction(pos) { alert('Error!'); }
+
+  function displayPos(pos) {
+    var mylat = pos.coords.latitude;
+    var mylong = pos.coords.longitude;
+    var latlng = new google.maps.LatLng(mylat, mylong);
+    var myOptions = {
+      zoom: 15,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
+    marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+    });
+  }
+
   function copyParams() {
-    zoom = map.getZoom();
-    pos = map.getCenter();
-    lat = pos.lat();
-    lng = pos.lng();
-    $('#site_name').val(address);
+    var pos = marker.getPosition();
+    var lat = pos.lat();
+    var lng = pos.lng();
+    var zoom = map.getZoom();
     $('#site_latitud').val(lat);
     $('#site_longitud').val(lng);
     $('#site_zoom').val(zoom);
@@ -50,57 +71,62 @@
 
 </script>
 
-<%= form_for(@site) do |f| %>
-  <% if @site.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
 
-      <ul>
-      <% @site.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div id = "site_col1">
+
+  <%= form_for(@site) do |f| %>
+    <% if @site.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
+        <ul>
+        <% @site.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div id = "nombre" class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <p>
+      <input type="button" value="Mostrar" onclick="situarMapa()">
+      <input type="button" value="Ubicación actual" onclick="ubicActual()">
+      <input type="button" value="Copiar parámetros" onclick="copyParams();">
+    </p>
+    <div id="site_canvas"></div>
+
+</div>
+
+<div id = "site_col2">
+
+    <div class="field">
+      <%= f.label :latitud %><br />
+      <%= f.text_field :latitud %>
+    </div>
+    <div class="field">
+      <%= f.label :longitud %><br />
+      <%= f.text_field :longitud %>
+    </div>
+    <div class="field">
+      <%= f.label :zoom %><br />
+      <%= f.text_field :zoom %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description , :rows => 4 %>
+    </div>
+    <div class="field">
+      <%= f.label :type_id %><br />
+      <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
+    </div>
+    <div class="field">
+      <%= f.label :image_url %><br />
+      <%= f.text_field :image_url %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
 
-  <input id="address" type="textbox">
-  <input type="button" value="Mostrar" onclick="iniForm(); codeAddress()">
-  <input type="button" value="Copiar parámetros" onclick="copyParams();">
-  <div id="map_canvas" style="width: 450px; height: 300px;"></div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :latitud %><br />
-    <%= f.text_field :latitud %>
-  </div>
-
-  <div class="field">
-    <%= f.label :longitud %><br />
-    <%= f.text_field :longitud %>
-  </div>
-
-  <div class="field">
-    <%= f.label :zoom %><br />
-    <%= f.text_field :zoom %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description , :rows => 4 %>
-  </div>
-  <div class="field">
-    <%= f.label :type_id %><br />
-    <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

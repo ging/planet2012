@@ -49,16 +49,16 @@
   function getCorners() {
     ne = map.getBounds().getNorthEast();
     sw = map.getBounds().getSouthWest();
-    alert("NE " + ne + "SW " + sw);
+    alert("NE " + ne + "\nSW " + sw);
   }
 
-  function iniMap() {
+  function iniMapa() {
     var myOptions = {
       zoom: 12,
       center: getCenter(),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.HYBRID
     }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
     setMarkers();
   }
 
@@ -89,7 +89,7 @@
   <h1>Sitios a visitar</h1>
 
   <%= render(@trip) %>
-
+  <p>
   <% if @trip.user == current_user %>
     <%= form_for(@visit) do |f| %>
   
@@ -102,12 +102,10 @@
       <%= f.submit "Añadir sitio" %>
     <% end %>
   <% end %>
+  </p>
 </div>
-
-<input type="button" value="ver esquinas" onclick="getCorners()">
-<div id="map_canvas" style="width: 450px; height: 300px;"></div>
-
-<br />
+<p><input type="button" value="ver esquinas" onclick="getCorners()"></p>
+<p><div id="site_canvas"></div></p>
 
 <% if @trip.user == current_user %>
    <%= link_to 'Edit', edit_trip_path(@trip) %> |

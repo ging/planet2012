@@ -10,7 +10,8 @@
       <dd><%= truncate(strip_tags(site.description),
              :length => 80) %></dd>
       <dd><i>
-        Incluido en <%=site.visits.length%> viaje<%if site.visits.length != 1%>s<%end%>
+        Incluido <%=site.visits.length%>
+        ve<%if site.visits.length != 1%>ces<%else%>z<%end%>
       </i>
         <% if site.comments != [] %>
           | <%=link_to "Comentarios", site_path(site) %> (<%= site.comments.length %>)

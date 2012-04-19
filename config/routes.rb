@@ -27,6 +27,8 @@ Planet::Application.routes.draw do
 
   get "planet/author"
 
+  get "planet/search"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

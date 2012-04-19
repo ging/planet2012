@@ -32,5 +32,8 @@ class PlanetController < ApplicationController
 
   def author
   end
+
+  def search
+  end
     
 end
