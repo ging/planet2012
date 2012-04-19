@@ -45,7 +45,7 @@
 <!-- invitación y notificación de sign in al final de la página-->
 <body>
  <% if current_user %>
-  You had sign in as: <%= link_to current_user.name, edit_user_registration_path %> |
+  You has signed in as: <%= link_to current_user.name, edit_user_registration_path %> |
   <%= link_to "Sign out", destroy_user_session_path, :method=>:delete %>
   <% else %>
   You must <%= link_to "Sign in", new_user_session_path %> for create and edit sites, trips and comments

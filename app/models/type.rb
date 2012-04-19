@@ -3,5 +3,5 @@ class Type < ActiveRecord::Base
 
   # validaciones para evitar código malicioso
   validates :name, :description, :presence => true  
-  validates :name, :uniqueness => true 
+  validates :name, :uniqueness => true #campo único (no repetido)
 end

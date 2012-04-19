@@ -4,7 +4,7 @@ class SitesController < ApplicationController
   before_filter :authenticate_user!,:except=> [:index,:show]
 
   #filtro para contador de visitas
-  #after_filter :count_visit, :only => :show
+  after_filter :count_visit, :only => :show
 
   # GET /sites
   # GET /sites.json
@@ -93,10 +93,8 @@ class SitesController < ApplicationController
   end
 
   private
-
   #definicion de la funcion contadora de visitas
-  #def count_visit
-  #  @site.increment!(:visits)
-  #end
-
+  def count_visit
+    @site.increment!(:visits)
+  end
 end

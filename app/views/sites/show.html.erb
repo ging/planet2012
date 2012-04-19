@@ -11,7 +11,13 @@
   <p><b>Autor:</b>
   	<%= @site.user.name if @site.user %></p>
 
-</div> 
+  </div>
+
+  <div class="visitas">
+  	<p><b>Visitas:</b>
+  		<%= @site.visits %></p>
+  </div> 
+  
 <p/>
 
 <% if @site.user == current_user %>

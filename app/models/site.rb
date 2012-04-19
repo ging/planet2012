@@ -3,6 +3,10 @@ class Site < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments
+  has_many :visits
+  has_many :trips, :through => :visits
+
+  # has_attached_file :image
 
   # validaciones para evitar código malicioso
   #relativos a las coordenadas GPS ¿?¿?
