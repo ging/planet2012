@@ -32,5 +32,9 @@ class PlanetController < ApplicationController
 
   def author
   end
+
+  def search
+    @search=params[:q] if params[:q].length >= 3
+  end
     
 end
