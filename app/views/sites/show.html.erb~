@@ -12,58 +12,7 @@
          <i>Zoom:</i> <%= @site.zoom %>
 
 <div class="geo">
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map_canvas { height: 100% }
-    </style>
-    <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?&sensor=false">
-    </script>
-    <script type="text/javascript">
-    var geocoder;
-    var map;
-      function initialize() {
-    var latitude = <%= @site.latitud %> 
-    var longitude = <%= @site.longitud %> 
-    geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(latitude,longitude);
-    var myOptions = {
-      zoom: 8,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-  }
-
-
-    function codeAddress() {
-    geocoder.geocode( { '<%= @site.name %>': address}, function(results, status){
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  }
-
-    </script>
-  </head>
-  <body onload="initialize()">
- <div id="map_canvas" style="width: 320px; height: 480px;"></div>
-  <div>
-    <input id="address" type="textbox" value="Sydney, NSW">
-    <input type="button" value="Encode" onclick="codeAddress()">
-  </div>
-</body>
-</html>
+<%= render "geo"%>
 </div>
 	
 <p><b>Autor:</b> 

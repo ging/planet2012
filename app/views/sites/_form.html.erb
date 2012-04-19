@@ -1,3 +1,4 @@
+<html>
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -27,14 +28,18 @@
     <%= f.label :latitud %><br />
     <%= f.text_field :latitud %>
   </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
 
-<html>
+
 <head>
-
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
-var lat
-var long
+var lat 
+var long 
+
 function geolocalizacion() {
    if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
 	navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
@@ -43,23 +48,18 @@ function geolocalizacion() {
 function successFunction(position) {
     lat = position.coords.latitude;
     long = position.coords.longitude;
-    alert('Your latitude is :'+lat+' and longitude is '+long);
+    $("#site_latitud").val(lat);
+    $("#site_longitud").val(long);
+    $("#site_zoom").val(4);
 }
 
-function errorFunction(position) { alert('Error!'); }
+function errorFunction(position) { alert('Error. Introduzca las coordenadas de forma manual'); }
 </script>
 
 <div>
-    <input type="button" value="Captura de coordenadas" onclick="geolocalizacion()">
+    <input type="button" value="Captura de coordenadas" onclick="geolocalizacion();">
   </div>
 </head>
-
-
-</html>
-   <div class="field">
-    <%= f.label :zoom %><br />
-    <%= f.text_field :zoom %>
-  </div>
 
   <div class="field">
     <%= f.label :type_id %><br />
@@ -74,7 +74,7 @@ function errorFunction(position) { alert('Error!'); }
   <div class="actions">
     <%= f.submit %>
   </div>
-
+</html>
 
 
 
