@@ -6,8 +6,15 @@ class ComentsController < ApplicationController
   # GET /coments
   # GET /coments.json
   def index
-    @coments = Coment.all
+    
 
+	 if params[:site_id].nil? or params[:site_id].empty?	#Para que en el enlace de comentarios solo aparezcan los de el sitio en cuestión
+      @coments = Coment.all            						#si no, se pondría solo esta linea
+      else
+      @coments = Site.find(params[:site_id]).coments  
+    end
+	
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @coments }
@@ -43,11 +50,12 @@ class ComentsController < ApplicationController
 
   # POST /coments
   # POST /coments.json
-  def create
-    @coment = current_user.coments.build(params[:coment]) # Asigna solo si comentario asociado a current_user 
+  def create 
+    @coment = current_user.coments.build(params[:coment]) # Asigna solo si comentario asociado a current_user
 	@site = Site.find(params[:site_id])
 	@coment = @site.coments.create(params[:coment]) 
-	 
+	
+	  
 
 	respond_to do |format|
 		 if @coment.save

@@ -46,6 +46,12 @@
 	font-size:    larger;
 }
 
+#site_list .enlaceComentarios dt {
+	color:        #244;
+	font-weight:  bold;
+	font-size:    small;
+}
+
 #site_list .list_description dd {
         margin: 0;
 }

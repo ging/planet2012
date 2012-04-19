@@ -8,7 +8,7 @@ class Coment < ActiveRecord::Base
   # Se añaden estas definiciones 
   
   validates :site_id,  :presence => true
-   validates :user_id,  :presence => true
+  validates :user_id,  :presence => true
   validates :coment, :presence => true,
                     :length => { :maximum => 240 }
 	

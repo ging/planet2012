@@ -24,6 +24,6 @@
     <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %>  
   </div>
 <% end %>

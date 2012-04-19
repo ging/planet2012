@@ -47,9 +47,8 @@
 		<%= f.text_field :coment %>
 	  </div>
 	  <div class="field">
-		<%= f.label :user_id %><br />
-		<%= f.collection_select(:user_id, User.find(:all, :order => :name), :id, :name) %>
-      </div>
+		<%= f.hidden_field(:user_id, :value => current_user.id)%>
+	  </div>
 	  <div class="actions">
 		<%= f.submit %>
 	  </div>
