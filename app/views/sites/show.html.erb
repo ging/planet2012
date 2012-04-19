@@ -11,7 +11,10 @@
          <i>Latitud:</i> <%= @site.latitud %>
          <i>Zoom:</i> <%= @site.zoom %>
 
+<div class="geo">
 <%= render "geo"%>
+</div>
+	
 <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
 

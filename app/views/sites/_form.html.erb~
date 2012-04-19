@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="name">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -19,6 +19,49 @@
     <%= f.label :description %><br />
     <%= f.text_area :description , :rows => 4 %>
   </div>
+  <div class="field">
+    <%= f.label :longitud %><br />
+     <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+var lat
+var long
+function geolocalizacion() {
+   if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+	navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
+   } else { alert('Geolocation is not supported in this browser.'); }
+}
+function successFunction(position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    alert('Your latitude is :'+lat+' and longitude is '+long);
+}
+
+function errorFunction(position) { alert('Error!'); }
+</script>
+
+<div>
+    <input type="button" value="Captura de coordenadas" onclick="geolocalizacion()">
+    <input type="text" name="latitud">
+  </div>
+</head>
+
+
+</html>
+   <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
+
   <div class="field">
     <%= f.label :type_id %><br />
     <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
@@ -32,4 +75,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
+
+
 <% end %>

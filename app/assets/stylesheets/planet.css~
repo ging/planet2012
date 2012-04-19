@@ -64,7 +64,6 @@
   background:   #88b0f8;
 }
 
-<<<<<<< HEAD
 /* Styles for comments */
 
 #comment_list table tr td {
@@ -97,8 +96,6 @@
   padding-left: 1em;
 }
 
-=======
->>>>>>> planet2012/master
 
 /* START:mainlayout */
 /* Styles for main page */
@@ -196,12 +193,11 @@
   font-weight: bold;
   margin-right: 2em;
 }
-<<<<<<< HEAD
-=======
-
 
 #main .visitas {
-  text-indent:   70%;
+  text-indent:   80%;
 }
 
->>>>>>> planet2012/master
+#main .geo{
+  height: 500px;
+}

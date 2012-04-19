@@ -1,24 +1,40 @@
-<!DOCTYPE html 
+<!DOCTYPE html>
+<div class="geo">
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?&sensor=false">
+    </script>
+    <script type="text/javascript">
+    var map;
+    var marker;
+      function initialize() {
+    var latitude = <%= @site.latitud %> 
+    var longitude = <%= @site.longitud %> 
+    var zoo = <%= @site.zoom %>
+    var latlng = new google.maps.LatLng(latitude,longitude);
+    var myOptions = {
+      zoom: zoo,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    marker = new google.maps.Marker({
+	position: latlng,
+	map: map,
+    });
+  }
 
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-<title>Ejemplo del API JavaScript de Google Maps</title>
-<script
-src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=la_clave"
-type="text/javascript"></script>
-<script type="text/javascript">
-function load() {
-if (GBrowserIsCompatible()) {
-var map = new GMap2(document.getElementById("map"));
-map.setCenter(new GLatLng(43.354810,-5.851805), 14);
-}
-}
-
-</script>
-</head>
-<body onload="load()" onunload="GUnload()">
-<div id="map" style="width: 500px; height: 300px"></div>
+    </script>
+  </head>
+  <body onload="initialize()">
+ <div id="map_canvas" style="width: 320px; height: 480px;"></div>
 </body>
-Elemento
 </html>
-
+</div>

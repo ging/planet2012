@@ -195,6 +195,9 @@
 }
 
 #main .visitas {
-  text-indent:   70%;
+  text-indent:   60%;
 }
 
+#main .geo{
+  height: 500px;
+}
