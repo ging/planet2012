@@ -1,3 +1,33 @@
+<script src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+
+
+function displayPosition() {
+    var mylat = <%= @site.latitud %>;
+    var mylong = <%= @site.longitud %>;
+    var latlng = new google.maps.LatLng(mylat, mylong);
+    var myOptions = {
+      zoom: 15,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+   
+   var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+//Add marker
+   var marker = new google.maps.Marker({
+	     position: latlng, 
+	     map: map, 
+	     title:"You are here"
+	 });
+}
+
+
+</script>
+
+
 <div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
@@ -11,12 +41,12 @@
 
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
+  <p><b><%= (link_to 'Comentarios >>', site_comentarios_path(@site.id)) if (@site.comentarios.size > 0) %></b></p>
+  <p><b><%= link_to 'Añadir Comentario', new_comentario_path %>
 
-  <p><b><%= link_to 'Comentarios >>', site_comentarios_path(@site.id) %></b></p>
+</div>
 
-
-
-</div> 
+<br/>
 
 <p />
 <% if @site.user == current_user %>

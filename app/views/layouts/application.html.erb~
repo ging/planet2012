@@ -8,9 +8,10 @@
 
   <script type="text/javascript">
     $(function() {
-      $( "#trip_description" ).cleditor();
+      $( "textarea" ).cleditor();
     });
   </script>
+
 
 </head>
 
@@ -34,7 +35,6 @@
       <%= link_to "Tipos",  types_path %><br /> 
       <%= link_to "Sitios", sites_path %><br /> 
       <%= link_to "Viajes", trips_path %><br /> 
-      <%= link_to "Comentarios", comentarios_path %><br /> 
       <%= link_to "Autor", planet_autor_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
@@ -47,8 +47,7 @@
       <%= link_to "Home", planet_index_path %>  |  
       <%= link_to "Tipos",  types_path %>  |  
       <%= link_to "Sitios", sites_path %>  |  
-      <%= link_to "Viajes", trips_path %>  |  
-      <%= link_to "Comentarios", comentarios_path %>  |  
+      <%= link_to "Viajes", trips_path %>  |   
       <%= link_to "Autor", planet_autor_path %>  |  
       <%= link_to "Contact", planet_contact_path %>  |  
       <%= link_to "Sign up", new_user_registration_path if !current_user %>

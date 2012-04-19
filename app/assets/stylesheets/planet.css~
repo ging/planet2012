@@ -116,6 +116,7 @@
 }
 
 #bottom {
+  padding: 1em;
   text-align: center;
 }
 
@@ -170,4 +171,10 @@
   color: #44a;
   font-weight: bold;
   margin-right: 2em;
+}
+
+#map_canvas {
+ width: 300px;
+ height: 300px;
+ float: right;
 }

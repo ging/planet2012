@@ -27,6 +27,9 @@
    function displayPosition(pos) {
     var mylat = pos.coords.latitude;
     var mylong = pos.coords.longitude;
+    //var thediv = document.getElementById('locationinfo');
+    //thediv.innerHTML = '<p>Your longitude is :' +
+        //mylong + ' and your latitide is ' + mylat + '</p>';
     oFormObject = document.forms['new_site'];
     oFormObject.elements["site_longitud"].value = mylong;
     oFormObject.elements["site_latitud"].value = mylat;
