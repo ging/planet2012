@@ -18,6 +18,10 @@ Planet::Application.routes.draw do
   resources :sites do
     resources :comments
   end
+
+  resources :sites do 
+    get 'search', :on => :collection
+  end
   
   get "planet/index"
 
@@ -25,7 +29,7 @@ Planet::Application.routes.draw do
 
   get "planet/ejemplo"
 
-  get "planet/author"   # se añande una nueva ruta a la acción "author"
+  get "planet/author"   # se añade una nueva ruta a la acción "author"
 
 
   # The priority is based upon order of creation:

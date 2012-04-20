@@ -18,6 +18,10 @@
             <% if site.comments != [] %>
             <de><%= link_to 'Comments', site_comments_path(site) %><de>
             <% end %>
+
+          <dd></dd> <!-- muestra el número de visitas (si los hay) despues de la descripcion-->
+            <de><p>Visitas: <%= site.visits.length %></p> 
+
         </dl> 
       </td>
       

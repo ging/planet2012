@@ -1,27 +1,17 @@
- <!-- para geolocalizacion GPS
- <head>
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
-   </script>
-   <script type="text/javascript">
-      $(function(){
-      
-      /*navigator.geolocation.getCurrentPosition(successFunction, errorFunction);     
-
-      function successFunction(position) {
-         var lat = position.coords.latitude;
-         var lon = position.coords.longitude;*/
-         document.getElementById("site_latitude").value = 40.41; 
-         document.getElementById("site_longitude").value = -3.7;  
-      /*}
-
-      function errorFunction {alert('Error');}
-      */
-      });
-   </script>
-</head>-->
+<script type="text/javascript">
+   if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+      navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+   } 
+   function successFunction(position) {
+      document.getElementById("site_latitude").value = position.coords.latitude;
+      document.getElementById("site_longitude").value = position.coords.longitude;
+      document.getElementById("site_zoom").value = 15;
+   }
+   function errorFunction(position) { }
+</script>
 
 <h1>New site</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', sites_path %>
+<%= link_to 'Back to Sites list', sites_path %>

@@ -1,10 +1,22 @@
 class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción sólo si sesión existe
-  before_filter :authenticate_user!,:except=> [:index,:show]
+  before_filter :authenticate_user!, :except => [:index, :show, :search]
 
   #filtro para contador de visitas
   after_filter :count_visit, :only => :show
+
+  # Función de búsqueda en sitios y comentarios
+  # GET /sites/search
+  # GET /sites/search.json
+  def search
+    #@sites = Site.where("name like ? OR description like ?", "%#{params[:q]}%", "%#{params[:q]}%")
+
+    #respond_to do |format|
+    #  format.html # search.html.erb
+    #  format.json  { render json: @sites }
+    #end
+  end
 
   # GET /sites
   # GET /sites.json
@@ -95,6 +107,6 @@ class SitesController < ApplicationController
   private
   #definicion de la funcion contadora de visitas
   def count_visit
-    @site.increment!(:visits)
+    @site.increment(:visits)
   end
 end

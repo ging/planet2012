@@ -1,0 +1,5 @@
+// Programa jQuery/Javascript
+//  -> sustituye la lista de visitas de un viaje en DOM
+//	-> HTML se genera en servidor con ERb
+
+$('#visit').html("<%= j render @visit.trip %>");

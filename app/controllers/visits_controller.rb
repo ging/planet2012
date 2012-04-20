@@ -45,6 +45,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit.trip, notice: 'Visit was successfully created.' }
+        format.js  #se añade formato Javascript para transacción AJAX -- app/views/visits/create.js.erb
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.html { render action: "new" }

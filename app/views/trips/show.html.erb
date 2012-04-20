@@ -25,21 +25,20 @@
 	<%= render(@trip) %>
 
 	<% if @trip.user == current_user %>
-	 <%= form_for(@visit, :remote => true) do |f| %>
+	 <%= form_for(@visit, :remote => true) do |f| %> <!--AJAX-->
 
-  <!--<%= form_for(@visit) do |f| %>
+   <!-- codigo reemplazado por el AJAX anterior <%= form_for(@visit) do |f| %> -->
 
-    <% f.number_field :trip_id, :value => @trip.id, :hidden => true %>
-    <% f.collection_select(:site_id, Site.all, :id, :name) %>
-    <% f.select(:hour, Array.new(24,0).fill {|i| [(i.to_s + 'H'), i]}) %>
-    <% f.submit "Añadir sitio" %>
-
+    <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
+    <%= f.collection_select(:site_id, Site.all, :id, :name) %>
+    <%= f.select(:hour, Array.new(24,0).fill {|i| [(i.to_s + 'H'), i]}) %>
+    <%= f.submit "Añadir sitio" %> <!-- el primer sitio añadido se hace desde aqui, el resto desde la zona de show-->
+   <% end %>
   <% end %>
--->  <% end %>
-  <% end %>
+ <% end %>
 </div><br/>
 
 <% if @trip.user == current_user %>
-  <%= link_to 'Edit', edit_trip_path(@trip) %>
+  <%= link_to 'Edit', edit_trip_path(@trip) %> |
 <% end %>
 <%= link_to 'Back to Trips list', trips_path %>
