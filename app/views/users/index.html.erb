@@ -1,0 +1,8 @@
+<p><h1>Lista de usuarios</h1></p>
+<p><% if current_user == nil %>
+		<%= link_to "Inicie sesión", new_user_session_path %> 
+      	para ver la lista de usuarios.
+    <% else %>
+    	<%= render @users %>
+    <% end %>
+</p>

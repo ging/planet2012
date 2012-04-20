@@ -162,8 +162,6 @@
   margin-right: 2em;
 }
 
-
-#main .visitas {
-  text-indent:   70%;
+#main .visitas { 
+  text-indent: 0%;
 }
-

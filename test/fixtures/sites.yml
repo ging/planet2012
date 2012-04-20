@@ -8,9 +8,9 @@ one:
   user: one
 
 two:
-  name: MyString
-  description: MyText
-  type: one
-  image_url: MyString
-  user: one
+  name: YourString
+  description: YourText
+  type: two
+  image_url: YourString
+  user: two
   

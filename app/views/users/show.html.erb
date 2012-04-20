@@ -1,0 +1,37 @@
+<h1><%= @user.name %></h1>
+
+<p>
+	email: <%= @user.email %>
+</p>
+
+<p>
+	Sitios añadidos:
+	<ul>
+		<% @user.sites.each do |s|%>
+			<li><%= link_to s.name, site_path(@s) %>
+		<% end %>
+	</ul>
+</p>
+
+<p>
+	Viajes creados:
+	<ul>
+		<% @user.trips.each do |t|%>
+			<li><%= link_to t.name, trip_path(@t) %>
+		<% end %>
+	</ul>
+</p>
+
+<p>
+	Comentarios publicados: <%= link_to @user.comments.length,
+	user_comments_path(@user.id) %>
+</p>
+
+	<!-- Información para el administrador -->
+	<% if current_user.name == 'admin' %>
+		Número de accesos: <%= @user.sign_in_count %><br>
+		Último acceso: <%= @user.current_sign_in_at %><br>
+		Última IP: <%= @user.last_sign_in_ip %><br>
+	<% end %>
+</p>
+<p><%= link_to "Back", users_path %></p>

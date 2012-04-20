@@ -1,0 +1,18 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#comment table {
+}
+
+#comment .list_actions {
+  text-align: right;
+}
+
+#comment .list_line_even {
+  background: #eef;
+}
+
+#comment .list_line_odd {
+  background:   #efe;
+}

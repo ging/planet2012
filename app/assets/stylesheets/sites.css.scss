@@ -1,3 +1,21 @@
 // Place all the styles related to the sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#site_col1 {
+	float: left;
+	width: 30%;
+	font-weight: bold;
+}
+
+#site_col2 {
+	float: left;
+	width: 70%;
+	font-weight: bold;
+}
+
+#site_canvas {
+	width: 450px;
+	height: 290px;
+	border: 1px solid black;
+}

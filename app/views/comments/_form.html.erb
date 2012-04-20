@@ -1,0 +1,8 @@
+<%= form_for([@site, @site.comments.build]) do |f| %>
+	<div class="field">
+		<%= f.text_area :comment, :rows => 4 %>
+	</div>
+	<div class="actions">
+    	 <%= f.submit %>
+  	</div>
+<% end %>
