@@ -1,6 +1,23 @@
-<h1>Autor</h1>
-<p>
-<ul>
-<li>Raul de Pablos Martin</li>
+<h1>
+	Autor</h1>
+<right><%= image_tag('foto.png') %></right><ul>
+	<li>
+		Raul de Pablos Martin
+		<ul>
+			<li>
+				Estudiante de la ETSI Telecomunicacion
+				<ul>
+					<li>
+						4&ordm; Curso</li>
+					<li>
+						Estudiante de SWCM</li>
+				</ul>
+			</li>
+			<li>
+				raulmerlin@gmail.com</li>
+		</ul>
+	</li>
 </ul>
-</p>
+<p>
+	&nbsp;</p>
+

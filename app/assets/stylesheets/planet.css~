@@ -177,4 +177,11 @@
  width: 300px;
  height: 300px;
  float: right;
+ margin-right: 100px;
+}
+
+#author-photo {
+ float: left;
+ position: absolute;
+ margin-left: 500px;
 }
