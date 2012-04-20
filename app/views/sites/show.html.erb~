@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+    function displayPosition(){
+      if (navigator.geolocation){
+        var mylat = <%= @site.latitud %>;
+        var mylong = <%= @site.longitud %>;
+        var latlng = new google.maps.LatLng(mylat, mylong);
+  
+        // Define my Google Maps options in variable “myOptions”
+        var myOptions = {zoom: 15, center: latlng, mapTypeId: google.maps.MapTypeId.HYBRID };
+  
+        // Load Google Map according to “myOptions” in Canvas identified by “map_canvas”
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  
+        // Add marker in Google Maps “map” in position defined by “lating”
+        var marker = new google.maps.Marker({position: latlng, map: map, title:"You are here"});
+      } else { alert('Geolocation is not supported in this browser.'); }
+    }
+  </script>
+</head>
+
+<body onload="displayPosition()">
+<div id="site">
+ 
+  <h1><%= @site.type.name if @site.type %></h1> 
+
+  <%= image_tag(@site.image_url, :class => 'site_image') %>
+
+  <h3><%= @site.name %></h3> 
+
+  <p><%=sanitize @site.description %></p>
+
+  <p><b>Autor:</b> 
+    <%= @site.user.name if @site.user %></p>
+  <p><b>Latitud:</b> 
+    <%= @site.latitud %></p>
+  <p><b>Longitud:</b> 
+    <%= @site.longitud %></p>
+ 
+  <% unless @site.comments.empty? %>
+	  <p><b>Comentarios:</b></p>
+	  <% @comments = @site.comments %>
+  	<%= render(@comment) %>
+  <% end %>
+
+  <%= render 'comments/form' %>
+
+</div> 
+
+<div id="map_canvas"></div>
+<p />
+<%= @site.image_url %>
+<% if @site.user == current_user %>
+	<%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
+</body>
+</html>
+

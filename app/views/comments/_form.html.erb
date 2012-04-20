@@ -4,9 +4,9 @@
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -15,7 +15,6 @@
   <div class="field">
     <%= f.text_area :comment, :maxlength => 240, :rows => 6 %>
   </div>
-  <%= f.number_field :user_id, :value => current_user.id, :hidden => true %>
   <%= f.number_field :site_id, :value => @site.id, :hidden => true %>
   <div class="actions">
     <%= f.submit %>

@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def index
     @site = Site.find(params[:site_id])
     @comments = @site.comments
-    @comment = current_user.comments.build
+    @comment = current_user.comments.build if current_user
 
     respond_to do |format|
       format.html # index.html.erb
@@ -48,10 +48,11 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = current_user.comments.build(params[:comment])
+    @site = @comment.site
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to site_path(@comment.site), notice: 'Comment was successfully created.' }
+        format.html { redirect_to site_path(@site), notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }
@@ -64,10 +65,11 @@ class CommentsController < ApplicationController
   # PUT /comments/1.json
   def update
     @comment = current_user.comments.find(params[:id])
+    @site = @comment.site
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to site_path(@comment.site), notice: 'Comment was successfully updated.' }
+        format.html { redirect_to site_path(@site), notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

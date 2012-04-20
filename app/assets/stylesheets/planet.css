@@ -100,6 +100,11 @@
   background: white;
 }
 
+#map_canvas {
+  width: 100%;
+  height: 600px;
+}
+
 #side {
   float: left;
   padding-top: 1em;
@@ -112,6 +117,10 @@
 #side a {
   color: #bfb;
   font-size: small;
+}
+
+#site .visitas {
+  text-indent:   70%;
 }
 /* END:mainlayout */
 

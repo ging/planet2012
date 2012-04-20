@@ -4,7 +4,7 @@ Planet::Application.routes.draw do
 
   resources :trips
 
-  resources :comments, :except => [ :new, :index ]
+  resources :comments, :except => [ :new, :index, :show ]
 
   devise_for :users
   

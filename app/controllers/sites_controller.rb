@@ -7,10 +7,11 @@ class SitesController < ApplicationController
   # GET /sites.json
   def index
     if params[:type_id].nil? or params[:type_id].empty?
-      @sites = Site.all            # path: /types
-      else
+      @sites = Site.all            # path: /sites
+    else
       @sites = Type.find(params[:type_id]).sites  # path: /types/id/sites
     end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sites }
@@ -21,7 +22,7 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-    @comment = current_user.comments.build
+    @comment = current_user.comments.build if current_user
 
     respond_to do |format|
       format.html # show.html.erb

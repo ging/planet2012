@@ -14,8 +14,10 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
+          <br/>
+          <b>Viajes:</b> <%= site.trips.size %><br/>
           <% unless site.comments.empty? %>
-            <dd><%= link_to 'Comentarios', site_comments_path(site) %></dd>
+            <%= link_to 'Comentarios', site_comments_path(site) %>
           <% end %>
         </dl> 
       </td>

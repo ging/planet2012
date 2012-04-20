@@ -2,6 +2,8 @@
 
 <%= render 'comment' %>
 
-<%= render 'form' %>
+<p>
+
+<%= render 'form' if current_user %>
 
 <%= link_to 'Back', sites_path %>

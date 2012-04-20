@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+</script>
+
+<script type="text/javascript">
+      if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+        navigator.geolocation.getCurrentPosition (displayPosition, errorFunction);
+      } else { alert('Geolocation is not supported in this browser.'); }
+
+      function displayPosition(position){     
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        $('#latitud').val(lat);
+        $('#longitud').val(lon);
+      }
+
+      function errorFunction(position) { alert('Error!'); }
+    </script>
+</head>
+
+<body>
+<%= form_for(@site) do |f| %>
+  <% if @site.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @site.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description , :rows => 4 %>
+  </div>
+  <div class="field">
+    <%= f.label :type_id %><br />
+    <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <%= f.number_field :latitud, :value => @site.latitud, :hidden => true, :id => "latitud" %>
+  <%= f.number_field :longitud, :value => @site.longitud, :hidden => true, :id => "longitud" %>
+  <div class="field">
+     <%= f.label :zoom %><br />
+     <%= f.number_field :zoom, :value => 15 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</body>
+</html>
