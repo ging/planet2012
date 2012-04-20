@@ -7,7 +7,7 @@ one:
   user: one
 
 two:
-  name: MyString
-  description: MyText
+  name: YourString
+  description: YourText
   date: 2012-04-09
-  user: one
+  user: two
