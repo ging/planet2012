@@ -1,13 +1,16 @@
 Planet::Application.routes.draw do
 
+
   resources :visits
 
   resources :trips
 
   devise_for :users
 
-  resources :sites
-
+  resources :sites do
+    resources :comments
+  end
+  
   get "types/ordered_index"
   
   resources :types do                     # Rutas anidadas /types/id/sites...,
