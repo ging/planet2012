@@ -6,6 +6,6 @@ one:
   hour: 9
 
 two:
-  trip: one
-  site: one
+  trip: two
+  site: two
   hour: 9

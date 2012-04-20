@@ -5,8 +5,8 @@ one:
   description: MyText
 
 two:
-  name: MyString
-  description: MyText
+  name: YourString
+  description: YourText
 
 <<<<<<< HEAD
 # Podriamos añadir nuevos datos de inicialización, que se referencian como
