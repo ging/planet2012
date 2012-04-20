@@ -17,8 +17,12 @@
   </div>
 
   <div class="field">
-   <%= f.label :site_id %><br />
-   <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) %>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :site_id %><br />
+    <%= f.number_field :site_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

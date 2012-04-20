@@ -6,11 +6,9 @@ class ComentariosController < ApplicationController
   # GET /comentarios
   # GET /comentarios.json
   def index
-    if params[:site_id].nil? or params[:site_id].empty?
-      @comentarios = Comentario.all            # path: /sites
-      else
-      @comentarios = Site.find(params[:site_id]).comentarios  # path: /sites/id/comentarios
-    end
+
+    @comentarios=Comentario.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @comentarios }
@@ -47,7 +45,10 @@ class ComentariosController < ApplicationController
   # POST /comentarios
   # POST /comentarios.json
   def create
-    @comentario = current_user.comentarios.build(params[:comentario]) 
+    @site=Site.find(params[:site_id])
+    @comentario=@site.comentario.create(params[:comment])
+    @comentario.user_id=current_user.id
+    
     
     respond_to do |format|
       if @comentario.save

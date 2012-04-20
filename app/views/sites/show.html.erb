@@ -2,9 +2,13 @@
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
+
   <%= image_tag(@site.image_url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
+   <% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %>
+<% end %>
 
   <p><%=sanitize @site.description %></p>
 
@@ -12,8 +16,19 @@
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
    
-  <p><b><%= (link_to 'Ver comentarios', site_comentarios_path(@site.id)) if (@site.comentarios.size > 0) %></b></p>
-  <p><b><%= link_to 'Añadir Comentario', new_comentario_path %>
+   <h3>Comentarios</h3>
+
+
+    <% @site.comentarios.each do |comentario| %>
+
+      <p><b><%= comentario.user.name if comentario.user%>
+      : </b>
+      <%= comentario.coment %>
+      <% if comentario.user == current_user %>
+          <%= link_to 'Edit', edit_comentario_path(comentario) %> 
+        <%= link_to 'Destroy', comentario, confirm: 'Are you sure?', method: :delete %>
+        <% end %></p>
+    <% end %>
 
 </div> <br/>
 
@@ -22,7 +37,5 @@
 </div>
 
 <p />
-<% if @site.user == current_user %>
-  <%= link_to 'Edit', edit_site_path(@site) %> |
-<% end %>
+
 <%= link_to 'Back', sites_path %>
