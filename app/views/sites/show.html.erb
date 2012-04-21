@@ -1,3 +1,7 @@
+<style type="text/css">
+  #map_canvas {   width: 300px;  height: 200px;  }
+</style>
+
 <div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
@@ -14,6 +18,34 @@
 <div class="visitas">
   <b>Visitas:</b>  <%= @site.visitas %>
 </div>
+
+<div id="map_canvas"></div>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+    var mylat = <%= @site.lat %>;
+    var mylong = <%= @site.long %>;
+
+    var latlng = new google.maps.LatLng(mylat, mylong);
+
+    var myOptions = {
+      zoom: 15,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  var marker = new google.maps.Marker({
+
+      position: latlng, 
+       map: map, 
+      title:"You are here"
+   });
+
+</script>
 
 <p />
 <% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
