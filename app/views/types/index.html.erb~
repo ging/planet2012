@@ -29,4 +29,4 @@
 
 <%= link_to 'New Type', new_type_path %>  |  
 <%= link_to 'Order By Name', types_ordered_index_path %>  |  
-<%= link_to 'Order By Creation', types_path %>
+<%= link_to 'Order By Creation', types_index_path %>
