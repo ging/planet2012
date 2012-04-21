@@ -36,6 +36,7 @@ class ComentsController < ApplicationController
   # GET /coments/new.json
   def new
     @coment = Coment.new
+	
 
     respond_to do |format|
       format.html # new.html.erb

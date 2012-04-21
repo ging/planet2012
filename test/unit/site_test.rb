@@ -12,6 +12,6 @@ class SiteTest < ActiveSupport::TestCase
     assert site.errors[:name].any?
     assert not(site.errors[:description].any?)
     assert site.errors[:type_id].any?
-    assert site.errors[:image_url].any?
+    #    assert site.errors[:image_url].any? not used with paperclip
   end
 end

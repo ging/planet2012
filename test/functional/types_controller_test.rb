@@ -7,6 +7,8 @@ class TypesControllerTest < ActionController::TestCase
       :name         => 'AnotherType',
       :description  => 'AnotherText',
     }
+  @user = users(:one)
+  sign_in @user
   end
 
   test "should get index" do
@@ -39,7 +41,7 @@ class TypesControllerTest < ActionController::TestCase
   end
 
   test "should update type" do
-    put :update, id: @type, type: @type.attributes
+     put :update, id: @type, type: @update
     assert_redirected_to type_path(assigns(:type))
   end
 

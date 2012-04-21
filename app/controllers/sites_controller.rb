@@ -23,7 +23,6 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-	
 
 
     respond_to do |format|
@@ -37,7 +36,7 @@ class SitesController < ApplicationController
   # GET /sites/new
   # GET /sites/new.json
   def new
-    @site = Site.new
+    @site = current_user.sites.build # crea sitio vacio asociado a current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,7 +46,7 @@ class SitesController < ApplicationController
 
   # GET /sites/1/edit
   def edit
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
   end
 
   # POST /sites
