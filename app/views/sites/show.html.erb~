@@ -32,6 +32,12 @@ function displayPosition() {
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
+<div id="map_canvas"></div>
+<script type="text/javascript">
+   displayPosition();
+</script>
+
+
   <%= image_tag(@site.image_url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
