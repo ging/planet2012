@@ -89,6 +89,12 @@
   font-size: small;
 }
 
+#map_canvas {
+  margin-left: 9em;  /* Ajuste de borde izquierdo */
+  padding-top: 4ex;
+  padding-left: 2em;
+}
+
 #columns {
   background: #446;
 }

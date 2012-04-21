@@ -10,8 +10,69 @@
   <%= link_to 'Edit', edit_site_path(@site) %>
 <% end %>
 
+<p><b>Coordenadas:</b> 
+         <i>Latitud:</i> <%= @site.latitud %>
+         
+         <i>Longitud</i> <%= @site.longitud %>
+
+         <i>Zoom:</i> <%= @site.zoom %>
+
   <p><%=sanitize @site.description %></p>
 
+<div id="geo">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?&sensor=false">
+    </script>
+
+    <script type="text/javascript">
+
+    function loadMap() {
+      var lat = <%= @site.latitud %>;;
+      var longi = <%= @site.longitud %>;
+      latlng = new google.maps.LatLng(lat, longi)
+
+        var myOptions = {
+          center: latlng,
+          zoom: <%= @site.zoom %>,
+          mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+ 
+
+        marker = new google.maps.Marker({
+          map: map,
+          position: latlng,
+          title:"<%= @site.name %>"
+        });
+        var note = '<span style="float: left; width: 100px; height: 85px; display: inline-block;">'
+                     +"<img src=<%= asset_path(@site.image_url) %>"+ '/>'+'</span>'+
+                  '<span style="float: center; font-size: 12px; margin-left: 9px; width: 140px;"><%=@site.description%></span>';
+
+var infowindow = new google.maps.InfoWindow({
+    content: note
+})
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+});
+
+    
+      }
+
+</script>
+
+ <body onload="loadMap()">
+    <div id="map_canvas" style="width: 620px; height: 480px;"></div>
+ </body>
 
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
@@ -30,11 +91,39 @@
         <% end %></p>
     <% end %>
 
+    <h3>Añadir un comentario:</h3>
+  <% if current_user %>    
+   <%= form_for ([@site, @comentario]) do |f| %>
+    <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @comentario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <%= f.number_field :site_id, :value => @site.id, :hidden => true %>
+      <%= f.number_field :user_id, :value => current_user.id, :hidden => true %>
+      
+      <%= f.text_area :coment, :maxlength => 240,:rows => 5 %><br/>
+      <%= f.submit "Añadir comentario" %>
+    <% end %>
+  <% else %>  
+    <i><%= link_to "Login", new_user_session_path %> para comentar:</i>
+  <% end %>
+
 </div> <br/>
 
 <div class="visitas">
   <b>Visitas:</b>  <%= @site.visitas %>
+   <% if @site.trips.size>0 %> 
+          <b>Viajes:</b> <%= @site.trips.size%> 
+        <% end %>
 </div>
+
 
 <p />
 

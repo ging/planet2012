@@ -29,7 +29,7 @@ class ComentariosController < ApplicationController
   # GET /comentarios/new
   # GET /comentarios/new.json
   def new
-    @comentario = current_user.comentarios.build 
+    @comentario = Comentario.new
     
     respond_to do |format|
       format.html # new.html.erb
@@ -39,14 +39,14 @@ class ComentariosController < ApplicationController
 
   # GET /comentarios/1/edit
   def edit
-    @comentario = current_user.comentarios.find(params[:id])  
+    @comentario = Comentario.find(params[:id])  
   end
 
   # POST /comentarios
   # POST /comentarios.json
   def create
     @site=Site.find(params[:site_id])
-    @comentario=@site.comentario.create(params[:comment])
+    @comentario=@site.comentarios.create(params[:comentario])
     @comentario.user_id=current_user.id
     
     

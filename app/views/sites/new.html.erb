@@ -1,4 +1,30 @@
-<h1>New site</h1>
+ <script src="http://maps.google.com/maps/api/js?sensor=false">
+  // Carga librería de Google Maps. Doc: http://code.google.com/apis/maps/documentation/javascript/
+  </script>
+
+  <script type="text/javascript">
+
+   if(navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(succesFunction, errorFunction);
+   } else {
+	alert('Geolocation is not supported in this browser.');
+   }
+
+   function succesFunction(position) {
+    var lat = position.coords.latitude;
+    var longi = position.coords.longitude;
+    $("#site_latitud").val(lat);
+    $("#site_longitud").val(longi);
+    $("#site_zoom").val(7);
+   }
+
+   function errorFunction(pos) {
+	alert('Error!');
+   }
+
+  </script>
+
+  <h1>New site</h1>
 
 <%= render 'form' %>
 
