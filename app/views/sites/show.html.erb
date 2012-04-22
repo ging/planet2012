@@ -2,7 +2,7 @@
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image_url, :class => 'site_image') %>
+  <%= image_tag(@site.image.url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
 
