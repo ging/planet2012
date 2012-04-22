@@ -11,7 +11,7 @@
 
 
 #planet h1 {
-        font:  150% sans-serif;
+        font: 150% sans-serif;
         color: #226;
         border-bottom: 3px dotted #77d;
 }
@@ -28,12 +28,12 @@
 }
 
 #site_list .list_image {
-  width:        60px;
-  height:       70px;
+  width: 60px;
+  height: 70px;
 }
 
 #site_list .list_description {
-  width:        60%;
+  width: 60%;
 }
 
 #site_list .list_description dl {
@@ -41,9 +41,9 @@
 }
 
 #site_list .list_description dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    larger;
+color: #244;
+font-weight: bold;
+font-size: larger;
 }
 
 #site_list .list_description dd {
@@ -51,17 +51,17 @@
 }
 
 #site_list .list_actions {
-  font-size:    x-small;
-  text-align:   right;
+  font-size: x-small;
+  text-align: right;
   padding-left: 1em;
 }
 
 #site_list .list_line_even {
-  background:   #a8b8f8;
+  background: #a8b8f8;
 }
 
 #site_list .list_line_odd {
-  background:   #88b0f8;
+  background: #88b0f8;
 }
 
 /* Styles for comments */
@@ -73,7 +73,7 @@
 
 
 #comment_list .comment_description {
-  width:        60%;
+  width: 60%;
 }
 
 #comment_list .comment_description dl {
@@ -81,9 +81,9 @@
 }
 
 #comment_list .comment_description dt {
-	color:        #244;
-	font-weight:  bold;
-	font-size:    small;
+color: #244;
+font-weight: bold;
+font-size: small;
 }
 
 #comment_list .comment_description dd {
@@ -91,8 +91,8 @@
 }
 
 #comment_list .comment_actions {
-  font-size:    x-small;
-  text-align:   right;
+  font-size: x-small;
+  text-align: right;
   padding-left: 1em;
 }
 
@@ -104,7 +104,7 @@
   background: #668;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom: 2px solid;  
+  border-bottom: 2px solid;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #bfb;
   text-align: center;
@@ -126,7 +126,7 @@
 }
 
 #main {
-  margin-left: 9em;  /* Ajuste de borde izquierdo */
+  margin-left: 9em; /* Ajuste de borde izquierdo */
   padding-top: 4ex;
   padding-left: 2em;
   background: white;
@@ -137,7 +137,7 @@
   padding-top: 1em;
   padding-left: 1em;
   padding-bottom: 1em;
-  width: 8em;          /* Ajuste de borde izquierdo */
+  width: 8em; /* Ajuste de borde izquierdo */
   background: #446;
 }
 
@@ -149,13 +149,13 @@
 
 /* An entry in the store catalog (no utilizados de momento) */
 
-#planet  .entry {
+#planet .entry {
   overflow: auto;
   margin-top: 1em;
   border-bottom: 1px dotted #77d;
 }
 
-#planet  .name {
+#planet .name {
   font-size: 120%;
   font-family: sans-serif;
 }
@@ -175,8 +175,8 @@
 }
 
 #store .entry p {
- margin-top: 0.5em; 
- margin-bottom: 0.8em; 
+ margin-top: 0.5em;
+ margin-bottom: 0.8em;
 }
 
 #store .entry .price_line {
@@ -188,17 +188,17 @@
   position: relative;
 }
 
-#store .entry  .price {
+#store .entry .price {
   color: #44a;
   font-weight: bold;
   margin-right: 2em;
 }
 
 #main .visitas {
-  text-indent:   60%;
+  text-indent: 50%;
 }
 
 #main .geo{
   height: 500px;
-  width: 500px;
+  width :500px;
 }

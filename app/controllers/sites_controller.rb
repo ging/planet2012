@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
+  #after_filter :visitas, :only => :show
  
   # GET /sites
   # GET /sites.json
@@ -20,7 +21,7 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-    @site.increment!(:visitas)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }

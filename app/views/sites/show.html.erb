@@ -31,18 +31,18 @@
         
 <% end %>
 
-<div class="visitas">
-  <b>Visitas:</b> <%= @site.visitas %>
-</div>
+<div class="visitas"> <b>Visitas:</b> <%= @site.visitas %> 
 
 <p>
     Incluido en <%=@site.visits.length%> viaje<%if @site.visits.length != 1%>s<%end%>
 </p>
+</div>
 
 <p />
 <% if @site.user == current_user %>
   <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
-<%= link_to 'Back', sites_path %></div>
+<%= link_to 'Back', sites_path %>
 </div>
+
 

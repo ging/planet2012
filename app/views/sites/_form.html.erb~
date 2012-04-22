@@ -53,7 +53,7 @@ function successFunction(position) {
     $("#site_zoom").val(4);
 }
 
-function errorFunction(position) { alert('Error!'); }
+function errorFunction(position) { alert('Error. Introduzca las coordenadas de forma manual'); }
 </script>
 
 <div>

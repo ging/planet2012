@@ -37,12 +37,12 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
-var lat 
-var long 
+var lat
+var long
 
 function geolocalizacion() {
    if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
-	navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
+navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
    } else { alert('Geolocation is not supported in this browser.'); }
 }
 function successFunction(position) {

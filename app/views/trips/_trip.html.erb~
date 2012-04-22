@@ -1,34 +1,32 @@
+
 <div id="visit">
-  <table>
-   <% trip.visits.order(:hour).each do |visit| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-      <td>
+  <table> 
+   <%  trip.visits.order(:hour).each do |visit| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+      <td> 
         <%= link_to image_tag(visit.site.image_url, :class => 'list_image'), visit.site %>
-      </td>
+      </td> 
  
-      <td class="list_description">
-        <dl>
+      <td class="list_description"> 
+        <dl> 
           <dt><%= visit.hour.to_s + 'h: ' %>
-              <%=link_to(visit.site.name, visit.site) %></dt>
+              <%=link_to(visit.site.name, visit.site) %></dt> 
           <dd><%= truncate(strip_tags(visit.site.description),
                  :length => 80) %></dd>
-        </dl>
+        </dl> 
       </td>
  
-      <td class="list_actions">
+      <td class="list_actions"> 
         <%= link_to 'Show', visit.site %><br/>
-        <%= link_to 'Destroy', visit,
+        <%= link_to 'Destroy', visit, 
                     :confirm => 'Are you sure?',
-                    :method => :delete if trip.user == current_user %>
+                    :method => :delete if trip.user == current_user  %>
 
-      </td>
-    </tr>
+      </td> 
+    </tr> 
    <% end %>
-  </table>
+  </table> 
 </div>
-
-
-
 
 
 

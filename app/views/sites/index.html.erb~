@@ -15,10 +15,10 @@
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
            <% if site.comments !=[]  %>
-           	<b>Existen <%= link_to 'comentarios', site %> </b>
+           	<b>Existen <%= link_to 'comentarios', site %> <b/>
            <% end  %>
         </dl> 
-<p><i> Sitio incluido en <%=site.visits.length%> viaje<%if site.visits.length != 1%>s<%end%><i/></p>
+           Incluido en <%=site.visits.length%> viaje<%if site.visits.length != 1%>s<%end%>
       </td>
 
       <td class="list_actions"> 

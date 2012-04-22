@@ -2,7 +2,6 @@ class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
-
   
   # GET /trips
   # GET /trips.json
@@ -19,7 +18,11 @@ class TripsController < ApplicationController
   # GET /trips/1.json
   def show
     @trip = Trip.find(params[:id])
+<<<<<<< HEAD
+=======
     @visit = @trip.visits.build
+>>>>>>> planet2012/master
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @trip }

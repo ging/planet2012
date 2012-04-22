@@ -15,10 +15,10 @@
     var map;
     var marker;
       function initialize() {
-    var latitude = <%= @site.latitud %> 
-    var longitude = <%= @site.longitud %> 
+    var latitude = <%= @site.latitud %>
+    var longitude = <%= @site.longitud %>
     var zoo = <%= @site.zoom %>
-    var image = new google.maps.MarkerImage ("<%= asset_path(@site.image_url) %>", 
+    var image = new google.maps.MarkerImage ("<%= asset_path(@site.image_url) %>",
                 new google.maps.Size(50,50),
                 new google.maps.Point(90,25),
                 new google.maps.Point(0,35));
@@ -30,8 +30,8 @@
     }
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     marker = new google.maps.Marker({
-	position: latlng,
-	map: map,
+position: latlng,
+map: map,
         icon: image
     });
   }
@@ -43,4 +43,6 @@
 </body>
 </div>
 </html>
+
+
 

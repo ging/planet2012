@@ -6,18 +6,6 @@
 
 <p><%=sanitize @site.description %></p
 
-<p><b>Coordenadas:</b> 
-         <i>Longitud</i> <%= @site.longitud %>
-         <i>Latitud:</i> <%= @site.latitud %>
-         <i>Zoom:</i> <%= @site.zoom %>
-<div id="site">
-
-<h1><%= @site.type.name if @site.type %></h1>
-<%= image_tag(@site.image_url, :class => 'site_image') %>
-<h3><%= @site.name %></h3>
-
-<p><%=sanitize @site.description %></p
-
 <p><b>Coordenadas:</b>
          <i>Longitud</i> <%= @site.longitud %>
          <i>Latitud:</i> <%= @site.latitud %>
@@ -43,9 +31,7 @@
         
 <% end %>
 
-<div class="visitas">
-  <b>Visitas:</b> <%= @site.visitas %>
-</div>
+<div class="visitas"> <b>Visitas:</b> <%= @site.visitas %> </div>
 
 <p>
     Incluido en <%=@site.visits.length%> viaje<%if @site.visits.length != 1%>s<%end%>
@@ -55,7 +41,7 @@
 <% if @site.user == current_user %>
   <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
-<%= link_to 'Back', sites_path %></div>
+<%= link_to 'Back', sites_path %>
 </div>
 
 
