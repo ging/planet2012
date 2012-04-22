@@ -10,4 +10,6 @@ git pull ging master
 
 git add -A
 
+git commit -m 'solved conflicts'
+
 git push -u
