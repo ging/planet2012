@@ -31,5 +31,10 @@ class PlanetController < ApplicationController
   end
     
   def author
-  end  
+  end 
+  
+  def busqueda
+    @sites = Site.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', :q, :q])
+    @trips = Trip.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', :q, :q])
+  end 
 end
