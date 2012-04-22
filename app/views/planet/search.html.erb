@@ -1,2 +1,9 @@
-<h1>Search Results</h1>
-<%= @search  %>
+<h2>Search Results for "<%= @search %>":</h2>
+
+<%= render 'sites/sitelist' %>
+
+<%= @sites.length %><%=" Results found."%>
+
+<%= render 'trips/triplist' %>
+
+<%= @trips.length %><%=" Results found."%>
