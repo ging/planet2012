@@ -1,3 +1,8 @@
+<%= render 'mapnew' %>
+  <p><b>Mapa:</b>
+  <div id="map_canvas"></div>
+  </p>
+  <input type="button" value= "Actualizar Parámetros" onclick="actualizar()">
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +15,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -27,6 +31,18 @@
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :longitud %><br />
+    <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

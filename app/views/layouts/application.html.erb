@@ -10,15 +10,24 @@
     $(function() {
       $( "#trip_description" ).cleditor();
     });
+    $(function() {
+      $( "#site_description" ).cleditor();
+    });
+    $(function() {
+      $( "#type_description" ).cleditor();
+    });
   </script>
-
 </head>
 
-<body id="planet"> 
+<body id="planet" onload ="initialize()"> 
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
     <div class="user">
+      <%= form_tag(planet_busqueda_path,:method => "get") do %>
+      <b><%= label_tag(:q,"Buscar:") %></b>
+       <%= text_field_tag(:q) %>
+       <%= submit_tag("Busqueda") %>||||||||    
       <% if current_user %>
         <%= link_to current_user.name, 
              edit_user_registration_path %> |
@@ -26,7 +35,8 @@
       <% else %>
         <%= link_to "Sign in", new_user_session_path %>
       <% end %>
-    </div> 
+      <%end%>
+    </div>
   </div> 
   <div id="columns"> 
     <div id="side"> 
