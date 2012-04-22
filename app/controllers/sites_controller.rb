@@ -7,17 +7,6 @@ class SitesController < ApplicationController
   after_filter :count_visita, :only => :show 
  
 
-  # GET /sites/search
-  # GET /sites/search.xml
-  def search
-		@sites = Site.where("name like ? OR description like ?", "%#{params[:q]}%", "%#{params[:q]}%")
-
-    respond_to do |format|
-      format.html # search.html.erb
-      format.xml  { render :xml => @sites }
-    end
-  end
-
   # GET /sites
   # GET /sites.json
   def index
