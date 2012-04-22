@@ -1,80 +1,35 @@
-<html>
-<div id="geo">
-<head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map_canvas { height: 100% }
-    </style>
-    <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?&sensor=false">
-    </script>
-    <script type="text/javascript">
-    function geo() {
-        var myOptions = {
-          center: new google.maps.LatLng(28.283522,-16.632986 ),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),
-            myOptions);
- 
-
-<% @trip.sites.each do |site| %>
-    var latitude = <%= site.latitud %> 
-    var longitude = <%= site.longitud %> 
-    var image = new google.maps.MarkerImage ("<%= asset_path(site.image_url) %>", 
-                new google.maps.Size(50,50),
-                new google.maps.Point(90,25),
-                new google.maps.Point(0,35));
-
-    var latlng = new google.maps.LatLng(latitude,longitude);
-    
-    var marker = new google.maps.Marker({
-	position: latlng,
-	map: map,
-        icon: image
-    });
-
-<% end %>
-}
-
-</script>
-
- <body onload="geo()">
-    <div id="map_canvas" style="width: 320px; height: 480px;"></div>
- </body>
-
 <div id="visit">
-  <table> 
-   <%  trip.visits.order(:hour).each do |visit| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
-      <td> 
+  <table>
+   <% trip.visits.order(:hour).each do |visit| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+      <td>
         <%= link_to image_tag(visit.site.image_url, :class => 'list_image'), visit.site %>
-      </td> 
- 
-      <td class="list_description"> 
-        <dl> 
-          <dt><%= visit.hour.to_s + 'h: ' %>
-              <%=link_to(visit.site.name, visit.site) %></dt> 
-          <dd><%= truncate(strip_tags(visit.site.description),
-                 :length => 80) %></dd>
-        </dl> 
       </td>
  
-      <td class="list_actions"> 
+      <td class="list_description">
+        <dl>
+          <dt><%= visit.hour.to_s + 'h: ' %>
+              <%=link_to(visit.site.name, visit.site) %></dt>
+          <dd><%= truncate(strip_tags(visit.site.description),
+                 :length => 80) %></dd>
+        </dl>
+      </td>
+ 
+      <td class="list_actions">
         <%= link_to 'Show', visit.site %><br/>
-        <%= link_to 'Destroy', visit, 
+        <%= link_to 'Destroy', visit,
                     :confirm => 'Are you sure?',
-                    :method => :delete if trip.user == current_user  %>
+                    :method => :delete if trip.user == current_user %>
 
-      </td> 
-    </tr> 
+      </td>
+    </tr>
    <% end %>
-  </table> 
+  </table>
 </div>
-</html>
+
+
+
+
 
 
 

@@ -14,11 +14,11 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
-<<<<<<< HEAD
            <% if site.comments !=[]  %>
-           	<b>Existen <%= link_to 'comentarios', site %> <b/>
+           	<b>Existen <%= link_to 'comentarios', site %> </b>
            <% end  %>
         </dl> 
+<p><i> Sitio incluido en <%=site.visits.length%> viaje<%if site.visits.length != 1%>s<%end%><i/></p>
       </td>
 
       <td class="list_actions"> 
@@ -30,33 +30,13 @@
                     :method => :delete %>
         <% end %>
       </td> 
-=======
-        </dl> 
-      </td>
- 
-      <td class="list_actions"> 
-        <%= link_to 'Show', site %><br/>
-        <% if site.user == current_user %>
-          <%= link_to 'Edit', edit_site_path(site) %><br/>
-          <%= link_to 'Destroy', site, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
-        <% end %>
-      </td> 
->>>>>>> planet2012/master
     </tr> 
   <% end %>
   </table> 
 </div> 
-<<<<<<< HEAD
 
 <br /> 
  
 <%= link_to 'New site', new_site_path %>
 
-=======
- 
-<br /> 
- 
-<%= link_to 'New site', new_site_path %>
->>>>>>> planet2012/master
+

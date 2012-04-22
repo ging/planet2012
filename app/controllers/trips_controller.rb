@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
+
   
   # GET /trips
   # GET /trips.json

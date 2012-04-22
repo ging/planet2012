@@ -1,22 +1,22 @@
-<div id="site_list"> 
+<div id="site_list">
 
-  <table>  
-      <td class="list_description"> 
-        <dl> 
+  <table>
+      <td class="list_description">
+        <dl>
           <dt><%= comment.user.name %></dt>
           <dd></p><%= truncate(strip_tags(comment.coment),
                  :length => 240) %></dd>
-        </dl> 
+        </dl>
       </td>
 
-      <td class="list_actions"> 
+      <td class="list_actions">
         <% if comment.user == current_user %>
-          <%= link_to 'Edit',  edit_site_comment_path(comment.site, comment)  %><br/>
-          <%= link_to 'Destroy', [comment.site, comment], 
+          <%= link_to 'Edit', edit_site_comment_path(comment.site, comment) %><br/>
+          <%= link_to 'Destroy', [comment.site, comment],
                     :confirm => 'Are you sure?',
                     :method => :delete %>
-      </td> 
-    </tr> 
+      </td>
+    </tr>
   <% end %>
-  </table> 
+  </table>
 </div> 
