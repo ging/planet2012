@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @coments }
+      format.json { render json: @comments }
     end
   end
 
@@ -81,8 +81,8 @@ end
   # DELETE /comments/1.json
   def destroy
     @site = Site.find(params[:site_id])
-    @coment = @site.comments.find(params[:id])
-    @coment.destroy
+    @comment = @site.comments.find(params[:id])
+    @comment.destroy
 
    respond_to do |format|
       format.html { redirect_to site_path(@site) }

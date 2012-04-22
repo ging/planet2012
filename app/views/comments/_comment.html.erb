@@ -3,8 +3,10 @@
   <table>  
       <td class="comments"> 
         <dl> 
-          <dt><%= comment.user_id %>
-		  <%= truncate(strip_tags(comment.coment), :length => 240) %></dt>
+		  <% if comment.comment != nil %>
+		  <dt><%= comment.user.name %>
+		  <%= truncate(strip_tags(comment.comment), :length => 240) %></dt>
+		  <% end %>
         </dl> 
       </td>
 
