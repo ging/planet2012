@@ -1,7 +1,7 @@
 <p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
   <b>Autor:</b>   <%= @trip.user.name if @trip.user %>
 </p> 
-<p>  <b>Description:</b>  <%= simple_format @trip.description %></p>
+<p>  <b>Description:</b>  <%= simple_format @trip.description %></p><div><%= render "geo_trip"%></div>
 <div id="site_list">
 
   <h1>Sitios a visitar</h1>

@@ -17,9 +17,9 @@
 		var longitude = <%= @site.longitud %>; 
 		var zoo = <%= @site.zoom %>;
 		var image = new google.maps.MarkerImage("<%= @site.image %>",
-		new google.maps.Size(200, 100),
-		new google.maps.Point(0,0),
-		new google.maps.Point(0, 32));
+			new google.maps.Size(100, 50),
+			new google.maps.Point(0,0),
+			new google.maps.Point(0, 32));
 		var latlng = new google.maps.LatLng(latitude,longitude);
 		var myOptions = {
 			zoom: zoo,
@@ -37,7 +37,7 @@
     </script>
   </head>
   <body onload="initialize()">
- <div id="map_canvas" style="width: 320px; height: 480px;"></div>
+ <div id="map_canvas" style="width: 400px; height: 400px;"></div>
 </body>
 </div>
 </html>
