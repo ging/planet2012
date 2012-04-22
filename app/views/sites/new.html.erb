@@ -1,5 +1,14 @@
 <h1>New site</h1>
 
 <%= render 'form' %>
+<script type="text/javascript">
 
+if (navigator.geolocation) {
+	
+    // Locate position
+    navigator.geolocation.getCurrentPosition(writePosition, errorFunction);
+} else {
+    alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+}
+</script>
 <%= link_to 'Back', sites_path %>

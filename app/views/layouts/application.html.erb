@@ -6,13 +6,109 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript">
+ <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+ <script type="text/javascript">
+
     $(function() {
       $( "#trip_description" ).cleditor();
-    });
-  </script>
+
+     });
+   
+
+// Success callback function
+
+function writePosition(pos) {
+
+  var mylat = pos.coords.latitude;
+  var mylong = pos.coords.longitude; 
+  
+$('#site_latitud').val(mylat); //escribo la latitud en el formulario para crear sitio
+
+$('#site_longitud').val(mylong);
+
+
+
+
+}
+
+
+
+function displayPosition(latitud , longitud , zom) {
+
+    if(latitud.length == null) {
+    var mylat = latitud;
+    var mylong = longitud;
+
+  } else {     
+
+var mylat = latitud[0];
+    var mylong = longitud[0];
+
+
+  }
+    var thediv = document.getElementById('locationinfo');
+    thediv.innerHTML = '<p>La localización exacta es longitud: ' +
+        mylong + ' y latitud: ' + mylat + '</p>';
+
+//Load Google Map
+
+ var latlng = new google.maps.LatLng(mylat, mylong); 
+
+    var myOptions = {
+      zoom: zom,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+   
+ var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+//Add marker
+if(latitud.length != null) { 
+for(var i=0; i<latitud.length;i++) {
+  
+ var latlng2 = new google.maps.LatLng(latitud[i], longitud[i]); 
+
+
+
+
+  var marker = new google.maps.Marker({
+      
+       position: latlng2, 
+       map: map, 
+       title:"Localizacion del sitio2"
+       
+   });
+
+   
+
+}
+
+} else {
+  
+var marker = new google.maps.Marker({
+       position: latlng, 
+       map: map, 
+       title:"Localizacion del sitio2"
+   });
+
+}
+
+}
+
+
+
+
+
+// Error callback function
+function errorFunction(pos) {
+    alert('Error en el posicionamiento!');
+}
+</script> 
+
+
 
 </head>
+
 <body id="planet"> 
 
     <div id = "links">
@@ -32,7 +128,7 @@
     <div class = "user">
     <% if current_user %>
       <%= link_to current_user.name, edit_user_registration_path %> |
-      <%= link_to "Sign out", destroy_user_session_path %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <% else %>
        <%= link_to "Sign in", new_user_session_path %>
     <% end %>
@@ -40,6 +136,12 @@
   </div> 
   <div id="columns"> 
     <div id="side"> 
+
+    <%= form_tag(planet_search_path, :method => "get") do %>
+  <%= label_tag(:busqueda, "Search for:") %>
+  <%= text_field_tag(:busqueda) %>
+  <%= submit_tag("Search") %>
+<% end %>
        
           <%= link_to "Home", planet_index_path %><br /> 
           <%= link_to "Tipos",  types_path %><br /> 

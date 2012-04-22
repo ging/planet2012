@@ -9,6 +9,10 @@
         font: bold smaller sans-serif;
 }
 
+#comentarios a {font-weight:bold;
+                color:black;
+                font:  105% sans-serif;
+               }
 #links a { color : #555;}
 
 #links  {  
@@ -19,6 +23,12 @@ margin-bottom: 10px;
 word-spacing:25pt; 
 
 }
+#map_canvas {
+        height: 300pt;
+        width: 300pt;
+    }
+
+
 
 #cv  {font:sans-serif;}
 

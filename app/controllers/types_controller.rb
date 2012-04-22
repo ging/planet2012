@@ -53,6 +53,8 @@ class TypesController < ApplicationController
     end
   end
 
+  
+
   # PUT /types/1
   # PUT /types/1.json
   def update

@@ -28,7 +28,7 @@ resources :types do                     # Rutas anidadas /types/id/sites...,
 
 
 
-  
+  get "planet/search"
   
   get "planet/index"
 

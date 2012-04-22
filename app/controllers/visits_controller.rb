@@ -44,7 +44,8 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+  
+        format.html { redirect_to @visit.trip, notice: 'Visit was successfully created.' }
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.html { render action: "new" }
@@ -60,7 +61,8 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.update_attributes(params[:visit])
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+
+        format.html { redirect_to @visit.trip, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +78,8 @@ class VisitsController < ApplicationController
     @visit.destroy
 
     respond_to do |format|
-      format.html { redirect_to visits_url }
+     
+      format.html { redirect_to @visit.trip }
       format.json { head :no_content }
     end
   end

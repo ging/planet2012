@@ -8,7 +8,7 @@ class ComentariosController < ApplicationController
 
 
       @comentarios = Site.find(params[:site_id]).comentarios  # path: /types/id/sites
-      @comentario = current_user.comentarios.build
+     
    
 
       

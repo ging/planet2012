@@ -7,9 +7,18 @@
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+<div id = comentarios>
+<% if not(@site.comentarios.empty?) %>
+<div id = comentarios>
+        
+<%= link_to 'Comentarios', site_comentarios_path(@site) %>
+</div>
+<%end %>
+
  <p><b>Autor:</b>
        <%= @site.user.name if @site.user %> </p>
 </div> 
+
 
 <p />
 <% if @site.user == current_user %>
@@ -17,12 +26,25 @@
 <% end %>
 <%= link_to 'Back', sites_path %>
 
+<br />
+Nº de viajes que lo incluyen : <%= @site.visits.size %> 
+<br />
+<br />
+<% if (@site.longitud != nil) and (@site.latitud != nil) and (@site.zoom!=nil) %>
+<div id="map_canvas"></div>
 
-<% if not(@site.comentarios.empty?) %>
-        
-<%= link_to 'Comentarios', site_comentarios_path(@site) %>
+ <div id="locationinfo"></div>
+<script type="text/javascript">
 
-<% end %>
+latitud = <%=@site.latitud%>;
+longitud = <%=@site.longitud%>;
+zoom = <%=@site.zoom%>;
+displayPosition( latitud, longitud,zoom);
+
+</script>
+<%end%>
+
+
 <br />
 <h2>Añadir Un Comentario:</h2>
 <%= form_for([@site, @site.comentarios.build]) do |f| %>

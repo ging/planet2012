@@ -1,24 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @trip.name %>
-</p>
+<p> <b>Name: </b> <%= @trip.name %></p>
+<p> <b>Date: </b> <%= @trip.date %></p>
+<p> <b>Autor: </b> <%= @trip.user.name if @trip.user %> </p>
+<p> <b>Description: </b> <%= simple_format @trip.description %></p>
 
-<p>
-  <b>Description:</b>
-  <%= simple_format @trip.description %>
-</p>
+<div id = "site_list">
 
-<p>
-  <b>Date:</b>
-  <%= @trip.date %>
-</p>
 
-<p>
-  <b>Autor:</b>
-  <%= @trip.user.name if @trip.user %>
-</p>
+
+
+<div id="map_canvas"></div>
+
+<div id="locationinfo"></div>
+
+ <script type="text/javascript">
+
+ var i = 0;
+ latitud = new Array();
+
+  longitud = new Array();
+<%  @trip.visits.order(:hour).each do |visit| %>
+latitud[i]= <%=visit.site.latitud%> ;
+
+longitud[i] = <%=visit.site.longitud%> ;
+i= i + 1;
+
+<% end %>
+
+
+
+displayPosition(latitud, longitud, 1);
+
+
+
+
+
+</script>
+
+
+
+
+    <h1>Sitios a visitar</h1>
+
+    <%= render(@trip) %>
+
+    <% if @trip.user == current_user%>
+        <%=form_for(@visit) do |f| %>
+           
+           <%= f.hidden_field :trip_id, :value => @trip.id%>
+           
+           <%= f.collection_select(:site_id, Site.all, :id, :name) %>
+
+           <%= f.select(:hour, Array.new(24,0).fill{|i| [(i.to_s + 'H'),i]})%>
+
+           <%= f.submit "Añadir sitio"%>
+
+
+        <% end %>
+    <% end %>
+</div><br />
+
+
 
 <% if @trip.user == current_user %>
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
