@@ -18,6 +18,10 @@
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
+	<%= form_tag(planet_search_path, :method => "get") do %>
+	  	<%= text_field_tag(:q, nil, :placeholder => "Search") %>
+	  	<%= submit_tag("Search") %>
+		<% end %>  
     <div class="user">
       <% if current_user %>
         <%= link_to current_user.name, 
@@ -38,6 +42,7 @@
       <%= link_to 'Authors', planet_author_path %><br />
       <%= link_to 'Ejemplo', planet_ejemplo_path %><br />
       <%= link_to('ordered_index', types_ordered_index_path)%><br />
+      <%= link_to('Documentacion', doc_app_ApplicationController.html_path)%><br />
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
 
 

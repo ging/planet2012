@@ -1,3 +1,5 @@
+# Se definen las  relaciones de la clase Site
+#
 class Site < ActiveRecord::Base
   belongs_to :type
   belongs_to :user

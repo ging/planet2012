@@ -1,3 +1,5 @@
+# Controlador de los tipos donde se definen sus metodos
+#
 class TypesController < ApplicationController
 
  # GET /types/ordered_index

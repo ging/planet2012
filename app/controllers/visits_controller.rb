@@ -1,3 +1,5 @@
+# Controlador de las visitas donde se definen sus metodos
+#
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json

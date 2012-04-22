@@ -1,3 +1,5 @@
+# Se definen las  relaciones de la clase Type
+#
 class Type < ActiveRecord::Base
   has_many :sites
   

@@ -12,9 +12,9 @@
 
 <% @comentarios.each do |comentario| %>
   <tr>
-    <td><%= comentario.coment %></td>
-    <td><%= comentario.user_id %></td>
-    <td><%= comentario.site_id %></td>
+    <td><%= comentario.coment %>  </td>
+    <td><%= comentario.user.name %>  </td>
+    <td><%= comentario.site.name %></td>
     <td><%= link_to 'Show', comentario %></td>
     <% if comentario.user == current_user %>
     <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>

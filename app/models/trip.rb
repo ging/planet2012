@@ -1,3 +1,5 @@
+# Se definen las  relaciones de la clase Trip
+#
 class Trip < ActiveRecord::Base
   belongs_to :user
   has_many   :visits

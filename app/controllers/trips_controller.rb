@@ -1,3 +1,5 @@
+# Controlador de los viajes donde se definen sus metodos
+#
 class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe

@@ -3,6 +3,11 @@ require 'test_helper'
 class ComentariosControllerTest < ActionController::TestCase
   setup do
     @comentario = comentarios(:one)
+    @update = {   # @update:  parametros diferentes
+      :coment         => 'AnotherComent'
+    }
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do

@@ -1,3 +1,5 @@
+# Controlador de los comentarios donde se definen sus metodos
+#
 class ComentariosController < ApplicationController
 
 before_filter :authenticate_user!

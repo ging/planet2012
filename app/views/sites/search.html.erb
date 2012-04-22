@@ -15,31 +15,25 @@
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
         </dl> 
-     <div id="comentario">
- <% if site.comentarios.empty? == false %>
- <strong><%= link_to "Comentarios", comentarios_path %></strong>  
- <%end%><br>
-<% if site.trips.size>0 %> 
-        <b>Incluido en:</b>  <%= site.trips.size%> <b>viajes</b><br>
-        <% end %>
-     </div>
       </td>
-
+ 
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
-        <% if site.user == current_user %>
-          <%= link_to 'Edit', edit_site_path(site) %><br/>
-          <%= link_to 'Destroy', site, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
-        <% end %>
+				<% if site.user == current_user %>
+        	<%= link_to 'Edit', edit_site_path(site) %><br/>
+	        <%= link_to 'Destroy', site, 
+	                    :confirm => 'Are you sure?',
+	                    :method => :delete %>
+				<% end %>
+				<% if !site.comentarios.empty? %>				
+					<%= link_to 'Comments', site_comentarios_path(params[:site_id] = site.id) if site.comentarios %>
+				<% end %>
       </td> 
     </tr> 
   <% end %>
   </table> 
 </div> 
-
+ 
 <br /> 
  
-
 <%= link_to 'New site', new_site_path %>

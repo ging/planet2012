@@ -8,7 +8,8 @@ $(function() {
            var latitud = position.coords.latitude;
            var longitud = position.coords.longitude;
 	   document.getElementById("site_latitud").value  = latitud;
-	   document.getElementById("site_longitud").value  = longitud
+	   document.getElementById("site_longitud").value  = longitud;
+	   document.getElementById("site_zoom").value  = 15;
            
            alert('Your latitude is :' + latitud + ' and longitude is ' + longitud);
         }
@@ -18,6 +19,7 @@ $(function() {
 </script>
 
 <h1>New site</h1>
+
 
 <%= render 'form' %>
 

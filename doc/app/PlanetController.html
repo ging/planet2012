@@ -70,11 +70,17 @@
 
   <ul class="link-list">
     
+    <li><a href="#method-i-author">#author</a>
+    
     <li><a href="#method-i-contact">#contact</a>
     
     <li><a href="#method-i-ejemplo">#ejemplo</a>
     
     <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-search">#search</a>
+    
+    <li><a href="#method-i-search2">#search2</a>
     
   </ul>
 </nav>
@@ -100,6 +106,12 @@
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Comentario.html">Comentario</a>
+  
+    <li><a href="./ComentariosController.html">ComentariosController</a>
+  
+    <li><a href="./ComentariosHelper.html">ComentariosHelper</a>
   
     <li><a href="./PlanetController.html">PlanetController</a>
   
@@ -198,6 +210,35 @@ HTML</code></p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
+      <div id="method-i-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define una acción vacía del controlador</p>
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">author</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- author-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- author-method -->
+
+    
       <div id="method-i-contact" class="method-detail ">
         
         <div class="method-heading">
@@ -214,7 +255,7 @@ HTML</code></p>
 
           
           <div class="method-source-code" id="contact-source">
-            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">contact</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- contact-source -->
@@ -243,7 +284,7 @@ HTML</code></p>
 
           
           <div class="method-source-code" id="ejemplo-source">
-            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">ejemplo</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- ejemplo-source -->
@@ -272,7 +313,7 @@ HTML</code></p>
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->
@@ -283,6 +324,75 @@ HTML</code></p>
 
         
       </div><!-- index-method -->
+
+    
+      <div id="method-i-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que realiza la busqueda de sitios y viajes</p>
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>
+  <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name like ? OR description like ?&quot;</span>, <span class="ruby-node">&quot;%#{params[:q]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:q]}%&quot;</span>)
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># search.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span>  { <span class="ruby-identifier">render</span> <span class="ruby-value">:xml</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@sites</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+      <div id="method-i-search2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search2</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que realiza la busqueda de sitios y viajes</p>
+          
+
+          
+          <div class="method-source-code" id="search2-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 45</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">search2</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:query</span>]
+    <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:query</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@products</span> = []
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search2-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search2-method -->
 
     
     </section><!-- public-instance-method-details -->
