@@ -17,6 +17,7 @@
 			<p>
 			<div class="enlaceComentarios">
 			  <dt><%= link_to 'Comentarios', site_coments_path(site) %> 
+					<%= ':' %> <%= site.coments.length  %>
 					<% if site.coments.empty? %>
 						<%= 'Este sitio no tiene comentarios. ¿Añades uno?' %> 
 					<% end %>
