@@ -1,4 +1,39 @@
-﻿<div id="site">
+﻿<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<style type="text/css">
+  #site_map {
+	width: 450px;
+	height: 290px;
+	border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+  var map;
+  var latlng;
+  var myOptions
+  var marker;
+
+  function initialize() {
+    var lat = <%= @site.latitud %>;
+    var lng = <%= @site.longitud %>;
+    latlng = new google.maps.LatLng(lat,lng);
+    myOptions = {
+      zoom: <%= @site.zoom %>,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("site_map"), myOptions);
+    marker = new google.maps.Marker({
+            map: map,
+            position: latlng
+        });
+    marker.setTitle("<%= @site.name %>");
+  }
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+<div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
@@ -7,6 +42,8 @@
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+	
+	<div id="site_map"></div>
 	
 <h3>Comentarios</h3>
 	<% if @site.comments.exists? %>
@@ -21,6 +58,7 @@
         <% end %></p>
 		<% end %>
 	<% end %>
+	
 
 
 <h3>Añadir un comentario:</h3>

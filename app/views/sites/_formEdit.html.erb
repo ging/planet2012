@@ -1,20 +1,3 @@
-<script type="text/javascript">
-  if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
-    navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
-  } else { alert('Geolocation is not supported in this browser.'); }
-  function successFunction(position) {
-    var latitud = position.coords.latitude;
-    var longitud = position.coords.longitude;
-    $('#site_latitud').val(latitud);
-    $('#site_longitud').val(longitud);
-    $('#site_zoom').val(15);
-  }
-  function errorFunction(position) { 
-    alert("Error"); 
-  }
-</script>
-
-
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
