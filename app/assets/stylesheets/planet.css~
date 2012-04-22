@@ -5,7 +5,7 @@
         border: 2px solid red;
         padding: 1em;
         margin-bottom: 2em;
-        background-color: #0000AA;
+        background-color: #f0f0f0;
         font: bold smaller sans-serif;
 }
 
@@ -83,6 +83,12 @@
   padding-left: 10px;
 }
 
+#banner .user {
+  float: right;
+  color: #bfb;
+  font-size: small;
+}
+
 #columns {
   background: #446;
 }
@@ -155,3 +161,18 @@
   font-weight: bold;
   margin-right: 2em;
 }
+
+
+#main .visitas {
+  text-indent:   70%;
+}
+
+
+
+    #map_canvas {
+        height: 300px;
+        width: 300px;
+    }
+
+
+

@@ -5,12 +5,13 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
   <script type="text/javascript">
     $(function() {
-      $( "#trip_description" ).cleditor();
+       $( "#trip_description" ).cleditor();
     });
   </script>
+
 
 </head>
 

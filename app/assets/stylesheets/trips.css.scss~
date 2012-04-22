@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #trip_map {
-	width: 800px;
-	height: 450px;
-	border: 1px solid green;
+	width: 600px;
+	height: 500px;
+	border: 1px solid black;
 }

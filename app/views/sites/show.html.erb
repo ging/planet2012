@@ -1,3 +1,59 @@
+<script type="text/javascript">
+
+  // Determine support for Geolocation
+  if (navigator.geolocation) {
+      // Locate position
+      navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+  } else {
+      alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+  }
+
+  // Success callback function
+  function displayPosition(pos) {
+      var mylat = <%= @site.latitud_geo%>;
+      var mylong = <%= @site.longitud_geo%>;
+      var thediv = document.getElementById('locationinfo');
+      thediv.innerHTML = '<p>Your longitude is :' +
+          mylong + ' and your latitide is ' + mylat + '</p>';
+
+  //Load Google Map
+  var latlng = new google.maps.LatLng(mylat, mylong);
+      var myOptions = {
+        zoom: <%= @site.zoom_geo %>,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+      };
+     
+  var map = new google.maps.Map(document.getElementById("site_map"), myOptions);
+
+  //Create image marker      
+  var image = new google.maps.MarkerImage(
+  
+  '<%=@site.image.url%>',
+  new google.maps.Size(106,143),
+  new google.maps.Point(0,0),
+  new google.maps.Point(53,143)
+);
+
+  //Add marker
+  var marker = new google.maps.Marker({
+         position: latlng,
+         icon: image, 
+         map: map, 
+         title:"You are here"
+     });
+  }
+
+  // Error callback function
+  function errorFunction(pos) {
+      alert('Error!');
+  }
+  </script>
+
+
+
+<!--///////////////////////////////////////////////////////-->
+
 <div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
@@ -17,6 +73,8 @@
 
 <div class="visitas">
   <b>Visitas:</b>  <%= @site.visitas %>
+  <br>
+  <b>Veces añadido:</b>  <%= @site.times_added %>
 </div>
 
 <p />
@@ -25,9 +83,12 @@
   <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
 <%= link_to 'Back', sites_path %>
+<p>
+ <h2>Mapa del Sitio</h2>
+ <div id="site_map"></div>
+</p>
+ <div id="locationinfo"></div>
 
-
-
-<%= render "comments/listacomentarios" %>
+<%= render "comments/listacomentarios" if !@site.comments.empty? %>
 <h2>Add a comment:</h2>
 <%= render "comments/form"%>

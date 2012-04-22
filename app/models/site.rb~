@@ -12,5 +12,5 @@ class Site < ActiveRecord::Base
   attr_protected :user_id    
 
   # Se añaden estas definiciones 
-  validates :name, :type_id,:latitud_geo, :longitud_geo, :zoom_geo,     :presence => true   # campo obligatorio
+  validates :name, :type_id,   :presence => true   # campo obligatorio
 end

@@ -27,7 +27,47 @@
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label "Longitud de geolocalización" %><br />
+    <%= f.text_field :longitud_geo %>
+  </div>
+  <div class="field">
+    <%= f.label "Latitud de geolocalización" %><br />
+    <%= f.text_field :latitud_geo %>
+  </div>
+  <div class="field">
+    <%= f.label "Zoom de geolocalización" %><br />
+    <%= f.text_field :zoom_geo %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+//Si los valores de geolocalización están vacíos se le asignan los actuales
+if((!document.getElementById('site_latitud_geo').value)&&(!document.getElementById('site_longitud_geo'.value))){
+   if (navigator.geolocation) {
+      // Locate position
+      navigator.geolocation.getCurrentPosition(getPosition, errorFunction);
+  } else {
+      alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+  }
+
+  // Success callback function
+  function getPosition(pos) {
+      var mylat = pos.coords.latitude;
+      var mylong = pos.coords.longitude;
+      var theinput = document.getElementById('site_latitud_geo');
+      theinput.value = mylat;
+      var theinput = document.getElementById('site_longitud_geo');
+      theinput.value = mylong;
+      var theinput = document.getElementById('site_zoom_geo');
+      theinput.value = 15;
+    }
+
+     // Error callback function
+  function errorFunction(pos) {
+      alert('Error!');
+  }
+}
+</script>

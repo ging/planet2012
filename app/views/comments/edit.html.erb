@@ -1,6 +1,6 @@
 <%= form_for([@site, @comment]) do |f| %>
 	<div class="field">
-    <%= f.text_field :comment %>
+      <%= f.text_area :comment ,:rows => 4%>
   </div>
 	<div class="actions">
     	 <%= f.submit %>
