@@ -22,13 +22,20 @@
     <% @trip.sites.each do |site| %>
         var latitude = <%= site.latitud %>
         var longitude = <%= site.longitud %>
+        var zoom = <%= site.zoom %>
+        zoom=zoom-2;
         var image = new google.maps.MarkerImage ("<%= asset_path(site.image) %>",
-                new google.maps.Size(100,50),
-                new google.maps.Point(90,25),
-                new google.maps.Point(0,35));
+                new google.maps.Size(100,150),
+                new google.maps.Point(0,0),
+                new google.maps.Point(0,50));
 
         var latlng = new google.maps.LatLng(latitude,longitude);
-    
+        var myOptions = {
+          center: latlng,
+          zoom: zoom,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map.setOptions(myOptions);
         var marker = new google.maps.Marker({
 position: latlng,
 map: map,

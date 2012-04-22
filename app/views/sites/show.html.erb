@@ -16,6 +16,9 @@
 <div class="visitas">
   <b>Visitas:</b>  <%= @site.visitas %>
 </div>
+<div>
+  <b>Veces incluido en un viaje:</b>  <%= @site.visits.length %>
+</div>
 
 
 <% if @site.user == current_user %>
