@@ -1,0 +1,17 @@
+class PlanetController < ApplicationController
+  def index
+  end
+
+  def contact
+  end
+
+  def ejemplo
+  end
+    
+  def author
+  end
+
+  def ordered_index
+  end
+
+end
