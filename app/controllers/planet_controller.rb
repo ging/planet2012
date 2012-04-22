@@ -29,5 +29,8 @@ class PlanetController < ApplicationController
   # Método que define una acción vacía del controlador
   def ejemplo
   end
+
+  def author
+  end
     
 end
