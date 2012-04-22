@@ -1,4 +1,7 @@
 Planet::Application.routes.draw do
+  devise_for :users #añade rutas devise
+
+  resources :comments
 
   resources :visits
 
@@ -6,17 +9,24 @@ Planet::Application.routes.draw do
 
   devise_for :users
 
-  resources :sites
-
-  resources :types do                     # Rutas anidadas /types/id/sites...,
-    resources :sites, :only => [ :index ] # Restringe a acción “index” 
+  resources :sites do
+    resources :comments 
   end
-  
-  get "planet/index"
 
-  get "planet/contact"
+  resources :types do # Rutas anidadas /types/id/sites...,
+    resources :sites, :only => [ :index ] # Restringe a acción “index”
+    
+    get 'ordered_index', :on => :collection
+    end
 
-  get "planet/ejemplo"
+   get "planet/index"
+
+   get "planet/contact"
+
+   get "planet/ejemplo"
+
+   get "planet/author"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -70,6 +80,7 @@ Planet::Application.routes.draw do
   # root :to => 'welcome#index'
     
   root :to => "planet#index"
+
     
   # See how all your routes lay out with "rake routes"
 

@@ -1,7 +1,67 @@
-<p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
-  <b>Autor:</b>   <%= @trip.user.name if @trip.user %>
-</p> 
-<p>  <b>Description:</b>  <%= simple_format @trip.description %></p>
+<html>
+<p>
+  <b>Name:</b>
+  <%= @trip.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @trip.date %>
+</p>
+
+<p>
+  <b>Autor:</b>
+  <%= @trip.user.name if @trip.user %>
+</p>
+ 
+<p>
+  <b>Description:</b>
+  <%= simple_format @trip.description %>
+</p>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?&sensor=false">
+    </script>
+    <script type="text/javascript">
+    function geo() {
+        var myOptions = {
+          center: new google.maps.LatLng(0,0 ),
+          zoom: 1,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+            myOptions);
+ 
+
+    <% @trip.sites.each do |site| %>
+        var latitude = <%= site.latitud %>
+        var longitude = <%= site.longitud %>
+        var image = new google.maps.MarkerImage ("<%= asset_path(site.image_url) %>",
+                new google.maps.Size(50,50),
+                new google.maps.Point(90,25),
+                new google.maps.Point(0,35));
+
+        var latlng = new google.maps.LatLng(latitude,longitude);
+    
+        var marker = new google.maps.Marker({
+position: latlng,
+map: map,
+           icon: image
+        });
+
+    <% end %>
+    }
+    </script>
+</head>
+ <body onload="geo()">
+    <div id="map_canvas" style="width: 500px; height: 500px;"></div>
+
 <div id="site_list">
 
   <h1>Sitios a visitar</h1>
@@ -12,9 +72,9 @@
     <%= form_for(@visit, :remote => true) do |f| %>
   
       <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
-      <%= f.collection_select(:site_id, 
+      <%= f.collection_select(:site_id,
                             Site.all,
-                            :id, 
+                            :id,
                             :name) %>
       <%= f.select(:hour, Array.new(24, 0).fill {|i| [(i.to_s + 'H'), i]}) %>
       <%= f.submit "Añadir sitio" %>
@@ -24,5 +84,11 @@
 
 <br />
 
-<% if @trip.user == current_user %>   <%= link_to 'Edit', edit_trip_path(@trip) %> |<% end %><%= link_to 'Back', trips_path %>
-
+
+<% if @trip.user == current_user %>
+   <%= link_to 'Edit', edit_trip_path(@trip) %> |
+<% end %>
+<%= link_to 'Back', trips_path %>
+</body>
+</html>
+

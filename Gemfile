@@ -5,14 +5,9 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
 end
-
-group :production do
-  gem 'pg'
-end
-
 
 gem 'devise'
 
@@ -30,6 +25,7 @@ end
 
 gem 'jquery-rails'
 gem 'cleditor_rails'
+
 gem 'paperclip'
 
 # To use ActiveModel has_secure_password
@@ -46,6 +42,3 @@ gem 'paperclip'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-gem 'json', '1.6.5'
-

@@ -1,16 +1,15 @@
 class SitesController < ApplicationController
-
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
-  after_filter :count_visita, :only => :show
-  
+  #after_filter :visitas, :only => :show
+ 
   # GET /sites
   # GET /sites.json
-  def index
+ def index
     if params[:type_id].nil? or params[:type_id].empty?
-      @sites = Site.all            # path: /types
+      @sites = Site.all # path: /types
       else
-      @sites = Type.find(params[:type_id]).sites  # path: /types/id/sites
+      @sites = Type.find(params[:type_id]).sites # path: /types/id/sites
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +32,7 @@ class SitesController < ApplicationController
   # GET /sites/new.json
   def new
     @site = current_user.sites.build # crea sitio vacio asociado a current_user
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @site }
@@ -49,7 +48,7 @@ class SitesController < ApplicationController
   # POST /sites.json
   def create
     @site = current_user.sites.build(params[:site]) # Asigna solo si sitio asociado a current_user
-    
+
     respond_to do |format|
       if @site.save
         format.html { redirect_to @site, notice: 'Site was successfully created.' }
@@ -65,7 +64,7 @@ class SitesController < ApplicationController
   # PUT /sites/1.json
   def update
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user 
-    
+
     respond_to do |format|
       if @site.update_attributes(params[:site])
         format.html { redirect_to @site, notice: 'Site was successfully updated.' }
@@ -87,10 +86,5 @@ class SitesController < ApplicationController
       format.html { redirect_to sites_url }
       format.json { head :no_content }
     end
-  end
-  
-  private
-  def count_visita
-    @site.increment!(:visitas)
   end
 end
