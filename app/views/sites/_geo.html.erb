@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <div class="geo">
 <html>
   <head>
@@ -12,28 +12,26 @@
       src="http://maps.googleapis.com/maps/api/js?&sensor=false">
     </script>
     <script type="text/javascript">
-    var map;
-    var marker;
       function initialize() {
-    var latitude = <%= @site.latitud %> 
-    var longitude = <%= @site.longitud %> 
-    var zoo = <%= @site.zoom %>
-    var image = new google.maps.MarkerImage ("<%= asset_path(@site.image_url) %>", 
-                new google.maps.Size(50,50),
-                new google.maps.Point(90,25),
-                new google.maps.Point(0,35));
-    var latlng = new google.maps.LatLng(latitude,longitude);
-    var myOptions = {
-      zoom: zoo,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-    marker = new google.maps.Marker({
-	position: latlng,
-	map: map,
-        icon: image
-    });
+		var latitude = <%= @site.latitud %>;
+		var longitude = <%= @site.longitud %>; 
+		var zoo = <%= @site.zoom %>;
+		var image = new google.maps.MarkerImage("<%= @site.image %>",
+		new google.maps.Size(200, 100),
+		new google.maps.Point(0,0),
+		new google.maps.Point(0, 32));
+		var latlng = new google.maps.LatLng(latitude,longitude);
+		var myOptions = {
+			zoom: zoo,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		var marker = new google.maps.Marker({
+			position: latlng,
+			map: map,
+			icon: image
+		});
   }
 
     </script>
