@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+        if  (navigator.geolocation)   {   //Check if browser supports W3C Geolocation API
+
+           navigator.geolocation.getCurrentPosition   (successFunction,   errorFunction);
+
+        } else {  alert('Geolocation is not supported in this browser.'); }
+
+        function successFunction(position) {
+
+           var lat = position.coords.latitude;
+           var long = position.coords.longitude;
+//           alert('Your latitude is :'+lat+' and longitude is '+long);
+	   $("#site_lat").val(lat)
+	   $("#site_long").val(long)
+	   $("#site_zoom").val("15")
+        }
+
+        function errorFunction(position) {    alert('Error!');   }
+
+
+</script>
+
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -26,6 +51,18 @@
   <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :lat %><br />
+    <%= f.text_area :lat , :rows => 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :long %><br />
+    <%= f.text_area :long , :rows => 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_area :zoom , :rows => 1 %>
   </div>
   <div class="actions">
     <%= f.submit %>
