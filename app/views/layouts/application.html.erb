@@ -37,16 +37,12 @@
       <%= link_to "Viajes", trips_path %><br /> 
 	  <%= link_to "Example", planet_ejemplo_path %><br /> 
 	  <%= link_to "Authors", planet_authors_path %><br /> 
-      <%= link_to "Contact", planet_contact_path %>
+      <%= link_to "Contact", planet_contact_path %><br /> 
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
     </div> 
     <div id="main">
 	  <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
-	  <%= link_to('Home', planet_index_path) + " | " + link_to('Types', types_path) + " | " + link_to('Ordered Types', types_ordered_index_path) + " | " +  link_to('Sites', sites_path) + " | " +  link_to('Viajes', trips_path) + " | " + link_to('Example',planet_ejemplo_path) + " | " + link_to('Authors',planet_authors_path) + " | " + link_to('Contact',planet_contact_path)%>
-	  <br>	
       <%= yield %>
-	  <br>
-	  <%= link_to('Home', planet_index_path) + " | " + link_to('Types', types_path) + " | " + link_to('Ordered Types', types_ordered_index_path) + " | " +  link_to('Sites', sites_path) + " | " +  link_to('Viajes', trips_path) + " | " + link_to('Example',planet_ejemplo_path) + " | " + link_to('Authors',planet_authors_path) + " | " + link_to('Contact',planet_contact_path)%>
     </div> 
   </div> 
 </body> 
