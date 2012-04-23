@@ -1,3 +1,4 @@
+
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
@@ -10,11 +11,13 @@
           <dt><%= link_to type.name, type_sites_path(type) %></dt> 
           <dd><%= truncate(strip_tags(type.description),
                  :length => 80) %></dd> 
+
+          <dd><%= type.updated_at %></dd> 
         </dl> 
       </td> 
  
       <td class="list_actions"> 
-        <%= link_to 'Show', type %><br/> 
+        <%= link_to 'Show', type %><br/>
         <%= link_to 'Edit', edit_type_path(type) %><br/> 
         <%= link_to 'Destroy', type, 
                     :confirm => 'Are you sure?',
@@ -28,3 +31,5 @@
 <br />
 
 <%= link_to 'New Type', new_type_path %>
+
+

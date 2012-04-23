@@ -1,0 +1,33 @@
+<%= link_to('Index', planet_index_path) %>
+<%= link_to('Contact', planet_contact_path) %>
+<%= link_to('Ejemplo', planet_ejemplo_path) %>
+<%= link_to('Author', planet_author_path) %>
+<%= link_to('Type/Index', types_index_path) %>
+<%= link_to('Type/OrderedIndex', types_ordered_index_path) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @type.description %>
+</p>
+
+<p>
+  <b>Updated At:</b>
+  <%= @type.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_type_path(@type) %> |
+<%= link_to 'Back', types_path %>
+
+<%= link_to('Index', planet_index_path) %>
+<%= link_to('Contact', planet_contact_path) %>
+<%= link_to('Ejemplo', planet_ejemplo_path) %>
+<%= link_to('Author', planet_author_path) %>
+<%= link_to('Type/Index', types_index_path) %>
+<%= link_to('Type/OrderedIndex', types_ordered_index_path) %>

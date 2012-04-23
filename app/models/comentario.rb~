@@ -1,0 +1,6 @@
+class Comentario < ActiveRecord::Base
+
+belong_to :user
+belong_to :site
+
+end
