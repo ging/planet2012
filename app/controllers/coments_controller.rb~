@@ -36,10 +36,10 @@ class ComentsController < ApplicationController
   # GET /coments/new.json
   def new
     @coment = Coment.new
-    #@site = Site.find(params[:site_id])
-    if !params[:site_id].nil? or !params[:site_id].empty?	
-	@site = Site.find(params[:site_id])     	
-    end
+    @site = Site.find(params[:site_id])
+    #if !params[:site_id].nil? or !params[:site_id].empty?	
+	#@site = Site.find(params[:site_id])     	
+    #end
 	
 
     respond_to do |format|

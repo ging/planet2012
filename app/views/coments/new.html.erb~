@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', coments_path  if !@site %>
-<%= link_to 'Back', url_for([@site, @coment])  if @site %>
+<%= link_to 'Back', url_for([@site, @coment])  if !@site %>

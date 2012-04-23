@@ -36,5 +36,5 @@
 
 <br />
 
-<%= link_to 'New Coment', new_site_coment_path if !params[:site_id].nil? %>
-<%= link_to 'New Coment', new_coment_path if params[:site_id].nil? %>
+<%= link_to 'New Coment', new_site_coment_path if !params[:site_id].nil? or !params[:site_id].empty? %>
+<%= link_to 'New Coment', new_coment_path if params[:site_id] %>

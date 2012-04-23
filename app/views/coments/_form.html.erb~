@@ -25,6 +25,7 @@
     <%= f.hidden_field(:site_id, :value => @site.id) if @site%>
     <%= @site.name if @site %>
   </div>
+  <%= @site.id %>
   <div class="actions">
     <%= f.submit %>  
   </div>
