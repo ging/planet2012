@@ -44,6 +44,10 @@ Planet::Application.routes.draw do
 
   get "planet/author"
 
+  get "planet/search" 
+
+  get "doc/app"
+
   
 
   

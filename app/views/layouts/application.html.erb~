@@ -18,6 +18,10 @@
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
+    <%= form_tag(planet_search_path, :method => "get") do %>
+	  	<%= text_field_tag(:q, nil, :placeholder => "Search") %>
+	  	<%= submit_tag("Search") %>
+		<% end %>  
     <div class="user">
       <% if current_user %>
         <%= link_to current_user.name, 
@@ -36,7 +40,8 @@
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Ejemplo", planet_ejemplo_path %><br />
       <%= link_to "Author", planet_author_path %><br />
-      <%= link_to "Tipos_Ordenado", ordered_index_types_path %>
+      <%= link_to "Tipos_Ordenado", ordered_index_types_path %><br />
+      <%= link_to('/Documentacion/',)%><br />
     </div> 
     <div id="main"> 
       <%= link_to "Home", planet_index_path %><br /> 
@@ -45,10 +50,10 @@
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Ejemplo", planet_ejemplo_path %><br />
       <%= link_to "Author", planet_author_path %><br />
-      <%= link_to "Tipos_Ordenado", ordered_index_types_path %>
+      <%= link_to "Tipos_Ordenado", ordered_index_types_path %><br /> 
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
-      <%= link_to "Sign up", new_user_registration_path if !current_user %>
+      <%= link_to "Sign up", new_user_registration_path unless current_user %>
     </div> 
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
@@ -60,7 +65,8 @@
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Ejemplo", planet_ejemplo_path %><br />
       <%= link_to "Author", planet_author_path %><br />
-      <%= link_to "Tipos_Ordenado", ordered_index_types_path %>
+      <%= link_to "Tipos_Ordenado", ordered_index_types_path %><br />
+      <%= link_to('/Documentacion/',)%><br />
     </div> 
   </div> 
 </body> 

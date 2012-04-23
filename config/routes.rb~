@@ -11,7 +11,9 @@ Planet::Application.routes.draw do
 
   devise_for :users
 
-  resources :sites
+  resources :sites do
+   resources :comentarios
+  end
 
 
  
@@ -41,6 +43,8 @@ Planet::Application.routes.draw do
   get "planet/ejemplo"
 
   get "planet/author"
+
+  get "planet/search" 
 
   
 
