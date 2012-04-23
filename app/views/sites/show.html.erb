@@ -21,7 +21,7 @@
         mylong + ' and your latitide is ' + mylat + '</p>';
  
   var image = new google.maps.MarkerImage(
-                                  "<%= image_path(@site.image_url) %>",
+                                  "<%= image_path(@site.image.url) %>",
                                   new google.maps.Size(80,70),
                                   new google.maps.Point(0,0),
                                   new google.maps.Point(20,35),
