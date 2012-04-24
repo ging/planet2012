@@ -23,8 +23,6 @@
 			# Action before the controller on resources!
 			link_to(' Types', types_path) +" | "+
 			link_to(' Ordered Types ', ordered_types_path)  
-			# ordered_types_path)
-			# [@user, :posts]
 		%>
 
 	</span>
@@ -38,7 +36,8 @@
 		<div id="side"> 
 			<%= link_to "Home", planet_index_path %><br /> 
 			<%= link_to "Tipos",  types_path %><br /> 
-			<%= link_to "Sitios", sites_path %><br /> 
+			<%= link_to "Sitios", sites_path %><br />
+			<!-- Implementar aqui a lista de tipos -->
 			<%= link_to "Contact", planet_contact_path %>
 		</div> 
 		<div id="main"> 

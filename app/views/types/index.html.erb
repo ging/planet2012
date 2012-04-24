@@ -7,7 +7,7 @@
  
       <td class="list_description"> 
         <dl> 
-          	<dt><%= link_to type.name, type_sites_path(type) %></dt> 
+          	<dt><%= link_to type.name, type_sites_path(type.id) %></dt> 
           	<dd><%= truncate(strip_tags(type.description), :length => 80) %></dd>
 			<db><%= type.updated_at %></db>
         </dl> 
