@@ -40,10 +40,10 @@
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
 
-<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', types_ordered_index_path) %> 
+<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', ordered_index_type_path) %> 
       <%= yield %>
 </br>
-<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', types_ordered_index_path) %> 
+<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', ordered_index_type_path) %> 
     </div> 
   </div> 
 </body> 

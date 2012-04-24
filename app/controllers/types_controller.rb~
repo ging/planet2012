@@ -80,6 +80,7 @@ class TypesController < ApplicationController
       format.json { head :no_content }
     end
   end
+end
 
   # ordered_index
   def ordered_index

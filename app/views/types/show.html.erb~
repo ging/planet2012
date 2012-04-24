@@ -10,10 +10,6 @@
   <%= @type.description %>
 </p>
 
-<p>
-  <b>Fecha de modificación:</b>
-  <%= (@type.updated_at)%>
-</p>
 
 <%= link_to 'Edit', edit_type_path(@type) %> |
 <%= link_to 'Back', types_path %>

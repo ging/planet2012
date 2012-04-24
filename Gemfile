@@ -2,16 +2,19 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 
+#gem 'execjs'
+#gem 'therubyracer'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'sqlite3'
+#group :development, :test do
+#  gem 'sqlite3'		
+#end
 
-group :development, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+#group :production do
+#  gem 'pg'
+#end
 
 
 gem 'devise'
@@ -47,5 +50,5 @@ gem 'paperclip'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'json', '1.6.5'
+# gem 'json', '1.6.5'
 
