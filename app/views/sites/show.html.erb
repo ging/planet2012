@@ -19,12 +19,6 @@
 <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
 
-
-  <p><b>Autor:</b> 
-          <%= @site.user.name if @site.user %></p>
-
-</div> 
-
 <% if @site.comments!=[] %>
 <% @site.comments.inspect %>
 <b>Comentarios:</b>
@@ -41,6 +35,10 @@
 	
 <div class="visitas">
   <b>Visitas:</b>  <%= @site.visitas %>
+</div>
+
+<div class="viajes">
+  <b>Está en </b>  <%= @site.cuenta %> <b>viaje(s) </b>
 </div>
 
 <p />
