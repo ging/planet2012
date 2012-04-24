@@ -18,9 +18,7 @@
   <%= simple_format @trip.description %>
 </p>
 
-<div>
-<%= render "geo_trip"%>
-</div>
+
 
 <div id="site_list">
 
@@ -43,6 +41,10 @@
 </div>
 
 <br />
+
+<div>
+<%= render "geo_trip"%>
+</div>
 
 
 <% if @trip.user == current_user %>

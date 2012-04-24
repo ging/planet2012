@@ -26,9 +26,9 @@
 			var latitude = <%= site.latitud %>
 			var longitude = <%= site.longitud %>
 			var image = new google.maps.MarkerImage ("<%= asset_path(site.image) %>",
-                new google.maps.Size(100,50),
-                new google.maps.Point(90,25),
-                new google.maps.Point(0,35));
+                new google.maps.Size(50,50),
+                new google.maps.Point(0,0),
+                new google.maps.Point(0,0));
 
 			var latlng = new google.maps.LatLng(latitude,longitude);
     
