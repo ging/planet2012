@@ -1,5 +1,7 @@
 Planet::Application.routes.draw do
 
+  resources :comments
+
   get "planet/author"
   get "types/ordered_index"
 
@@ -13,6 +15,10 @@ Planet::Application.routes.draw do
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
+  end
+
+  resources :sites do                     # Rutas anidadas /sites/id/comments...,
+    resources :comments, :only => [ :index ] # Restringe a acción “index” 
   end
   
   get "planet/index"

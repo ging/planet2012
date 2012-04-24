@@ -14,9 +14,8 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
-<% if site.comments!=[] %>
+          
           <dd><b><%= link_to 'Comentarios', site_comments_path(site) %></b></dd>
-<% end %>
         </dl> 
       </td>
  

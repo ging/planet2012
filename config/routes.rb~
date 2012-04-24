@@ -1,7 +1,9 @@
 Planet::Application.routes.draw do
 
+  resources :comments
+
   get "planet/author"
-  # get "types/ordered_index"
+  get "types/ordered_index"
 
   resources :visits
 
