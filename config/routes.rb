@@ -1,4 +1,12 @@
-Planet::Application.routes.draw do  
+Planet::Application.routes.draw do
+
+  resources :visits
+
+  resources :trips
+
+  devise_for :users
+
+  resources :sites
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index”
