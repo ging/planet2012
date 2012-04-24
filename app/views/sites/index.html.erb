@@ -22,6 +22,7 @@
  
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
+<<<<<<< HEAD
         <% if site.user == current_user %>
           <%= link_to 'Edit', edit_site_path(site) %><br/>
           <%= link_to 'Destroy', site, 
@@ -29,6 +30,15 @@
                     :method => :delete %>
         <% end %>
       </td> 
+=======
+        <% if site.user == current_user %>
+          <%= link_to 'Edit', edit_site_path(site) %><br/>
+          <%= link_to 'Destroy', site, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+        <% end %>
+      </td> 
+>>>>>>> af730d124691544a7db7c0528606fac0bf784554
     </tr> 
   <% end %>
   </table> 
