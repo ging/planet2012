@@ -104,8 +104,9 @@
   float: left;
   padding-top: 1em;
   padding-left: 1em;
+  padding-right: 1em;
   padding-bottom: 1em;
-  width: 8em;          /* Ajuste de borde izquierdo */
+  width: 14em;          /* Ajuste de borde izquierdo */
   background: #446;
 }
 
