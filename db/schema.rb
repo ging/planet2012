@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415174337) do
+ActiveRecord::Schema.define(:version => 20120424162600) do
 
   create_table "comments", :force => true do |t|
     t.string   "comment"
@@ -26,9 +26,6 @@ ActiveRecord::Schema.define(:version => 20120415174337) do
     t.text     "description"
     t.integer  "type_id"
     t.string   "image_url"
-    t.float    "longitud"
-    t.float    "latitud"
-    t.integer  "zoom"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
@@ -37,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20120415174337) do
     t.string   "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "visitas",            :default => 0
+    t.float    "latitud"
+    t.float    "longitud"
+    t.integer  "zoom"
   end
 
   create_table "trips", :force => true do |t|
