@@ -25,17 +25,16 @@
 		<% @trip.sites.each do |site| %>
 			var latitude = <%= site.latitud %>
 			var longitude = <%= site.longitud %>
-			var image = new google.maps.MarkerImage ("<%= asset_path(site.image) %>",
-                new google.maps.Size(50,50),
-                new google.maps.Point(0,0),
-                new google.maps.Point(0,0));
+			var image = "<%= asset_path(site.image) %>";
+			var titulo = "<%= site.name %>"
 
 			var latlng = new google.maps.LatLng(latitude,longitude);
     
 			var marker = new google.maps.Marker({
 				position: latlng,
 				map: map,
-				icon: image
+				icon: image,
+				title: titulo
 			});
 
 		<% end %>
