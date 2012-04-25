@@ -1,0 +1,15 @@
+class Type < ActiveRecord::Base
+<<<<<<< HEAD
+     has_many :sites
+     # Se añade esta definición de recurso
+     validates :name, :description, :presence => true # campo obligatorio
+     validates :name, :uniqueness => true # Campo no repetido
+=======
+  has_many :sites
+  
+  
+  # Se añade esta definición de recurso
+  validates :name, :description, :presence => true      # campo obligatorio
+  validates :name,               :uniqueness => true  # Campo único (no repetido)
+>>>>>>> planet2012/master
+end

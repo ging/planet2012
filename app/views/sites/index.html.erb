@@ -14,21 +14,29 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
+           <% if site.comments !=[]  %>
+           	<b>Existen <%= link_to 'comentarios', site %> </b>
+           <% end  %>
         </dl> 
+           <i>Incluido en <%=site.visits.length%> viaje<%if site.visits.length != 1%>s<%end%></i>
       </td>
- 
+
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
-        <% if site.user == current_user %>          <%= link_to 'Edit', edit_site_path(site) %><br/>
+        <% if site.user == current_user %>
+          <%= link_to 'Edit', edit_site_path(site) %><br/>
           <%= link_to 'Destroy', site, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
-        <% end %>      </td> 
+        <% end %>
+      </td> 
     </tr> 
   <% end %>
   </table> 
 </div> 
- 
+
 <br /> 
  
 <%= link_to 'New site', new_site_path %>
+
+

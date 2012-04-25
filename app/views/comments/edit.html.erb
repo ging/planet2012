@@ -1,0 +1,24 @@
+<h1>Editar comentario</h1>
+
+<%= form_for([@site, @comment]) do |comment| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= comment.text_area :coment %>
+  </div>
+ 
+  <div class="actions">
+    <%= comment.submit  %>
+  </div>
+<% end %>
+

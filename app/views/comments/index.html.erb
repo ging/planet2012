@@ -1,0 +1,22 @@
+<div id="comment_list"> 
+<h1>Comentarios del sitio</h1>
+
+<table> 
+  <% @comments.each do |comment| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+ 
+ 
+      <td class="list_description"> 
+        <dl> 
+          <dd><%= truncate(strip_tags(comment.coment),
+                 :length => 240) %></dd>
+        </dl> 
+      </td>
+    </tr> 
+  <% end %>
+  </table> 
+</div> 
+
+
+<%= link_to 'New Comment', new_comment_path %>
+
