@@ -12,5 +12,6 @@ class Site < ActiveRecord::Base
 
   # Se añaden estas definiciones 
   validates :name, :type_id,    :presence => true   # campo obligatorio
+
 end
 

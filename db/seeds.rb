@@ -42,6 +42,9 @@ Site.delete_all
 site1= Site.create!(
             name: 'Pedriza',
             description: 'Magnifico valle al norte de Madrid en el Macizo Central',
+            latitud: 41.129021,
+            longitud: -3.848877,
+            zoom: 8,
             type_id: type2.id,
             image_url: 'pedriza.png',
             image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pedriza.png'), "r"))
@@ -50,6 +53,9 @@ site1.user_id = user1.id ; site1.save
 site2 = Site.create!(
             name: 'Catedral de Florencia',
             description: 'Catedral de la ciudad de Florencia con la que se inicia el Renacimiento',
+            latitud: 43.772829,
+            longitud: 11.244135,
+            zoom: 8,
             type_id: type1.id,
             image_url: 'florencia.png',
             image: File.open(File.join(Rails.root, 'app', 'assets','images', 'florencia.png'), "r"))
@@ -58,6 +64,9 @@ site2.user_id = user1.id ; site2.save
 site3 = Site.create!(
             name: 'Jardin de Lineo',
             description: 'Jardin de la ciudad sueca de Uppsala donde el famoso naturalista tenia su coleccion de plantas',
+            latitud: 59.865677,
+            longitud: 17.635059,
+            zoom: 8,
             type_id: type1.id,
             image_url: 'arbol1.png',
             image: File.open(File.join(Rails.root, 'app', 'assets','images', 'arbol1.png'), "r"))
@@ -66,6 +75,9 @@ site3.user_id = user2.id ; site3.save
 site4 = Site.create!(
             name: 'Reichstag',
             description: 'Parlamento aleman en la ciudad de Berlin',
+            latitud: 52.519146,
+            longitud: 13.375486,
+            zoom: 8,
             type_id: type2.id,
             image_url: 'reichstag.png',
             image: File.open(File.join(Rails.root, 'app', 'assets','images', 'reichstag.png'), "r"))
@@ -74,6 +86,9 @@ site4.user_id = user2.id ; site4.save
 site5 = Site.create!(
             name: 'Pergamo',
             description: 'Puerta del mercado de la antigua ciudad griega de Pergamo del museo arquelogico de Berlin',
+            latitud: 47.84381,
+            longitud: 8.535976,
+            zoom: 8,
             type_id: type3.id,
             image_url: 'pergamo.png',
             image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pergamo.png'), "r"))

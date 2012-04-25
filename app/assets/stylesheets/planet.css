@@ -121,6 +121,11 @@ font-size: small;
   font-size: small;
 }
 
+#search {
+  float: right; /* Ajuste de borde izquierdo */
+  color: #bfb;
+}
+
 #columns {
   background: #446;
 }
@@ -202,3 +207,4 @@ font-size: small;
   height: 500px;
   width :500px;
 }
+

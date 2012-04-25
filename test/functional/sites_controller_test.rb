@@ -3,6 +3,13 @@ require 'test_helper'
 class SitesControllerTest < ActionController::TestCase
   setup do
     @site = sites(:one)
+    @update = {   # @update:  parametros diferentes
+      :name         => 'AnotherType',
+      :description  => 'AnotherText',
+      :type_id => types(:one).id
+    }
+    @user = @site.user
+    sign_in @user
   end
 
   test "should get index" do

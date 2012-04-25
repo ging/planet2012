@@ -121,6 +121,11 @@ font-size: small;
   font-size: small;
 }
 
+#search {
+  float: left; /* Ajuste de borde izquierdo */
+  color: #bfb;
+}
+
 #columns {
   background: #446;
 }
@@ -195,10 +200,11 @@ font-size: small;
 }
 
 #main .visitas {
-  text-indent: 80%;
+  text-indent: 50%;
 }
 
 #main .geo{
   height: 500px;
   width :500px;
 }
+
