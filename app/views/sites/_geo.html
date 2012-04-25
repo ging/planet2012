@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<div class="geo">
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?&sensor=false">
+    </script>
+    <script type="text/javascript">
+    var map;
+    var marker;
+      function initialize() {
+    var latitude = <%= @site.latitud %> 
+    var longitude = <%= @site.longitud %> 
+    var zoo = <%= @site.zoom %>
+    var image = new google.maps.MarkerImage ("<%= asset_path(@site.image.url(:small)) %>",
+    	new google.maps.Size(150,150));
+    var latlng = new google.maps.LatLng(latitude,longitude);
+    var myOptions = {
+      zoom: zoo,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    marker = new google.maps.Marker({
+			position: latlng,
+			map: map,
+      icon: image
+    });
+  }
+
+    </script>
+  </head>
+  <body onload="initialize()">
+ <div id="map_canvas" style="width: 320px; height: 480px;"></div>
+</body>
+</div>
+</html>

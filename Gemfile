@@ -47,5 +47,7 @@ gem 'paperclip'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'json', '1.6.5'
 
+gem 'execjs'
+gem 'therubyracer'
+gem 'json', '1.6.5'

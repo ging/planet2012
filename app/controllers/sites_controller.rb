@@ -22,9 +22,11 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-
+		@comments = @site.comments.build
+		
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: @site }
     end
   end
