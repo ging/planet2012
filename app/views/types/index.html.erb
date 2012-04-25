@@ -1,12 +1,8 @@
 <h1>Listing Types</h1> 
- 
+<br>
 <table id = "tabla"> 
     <%= render @types %>
 </table> 
 
 <br/>
-<% if current_user != nil %>
-  <% if current_user.name == 'admin' %>
-    <p><%= link_to 'New Type', new_type_path %></p>
-  <% end %>
-<% end %>
+<p><%= link_to 'New Type', new_type_path %></p>

@@ -6,6 +6,20 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
+<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery.slidertron-1.0.js"></script>
+
+<script type="text/javascript">
+        $('#slider').slidertron({
+          viewerSelector: '.viewer',
+          reelSelector: '.viewer .reel',
+          slidesSelector: '.viewer .reel .slide',
+          advanceDelay: 3000,
+          speed: 'slow'
+        });
+</script>
+
   <script type="text/javascript">
     $(function() {
       $( "#trip_description" ).cleditor();
@@ -21,7 +35,7 @@
     <div id="header-wrapper">
       <div id="header">
         <div id="logo">
-          <h1><a href="#">Planet Travel</a></h1>
+          <h1>Planet Travel</h1>
           <p>the best tourism site</p>
         </div>
       </div>
@@ -32,28 +46,29 @@
     <ul>
         <li><%= link_to "Home", planet_index_path %></li>
         <li><%= link_to('Contact', planet_contact_path) %></li>
-        <li><%= link_to('Ejemplo', planet_ejemplo_path) %></li>
         <li><%= link_to "Authors", planet_author_path %></li>
-        <li><%= link_to "Tipos",  types_path %></li>
-        <li><%= link_to('Tipos ordenados', ordered_index_types_path) %></li>
-        <li><%= link_to "Sitios", sites_path %></li>
-        <li><%= link_to "Viajes", trips_path %></li>
-        <li><%= link_to "Usuarios", users_path %></li>
-      </ul>
-    </div>
-    <!-- end #menu -->
-
-    <div id="page">
-
-      <div id="content">
-
-        <div id ="search">
+        <li><%= link_to "Types",  types_path %></li>
+        <li><%= link_to('Ordered Types', ordered_index_types_path) %></li>
+        <li><%= link_to "Sites", sites_path %></li>
+        <li><%= link_to "Trips", trips_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li>
+          <div id ="search">
           <p>
             <%= form_tag planet_search_path, :method => 'get' do %>
               <%= text_field_tag(:search, nil, :placeholder => "Search") %>
               <%= submit_tag "Search" %>
             <% end %>
           </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- end #menu -->
+
+    <div id="page">
+      <div id="content">
+        <div class ="login">
           <p>
             <% if current_user %>
               <%= link_to current_user.name, edit_user_registration_path %> |
@@ -63,19 +78,17 @@
             <% end %>
           </p>
         </div>
-
         <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
-
-          <%= yield %>
-
+        <%= yield %>
       </div>
-
     </div>
-
   </div>
+  <!-- end page -->
 
   <div id="footer">
-    <p>2012. Sitename.com. All rights reserved. Photos by <a href="http://fotogrph.com/">Fotogrph</a>. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.<!--%@##--> Design provided by <a href="http://www.freewebtemplates.com/">Free Website Templates</a>.<!--##@%--></p>
+    <p><b>SOFTWARE DE COMUNICACIONES</b></p>
+    <p>Pedro Merlo Feter · Álvaro Sánchez Bravo</p>
+    <p>Show <!-- <a href="/doc/app/index.html"> -->rdoc</a></p>
   </div>
   <!-- end #footer -->
 

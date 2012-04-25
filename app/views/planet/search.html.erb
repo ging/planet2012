@@ -1,5 +1,6 @@
 <h1>Search results</h1>
-<br><br>
+<br>
+<div id = "col_search">
 <p><b>Sites</b></p>
 <ul>
 	<% @sites.each do |s| %>
@@ -16,8 +17,9 @@
 	<% end %>
 	found.
 </i></p>
-<br>
-<br>
+</div>
+
+<div id = "col_search">
 <p><b>Trips</b></p>
 <ul>
 	<% @trips.each do |t| %>
@@ -34,3 +36,4 @@
 	<% end %>
 	found.
 </i></p>
+</div>

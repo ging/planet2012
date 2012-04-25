@@ -1,13 +1,19 @@
+#trip_sites {
+	float: left;
+}
+
+#trip_datos {
+	width: 500px;
+}
+
 #trip_canvas {
-	position: absolute;
-	margin-top: 1%;
+	float: right;
 	width: 450px;
 	height: 290px;
 	border: 1px solid black;
 }
 
 #trip_bottom {
-	position: absolute;
-	margin-top: 37%;
-	padding-bottom: 1%;
+	background-color: #0f0;
+	margin-top: 300px;
 }

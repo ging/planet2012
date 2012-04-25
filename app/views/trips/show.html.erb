@@ -3,8 +3,6 @@
 <script type="text/javascript">
 
   var map;
-  var ne;
-  var sw;
 
   <% @sites = @trip.sites %>
   <% num_sites = @sites.length %>
@@ -51,19 +49,14 @@
 </script>
 
 <h1><%= @trip.name %></h1>
-
-<p><b>Date: </b><%= @trip.date %></p>
-
-<p><b>Autor: </b><%= @trip.user.name if @trip.user %></p>
- 
-<p><b>Description: </b><%= @trip.description %></p>
-
 <br>
+<p><b>Date: </b><%= @trip.date %></p>
+<p><b>Autor: </b><%= @trip.user.name if @trip.user %></p>
+<p><b>Description: </b><%= @trip.description %></p>
+<br>
+<p><h1>Sitios a visitar:</h1></p>
 
-<p><h2>Sitios a visitar:</h2></p>
-
-<div id="site_list">
-
+<div id="trip_sites">
   <%= render(@trip) %>
   <p>
   <% if @trip.user == current_user %>
@@ -79,14 +72,13 @@
     <% end %>
   <% end %>
   </p>
-</div>
-<% if @trip.sites != [] %>
-  <p><div id="trip_canvas"></div></p>
-<% end %>
-
-<div id = "trip_bottom">
+  <br>
   <% if @trip.user == current_user %>
     <%= link_to 'Edit', edit_trip_path(@trip) %> |
   <% end %>
   <%= link_to 'Back', trips_path %>
 </div>
+<% if @trip.sites != [] %>
+  <p><div id="trip_canvas"></div></p>
+<% end %>
+<br>

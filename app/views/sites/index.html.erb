@@ -1,15 +1,10 @@
-<div id="site_list"> 
-  
-  <h1>Listing Sites</h1> 
-
-  <table id = "tabla"> 
-    <%= render @sites %>
-  </table> 
-
-</div>  
-
-<br />
-
+<h1>Listing Sites</h1>
+<br>
+<table id = "tabla"> 
+  <%= render @sites %>
+</table>
+<br>
+<br>
 <% if current_user != nil %>
 	<%= link_to 'New site', new_site_path %>
 <% end %>

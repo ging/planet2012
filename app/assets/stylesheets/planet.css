@@ -12,13 +12,13 @@ body {
 h1, h2, h3 {
 	margin: 0px;
 	padding: 0px;
-	text-transform: lowercase;
 	font-family: 'Abel', sans-serif;
-	font-weight: 400;
+	font-weight: bold;
 }
 
 h1 {
 	font-size: 2em;
+	color: #106053;
 }
 
 h2 {
@@ -87,7 +87,7 @@ img.aligncenter {
 	height: 100px;
 	margin: 0px auto;
 	padding: 80px 0px 0px 0px;
-	color: #FFFFFF;
+	color: #F60;
 }
 
 #logo h1, #logo p {
@@ -123,44 +123,13 @@ img.aligncenter {
 	color: #FFFFFF;
 }
 
-/* ##########################  SEARCH  ########################## */
+/* ###################### SEARCH ########################## */
 
 #search {
+	padding-top: 3px;
+	padding-left: 20px;
 	text-align: right
 }
-
-/*#search {
-	float: right;
-	width: 280px;
-	height: 100px;
-	padding: 0;
-}
-
-#search form {
-	height: 41px;
-	margin: 0;
-	padding: 60px 0 0 30px;
-}
-
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-
-#search-text {
-	width: 195px;
-	padding: 6px 10px;
-	border: none;
-	background: #FFFFFF;
-	text-transform: lowercase;
-	font: normal 11px Arial, Helvetica, sans-serif;
-	color: #7F7F81;
-}
-
-#search-submit {
-	display: none;
-}*/
 
 /* ###########################  MENU  ########################### */
 
@@ -171,7 +140,7 @@ img.aligncenter {
 	height: 60px;
 	margin: 0px auto;
 	padding: 0px 20px 0px 20px;
-	background: #33820F url(images/menu-wrapper-bg.png) repeat-x left top;
+	background: #178674 url(images/menu-wrapper-bg.png) repeat-x left top;
 }
 
 #menu ul {
@@ -234,53 +203,22 @@ img.aligncenter {
 	/*borde redondeado*/
 }
 
-
-/* Lista de posts */
-.post {
-	clear: both;
-	padding-bottom: 10px;
+.login {
+	float: right;
+	margin-top: 10px;
 }
 
-.post .title {	/* dentro de esto va el texto del título */
-	padding-top: 10px;
-	letter-spacing: -4px;
-	text-transform: lowercase;
-	font-size: 50px;
+#content h1 {
+	font-size: 30px;
+	font-weight: bold;
 }
 
-.post .title a { /*el título es clickable*/
-	border: none;
-	color: #272727;
+#col_search {
+	float: left;
+	width: 500px;
 }
 
-.post .meta { /*info del post*/
-	padding-bottom: 10px;
-	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	font-style: italic;
-}
-
-.post .meta a {
-}
-
-.post .entry { /*contenido del post*/
-	text-align: justify;
-	margin-bottom: 25px;
-	padding: 10px 0px 0px 0px;
-}
-
-.links {
-	display: block;
-	width: 96px;
-	padding: 2px 0px 2px 0px;
-	background: #A53602;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 10px;
-	color: #FFFFFF;
-}
-
+/* ######################## NO SE UTILIZA ###########################*/
 /* Sidebar - columna izquierda */
 
 #sidebar-bg {
@@ -351,7 +289,7 @@ img.aligncenter {
 	text-decoration: underline;
 }
 
-/* Calendar - NO SE UTILIZA */
+/* Calendar */
 
 #calendar {
 }
@@ -372,13 +310,14 @@ img.aligncenter {
 	text-align: right;
 }
 
-/* Footer */
+/* ############################### Footer ############################ */
 
 #footer {
-	width: 650px;
-	height: 100px;
-	margin: 0px auto;
-	padding-left: 330px;
+	float: left;
+	margin-left: 325px;
+	width: 1270px;
+	height: 150px;
+	text-align: center;
 }
 
 #footer p {
@@ -396,8 +335,11 @@ img.aligncenter {
 
 #footer a {
 	text-decoration: underline;
+	text-align: center;
 	color: #525050;
 }
+
+/* ########################## SLIDESHOW ############################*/
 
 #slider { /*contiene el slideshow*/
 	position: relative;
@@ -421,4 +363,32 @@ img.aligncenter {
 	position: relative;
 	width: 590px;
 	height: 300px;
+}
+
+/*################  TABLAS  #################*/
+
+#even {
+  background:   #a8b8f8;
+}
+
+#odd {
+  background:   #88b0f8;
+}
+
+#tabla {}
+
+.datos {
+	padding: 10px;
+}
+
+.acciones {
+	padding: 10px;
+}
+
+.even {
+  background:   #ccc;
+}
+
+.odd {
+  background:   #ddd;
 }

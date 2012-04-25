@@ -2,7 +2,6 @@
   <% if @type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@type.errors.count, "error") %> prohibited this type from being saved:</h2>
-
       <ul>
       <% @type.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -15,10 +14,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <br>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description, :rows => 4 %>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
