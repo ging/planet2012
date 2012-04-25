@@ -5,16 +5,21 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
   gem 'pg'
 end
+
 
 gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -25,7 +30,6 @@ end
 
 gem 'jquery-rails'
 gem 'cleditor_rails'
-
 gem 'paperclip'
 
 # To use ActiveModel has_secure_password
@@ -42,3 +46,8 @@ gem 'paperclip'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+
+gem 'execjs'
+gem 'therubyracer'
+gem 'json', '1.6.5'

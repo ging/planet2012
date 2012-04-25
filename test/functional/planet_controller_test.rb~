@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class PlanetControllerTest < ActionController::TestCase
+  setup do
+     @busqueda = "MyString"
+   end
 
   test "should get index" do
     get :index
@@ -22,9 +25,8 @@ class PlanetControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get search found" do
-    get :search
-    assert_response :success
+  test "should get search" do
+      get :search, buscar: @busqueda
+      assert_response :success
   end
-
 end
