@@ -4,11 +4,10 @@ one:
   name: MyString
   description: MyText
   date: 2012-04-09
-  user_id: 1
+  user: one
 
 two:
-  name: MyString
-  description: MyText
+  name: YourString
+  description: YourText
   date: 2012-04-09
-  user_id: 1
-
+  user: two
