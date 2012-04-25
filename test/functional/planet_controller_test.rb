@@ -12,4 +12,10 @@ class PlanetControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get search" do
+  	get :search, q: "lineo"
+  	assert_response :success
+  end
+
+
 end
