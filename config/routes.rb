@@ -28,6 +28,7 @@ Planet::Application.routes.draw do
   
   get "types/ordered_index"
   
+  get "planet/search"
   #resources :types
 
   # The priority is based upon order of creation:

@@ -35,7 +35,11 @@
       <%= link_to "Sitios", sites_path %><br /> 
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
-      <%= link_to "Sign up", new_user_registration_path unless current_user %>
+      <%= link_to "Sign up", new_user_registration_path unless current_user %></br>
+      <%= form_tag(planet_search_path, :method => "get") do %>
+				<%= search_field_tag :buscar %></br>
+				<%= submit_tag "Buscar" %>
+			<% end %>
     </div> 
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
