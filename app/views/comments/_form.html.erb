@@ -16,12 +16,12 @@
     <%= f.text_field :coment %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.label :user_id, :hidden => true %>
+    <%= f.number_field :user_id, :value => current_user.id, :hidden => true %>
   </div>
   <div class="field">
-    <%= f.label :site_id %><br />
-    <%= f.number_field :site_id %>
+    <%= f.label :site_id, :hidden => true %>
+    <%= f.number_field :site_id, :hidden => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

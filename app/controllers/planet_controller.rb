@@ -32,7 +32,7 @@ class PlanetController < ApplicationController
   
   def author
   end
-  
+  # Método que define la acción búsqueda del controlador
   def search
   	if params[:buscar].length >= 3
   		@sites = Site.where("name like ? OR description like ?", "%#{params[:buscar]}%", "%#{params[:buscar]}%")
@@ -40,5 +40,6 @@ class PlanetController < ApplicationController
 		else
 			render action: "menosdetres"
 		end
-  end  
+  end
+
 end

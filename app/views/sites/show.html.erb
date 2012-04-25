@@ -4,9 +4,9 @@
 <div id="site">
 	
   <h1><%= @site.type.name if @site.type %></h1> 
-
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
-
+	<div id="imagen">
+	  <%= image_tag(@site.image.url, :class => 'site_image') %>
+	</div>
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
@@ -38,7 +38,8 @@
 	<% end %>
 
 <div class="visitas">
-  <b>Visitas:</b>  <%= @site.visitas %>
+  <b>Visitas:</b>  <%= @site.visitas %><br/>
+  <b>Inclusiones:</b> <%= @site.visits.length %>
 </div>
 
 <p />
