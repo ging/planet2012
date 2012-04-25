@@ -32,5 +32,15 @@ class PlanetController < ApplicationController
   # Acción author
   def author
   end
+
+  def search
+    if params[:query].empty? or params[:query].length < 3
+      @sites = []
+      @trips = []    
+    else
+      @sites = Site.where("name like ? or description like ?", "%"+params[:query]+"%", "%"+params[:query]+"%")
+      @trips = Trip.where("name like ? or description like ?", "%"+params[:query]+"%", "%"+params[:query]+"%")
+   end
+  end
     
 end

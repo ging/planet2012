@@ -36,6 +36,12 @@
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path unless current_user %>
+<div id="buscar">
+<form action='/planet/search'>
+  <input id="bs" name="query" type="text">
+  <input type='submit' value='Search' />
+ </form>
+</div>
     </div> 
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>

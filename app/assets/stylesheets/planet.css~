@@ -93,11 +93,6 @@
   background: #446;
 }
 
-#bs{
-margin-top: 2em;
-width: 86px;
-}
-
 #main {
   margin-left: 9em;  /* Ajuste de borde izquierdo */
   padding-top: 4ex;
