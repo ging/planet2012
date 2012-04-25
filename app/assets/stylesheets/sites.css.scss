@@ -1,21 +1,61 @@
-// Place all the styles related to the sites controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#site_foto {
+	position: absolute;
+	margin-top: 5%;
+}
+
+#site_imagen {
+	height: 150px;
+	width: 100px;
+}
+
+#site_datos {
+	position: absolute;
+	margin-left: 8%;
+	width: 20%;
+}
+
+#site_canvas {
+	float: left;
+	margin-top: 40px;
+	width: 450px;
+	height: 290px;
+	border: 1px solid black;
+}
+
+#site_comentarios {
+	float: right;
+	margin-top: 40px;
+	width: 630px;
+	padding-bottom: 20px;
+}
+
+#site_bottom {
+	position: relative;
+	margin-top: 400px;
+	height: 20px;
+	width: 80px;
+}
 
 #site_col1 {
 	float: left;
-	width: 30%;
+	width: 50%;
 	font-weight: bold;
 }
 
 #site_col2 {
 	float: left;
-	width: 70%;
+	width: 50%;
 	font-weight: bold;
 }
 
-#site_canvas {
+#form_canvas {
 	width: 450px;
 	height: 290px;
 	border: 1px solid black;
+}
+
+#form_bottom {
+	position: absolute;
+	margin-top: 50%;
+	padding-bottom: 1%;
 }

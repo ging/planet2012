@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  # Muestra una vista con todos los usuarios.
 	def index
       	@users = User.all
 
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
     	end
   	end
 
+    # Muestra información sobre el usuario cuyo id se pasa como parámetro.
   	def show
     	@user = User.find(params[:id])
 

@@ -1,26 +1,24 @@
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+<tr class="<%= cycle('odd', 'even') %>"> 
 
-  <td> 
-    <%= link_to image_tag(site.image_url, :class => 'list_image'), site %>
+  <td class =  "imagen"> 
+    <%= link_to image_tag(site.image_url, :class => 'imagen'), site %>
   </td> 
 
-  <td class="list_description"> 
-    <dl> 
-      <dt><%= link_to site.name, site %></dt> 
-      <dd><%= truncate(strip_tags(site.description),
-             :length => 80) %></dd>
-      <dd><i>
-        Incluido <%=site.visits.length%>
-        ve<%if site.visits.length != 1%>ces<%else%>z<%end%>
-      </i>
-        <% if site.comments != [] %>
-          | <%=link_to "Comentarios", site_path(site) %> (<%= site.comments.length %>)
-        <% end %>
-      </dd>
-    </dl> 
+  <td class = "datos"> 
+    
+    <%= link_to site.name, site %><br> 
+    <%= truncate(strip_tags(site.description),
+             :length => 80) %><br>
+    <i>
+      Incluido <%=site.visits.length%>
+      ve<%if site.visits.length != 1%>ces<%else%>z<%end%>
+    </i>
+    <% if site.comments != [] %>
+      | <%=link_to "Comentarios", site_path(site) %> (<%= site.comments.length %>)
+    <% end %> 
   </td>
 
-  <td class="list_actions"> 
+  <td class = "acciones"> 
     <%= link_to 'Show', site %><br/>
     <% if current_user != nil %>
        <% if (site.user == current_user) or (current_user.name == 'admin') %>

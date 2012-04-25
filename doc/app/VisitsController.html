@@ -109,6 +109,12 @@
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
     <li><a href="./PlanetController.html">PlanetController</a>
   
     <li><a href="./PlanetHelper.html">PlanetHelper</a>
@@ -132,6 +138,10 @@
     <li><a href="./TypesHelper.html">TypesHelper</a>
   
     <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
   
     <li><a href="./Visit.html">Visit</a>
   
@@ -181,12 +191,13 @@
 
         <div class="method-description">
           
-          <p>POST /visits POST /visits.json</p>
+          <p>POST /visits POST /visits.json Muestra la nueva visita creada con un
+mensaje de confirmación.</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:visit</span>])
 
@@ -222,12 +233,13 @@
 
         <div class="method-description">
           
-          <p>DELETE /visits/1 DELETE /visits/1.json</p>
+          <p>DELETE /visits/1 DELETE /visits/1.json Eliminar una visita cuyo id se pasa
+como parámetro.</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 75</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">destroy</span>
@@ -258,12 +270,12 @@
 
         <div class="method-description">
           
-          <p>GET /visits/1/edit</p>
+          <p>GET /visits/1/edit Editar una visita cuyo id se pasa como parámetro.</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -288,12 +300,12 @@
 
         <div class="method-description">
           
-          <p>GET /visits GET /visits.json</p>
+          <p>GET /visits GET /visits.json Muestras las visitas de un viaje.</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@visits</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">all</span>
 
@@ -323,12 +335,12 @@
 
         <div class="method-description">
           
-          <p>GET /visits/new GET /visits/new.json</p>
+          <p>GET /visits/new GET /visits/new.json Crear una nueva visita.</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>
 
@@ -358,12 +370,13 @@
 
         <div class="method-description">
           
-          <p>GET /visits/1 GET /visits/1.json</p>
+          <p>GET /visits/1 GET /visits/1.json Muestra la visita cuyo id se pasa como
+parámetro.</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -393,12 +406,13 @@
 
         <div class="method-description">
           
-          <p>PUT /visits/1 PUT /visits/1.json</p>
+          <p>PUT /visits/1 PUT /visits/1.json Actualiza los parámetros de una visita y
+muestra mensaje de confirmación.</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

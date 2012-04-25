@@ -109,6 +109,12 @@
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
     <li><a href="./PlanetController.html">PlanetController</a>
   
     <li><a href="./PlanetHelper.html">PlanetHelper</a>
@@ -132,6 +138,10 @@
     <li><a href="./TypesHelper.html">TypesHelper</a>
   
     <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
   
     <li><a href="./Visit.html">Visit</a>
   
@@ -181,12 +191,13 @@
 
         <div class="method-description">
           
-          <p>POST /trips POST /trips.json</p>
+          <p>POST /trips POST /trips.json Muestra una vista con un mensaje de
+confirmación y el viaje creado.</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 47</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@trip</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trips</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:trip</span>])
 
@@ -221,12 +232,13 @@
 
         <div class="method-description">
           
-          <p>DELETE /trips/1 DELETE /trips/1.json</p>
+          <p>DELETE /trips/1 DELETE /trips/1.json Elimina el viaje que se pasa como
+parámetro.</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 79</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@trip</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trips</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@trip</span>.<span class="ruby-identifier">destroy</span>
@@ -257,12 +269,13 @@
 
         <div class="method-description">
           
-          <p>GET /trips/1/edit</p>
+          <p>GET /trips/1/edit Muestra una vista para editar el viaje cuyo id se pasa
+como parámetro.</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 41</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@trip</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trips</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -287,12 +300,13 @@
 
         <div class="method-description">
           
-          <p>GET /trips GET /trips.json</p>
+          <p>GET /trips GET /trips.json Obtiene todos los viajes y los renderiza en la
+misma vista</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@trips</span> = <span class="ruby-constant">Trip</span>.<span class="ruby-identifier">all</span>
 
@@ -322,12 +336,13 @@
 
         <div class="method-description">
           
-          <p>GET /trips/new GET /trips/new.json</p>
+          <p>GET /trips/new GET /trips/new.json Muestra un formulario para añadir un
+nuevo viaje a la web.</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@trip</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trips</span>.<span class="ruby-identifier">build</span>
   
@@ -357,12 +372,13 @@
 
         <div class="method-description">
           
-          <p>GET /trips/1 GET /trips/1.json</p>
+          <p>GET /trips/1 GET /trips/1.json Muestra el viaje cuyo id se pasa como
+parámetro.</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@trip</span> = <span class="ruby-constant">Trip</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@visit</span> = <span class="ruby-ivar">@trip</span>.<span class="ruby-identifier">visits</span>.<span class="ruby-identifier">build</span>
@@ -393,12 +409,13 @@
 
         <div class="method-description">
           
-          <p>PUT /trips/1 PUT /trips/1.json</p>
+          <p>PUT /trips/1 PUT /trips/1.json Muestra una vista para editar los parámetros
+del viaje.</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 63</span>
+            <pre><span class="ruby-comment"># File app/controllers/trips_controller.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@trip</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trips</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   

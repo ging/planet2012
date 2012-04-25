@@ -1,3 +1,8 @@
+# Esta clase representa los comentarios que un usuario puede dejar en un sitio.
+# Un comentario:
+# * pertenece a un sitio
+# * lalala
+
 class Comment < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :site

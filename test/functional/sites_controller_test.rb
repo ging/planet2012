@@ -26,7 +26,7 @@ class SitesControllerTest < ActionController::TestCase
   test "should create site" do
     assert_difference('Site.count') do
       post :create, site: @update
-    end
+  end
 
     assert_redirected_to site_path(assigns(:site))
   end

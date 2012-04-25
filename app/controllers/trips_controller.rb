@@ -5,6 +5,7 @@ class TripsController < ApplicationController
   
   # GET /trips
   # GET /trips.json
+  # Obtiene todos los viajes y los renderiza en la misma vista
   def index
     @trips = Trip.all
 
@@ -16,6 +17,7 @@ class TripsController < ApplicationController
 
   # GET /trips/1
   # GET /trips/1.json
+  # Muestra el viaje cuyo id se pasa como parámetro.
   def show
     @trip = Trip.find(params[:id])
     @visit = @trip.visits.build
@@ -28,6 +30,7 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   # GET /trips/new.json
+  # Muestra un formulario para añadir un nuevo viaje a la web.
   def new
     @trip = current_user.trips.build
     
@@ -38,12 +41,14 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1/edit
+  # Muestra una vista para editar el viaje cuyo id se pasa como parámetro.
   def edit
     @trip = current_user.trips.find(params[:id])
   end
 
   # POST /trips
   # POST /trips.json
+  # Muestra una vista con un mensaje de confirmación y el viaje creado.
   def create
     @trip = current_user.trips.build(params[:trip])
 
@@ -60,6 +65,7 @@ class TripsController < ApplicationController
 
   # PUT /trips/1
   # PUT /trips/1.json
+  # Muestra una vista para editar los parámetros del viaje.
   def update
     @trip = current_user.trips.find(params[:id])
     
@@ -76,6 +82,7 @@ class TripsController < ApplicationController
 
   # DELETE /trips/1
   # DELETE /trips/1.json
+  # Elimina el viaje que se pasa como parámetro.
   def destroy
     @trip = current_user.trips.find(params[:id])
     @trip.destroy

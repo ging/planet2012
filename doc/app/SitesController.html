@@ -109,6 +109,12 @@
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
     <li><a href="./PlanetController.html">PlanetController</a>
   
     <li><a href="./PlanetHelper.html">PlanetHelper</a>
@@ -132,6 +138,10 @@
     <li><a href="./TypesHelper.html">TypesHelper</a>
   
     <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
   
     <li><a href="./Visit.html">Visit</a>
   
@@ -181,12 +191,13 @@
 
         <div class="method-description">
           
-          <p>POST /sites POST /sites.json</p>
+          <p>POST /sites POST /sites.json Muestra una vista con un mensaje de
+confirmación y el sitio creado.</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 50</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site</span>]) <span class="ruby-comment"># Asigna solo si sitio asociado a current_user</span>
   
@@ -221,12 +232,13 @@
 
         <div class="method-description">
           
-          <p>DELETE /sites/1 DELETE /sites/1.json</p>
+          <p>DELETE /sites/1 DELETE /sites/1.json Elimina el sitio que se pasa como
+parámetro.</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 82</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
   <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">destroy</span>
@@ -257,12 +269,13 @@
 
         <div class="method-description">
           
-          <p>GET /sites/1/edit</p>
+          <p>GET /sites/1/edit Muestra una vista para editar el sitio cuyo id se pasa
+como parámetro.</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 44</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
 <span class="ruby-keyword">end</span></pre>
@@ -287,12 +300,13 @@
 
         <div class="method-description">
           
-          <p>GET /sites GET /sites.json</p>
+          <p>GET /sites GET /sites.json Obtiene todos los sitios y los renderiza en la
+misma vista</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>].<span class="ruby-identifier">empty?</span>
     <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">all</span>            <span class="ruby-comment"># path: /types</span>
@@ -325,15 +339,16 @@
 
         <div class="method-description">
           
-          <p>GET /sites/new GET /sites/new.json</p>
+          <p>GET /sites/new GET /sites/new.json Muestra un formulario para añadir un
+nuevo sitio a la web.</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 34</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span> <span class="ruby-comment"># crea sitio vacio asociado a current_user</span>
-  
+
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span> }
@@ -360,12 +375,13 @@
 
         <div class="method-description">
           
-          <p>GET /sites/1 GET /sites/1.json</p>
+          <p>GET /sites/1 GET /sites/1.json Muestra el siio cuyo id se pasa como
+parámetro.</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -395,12 +411,13 @@
 
         <div class="method-description">
           
-          <p>PUT /sites/1 PUT /sites/1.json</p>
+          <p>PUT /sites/1 PUT /sites/1.json Muestra una vista para editar los parámetros
+del sitio.</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 66</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 73</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user </span>
   

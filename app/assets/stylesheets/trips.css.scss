@@ -1,3 +1,13 @@
-// Place all the styles related to the trips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#trip_canvas {
+	position: absolute;
+	margin-top: 1%;
+	width: 450px;
+	height: 290px;
+	border: 1px solid black;
+}
+
+#trip_bottom {
+	position: absolute;
+	margin-top: 37%;
+	padding-bottom: 1%;
+}

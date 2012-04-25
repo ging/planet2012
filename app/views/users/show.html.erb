@@ -1,11 +1,11 @@
 <h1><%= @user.name %></h1>
 
 <p>
-	email: <%= @user.email %>
+	<b>email: </b><%= @user.email %>
 </p>
 
 <p>
-	Sitios añadidos:
+	<b>Sitios añadidos: </b>
 	<ul>
 		<% @user.sites.each do |s|%>
 			<li><%= link_to s.name, site_path(@s) %>
@@ -14,7 +14,7 @@
 </p>
 
 <p>
-	Viajes creados:
+	<b>Viajes creados: </b>
 	<ul>
 		<% @user.trips.each do |t|%>
 			<li><%= link_to t.name, trip_path(@t) %>
@@ -23,7 +23,7 @@
 </p>
 
 <p>
-	Comentarios publicados: <%= link_to @user.comments.length,
+	<b>Comentarios publicados: </b><%= link_to @user.comments.length,
 	user_comments_path(@user.id) %>
 </p>
 

@@ -1,34 +1,9 @@
-<div id="site_list"> 
-  <h1>Listing Types</h1> 
+<h1>Listing Ordered Types</h1> 
  
-  <table> 
-  <% @types.each do |type| %>
-    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
- 
-      <td class="list_description"> 
-        <dl> 
-          <dt><%= link_to type.name, type_sites_path(type) %></dt> 
-          <dd><%= truncate(strip_tags(type.description),
-                 :length => 80) %></dd> 
-          <dd>Updated at: <%= type.updated_at %></dd>
-        </dl> 
-      </td> 
- 
-      <td class="list_actions"> 
-        <%= link_to 'Show', type %><br/>
-        <% if current_user != nil %>
-          <% if current_user.name == 'admin' %>
-            <%= link_to 'Edit', edit_type_path(type) %><br/> 
-            <%= link_to 'Destroy', type, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
-          <% end %>
-        <% end %>
-      </td> 
-    </tr> 
-  <% end %>
-  </table> 
-</div> 
+<table id = "tabla"> 
+    <%= render @types %>
+</table> 
+
 <br/>
 <% if current_user != nil %>
   <% if current_user.name == 'admin' %>

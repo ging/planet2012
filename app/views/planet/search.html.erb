@@ -1,18 +1,36 @@
-<h1>Búsqueda</h1>
-
-<!-- buscar en los nombres y en la descripcion de los sitios y los viajes -->
-
-<div id = "sitios" style = "width: 50%; float: left;">
-	Resultados en sitios:<br>
-
-</div>
-
-<div id = "viajes" style = "width: 50%; float: left;">
-	Resultados en viajes:<br>
-	A<br>
-	B<br>
-	A<br>
-	B<br>
-	A<br>
-	B<br>
-</div>
+<h1>Search results</h1>
+<br><br>
+<p><b>Sites</b></p>
+<ul>
+	<% @sites.each do |s| %>
+		<li><%= link_to s.name, s %></li>
+	<% end %>
+</ul>
+<p><i>
+	<% ns = @sites.length %>
+	<%= ns %>
+	<% if ns != 1 %>
+		results 
+	<% else %>
+		result 
+	<% end %>
+	found.
+</i></p>
+<br>
+<br>
+<p><b>Trips</b></p>
+<ul>
+	<% @trips.each do |t| %>
+		<li><%= link_to t.name, t %></li>
+	<% end %>
+</ul>
+<p><i>
+	<% nt = @trips.length %>
+	<%= nt %>
+	<% if nt != 1 %>
+		results 
+	<% else %>
+		result 
+	<% end %>
+	found.
+</i></p>

@@ -1,6 +1,7 @@
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
+  # Muestras las visitas de un viaje.
   def index
     @visits = Visit.all
 
@@ -12,6 +13,7 @@ class VisitsController < ApplicationController
 
   # GET /visits/1
   # GET /visits/1.json
+  # Muestra la visita cuyo id se pasa como parámetro.
   def show
     @visit = Visit.find(params[:id])
 
@@ -23,6 +25,7 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   # GET /visits/new.json
+  # Crear una nueva visita.
   def new
     @visit = Visit.new
 
@@ -33,12 +36,14 @@ class VisitsController < ApplicationController
   end
 
   # GET /visits/1/edit
+  # Editar una visita cuyo id se pasa como parámetro.
   def edit
     @visit = Visit.find(params[:id])
   end
 
   # POST /visits
   # POST /visits.json
+  # Muestra la nueva visita creada con un mensaje de confirmación.
   def create
     @visit = Visit.new(params[:visit])
 
@@ -56,6 +61,7 @@ class VisitsController < ApplicationController
 
   # PUT /visits/1
   # PUT /visits/1.json
+  # Actualiza los parámetros de una visita y muestra mensaje de confirmación.
   def update
     @visit = Visit.find(params[:id])
 
@@ -72,6 +78,7 @@ class VisitsController < ApplicationController
 
   # DELETE /visits/1
   # DELETE /visits/1.json
+  # Eliminar una visita cuyo id se pasa como parámetro.
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy

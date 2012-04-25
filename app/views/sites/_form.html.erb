@@ -13,7 +13,7 @@
       center: latlng,
       mapTypeId: google.maps.MapTypeId.HYBRID
     }
-    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("form_canvas"), myOptions);
   }
 
   function situarMapa() {
@@ -52,10 +52,10 @@
       center: latlng,
       mapTypeId: google.maps.MapTypeId.HYBRID
     };
-    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
+    map = new google.maps.Map(document.getElementById("form_canvas"), myOptions);
     marker = new google.maps.Marker({
-      position: latlng,
       map: map,
+      position: latlng
     });
   }
 
@@ -94,7 +94,7 @@
       <input type="button" value="Ubicación actual" onclick="ubicActual()">
       <input type="button" value="Copiar parámetros" onclick="copyParams();">
     </p>
-    <div id="site_canvas"></div>
+    <div id = "form_canvas"></div>
 
 </div>
 

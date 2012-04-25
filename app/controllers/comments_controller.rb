@@ -35,8 +35,6 @@ class CommentsController < ApplicationController
     def update
         @comment = current_user.comments.find(params[:id])
         @site = Site.find(params[:site_id]) 
-        # @site = Site.find(params[:site_id])
-        # @comment = @site.comments.find(params[:id])
 
         respond_to do |format|
             if @comment.update_attributes(params[:comment])
