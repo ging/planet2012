@@ -48,8 +48,9 @@ function displayPosition() {
           <%= @site.user.name if @site.user %></p>
 
   <div class="visitas">
-   <b>Visitas:</b> <%= @site.visitas %>
-  </div
+   <b>Visitas: <%= @site.visitas %></b> 
+  </div>
+
 
   <p><b><%= (link_to 'Comentarios >>', site_comentarios_path(@site.id)) if (@site.comentarios.size > 0) %></b></p>
 
