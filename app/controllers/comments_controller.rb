@@ -3,11 +3,11 @@ class CommentsController < ApplicationController
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!
 
+     
   def create
    		@site = Site.find(params[:site_id])
   		@comment = @site.comments.create(params[:comment])
   		@comment.user_id = current_user.id
-  		@comment.site_id = @site.id
   		
   		respond_to do |format|
    		if @comment.save
@@ -50,4 +50,7 @@ class CommentsController < ApplicationController
         @site = Site.find(params[:site_id])
         @comment = @site.comments.find(params[:id])
   end
+  def index
+        @user = User.find(params[:user_id])
+    end
 end

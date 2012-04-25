@@ -16,6 +16,9 @@
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %>
           </dd>
+           <dd>
+            <b>Viajes:</b> <%=site.visits.length%>
+          </dd>
           <dd>
               <% if site.comments != [] %>
               <%=link_to "Comments", site_path(site) %> <%= site.comments.length %>

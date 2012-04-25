@@ -16,7 +16,7 @@ Planet::Application.routes.draw do
     resources :sites, :only => [ :index ] # Restringe a acción “index” 
     
   end
-  
+
   get "planet/index"
 
   get "planet/contact"
