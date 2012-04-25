@@ -70,11 +70,15 @@
 
   <ul class="link-list">
     
+    <li><a href="#method-i-authors">#authors</a>
+    
     <li><a href="#method-i-contact">#contact</a>
     
     <li><a href="#method-i-ejemplo">#ejemplo</a>
     
     <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-search">#search</a>
     
   </ul>
 </nav>
@@ -100,6 +104,14 @@
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentController.html">CommentController</a>
+  
+    <li><a href="./CommentHelper.html">CommentHelper</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
   
     <li><a href="./PlanetController.html">PlanetController</a>
   
@@ -142,40 +154,21 @@
 
   <div id="description" class="description">
     
-<p><a href="PlanetController.html">PlanetController</a> ilustra el uso de
-<strong>RDoc</strong>. La documentación de un proyecto en genera en el
-directorio <strong>proy/doc</strong> en formato Web con</p>
+<h2 id="label-PlanetController"><a href="PlanetController.html">PlanetController</a></h2>
 
-<pre>$proy&gt; rake doc:app</pre>
-
-<h2 id="label-Algunos+comandos+de+formateo">Algunos comandos de formateo</h2>
-
-<p>Tal y como muestra el subitulo anterior, este se define empezando la  línea
-con ==. En los títulos debe empezar por =.</p>
-
-<p>Un [ … ] seguido de texto define una lista titulada, como aquí</p>
-<dl class="rdoc-list label-list"><dt>Clases, Módulos o Métodos
-<dd>
-<p>Se documentan con comentarios justo encima de sus definición, como aquí.</p>
-</dd></dl>
-
-<p>Un * o - definen las entradas de una lista itemizada</p>
-<ul><li>
-<p>Un URL se define así <a href="mailto:pepe@ejemplo.com">email</a></p>
-</li><li>
-<p>o así <a href="mailto:pepe@ejemplo.com">Pepe Rubio</a></p>
-</li></ul>
-
-<p>Un número o letra seguido de punto genera una lista númerada</p>
+<p>En esta clase se definen las siguientes acciones del controlador:</p>
 <ol><li>
-<p>+ permite generar <strong>negrita</strong>, igual que <strong>con
-HTML</strong></p>
+<p><code>index</code></p>
 </li><li>
-<p>_ permite generar <em>cursiva</em>, igual que <em>con HTML</em></p>
-</li><li><ul><li>
-<p>permite generar letra de <code>teletipo</code>, igual que <code> con
-HTML</code></p>
-</li></ul>
+<p><code>contact</code></p>
+</li><li>
+<p><code>ejemplo</code></p>
+</li><li>
+<p><code>authors</code></p>
+</li><li>
+<p><code>search:</code> hace una búsqueda de nombre o descripción de un sitio
+o un viaje, siempre y cuando el texto introducido sea mayor o igual a 3
+caracteres</p>
 </li></ol>
 
   </div><!-- description -->
@@ -198,6 +191,35 @@ HTML</code></p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
+      <div id="method-i-authors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">authors</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET planet/authors</p>
+          
+
+          
+          <div class="method-source-code" id="authors-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">authors</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- authors-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- authors-method -->
+
+    
       <div id="method-i-contact" class="method-detail ">
         
         <div class="method-heading">
@@ -214,7 +236,7 @@ HTML</code></p>
 
           
           <div class="method-source-code" id="contact-source">
-            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">contact</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- contact-source -->
@@ -243,7 +265,7 @@ HTML</code></p>
 
           
           <div class="method-source-code" id="ejemplo-source">
-            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">ejemplo</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- ejemplo-source -->
@@ -272,7 +294,7 @@ HTML</code></p>
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->
@@ -283,6 +305,41 @@ HTML</code></p>
 
         
       </div><!-- index-method -->
+
+    
+      <div id="method-i-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:q</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">3</span>
+    <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name like ? OR description like ?&quot;</span>, <span class="ruby-node">&quot;%#{params[:q]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:q]}%&quot;</span>)
+    <span class="ruby-ivar">@trips</span> = <span class="ruby-constant">Trip</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name like ? OR description like ?&quot;</span>, <span class="ruby-node">&quot;%#{params[:q]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:q]}%&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
 
     
     </section><!-- public-instance-method-details -->

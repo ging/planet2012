@@ -109,6 +109,14 @@
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentController.html">CommentController</a>
+  
+    <li><a href="./CommentHelper.html">CommentHelper</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
     <li><a href="./PlanetController.html">PlanetController</a>
   
     <li><a href="./PlanetHelper.html">PlanetHelper</a>
@@ -186,7 +194,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 50</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site</span>]) <span class="ruby-comment"># Asigna solo si sitio asociado a current_user</span>
   
@@ -226,7 +234,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 82</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
   <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">destroy</span>
@@ -262,7 +270,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 44</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
 <span class="ruby-keyword">end</span></pre>
@@ -292,7 +300,7 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>].<span class="ruby-identifier">empty?</span>
     <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">all</span>            <span class="ruby-comment"># path: /types</span>
@@ -330,7 +338,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 34</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span> <span class="ruby-comment"># crea sitio vacio asociado a current_user</span>
   
@@ -365,7 +373,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -400,7 +408,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 66</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user </span>
   
