@@ -1,3 +1,17 @@
+<%
+require 'open-uri'
+require 'json'
+require 'pp'
+
+result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?latlng=41.761389,-2.461109&sensor=false").read)
+
+
+
+ 
+ %>
+ 
+
+
 <h1>Listing coments</h1>
 
 <table>
@@ -36,5 +50,7 @@
 
 <br />
 
-<%= link_to 'New Coment', new_site_coment_path if !params[:site_id].nil? or !params[:site_id].empty? %>
-<%= link_to 'New Coment', new_coment_path if params[:site_id] %>
+
+
+<%= link_to 'New Coment', new_site_coment_path if !params[:site_id].nil? %>
+<%= link_to 'New Coment', new_coment_path if params[:site_id].nil? %>

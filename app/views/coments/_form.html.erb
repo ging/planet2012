@@ -1,3 +1,8 @@
+<%= javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=false' %>
+<%= javascript_include_tag 'coments.form.geolocation' %>
+
+   
+    
 <%= form_for(@coment) do |f| %>
   <% if @coment.errors.any? %>
     <div id="error_explanation">
@@ -24,6 +29,24 @@
     <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) if !@site %>
     <%= f.hidden_field(:site_id, :value => @site.id) if @site%>
     <%= @site.name if @site %>
+  </div>
+  <div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
+  
+    <article>
+      <p>Finding your location: <span id="status">checking...</span></p>
+    </article>
   </div>
   <div class="actions">
     <%= f.submit %>  

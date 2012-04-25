@@ -1,0 +1,6 @@
+module SitesHelper
+	def new_gmap(latitude,longitude,zoom)    
+		s ="<script>new_gmap(#{latitude},#{longitude},#{zoom});</script>"
+		raw(s)
+	end
+end
