@@ -16,10 +16,8 @@
 		var latitude = <%= @site.latitud %>;
 		var longitude = <%= @site.longitud %>; 
 		var zoo = <%= @site.zoom %>;
-		var image = new google.maps.MarkerImage("<%= @site.image %>",
-			new google.maps.Size(50, 50),
-			new google.maps.Point(0,0),
-			new google.maps.Point(0,0));
+		var image = "<%= @site.image %>";
+		var titulo = "<%= @site.name %>";
 		var latlng = new google.maps.LatLng(latitude,longitude);
 		var myOptions = {
 			zoom: zoo,
@@ -30,7 +28,8 @@
 		var marker = new google.maps.Marker({
 			position: latlng,
 			map: map,
-			icon: image
+			icon: image,
+			title: titulo
 		});
   }
 
