@@ -12,13 +12,13 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, site_id: @comment
     assert_response :success
   end
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, comment: @comment.attributes
+      post :create, site_id: @comment, comment: @comment.attributes
     end
 
     assert_redirected_to comment_path(assigns(:comment))
@@ -30,18 +30,18 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @comment
+    get :edit, id: @comment, site_id: @comment
     assert_response :success
   end
 
   test "should update comment" do
-    put :update, id: @comment, comment: @comment.attributes
+    put :update, site_id: @comment, id: @comment, comment: @comment.attributes
     assert_redirected_to comment_path(assigns(:comment))
   end
 
   test "should destroy comment" do
     assert_difference('Comment.count', -1) do
-      delete :destroy, id: @comment
+      delete :destroy, site_id: @comment, id: @comment
     end
 
     assert_redirected_to comments_path
