@@ -36,6 +36,18 @@ user2 = User.create!(
             password: 'sedano22',
             password_confirmation: 'sedano22')
 
+user3 = User.create!( 
+            name: 'Alvaro Martin',
+            email: 'alvaro@planet.com', 
+            password: '123456',
+            password_confirmation: '123456')
+
+user4 = User.create!( 
+            name: 'Tiago Pais',
+            email: 'tiago@planet.com', 
+            password: '123456',
+            password_confirmation: '123456')
+
 
 Site.delete_all
 

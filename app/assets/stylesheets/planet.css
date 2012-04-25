@@ -16,6 +16,12 @@
         border-bottom: 3px dotted #77d;
 }
 
+#planet h2 {
+        font:  150% sans-serif;
+        color: #226;
+        font-style: italic;
+}
+
 /* Styles for products/index */
 
 #site_list table {
@@ -87,6 +93,27 @@
   float: right;
   color: #bfb;
   font-size: small;
+  padding: 6px 3px 3px 3px;
+}
+
+#banner .search{
+  float: right;
+  color: #000;
+  font-size: small;
+  margin: 4px 4px 4px 4px;
+  padding: 3px 3px 3px 3px;
+}
+
+#banner .button{
+        font-size:10px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:#446;
+        border:0px;
+        width:80px;
+        height:21px;
+        padding: 3px 0px 0px 3px;
 }
 
 #columns {
@@ -166,4 +193,6 @@
 #main .visitas {
   text-indent:   70%;
 }
+
+
 
