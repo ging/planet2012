@@ -32,7 +32,6 @@
   <div id="columns"> 
     <div id="side"> 
       <%= link_to "Home", planet_index_path %><br /> 
-
       <%= link_to "Tipos",  types_path %><br />
       <%= link_to "Tipos Ordenados", types_ordered_index_path %><br />  
       <%= link_to "Sitios", sites_path %><br />
@@ -40,7 +39,7 @@
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />   
       <%= link_to "Author",  planet_author_path %>  <br />       
-      <%= link_to "Sign up", new_user_registration_path if !current_user %>
+      <%= link_to "Sign up", new_user_registration_path unless current_user %><br />
 
     </div> 
     <div id="main"> 
