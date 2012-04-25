@@ -32,21 +32,27 @@
   height:       70px;
 }
 
-#site_list .comments {
-  width:        60%;
+#comment_list .comments {
+  width:        80%;
 }
 
-#site_list .comments dl {
+#comment_list .comments dl {
         margin: 0;
 }
 
-#site_list .comments dt {
-	color:        #200;
+#comment_list .comments dt {
 	font-size:    larger;
 }
 
-#site_list .comments dd {
+#comment_list .comments dd {
         margin: 0;
+}
+
+#comment_list .list_actions {
+	float: right;
+  	font-size:    x-small;
+ 	text-align:   right;
+ 	padding-left: 1em;
 }
 
 #site_list .list_description {
@@ -80,7 +86,6 @@
 #site_list .list_line_odd {
   background:   #88b0f8;
 }
-
 
 /* START:mainlayout */
 /* Styles for main page */

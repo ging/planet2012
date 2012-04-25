@@ -21,7 +21,11 @@
 <% if @site.comments!=[] %>
 <% @site.comments.inspect %>
 <b>Comentarios:</b>
-	<%= render @site.comments %></p
+	<div id=comments>
+	<table>
+	<%= render @site.comments %></p>
+	</table>
+	</div>
 <% end %>
 
 <p><b>Añada su comentario:</b> 
