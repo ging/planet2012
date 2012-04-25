@@ -32,5 +32,9 @@ class PlanetController < ApplicationController
   
   def author
   end
-    
+		
+	def search
+	@sites = Site.where("name like ? OR description like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    @trips = Trip.where("name like ? OR description like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+	end
 end

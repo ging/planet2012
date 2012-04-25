@@ -117,6 +117,15 @@
   font-size: small;
 }
 
+#banner .busqueda {
+  float: right;
+  color: #bfb;
+  font-size: small;
+  position: relative;
+  top: 5px;
+  right: 10px;
+}
+
 #columns {
   background: #446;
 }

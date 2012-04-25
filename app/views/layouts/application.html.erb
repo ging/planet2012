@@ -16,7 +16,14 @@
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
     <div class="user">      <% if current_user %>        <%= link_to current_user.name,              edit_user_registration_path %> |        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>      <% else %>        <%= link_to "Sign in", new_user_session_path %>      <% end %>
-    </div> 
+    </div>
+		<div class="busqueda">
+		<%= form_tag(planet_search_path, :method => "get") do %>
+	  	<%= text_field_tag(:search, nil, :placeholder => "Search") %>
+	  	<%= submit_tag("Search") %>
+		<% end %>  
+		
+		</div>
   </div> 
   <div id="columns"> 
     <div id="side"> 
