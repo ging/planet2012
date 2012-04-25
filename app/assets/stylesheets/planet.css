@@ -100,6 +100,12 @@
   padding-left: 10px;
 }
 
+#buscador {
+	float: right;
+	color: #000;
+	font-size: small;
+}
+
 #banner .user {
   float: right;
   color: #bfb;

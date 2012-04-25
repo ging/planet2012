@@ -40,6 +40,9 @@
     <%= f.label :zoom %><br />
     <%= f.text_field :zoom %>
   </div>
+  <div>
+    <input type="button" value="Captura de coordenadas" onclick="geolocalizacion();">
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
@@ -66,9 +69,7 @@ function successFunction(position) {
 function errorFunction(position) { alert('Error. Introduzca las coordenadas de forma manual'); }
 </script>
 
-<div>
-    <input type="button" value="Captura de coordenadas" onclick="geolocalizacion();">
-  </div>
+
 </head>
 
 

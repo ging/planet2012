@@ -27,6 +27,14 @@
         <%= link_to "Sign in", new_user_session_path %>
       <% end %>
     </div> 
+	<div id="buscador">
+		<br>
+		<%= form_tag(planet_search_path, :method => "get") do %>
+  		<%= label_tag(:q, "Search for:") %>
+ 		<%= text_field_tag(:q) %>
+  		<%= submit_tag("Search") %>
+		<% end %>
+	</div>
   </div> 
   <div id="columns"> 
     <div id="side"> 
