@@ -14,12 +14,15 @@
         font:  150% sans-serif;
         color: #226;
         border-bottom: 3px dotted #77d;
+        margin-top: 30px;
 }
 
 /* Styles for products/index */
 
 #site_list table {
         border-collapse: collapse;
+        margin-bottom: 1em;
+        margin-top: 1em;
 }
 
 #site_list table tr td {
@@ -83,12 +86,6 @@
   padding-left: 10px;
 }
 
-#planet .user {
-  float: right;
-  color: #bfb;
-  font-size: small;
-}
-
 #columns {
   background: #446;
 }
@@ -100,9 +97,37 @@
   background: white;
 }
 
+#main .links_down{
+  margin-top: 2em;
+}
+
+#main .links_up{
+  margin-bottom: 2em;
+}
+
 #map_canvas {
   width: 100%;
   height: 600px;
+}
+
+#options {
+  margin-top: 30px;
+}
+
+#planet .user {
+  float: right;
+  color: #bfb;
+  font-size: small;
+}
+
+#search_form .long_min{
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+#search_form {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 #side {

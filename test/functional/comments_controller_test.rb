@@ -3,25 +3,32 @@ require 'test_helper'
 class CommentsControllerTest < ActionController::TestCase
   setup do
     @comment = comments(:one)
+    @update = {   # @update:  parametros diferentes
+      :comment => 'AnotherComment',
+      :site_id => sites(:one).id
+    }
+    @site = @comment.site
+    @user = @comment.user
+    sign_in @user
   end
 
   test "should get index" do
-    get :index
+    get :index, :site_id => @comment.to_param
     assert_response :success
     assert_not_nil assigns(:comments)
   end
 
   test "should get new" do
-    get :new
+    get :new, :site_id => @comment.to_param
     assert_response :success
   end
 
   test "should create comment" do
     assert_difference('Comment.count') do
-      post :create, comment: @comment.attributes
+      post :create, comment: @update
     end
 
-    assert_redirected_to comment_path(assigns(:comment))
+    assert_redirected_to @site
   end
 
   test "should show comment" do
@@ -35,8 +42,8 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should update comment" do
-    put :update, id: @comment, comment: @comment.attributes
-    assert_redirected_to comment_path(assigns(:comment))
+    put :update, id: @comment, comment: @update
+    assert_redirected_to @site
   end
 
   test "should destroy comment" do
@@ -44,6 +51,6 @@ class CommentsControllerTest < ActionController::TestCase
       delete :destroy, id: @comment
     end
 
-    assert_redirected_to comments_path
+    assert_redirected_to @site
   end
 end

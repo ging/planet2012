@@ -1,9 +1,14 @@
 <h1>Comentarios de <%= @site.name %></h1> 
 
-<%= render 'comment' %>
+<div id="site_list">
+  <%= render(@site) %>
+</div>
 
-<p>
+<% if current_user %>
+  <p><b>Añada su comentario</b></p>
+  <%= render 'form' %>
+<% end %>
 
-<%= render 'form' if current_user %>
-
-<%= link_to 'Back', sites_path %>
+<div id='options'>
+  <%= link_to 'Back', sites_path %>
+</div>

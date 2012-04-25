@@ -1,4 +1,4 @@
-<%= form_for(@comment) do |f| %>
+<%= form_for(@comment, :remote => true) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -11,12 +11,11 @@
     </div>
   <% end %>
   
-  <p><b>Añada su comentario</b></p>
   <div class="field">
     <%= f.text_area :comment, :maxlength => 240, :rows => 6 %>
   </div>
   <%= f.number_field :site_id, :value => @site.id, :hidden => true %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Nuevo comentario' %>
   </div>
 <% end %>

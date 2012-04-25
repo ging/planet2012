@@ -27,7 +27,7 @@
  
       <h1><%= @site.type.name if @site.type %></h1> 
 
-      <%= image_tag(@site.image_url, :class => 'site_image') %>
+      <%= image_tag(@site.image.url, :class => 'site_image') %>
 
       <h3><%= @site.name %></h3> 
       <p><%=sanitize @site.description %></p>
@@ -41,31 +41,41 @@
         <%= @site.zoom %></p>
 
       <div class="visitas">
-        <p><b>Viajes:</b> 
-        <%= @site.trips.size %></p>
+        <p><b>Viajes:</b> <%= @site.trips.size %></p>
       </div>
 
-      <% unless @site.comments.empty? %>
-	      <p><b>Comentarios:</b></p>
-	      <% @comments = @site.comments %>
-  	    <%= render 'comments/comment' %>
-      <% end %>
+      <div class="visitas">
+        <p><b>Visitas:</b> <%= @site.visitas %></p>
+      </div>
 
-      <p>
+      <div id="site_list">
+        <h1>Comentarios</h1>
+        <%= render(@site) %>
+      </div>
+      
+    <% if current_user %>
+      <p><b>Añada su comentario</b></p>
+      <%= render 'comments/form' %>
+    <% end %>
 
-      <%= render 'comments/form' if current_user%>
-
-    </div> 
-
+    <h1>Posición geográfica</h1>
     <% if (@site.latitud && @site.longitud && @site.zoom) %>
-      <p><div id="map_canvas"></div><p>
+      <% if (@site.latitud > -90 && @site.latitud < 90) %>
+        <p><div id="map_canvas"></div><p>
+      <% else %>
+        <p><%= @site.name %>: Latitud no válida (debe ser mayor que -90 y menor que 90)
+      <% end %>
+    <% else %>
+      <p>No se disponen de datos suficientes para mostrar la ubicación de <%= @site.name %></p>
     <% end %>
 
-    <% if @site.user == current_user %>
-	    <%= link_to 'Edit', edit_site_path(@site) %> |
-    <% end %>
-    <%= link_to 'Back', sites_path %>
-  
+    <div id='options'>
+      <% if @site.user == current_user %>
+	     <%= link_to 'Edit', edit_site_path(@site) %> |
+      <% end %>
+      <%= link_to 'Back', sites_path %>
+    </div>
+
   </body>
 </html>
 

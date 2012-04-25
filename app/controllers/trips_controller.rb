@@ -1,8 +1,16 @@
-class TripsController < ApplicationController
-before_filter :authenticate_user!, :except => [ :index, :show ]
+# == Qué hace este controlador
+# El controlador de trips gestiona todo lo relacionado con la creación, edición y eliminación de viajes. 
+# Trabaja con Devise para identificar cada viaje con el usuario que lo creó y con visits, que componen un viaje.
+# Tiene un filtro para ejecutar las acciones sólo si antes se ha iniciado sesión. Este filtro no afecta a las acciones index y show.
 
-  # GET /trips
-  # GET /trips.json
+class TripsController < ApplicationController
+
+  # authenticate_user! ejecuta acción solo si sesión existe
+  before_filter :authenticate_user!, :except => [ :index, :show ]
+
+  # Método que muestra todos los viajes. Rutas:
+  # * GET /trips
+  # * GET /trips.json
   def index
     @trips = Trip.all
 
@@ -12,8 +20,9 @@ before_filter :authenticate_user!, :except => [ :index, :show ]
     end
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
+  # Método que muestra el viaje seleccionado. Rutas:
+  # * GET /trips/:id
+  # * GET /trips/:id.json
   def show
     @trip = Trip.find(params[:id])
     @visit = @trip.visits.build
@@ -24,8 +33,9 @@ before_filter :authenticate_user!, :except => [ :index, :show ]
     end
   end
 
-  # GET /trips/new
-  # GET /trips/new.json
+  # Método que permite modificar un nuevo viaje. Rutas:
+  # * GET /trips/new
+  # * GET /trips/new.json
   def new
     @trip = current_user.trips.build
 
@@ -35,13 +45,15 @@ before_filter :authenticate_user!, :except => [ :index, :show ]
     end
   end
 
-  # GET /trips/1/edit
+  # Método que permite editar el viaje seleccionado. Ruta:
+  # * GET /trips/:id/edit
   def edit
     @trip = current_user.trips.find(params[:id])
   end
 
-  # POST /trips
-  # POST /trips.json
+  # Método que crea el nuevo viaje. Rutas:
+  # * POST /trips
+  # * POST /trips.json
   def create
     @trip = current_user.trips.build(params[:trip])
 
@@ -56,8 +68,9 @@ before_filter :authenticate_user!, :except => [ :index, :show ]
     end
   end
 
-  # PUT /trips/1
-  # PUT /trips/1.json
+  # Método que actualiza el viaje editado. Rutas:
+  # * PUT /trips/:id
+  # * PUT /trips/:id.json
   def update
     @trip = current_user.trips.find(params[:id])
 
@@ -72,8 +85,9 @@ before_filter :authenticate_user!, :except => [ :index, :show ]
     end
   end
 
-  # DELETE /trips/1
-  # DELETE /trips/1.json
+  # Método que permite eliminar un viaje. Rutas:
+  # * DELETE /trips/:id
+  # * DELETE /trips/:id.json
   def destroy
     @trip = current_user.trips.find(params[:id])
     @trip.destroy

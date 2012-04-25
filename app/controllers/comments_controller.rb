@@ -1,10 +1,17 @@
+# == Qué hace este controlador
+# El controlador de comments gestiona todo lo relacionado con la creación, 
+# edición y eliminación de comentarios. Trabaja con Devise para identificar 
+# cada comentario con el usuario que lo creó.
+# Tiene un filtro para ejecutar las acciones sólo si se ha iniciado sesión. 
+# Este filtro no afecta a las acciones index y show.
 class CommentsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
 
-  # GET /comments
-  # GET /comments.json
+  # Método que muestra los comentarios asociados al sitio seleccionado. Rutas:
+  # * GET /sites/:site_id/comments
+  # * GET /sites/:site_id/comments.json
   def index
     @site = Site.find(params[:site_id])
     @comments = @site.comments
@@ -16,8 +23,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
+  # Método que muestra el comentario seleccionado. Rutas:
+  # * GET /comments/:comment_id
+  # * GET /comments/:comment_id.json
   def show
     @comment = Comment.find(params[:id])
 
@@ -27,10 +35,12 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.json
+  # Método que permite modificar un nuevo comentario asociado a un sitio. Rutas:
+  # * GET /sites/:site_id/comments/new
+  # * GET /sites/:site_id/comments/new.json
   def new
     @comment = current_user.comments.build
+    @site = Site.find(params[:site_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,14 +48,17 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1/edit
+  # Método que permite editar el comentario seleccionado. Ruta:
+  # * GET /comments/:id/edit
   def edit
     @comment = current_user.comments.find(params[:id])
     @site = @comment.site
   end
 
-  # POST /comments
-  # POST /comments.json
+  # Método que crea el nuevo comentario. Rutas:
+  # * POST /comments
+  # * POST /comments.js
+  # * POST /comments.json
   def create
     @comment = current_user.comments.build(params[:comment])
     @site = @comment.site
@@ -53,6 +66,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to site_path(@site), notice: 'Comment was successfully created.' }
+        format.js
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render action: "new" }
@@ -61,8 +75,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PUT /comments/1
-  # PUT /comments/1.json
+  # Método que actualiza el comentario editado. Rutas:
+  # * PUT /comments/:id
+  # * PUT /comments/:id.json
   def update
     @comment = current_user.comments.find(params[:id])
     @site = @comment.site
@@ -78,8 +93,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
+  # Método que permite eliminar un comentario. Rutas:
+  # * DELETE /comments/:id
+  # * DELETE /comments/:id.json
   def destroy
     @comment = current_user.comments.find(params[:id])
     site = @comment.site

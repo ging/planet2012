@@ -1,16 +1,24 @@
+# == Qué hace este controlador
+# El controlador de sites gestiona todo lo relacionado con la creación, edición y eliminación de sitios. Trabaja con Devise para identificar cada sitio con el usuario que lo creó.
+# Tiene dos filtros:
+# * Uno para ejecutar las acciones sólo si antes se ha iniciado sesión. Este filtro no afecta a las acciones index y show.
+# * Otro para ejecutar el método que define la acción count_visita después de la carga de la página.
 class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
+  after_filter :count_visita, :only => :show
   
   # GET /sites
   # GET /sites.json
+  # Esta método muestra todos los sitios si no se ha especificado un tipo ó los sitios de un tipo determinado
   def index
     if params[:type_id].nil? or params[:type_id].empty?
-      @sites = Site.all            # path: /types
-      else
+      @sites = Site.all            # path: /sites
+    else
       @sites = Type.find(params[:type_id]).sites  # path: /types/id/sites
     end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sites }
@@ -21,6 +29,7 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
+    @comment = current_user.comments.build if current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -86,5 +95,10 @@ class SitesController < ApplicationController
       format.html { redirect_to sites_url }
       format.json { head :no_content }
     end
+  end
+  # Este método define una acción que incrementa el parámetro visitas del sitio actual.
+  private
+  def count_visita
+    @site.increment!(:visitas)
   end
 end

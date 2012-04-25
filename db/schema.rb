@@ -26,12 +26,17 @@ ActiveRecord::Schema.define(:version => 20120417205239) do
     t.text     "description"
     t.integer  "type_id"
     t.string   "image_url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.string   "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "visitas",            :default => 0
     t.float    "longitud"
     t.float    "latitud"
-    t.float    "zoom"
+    t.integer  "zoom"
   end
 
   create_table "trips", :force => true do |t|

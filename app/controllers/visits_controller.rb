@@ -1,6 +1,11 @@
+# == Qué hace este controlador
+# El controlador de tipos gestiona todo lo relacionado con la creación, edición y eliminación de tipos. 
+# Como las visitas se renderizan con los viajes, se controla indirectamente qué usuario realiza estas acciones.
 class VisitsController < ApplicationController
-  # GET /visits
-  # GET /visits.json
+  
+  # Método que muestra todos las visitas. Rutas:
+  # * GET /visits
+  # * GET /visits.json
   def index
     @visits = Visit.all
 
@@ -10,8 +15,9 @@ class VisitsController < ApplicationController
     end
   end
 
-  # GET /visits/1
-  # GET /visits/1.json
+  # Método que muestra la visita seleccionada. Rutas:
+  # * GET /visits/1
+  # * GET /visits/1.json
   def show
     @visit = Visit.find(params[:id])
 
@@ -21,8 +27,9 @@ class VisitsController < ApplicationController
     end
   end
 
-  # GET /visits/new
-  # GET /visits/new.json
+  # Método que permite modificar una nueva visita. Rutas:
+  # * GET /visits/new
+  # * GET /visits/new.json
   def new
     @visit = Visit.new
 
@@ -32,13 +39,16 @@ class VisitsController < ApplicationController
     end
   end
 
-  # GET /visits/1/edit
+  # Método que permite editar la visita seleccionada. Ruta:
+  # * GET /visits/1/edit
   def edit
     @visit = Visit.find(params[:id])
   end
 
-  # POST /visits
-  # POST /visits.json
+  # Método que crea la nueva visita. Rutas:
+  # * POST /visits
+  # * POST /visits.js
+  # * POST /visits.json
   def create
     @visit = Visit.new(params[:visit])
 
@@ -54,8 +64,9 @@ class VisitsController < ApplicationController
     end
   end
 
-  # PUT /visits/1
-  # PUT /visits/1.json
+  # Método que actualiza la visita editada. Rutas:
+  # * PUT /visits/1
+  # * PUT /visits/1.json
   def update
     @visit = Visit.find(params[:id])
 
@@ -70,14 +81,15 @@ class VisitsController < ApplicationController
     end
   end
 
-  # DELETE /visits/1
-  # DELETE /visits/1.json
+  # Método que permite eliminar una visita. Rutas:
+  # * DELETE /visits/1
+  # * DELETE /visits/1.json
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy
 
     respond_to do |format|
-      format.html { redirect_to @visits.trip }
+      format.html { redirect_to @visit.trip }
       format.json { head :no_content }
     end
   end

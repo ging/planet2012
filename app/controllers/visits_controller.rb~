@@ -1,3 +1,5 @@
+# == Qué hace este controlador
+# El controlador de tipos gestiona todo lo relacionado con la creación, edición y eliminación de tipos. Como las visitas se renderizan con los viajes, se controla quién realiza estas acciones.
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
@@ -45,6 +47,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit.trip, notice: 'Visit was successfully created.' }
+        format.js
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.html { render action: "new" }
@@ -76,7 +79,7 @@ class VisitsController < ApplicationController
     @visit.destroy
 
     respond_to do |format|
-      format.html { redirect_to @visits.trip }
+      format.html { redirect_to @visit.trip }
       format.json { head :no_content }
     end
   end

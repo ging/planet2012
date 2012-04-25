@@ -1,7 +1,28 @@
 <h1>New comment</h1>
 
-<%= render 'form' %>
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-<p>
+      <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p><b>Añada su comentario</b></p>
+  <div class="field">
+    <%= f.text_area :comment, :maxlength => 240, :rows => 6 %>
+  </div>
+  <%= f.number_field :site_id, :value => @site.id, :hidden => true %>
+  <div class="actions">
+    <%= f.submit 'Nuevo comentario' %>
+  </div>
+<% end %>
 
-<%= link_to 'Back', comments_path %>
+<div id='options'>
+  <%= link_to 'Back', site_path(@site) %>
+</div>

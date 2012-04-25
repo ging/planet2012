@@ -13,7 +13,9 @@
   <%= @comment.site.name %>
 </p>
 
-<% if @comment.user == current_user %>
-  <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<% end %>
-<%= link_to 'Back', site_path(@comment.site) %>
+<div id='options'>
+  <% if @comment.user == current_user %>
+  	<%= link_to 'Edit', edit_comment_path(@comment) %> |
+  <% end %>
+  <%= link_to 'Back', site_path(@comment.site) %>
+</div>

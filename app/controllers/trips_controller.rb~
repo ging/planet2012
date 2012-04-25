@@ -1,5 +1,11 @@
+# == Qué hace este controlador
+# El controlador de trips gestiona todo lo relacionado con la creación, edición y eliminación de viajes. Trabaja con Devise para identificar cada viaje con el usuario que lo creó.
+# Tiene un filtro para ejecutar las acciones sólo si antes se ha iniciado sesión. Este filtro no afecta a las acciones index y show.
+
 class TripsController < ApplicationController
-before_filter :authenticate_user!, :except => [ :index, :show ]
+
+  # authenticate_user! ejecuta acción solo si sesión existe
+  before_filter :authenticate_user!, :except => [ :index, :show ]
 
   # GET /trips
   # GET /trips.json
@@ -16,6 +22,7 @@ before_filter :authenticate_user!, :except => [ :index, :show ]
   # GET /trips/1.json
   def show
     @trip = Trip.find(params[:id])
+    @visit = @trip.visits.build
 
     respond_to do |format|
       format.html # show.html.erb
