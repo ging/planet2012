@@ -17,13 +17,11 @@
     <!-- <td><%= comment.site_id %></td> -->
     <td><%= link_to 'Show', comment %></td>
 <% if comment.user == current_user %>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %></td>
 <% end %>
   </tr>
 <% end %>
 </table>
-
 <br />
 
 

@@ -7,7 +7,7 @@
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
-
+<% if @site.comments!=[] %>
   <h3>Comentarios:</h3> 
   <table>
   <% @site.comments.each do |comment| %>
@@ -21,6 +21,10 @@
   </tr>
   <% end %>
   </table>
+<% end %>
+
+  <%= render 'geomapa' %>
+
   <h3>Añada su comentario:</h3>
   <%= link_to 'Click aqui', new_comment_path %>
   <p><b>Autor:</b> 

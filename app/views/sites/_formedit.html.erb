@@ -1,29 +1,3 @@
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&callback=initialize">
-  </script>
-
-  <script type="text/javascript">
-    if(navigator.geolocation){ 
-      //alert('Geolocation is supported on this browser');
-      navigator.geolocation.getCurrentPosition(getPosition, errorFunction);} else{ alert('Geolocation is not supported on this browser'); }
-
-    //Success callback function
-    function getPosition(pos) {
-      var mylat= pos.coords.latitude;
-      var mylong = pos.coords.longitude;
-      var zoom = 10;
-
-      $(function() {
-        $( "#site_latitud" ).val(mylat);});
-      $(function() {
-        $( "#site_longuitud" ).val(mylong);});
-      $(function() {
-        $( "#site_zoom" ).val(zoom);});
-     }
-  
-    function errorFunction(msg) {  
-      alert('Geolocation is not supported on this browser');  
-    } 
-  </script>
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">

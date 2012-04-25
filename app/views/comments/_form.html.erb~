@@ -15,15 +15,15 @@
     <%= f.label :comment %><br />
     <%= f.text_area :comment %>
   </div>
-
+  <div class="field">
+    <%= f.label :site_id %><br />
+<%= select_tag(:site_id, '<option value="1"><%=current_user%></option>...') %>
+  </div>
   <div class="field">
     <%= f.label :user_id %><br />
     <%= f.collection_select(:user_id, User.find(:all, :order => :name), :id, :name) %>
   </div>
-  <div class="field">
-    <%= f.label :site_id %><br />
-    <%= f.number_field :site_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

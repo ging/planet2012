@@ -1,0 +1,62 @@
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>  
+      
+  <script>  
+    if (navigator.geolocation) {  
+     navigator.geolocation.getCurrentPosition(success, error,{maximumAge:60000, timeout: 4000});  
+    } else {  
+     error('Su navegador no tiene soporte para su geolocalización');  
+    }  
+
+  function success(position) {  
+    var status = document.querySelector('#status');   
+    status.innerHTML = "";
+    var mapcanvas = document.createElement('div');  
+    mapcanvas.id = 'mapcanvas';  
+    mapcanvas.style.height = '400px';  
+    mapcanvas.style.width = '560px';  
+
+    var mylat= position.coords.latitude;
+    var mylong = position.coords.longitude;;
+      
+    document.querySelector('#map').appendChild(mapcanvas);  
+      
+    var latlng = new google.maps.LatLng(mylat, mylong);  
+    var myOptions = {  
+      zoom: 4,  
+      center: latlng,  
+      mapTypeControl: false,  
+      navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},  
+      mapTypeId: google.maps.MapTypeId.ROADMAP  
+    };  
+    var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);    
+
+<%  @trip.visits.order(:hour).each do |visit| %>
+  var lat = <%= visit.site.latitud %>
+  var long = <%= visit.site.longuitud %>
+  var latlng = new google.maps.LatLng(lat, long); 
+  //var image = '<%= visit.site.image.url %>'; 
+  var image = new google.maps.MarkerImage('<%= visit.site.image.url %>',
+      // This marker is 20 pixels wide by 32 pixels tall.
+      new google.maps.Size(200, 200),
+      // The origin for this image is 0,0.
+      new google.maps.Point(0,0),
+      // The anchor for this image is the base of the flagpole at 0,32.
+      new google.maps.Point(0, 200));
+    var marker = new google.maps.Marker({  
+      position: latlng,  
+      map: map,
+      icon: image,
+      title: "<%= visit.site.name%>"
+      });  
+<% end %>
+     }  
+
+    function error(msg) {  
+      var status = document.getElementById('status');  
+      status.innerHTML= "Error [" + error.code + "]: " + error.message;   
+    }  
+    </script>  
+      
+  <p id="status">Buscando su localización...</p>  
+  <div id="map"></div>  
+

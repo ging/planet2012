@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(params[:comment], params[:user_id]=>1)
 
     respond_to do |format|
       if @comment.save
@@ -80,7 +80,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to sites_url }
       format.json { head :no_content }
     end
   end

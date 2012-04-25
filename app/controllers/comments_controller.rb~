@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index  #gestiona las rutas anidadas
     if params[:site_id].nil? or params[:site_id].empty?
-      @comments = Comment.all            # path: /comment
+      @comments = Comment.all   # path: /comment
       else
       @comments = Site.find(params[:site_id]).comments  # path: /sites/id/comments
     end
@@ -44,7 +44,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(params[:comment], params[:user_id]=>1)
 
     respond_to do |format|
       if @comment.save
@@ -80,7 +80,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to planet_url }
       format.json { head :no_content }
     end
   end
