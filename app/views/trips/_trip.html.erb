@@ -4,8 +4,12 @@
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
       <td> 
         <%= link_to image_tag(visit.site.image.url, :class => 'list_image'), visit.site %>
-      </td> 
+      </td>
  
+<script type="text/javascript">
+   addMarker(<%= visit.site.latitud %>, <%= visit.site.longitud %>);
+</script>
+
       <td class="list_description"> 
         <dl> 
           <dt><%= visit.hour.to_s + 'h: ' %>

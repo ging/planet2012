@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <b>Last modified:</b>
+  <b>Last modified on:</b>
   <%= @type.updated_at %>
 </p>
 
