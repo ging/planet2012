@@ -25,6 +25,7 @@
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path unless current_user %>
+      <%= link_to "Documentation", "http://localhost:3000/doc/app/index.html" %><br />
     <div id="search">
       <%= form_tag("/planet/search", :method => "get") do %>
       <%= label_tag(:q, "Search for:") %>

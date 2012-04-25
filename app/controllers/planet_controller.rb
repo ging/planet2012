@@ -32,5 +32,6 @@ class PlanetController < ApplicationController
   # Acción vacía para la búsqueda
   def search
   end
-
+  def doc_app_index_html
+  end
 end
