@@ -22,7 +22,7 @@ class PlanetControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get search found" do
+  test "should get search" do
     get :search
     assert_response :success
   end
