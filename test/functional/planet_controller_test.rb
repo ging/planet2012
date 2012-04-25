@@ -21,4 +21,9 @@ class PlanetControllerTest < ActionController::TestCase
     get :ejemplo
     assert_response :success
   end
+
+  test "should get busqueda" do
+    get :busqueda
+    assert_response :success
+  end
 end

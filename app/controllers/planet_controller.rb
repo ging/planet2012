@@ -34,7 +34,7 @@ class PlanetController < ApplicationController
   end 
   
   def busqueda
-    @sites = Site.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', :q, :q])
-    @trips = Trip.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', :q, :q])
+    @sites = Site.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%"])
+    @trips = Trip.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%"])
   end 
 end
