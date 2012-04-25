@@ -15,9 +15,11 @@
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
             <% if !site.comments.empty? %>
-              <%=link_to "Comments", site_path(site) %> (<%= site.comments.length %>)
+              <%=link_to "Comments", site_path(site) %> (<%= site.comments.length%>)
             <% end %>
-             
+            <% if (site.times_added) %>
+             Veces añadido a viaje: <%= site.times_added %>
+            <% end %>
         </dl> 
       </td>
  
