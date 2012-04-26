@@ -2,7 +2,7 @@
 	<p>
 		<% site = Site.find(c.site_id) %>
 		<%= site.name %> - <%= link_to "Ir" ,site_path(site)%><br>
-		<%= image_tag(site.image_url, :class => 'list_image') %><br>
+		<%= image_tag(site.image_url, :class => 'imagen_show') %><br>
 		<i><%= c.comment %></i><br>
 		Fecha creación: <%= c.updated_at %><br>
 		<br>
