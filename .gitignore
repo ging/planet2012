@@ -14,8 +14,7 @@
 /log/*.log
 /tmp
 
-# ignore al .DS_store files of MAC OSX
-.DS_Store
+
 
 # ignore paperclip installation files
 public/system

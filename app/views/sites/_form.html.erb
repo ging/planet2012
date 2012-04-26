@@ -1,3 +1,89 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+  html, body {         width: 100%;  height: 100%; }
+  #form_canvas {   width: 100%;  height: 85%;  }
+</style>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+  var geocoder = new google.maps.Geocoder();
+  var map;
+  var marker;
+
+  function iniMapa() {
+    var latlng = new google.maps.LatLng(0,0);
+    var myOptions = {
+      zoom: 1,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    map = new google.maps.Map(document.getElementById("form_canvas"), myOptions);
+  }
+
+  function geocoding() {
+    address = $('#site_name').val();
+    geocoder = new google.maps.Geocoder();
+geocoder.geocode({ 'address': address }, function(results, status) {
+  if (status == google.maps.GeocoderStatus.OK) {
+    map.setCenter(results[0].geometry.location);
+    var marker = new google.maps.Marker({
+    map: map,
+    position: results[0].geometry.location
+    title: address
+  });    
+        marker.setDraggable(true);
+      } else {
+        alert(status);
+      }
+    });
+  }
+
+  function locActual() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+    } else { alert('Geolocation is not supported in this browser.'); }
+  }
+
+  function errorFunction(pos) { alert('Error!'); }
+
+  function displayPosition(pos) {
+    var mylat = pos.coords.latitude;
+    var mylong = pos.coords.longitude;
+     // Store my position (“y=mylat”, “x=mylong”) in variable “lating”
+  var latlng = new google.maps.LatLng(mylat, mylong);
+ // Define my Google Maps options in variable “myOptions”
+    var myOptions = {
+      zoom: 15,                                                                  // Define scale
+      center: latlng,                                                            // Define map center
+      mapTypeId: google.maps.MapTypeId.ROADMAP   // tipo Roadmad, Satellite, Terrain, Hybrid
+    };
+ // Load Google Map according to “myOptions” in Canvas identified by “map_canvas”
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+ // Add marker in Google Maps “map” in position defined by “lating”
+  var marker = new google.maps.Marker({
+      position: latlng, 
+       map: map,       
+   });
+}
+    
+
+  function copyParams() {
+    var pos = marker.getPosition();
+    var lat = pos.lat();
+    var lng = pos.lng();
+    var zoom = map.getZoom();
+    $('#site_latitud').val(lat);
+    $('#site_longitud').val(lng);
+    $('#site_zoom').val(zoom);
+  }
+
+</script>
+
+
+<html>
+<body onload="iniMapa()">
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +97,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="name">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -20,14 +106,38 @@
     <%= f.text_area :description , :rows => 4 %>
   </div>
   <div class="field">
+    <%= f.label :longitud %><br />
+     <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
+
+<div>
+    <input type="button" value="Localización actual" onclick="locActual();">
+    <input type="button" value="centrar Mapa" onclick="geocoding();">
+    <input type="button" value="Actualizar Coordenadas" onclick="copyParams();">
+  </div>
+<div id = "form_canvas"></div>
+
+  <div class="field">
     <%= f.label :type_id %><br />
     <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
+
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+<%end%>
+</body>
+</html>

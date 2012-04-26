@@ -1,0 +1,22 @@
+Fri, 27 Apr 2012 00:09:50 +0200
+doc/README_FOR_APP	Thu, 26 Apr 2012 12:50:22 +0200
+app/controllers/application_controller.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/controllers/comentarios_controller.rb	Thu, 26 Apr 2012 16:52:41 +0200
+app/controllers/planet_controller.rb	Thu, 26 Apr 2012 23:31:32 +0200
+app/controllers/sites_controller.rb	Thu, 26 Apr 2012 22:24:57 +0200
+app/controllers/trips_controller.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/controllers/types_controller.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/controllers/visits_controller.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/application_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/comentarios_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/planet_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/sites_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/trips_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/types_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/helpers/visits_helper.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/models/comentario.rb	Thu, 26 Apr 2012 22:48:07 +0200
+app/models/site.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/models/trip.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/models/type.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/models/user.rb	Thu, 26 Apr 2012 12:50:21 +0200
+app/models/visit.rb	Thu, 26 Apr 2012 12:50:21 +0200

@@ -1,0 +1,23 @@
+<div id="site_list">
+
+  <table>
+      <td class="list_description">
+        <dl><% if comentario.user != nil%>
+          <dt><%= comentario.user.name %></dt>
+          <%end%>
+          <dd></p><%= truncate(strip_tags(comentario.coment),
+                 :length => 240) %></dd>
+        </dl>
+      </td>
+
+      <td class="list_actions">
+        <% if comentario.user == current_user %>
+          <%= link_to 'Edit', edit_site_comentario_path(comentario.site, comentario) %><br/>
+          <%= link_to 'Destroy', [comentario.site, comentario],
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div> 

@@ -8,14 +8,19 @@
 
   <script type="text/javascript">
     $(function() {
-      $( "textarea" ).cleditor();
+      $( "#trip_description" ).cleditor();
+      $( "#site_description" ).cleditor();
+    $( "#comentario_comentario" ).cleditor();
+    $( "#type_description" ).cleditor();
+  });
     });
   </script>
 
 </head>
 <%= link_to('Index', planet_index_path)+ ' || '+ link_to('Author', planet_author_path) + ' || ' + link_to('Contact', planet_contact_path) + ' || '+ link_to('Ejemplo', planet_ejemplo_path) + ' || '+link_to('Ordered types', ordered_index_types_path) + ' || '+ link_to("Types", types_path)%>
 
-<body id="planet"> 
+<body onload = "iniMapa()" >
+<div id="planet"> 
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
@@ -37,8 +42,17 @@
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Author", planet_author_path %> <br />
       <%= link_to "Contact", planet_contact_path %><br />
-      <%= link_to "Sign up", new_user_registration_path if !current_user %>
+      <%= link_to "Sign up", new_user_registration_path unless current_user %>
+      <%= link_to "Documentation", "/doc/app/index.html" %><br />
     </div> 
+     <div id ="search">
+          <p>
+            <%= form_tag planet_search_path, :method => 'get' do %>
+              <%= text_field_tag(:search, nil, :placeholder => "search") %>
+              <%= submit_tag "Search" %>
+            <% end %>
+          </p>
+          </div>
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
       <%= yield %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415163612) do
+ActiveRecord::Schema.define(:version => 20120426154857) do
 
   create_table "comentarios", :force => true do |t|
     t.string   "coment"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20120415163612) do
     t.string   "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "visitas",            :default => 0
+    t.float    "latitud"
+    t.float    "longitud"
+    t.integer  "zoom"
   end
 
   create_table "trips", :force => true do |t|

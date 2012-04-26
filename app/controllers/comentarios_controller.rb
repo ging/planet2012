@@ -30,7 +30,7 @@ class ComentariosController < ApplicationController
   # GET /comentarios/new
   # GET /comentarios/new.json
   def new
-    @comentario = current_user.comentarios.build
+    @comentario = Comentario.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,20 +40,22 @@ class ComentariosController < ApplicationController
 
   # GET /comentarios/1/edit
   def edit
-    @comentario = current_user.comentarios.find(params[:id])
+    @site = Site.find(params[:site_id])
+    @comentario = @site.comentarios.find(params[:id])
   end
 
   # POST /comentarios
   # POST /comentarios.json
   def create
-    @comentario = current_user.comentarios.build(params[:comentario])
+    @site = Site.find(params[:site_id])
+    @comentario = @site.comentarios.create(params[:comentario])
+    @comentario.user_id= current_user.id
 
     respond_to do |format|
       if @comentario.save
-        format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
-        format.json { render json: @comentario, status: :created, location: @comentario }
+        format.html { redirect_to @site, notice: 'Comentario was successfully created.' }        
       else
-        format.html { render action: "new" }
+        format.html { render action: "edit" }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }
       end
     end
@@ -62,11 +64,13 @@ class ComentariosController < ApplicationController
   # PUT /comentarios/1
   # PUT /comentarios/1.json
   def update
-    @comentario = current_user.comentarios.find(params[:id])
+    @site = Site.find(params[:site_id])
+    @comentario = @site.comentarios.create(params[:comentario])
+    @comentario.user_id= current_user.id
 
     respond_to do |format|
       if @comentario.update_attributes(params[:comentario])
-        format.html { redirect_to @comentario, notice: 'Comentario was successfully updated.' }
+        format.html { redirect_to @site, notice: 'Comentario was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,11 +82,12 @@ class ComentariosController < ApplicationController
   # DELETE /comentarios/1
   # DELETE /comentarios/1.json
   def destroy
-    @comentario = current_user.comentarios.find(params[:id])
+    @site = Site.find(params[:site_id])
+    @comentario = @site.comentarios.find(params[:id])    
     @comentario.destroy
 
     respond_to do |format|
-      format.html { redirect_to comentarios_url }
+      format.html { redirect_to site_path(@site) }
       format.json { head :no_content }
     end
   end

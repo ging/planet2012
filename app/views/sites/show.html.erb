@@ -1,25 +1,67 @@
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+  var map;
+  var latlng;
+  var myOptions
+  var marker;
+
+  function iniMapa() {
+    var lat = <%= @site.latitud %>;
+    var lng = <%= @site.longitud %>;
+    latlng = new google.maps.LatLng(lat,lng);
+    myOptions = {
+      zoom: <%= @site.zoom %>,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    map = new google.maps.Map(document.getElementById("site_canvas"), myOptions);
+    marker = new google.maps.Marker({
+            map: map,
+            position: latlng
+        });
+    marker.setTitle("<%= @site.name %>");
+  }
+
+</script>
+
+<body onload ="iniMapa()"> 
 <div id="site">
- 
-  <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
+<h1><%= @site.type.name if @site.type %></h1>
+<%= image_tag(@site.image.url, :class => 'site_image') %>
+<h3><%= @site.name %></h3>
 
-  <h3><%= @site.name %></h3> 
+<p><%=sanitize @site.description %></p>
+<% if @site.longitud != nil%>
+<p><b>Coordenadas:</b>
+         <i>Longitud</i> <%= @site.longitud %>
+         <i>Latitud:</i> <%= @site.latitud %>
+         <i>Zoom:</i> <%= @site.zoom %>
+  <%end%>
+         <% if @site.comentarios!=[] %>
+<b>Comentarios:</b>
+<%= render @site.comentarios %></p>
 
-  <p><%=sanitize @site.description %></p>
+<% end %>
 
-  <p>Autor: 
-          <%= @site.user.name if @site.user %></p>  
-
-  <p><b><%= link_to 'Comentarios ', site_comentarios_path(@site.id) %></b></p>
-
-
+<p><b>Añada su comentario:</b>
+<% if current_user %>
+       <%= render "comentarios/form" %></p>
+<% end %>
 
 
-</div> 
-
+<p><b>Autor:</b>
+          <%= @site.user.name if @site.user %></p>
+</div>
+<% if @site.longitud != nil %>
+<div id = "site_canvas" style="width: 500px; height: 200px; border: 2px solid #F5FFFA;"></div>
+<%end%>
 <div class="visitas">
-  <b>Visitas:</b>  <%= @site.visitas %>
+ <b>Visitas:</b> <%= @site.visitas %> 
+ <p><b>Viajes:</b> <%= @site.visits.length %>   
+</p>
 </div>
 
 <p />
@@ -27,3 +69,5 @@
   <%= link_to 'Edit', edit_site_path(@site) %> |
 <% end %>
 <%= link_to 'Back', sites_path %>
+</div>
+</body>

@@ -1,7 +1,75 @@
-<p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
-  <b>Autor:</b>   <%= @trip.user.name if @trip.user %>
-</p> 
-<p>  <b>Description:</b>  <%= simple_format @trip.description %></p>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+  var map;
+  
+
+  function getCenter() {
+    var nSitios = <% @trip.sites.length%>
+    var c_lat;
+    var c_lng;
+    var lat = 0;
+    var lng = 0;
+    <% Site.all.each do  |s| %>
+      lat += <%= s.latitud %>;
+      lng += <%= s.longitud %>;
+    <% end %>
+    c_lat = lat/ nSitios;
+    c_lng = lng/nSitios;
+    return new google.maps.LatLng(c_lat,c_lng);
+  }
+
+  function setMarkers() {
+    <% i = 1 %>
+    <% Site.all.each do  |s| %>
+      lat = <%= s.latitud %>;
+      lng = <%= s.longitud %>;
+      center = new google.maps.LatLng(lat,lng); 
+      var marker<%= i %> = new google.maps.Marker({
+            map: map,
+            position: center,
+            animation: google.maps.Animation.DROP,
+            title: "<%= s.name%>"
+        });     
+      <% i+= 1 %>
+    <% end %>
+  }
+
+  function iniMapa() {
+    var myOptions = {
+      zoom: 12,
+      center: getCenter(),
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    map = new google.maps.Map(document.getElementById("trip_canvas"), myOptions);
+    setMarkers();
+  }
+
+</script>
+
+
+<body onLoad iniMapa()>
+<p>
+  <b>Name:</b>
+  <%= @trip.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @trip.date %>
+</p>
+
+<p>
+  <b>Autor:</b> 
+  <%= @trip.user.name if @trip.user %>
+</p>
+ 
+<p>
+  <b>Description:</b>
+  <%= simple_format @trip.description %>
+</p>
+
 <div id="site_list">
 
   <h1>Sitios a visitar</h1>
@@ -21,8 +89,13 @@
     <% end %>
   <% end %>
 </div>
-
 <br />
+<% if @trip.sites != [] %>
+  <div id="trip_canvas" style="width: 500px; height: 200px; border: 4px solid #FF6600;" ></div>
+<% end %>
 
-<% if @trip.user == current_user %>   <%= link_to 'Edit', edit_trip_path(@trip) %> |<% end %><%= link_to 'Back', trips_path %>
-
+<% if @trip.user == current_user %>
+   <%= link_to 'Edit', edit_trip_path(@trip) %> |
+<% end %>
+<%= link_to 'Back', trips_path %>
+</body>
