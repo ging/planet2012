@@ -1,0 +1,73 @@
+<style type="text/css">
+#search-1 {
+float:left;
+width:400px;
+margin-left:50px;
+}
+#search-2 {
+float:right;
+width:400px;
+margin-right:50px;
+}
+</style>
+
+<div id="site_list"> 
+  <h1>Listing Sites and Trips</h1> 
+
+<div id="search-1">
+  <h2>Sitios</h2> 
+  <table> 
+  <% Site.where("name like ? or description like ?" , "%"+params[:q]+"%" , "%"+params[:q]+"%" ).each do |site| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+ 
+      <td> 
+        <%= link_to image_tag(site.image.url, :class => 'list_image'), site %>
+      </td> 
+ 
+      <td class="list_description"> 
+        <dl> 
+          <dt><%= link_to site.name, site %></dt> 
+          <dd><%= truncate(strip_tags(site.description),
+                 :length => 50) %></dd>
+        </dl> 
+      </td>
+ 
+      <td class="list_actions"> 
+        <%= link_to 'Show', site %><br/>
+        <% if site.user == current_user %>          <%= link_to 'Edit', edit_site_path(site) %><br/>
+          <%= link_to 'Destroy', site, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+        <% end %>      </td> 
+    </tr> 
+  <% end %>
+  </table> 
+</div> 
+
+<div id="search-2">
+ <h2>Viajes</h2> 
+  <table> 
+ <% Trip.where("name like ? or description like ?" , "%"+params[:q]+"%" , "%"+params[:q]+"%" ).each do |trip| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+      <td class="list_description"> 
+        <dl> 
+          <dt><%= link_to trip.name, trip_path(trip) %></dt> 
+          <dd><%= truncate(strip_tags(trip.description),
+                 :length => 80) + ',   ' + trip.date.to_s %></dd> 
+        </dl> 
+      </td> 
+      <td class="list_actions"> 
+        <%= link_to 'Show', trip %><br/> 
+        <% if trip.user == current_user %>
+           <%= link_to 'Edit', edit_trip_path(trip) %><br/> 
+           <%= link_to 'Destroy', trip, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+        <% end %>
+      </td> 
+    </tr> 
+  <% end %>
+ </table> 
+</div> <br />
+</div>
+
