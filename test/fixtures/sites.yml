@@ -6,11 +6,15 @@ one:
   type: one
   image_url: MyString
   user: one
-
+  longitud_geo: 12
+  latitud_geo: 10
+  zoom_geo: 5
 two:
   name: YourString
   description: YourText
   type: two
   image_url: YourString
   user: two
-  
+  longitud_geo: 11
+  latitud_geo: 19
+  zoom_geo: 5

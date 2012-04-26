@@ -80,6 +80,8 @@
     
     <li><a href="#method-i-new">#new</a>
     
+    <li><a href="#method-i-ordered_index">#ordered_index</a>
+    
     <li><a href="#method-i-show">#show</a>
     
     <li><a href="#method-i-update">#update</a>
@@ -108,6 +110,12 @@
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
   
     <li><a href="./PlanetController.html">PlanetController</a>
   
@@ -186,7 +194,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>])
 
@@ -226,7 +234,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 74</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@type</span>.<span class="ruby-identifier">destroy</span>
@@ -262,7 +270,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -327,7 +335,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">new</span>
 
@@ -346,6 +354,41 @@
       </div><!-- new-method -->
 
     
+      <div id="method-i-ordered_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ordered_index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>GET /types/ordered_index GET /types/ordered_index.json</p>
+          
+
+          
+          <div class="method-source-code" id="ordered_index-source">
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ordered_index</span>
+    <span class="ruby-ivar">@types</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>, <span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:name</span>) 
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># index.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@types</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ordered_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ordered_index-method -->
+
+    
       <div id="method-i-show" class="method-detail ">
         
         <div class="method-heading">
@@ -362,7 +405,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -397,7 +440,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 58</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

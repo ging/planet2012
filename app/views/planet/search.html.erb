@@ -1,0 +1,15 @@
+<h1>Resultados de la búsqueda: "<%= @search %>"</h1>
+
+<%if !(@sites.length==0) %>
+<h2>Sites encontrados: <%= @sites.length %></h2> 
+<%= render 'sites/listsites' %>
+<%else%>
+<h2><%="No se han encontrado sites con estos argumentos."%></h2> <%end%>
+
+<%if !(@trips.length==0) %>
+ <h2>Viajes encontrados: <%= @trips.length %></h2> 
+<%= render 'trips/listtrips' %>
+<%else%>
+<h2><%="No se han encontrado viajes con estos argumentos."%></h2> 
+
+<%end%>

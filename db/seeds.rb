@@ -7,7 +7,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Type.delete_all
 
 type1 = Type.create!(
             name: 'Monumento',
@@ -44,7 +43,10 @@ site1= Site.create!(
             description: 'Magnifico valle al norte de Madrid en el Macizo Central',
             type_id: type2.id,
             image_url: 'pedriza.png',
-            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pedriza.png'), "r"))
+            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pedriza.png'), "r"),
+            longitud_geo: 15,
+            latitud_geo: 10,
+            zoom_geo: 5)
 site1.user_id = user1.id ; site1.save 
 
 site2 = Site.create!(
@@ -52,7 +54,10 @@ site2 = Site.create!(
             description: 'Catedral de la ciudad de Florencia con la que se inicia el Renacimiento',
             type_id: type1.id,
             image_url: 'florencia.png',
-            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'florencia.png'), "r"))
+            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'florencia.png'), "r"),
+            longitud_geo: 15,
+            latitud_geo: 10,
+            zoom_geo: 5)
 site2.user_id = user1.id ; site2.save 
 
 site3 = Site.create!(
@@ -60,7 +65,10 @@ site3 = Site.create!(
             description: 'Jardin de la ciudad sueca de Uppsala donde el famoso naturalista tenia su coleccion de plantas',
             type_id: type1.id,
             image_url: 'arbol1.png',
-            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'arbol1.png'), "r"))
+            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'arbol1.png'), "r"),
+            longitud_geo: 15,
+            latitud_geo: 10,
+            zoom_geo: 5)
 site3.user_id = user2.id ; site3.save 
 
 site4 = Site.create!(
@@ -68,7 +76,10 @@ site4 = Site.create!(
             description: 'Parlamento aleman en la ciudad de Berlin',
             type_id: type2.id,
             image_url: 'reichstag.png',
-            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'reichstag.png'), "r"))
+            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'reichstag.png'), "r"),
+            longitud_geo: 15,
+            latitud_geo: 10,
+            zoom_geo: 5)
 site4.user_id = user2.id ; site4.save 
 
 site5 = Site.create!(
@@ -76,7 +87,10 @@ site5 = Site.create!(
             description: 'Puerta del mercado de la antigua ciudad griega de Pergamo del museo arquelogico de Berlin',
             type_id: type3.id,
             image_url: 'pergamo.png',
-            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pergamo.png'), "r"))
+            image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pergamo.png'), "r"),
+            longitud_geo: 15,
+            latitud_geo: 10,
+            zoom_geo: 5)
 site5.user_id = user1.id ; site5.save 
 
 

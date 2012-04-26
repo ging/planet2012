@@ -2,7 +2,7 @@ class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
-  after_filter :count_visita, :only => :show
+
   
   # GET /sites
   # GET /sites.json
@@ -22,12 +22,12 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
-
+    @site.increment!(:visitas)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }
     end
-  end
+   end
 
   # GET /sites/new
   # GET /sites/new.json
@@ -49,7 +49,7 @@ class SitesController < ApplicationController
   # POST /sites.json
   def create
     @site = current_user.sites.build(params[:site]) # Asigna solo si sitio asociado a current_user
-    
+     
     respond_to do |format|
       if @site.save
         format.html { redirect_to @site, notice: 'Site was successfully created.' }
@@ -89,8 +89,4 @@ class SitesController < ApplicationController
     end
   end
   
-  private
-  def count_visita
-    @site.increment!(:visitas)
-  end
 end

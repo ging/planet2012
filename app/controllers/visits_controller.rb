@@ -41,7 +41,8 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(params[:visit])
-
+    @visit.site.increment!(:times_added)
+  
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit.trip, notice: 'Visit was successfully created.' }
@@ -74,6 +75,7 @@ class VisitsController < ApplicationController
   # DELETE /visits/1.json
   def destroy
     @visit = Visit.find(params[:id])
+    @visit.site.decrement!(:times_added)
     @visit.destroy
 
     respond_to do |format|

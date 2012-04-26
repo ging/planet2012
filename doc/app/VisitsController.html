@@ -109,6 +109,12 @@
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
     <li><a href="./PlanetController.html">PlanetController</a>
   
     <li><a href="./PlanetHelper.html">PlanetHelper</a>
@@ -189,6 +195,7 @@
             <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:visit</span>])
+  <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">site</span>.<span class="ruby-identifier">increment!</span>(<span class="ruby-value">:times_added</span>)
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">save</span>
@@ -227,7 +234,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 75</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">destroy</span>
@@ -398,7 +405,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

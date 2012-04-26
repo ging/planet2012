@@ -1,3 +1,66 @@
+<script type="text/javascript">
+
+  // Determine support for Geolocation
+  if (navigator.geolocation) {
+      // Locate position
+      navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+  } else {
+      alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+  }
+
+  // Success callback function
+  function displayPosition(pos) {
+      var mylat = pos.coords.latitude;
+      var mylong = pos.coords.longitude;
+      var thediv = document.getElementById('locationinfo');
+      thediv.innerHTML = '<p>Your longitude is :' +
+          mylong + ' and your latitide is ' + mylat + '</p>';
+
+      //Load Google Map
+      var latlng = new google.maps.LatLng(mylat, mylong);
+          var myOptions = {
+            zoom: 4,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+          };
+         
+      var map = new google.maps.Map(document.getElementById("trip_map"), myOptions);
+
+      <% i=0;
+        trip.visits.order(:hour).each do |visit| %>
+      <% i+=1 %> 
+      mylat = <%= visit.site.latitud_geo%>;
+      mylong = <%= visit.site.longitud_geo%>;
+      latlng = new google.maps.LatLng(mylat, mylong);
+
+      //Create image marker      '/assets/<%= visit.site.image.url %>',
+      var image<%=i%> = new google.maps.MarkerImage(
+      
+        '<%=visit.site.image.url%>',
+        new google.maps.Size(106,143),
+        new google.maps.Point(0,0),
+        new google.maps.Point(53,143)
+      );
+
+      //Add marker
+      var marker<%=i%> = new google.maps.Marker({
+             position: latlng,
+             icon: image<%=i%>, 
+             map: map, 
+             title:"<%= visit.site.name %>"
+         });
+      <% end %>
+  }
+
+  
+
+  // Error callback function
+  function errorFunction(pos) {
+      alert('Error!');
+  }
+  </script>
+
+
 <div id="visit">
   <table> 
    <%  trip.visits.order(:hour).each do |visit| %>
@@ -25,5 +88,10 @@
     </tr> 
    <% end %>
   </table> 
+<p>
+  <h2>Mapa del Viaje</h2>
+ <div id="trip_map"></div>
+</p>
+ <div id="locationinfo"></div>
 </div>
 

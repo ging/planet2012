@@ -6,8 +6,12 @@ class SitesControllerTest < ActionController::TestCase
     @update = {   # @update:  parametros diferentes
       :name         => 'AnotherType',
       :description  => 'AnotherText',
-      :type_id => types(:one).id
+      :type_id => types(:one).id,
+      :longitud_geo => 12,
+      :latitud_geo => 10,
+      :zoom_geo => 5
     }
+    
     @user = @site.user
     sign_in @user
   end
