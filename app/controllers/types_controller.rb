@@ -1,3 +1,5 @@
+#==Controlador de tipos
+
 class TypesController < ApplicationController
   # GET /types
   # GET /types.json

@@ -1,3 +1,5 @@
+#==Controlador de Viajes
+
 class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe

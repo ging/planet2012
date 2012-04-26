@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-<title>class VisitsController - Rails Application Documentation</title>
+<title>class CommentsController - Rails Application Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>app/controllers/visits_controller.rb
+    <li>app/controllers/comments_controller.rb
   </ul>
 </nav>
 
@@ -152,11 +152,11 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class VisitsController</h1>
+  <h1 class="class">class CommentsController</h1>
 
   <div id="description" class="description">
     
-<p>Controlador de Visitas</p>
+<h2 id="label-Controlador+de+Comentarios">Controlador de Comentarios</h2>
 
   </div><!-- description -->
 
@@ -189,23 +189,24 @@
 
         <div class="method-description">
           
-          <p>POST /visits POST /visits.json</p>
+          <p>POST /comments POST /comments.json</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 44</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:visit</span>])
-
+      <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>])
+      <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+      
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">save</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">trip</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Visit was successfully created.'</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visit</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visit</span> }
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Comment was successfully created.'</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span> }
     <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>}
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -230,18 +231,19 @@
 
         <div class="method-description">
           
-          <p>DELETE /visits/1 DELETE /visits/1.json</p>
+          <p>DELETE /comments/1 DELETE /comments/1.json</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 77</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">destroy</span>
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">trip</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span> }
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -266,14 +268,15 @@
 
         <div class="method-description">
           
-          <p>GET /visits/1/edit</p>
+          <p>GET /comments/1/edit</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 38</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
-  <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]) 
+  <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>]) 
 <span class="ruby-keyword">end</span></pre>
           </div><!-- edit-source -->
           
@@ -296,18 +299,18 @@
 
         <div class="method-description">
           
-          <p>GET /visits GET /visits.json</p>
+          <p>GET /comments GET /comments.json</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@visits</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@comments</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">all</span>
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># index.html.erb</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visits</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comments</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->
@@ -331,18 +334,18 @@
 
         <div class="method-description">
           
-          <p>GET /visits/new GET /visits/new.json</p>
+          <p>GET /comments/new GET /comments/new.json</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visit</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
@@ -366,18 +369,18 @@
 
         <div class="method-description">
           
-          <p>GET /visits/1 GET /visits/1.json</p>
+          <p>GET /comments/1 GET /comments/1.json</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 17</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># show.html.erb</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visit</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- show-source -->
@@ -401,22 +404,23 @@
 
         <div class="method-description">
           
-          <p>PUT /visits/1 PUT /visits/1.json</p>
+          <p>PUT /comments/1 PUT /comments/1.json</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 61</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
-  <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>]) 
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:visit</span>])
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">trip</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Visit was successfully updated.'</span> }
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>])
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Comment was successfully updated.'</span> }
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
     <span class="ruby-keyword">else</span>
       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>

@@ -1,3 +1,5 @@
+#==Controlador de Sitios
+
 class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe

@@ -91,7 +91,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div> 
 
 <div class="visitas">
-  <b>Visitas:</b>  <%= @site.visitas %>
+  <b>Visitas:</b>  <%= @site.visitas %></br>
+  Incluido en <%=@site.visits.length%> viajes
 </div>
 
 <p />
