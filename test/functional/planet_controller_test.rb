@@ -21,4 +21,8 @@ class PlanetControllerTest < ActionController::TestCase
     assert_response :success 
   end
   
+  test "should get search found" do
+    get :search, :search => "hola".to_param
+    assert_response :success
+  end
 end

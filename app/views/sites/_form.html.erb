@@ -1,5 +1,6 @@
 <%= javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=false' %>
 <%= javascript_include_tag 'sites.form.geolocation' %>
+<%= javascript_include_tag 'sites.get.coordenates' %>
 
 
 <%= form_for(@site) do |f| %>
@@ -17,7 +18,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><input type="button" value="Search Coordinates" onclick="get_site_coordenates()" />
   </div>
   <div class="field">
     <%= f.label :description %><br />

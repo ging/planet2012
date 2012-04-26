@@ -1,0 +1,18 @@
+<%
+
+require 'open-uri'
+require 'json'
+
+address = params[:address]
+address = address.gsub(" ","%20")
+
+
+result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?address=#{address}&sensor=true").read)
+
+ %>
+ 
+ <%= 
+ 
+ result['results'][0]['geometry']['location'][params[:coor]]
+ 
+  %>
