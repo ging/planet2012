@@ -26,7 +26,7 @@
   <%= render 'geomapa' %>
  <p><b>Numero de viajes en los que aparece: <%= @site.trips.size %> <b/></p>
   <h3>Añada su comentario:</h3>
-  <%= link_to 'Click aqui', new_comment_path %>
+  <%= render 'comments/form' %>
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>
 

@@ -33,6 +33,7 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     @site = Site.find(params[:id])
+    @comment = @site.comments.build
 
     respond_to do |format|
       format.html # show.html.erb

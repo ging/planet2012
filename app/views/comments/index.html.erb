@@ -1,4 +1,4 @@
-<h1>Listing comments</h1>
+<h1>Listing comments:</h1>
 
 <table>
   <tr>
@@ -14,7 +14,7 @@
   <tr>
     <td><%= comment.comment %></td>
     <td><%= comment.user.name if comment.user%></td>
-    <!-- <td><%= comment.site_id %></td> -->
+    <td><%= comment.site.name %></td>
     <td><%= link_to 'Show', comment %></td>
 <% if comment.user == current_user %>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
@@ -23,7 +23,6 @@
   </tr>
 <% end %>
 </table>
-<%= link_to 'Nuevo comentario', new_comment_path %>
-<br />
+
 
 

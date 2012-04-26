@@ -16,11 +16,8 @@
     <%= f.text_area :comment %>
   </div>
 
-  <div class="field">
-    <%= f.label :site_id %><br />
-    <%= f.collection_select(:site_id, Site.find(:all, :order => :name), :id, :name) %>
-  </div>
-
+<%= f.number_field :site_id, :value => @site.id, :hidden => true %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

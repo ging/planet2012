@@ -39,7 +39,6 @@ class CommentsController < ApplicationController
   # GET /comments/new.json
   def new
     @comment = current_user.comments.build # crea comentario vacío asociado a current_user
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @comment }
@@ -49,6 +48,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @comment = current_user.comments.find(params[:id])
+    @site = @comment.site
   end
 
   # POST /comments
@@ -90,7 +90,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to sites_url }
+      format.html { redirect_to comments_url }
       format.json { head :no_content }
     end
   end

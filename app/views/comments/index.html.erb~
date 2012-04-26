@@ -1,4 +1,4 @@
-<h1>Listing comments</h1>
+<h1>Listing comments del sitio:</h1>
 
 <table>
   <tr>
@@ -13,7 +13,7 @@
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.comment %></td>
-    <td><%= comment.user.name if @comment.user%></td>
+    <td><%= comment.user.name if comment.user%></td>
     <!-- <td><%= comment.site_id %></td> -->
     <td><%= link_to 'Show', comment %></td>
 <% if comment.user == current_user %>
@@ -23,7 +23,6 @@
   </tr>
 <% end %>
 </table>
-<%= link_to 'Nuevo comentario', new_comment_path %>
-<br />
+
 
 
