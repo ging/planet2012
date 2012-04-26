@@ -1,10 +1,13 @@
+#TripsController es la clase que aglutina los métodos 
+#necesarios para tratar con los viajes creados
+#
 class TripsController < ApplicationController
+
   
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
   
-  # GET /trips
-  # GET /trips.json
+  # método que muestra todos los viajes disponibles
   def index
     @trips = Trip.all
 
@@ -14,8 +17,7 @@ class TripsController < ApplicationController
     end
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
+  # método que muestra un determinado viaje
   def show
     @trip = Trip.find(params[:id])
     @visit = @trip.visits.build
@@ -26,8 +28,7 @@ class TripsController < ApplicationController
     end
   end
 
-  # GET /trips/new
-  # GET /trips/new.json
+  # método que crea un nuevo viaje vacío
   def new
     @trip = current_user.trips.build
     
@@ -37,13 +38,12 @@ class TripsController < ApplicationController
     end
   end
 
-  # GET /trips/1/edit
+  # método para editar un viaje
   def edit
     @trip = current_user.trips.find(params[:id])
   end
 
-  # POST /trips
-  # POST /trips.json
+  # método para crear un nuevo viaje asociado al usuario actual
   def create
     @trip = current_user.trips.build(params[:trip])
 
@@ -58,8 +58,7 @@ class TripsController < ApplicationController
     end
   end
 
-  # PUT /trips/1
-  # PUT /trips/1.json
+  # método para actualizar un viaje determinado
   def update
     @trip = current_user.trips.find(params[:id])
     
@@ -74,8 +73,7 @@ class TripsController < ApplicationController
     end
   end
 
-  # DELETE /trips/1
-  # DELETE /trips/1.json
+  # método para eliminar un viaje determinado
   def destroy
     @trip = current_user.trips.find(params[:id])
     @trip.destroy

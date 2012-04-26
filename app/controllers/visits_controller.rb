@@ -1,6 +1,9 @@
+#VisitsController es la clase que aglutina los métodos 
+#necesarios para tratar con las visitas a un determinado lugar
 class VisitsController < ApplicationController
-  # GET /visits
-  # GET /visits.json
+
+  
+  #método que muestra todas las visitas
   def index
     @visits = Visit.all
 
@@ -10,8 +13,7 @@ class VisitsController < ApplicationController
     end
   end
 
-  # GET /visits/1
-  # GET /visits/1.json
+  #método que muestra las visitas de un determinado lugar
   def show
     @visit = Visit.find(params[:id])
 
@@ -21,8 +23,7 @@ class VisitsController < ApplicationController
     end
   end
 
-  # GET /visits/new
-  # GET /visits/new.json
+  #método que crea una nueva visita vacía
   def new
     @visit = Visit.new
 
@@ -32,13 +33,12 @@ class VisitsController < ApplicationController
     end
   end
 
-  # GET /visits/1/edit
+  # método para editar visitas
   def edit
     @visit = Visit.find(params[:id])
   end
 
-  # POST /visits
-  # POST /visits.json
+  # método que crea una visita y la asocia a un lugar determinado
   def create
     @visit = Visit.new(params[:visit])
 
@@ -54,8 +54,7 @@ class VisitsController < ApplicationController
     end
   end
 
-  # PUT /visits/1
-  # PUT /visits/1.json
+  # método para actualizar las visitas de un lugar
   def update
     @visit = Visit.find(params[:id])
 
@@ -70,8 +69,7 @@ class VisitsController < ApplicationController
     end
   end
 
-  # DELETE /visits/1
-  # DELETE /visits/1.json
+  # método que elimina las visitas de un lugar
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy

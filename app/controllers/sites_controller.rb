@@ -1,11 +1,15 @@
+#SitesController es la clase que aglutina los métodos 
+#necesarios para tratar con los sitios registrados en el sistema
+#
 class SitesController < ApplicationController
+
+    
 
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
   after_filter :count_visita, :only => :show
   
-  # GET /sites
-  # GET /sites.json
+  #método que muestra todos los sitios creados
   def index
     if params[:type_id].nil? or params[:type_id].empty?
       @sites = Site.all            # path: /types
@@ -18,10 +22,11 @@ class SitesController < ApplicationController
     end
   end
 
-  # GET /sites/1
-  # GET /sites/1.json
+  # método que muestra el sitio con un determinado id
   def show
     @site = Site.find(params[:id])
+
+        @comentario=Comentario.new(:site=>@site)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,8 +34,7 @@ class SitesController < ApplicationController
     end
   end
 
-  # GET /sites/new
-  # GET /sites/new.json
+  #método que crea un nuevo sitio vacío
   def new
     @site = current_user.sites.build # crea sitio vacio asociado a current_user
     
@@ -40,13 +44,12 @@ class SitesController < ApplicationController
     end
   end
 
-  # GET /sites/1/edit
+  # método para editar un sitio creado con anterioridad
   def edit
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
   end
 
-  # POST /sites
-  # POST /sites.json
+  # método necesario para crear un nuevo sitio asignado a un usuario
   def create
     @site = current_user.sites.build(params[:site]) # Asigna solo si sitio asociado a current_user
     
@@ -61,8 +64,7 @@ class SitesController < ApplicationController
     end
   end
 
-  # PUT /sites/1
-  # PUT /sites/1.json
+  # método para actualizar sitios creados por un usuario
   def update
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user 
     
@@ -77,8 +79,7 @@ class SitesController < ApplicationController
     end
   end
 
-  # DELETE /sites/1
-  # DELETE /sites/1.json
+  #método para eleminar los sitios creados por el usuario
   def destroy
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
     @site.destroy
@@ -88,9 +89,10 @@ class SitesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   private
   def count_visita
     @site.increment!(:visitas)
   end
+  
 end

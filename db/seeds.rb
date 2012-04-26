@@ -43,12 +43,18 @@ site1= Site.create!(
             name: 'Pedriza',
             description: 'Magnifico valle al norte de Madrid en el Macizo Central',
             type_id: type2.id,
+            latitud: '40.751244',
+            longitud: '-3.893069',
+            zoom: '15',
             image_url: 'pedriza.png',
             image: File.open(File.join(Rails.root, 'app', 'assets','images', 'pedriza.png'), "r"))
 site1.user_id = user1.id ; site1.save 
 
 site2 = Site.create!(
             name: 'Catedral de Florencia',
+            latitud: '43.773232',
+            longitud: '11.255992',
+            zoom: '15',
             description: 'Catedral de la ciudad de Florencia con la que se inicia el Renacimiento',
             type_id: type1.id,
             image_url: 'florencia.png',
@@ -57,6 +63,9 @@ site2.user_id = user1.id ; site2.save
 
 site3 = Site.create!(
             name: 'Jardin de Lineo',
+            latitud: '59.862222',
+            longitud: '17.633889',
+            zoom: '15',
             description: 'Jardin de la ciudad sueca de Uppsala donde el famoso naturalista tenia su coleccion de plantas',
             type_id: type1.id,
             image_url: 'arbol1.png',
@@ -65,6 +74,9 @@ site3.user_id = user2.id ; site3.save
 
 site4 = Site.create!(
             name: 'Reichstag',
+            latitud: '52.5186',
+            longitud: '13.376',
+            zoom: '15',
             description: 'Parlamento aleman en la ciudad de Berlin',
             type_id: type2.id,
             image_url: 'reichstag.png',
@@ -73,6 +85,9 @@ site4.user_id = user2.id ; site4.save
 
 site5 = Site.create!(
             name: 'Pergamo',
+            latitud: '52.521111',
+            longitud: '13.396667',
+            zoom: '15',
             description: 'Puerta del mercado de la antigua ciudad griega de Pergamo del museo arquelogico de Berlin',
             type_id: type3.id,
             image_url: 'pergamo.png',

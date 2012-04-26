@@ -1,7 +1,16 @@
+#User muestra las relaciones de la tabla user en el modelo de datos.
+#
+# == Relaciones
+#
+# * Un usuario puede tener muchos sitios. 
+# * Un usuario puede tener muchos viajes. 
+# * Un usuario puede tener muchos comentarios. 
+#
 class User < ActiveRecord::Base
   
   has_many :sites
   has_many :trips
+  has_many   :comentarios
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

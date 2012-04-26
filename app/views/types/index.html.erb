@@ -1,3 +1,4 @@
+
 <div id="site_list"> 
   <h1>Listing Types</h1> 
  
@@ -10,6 +11,7 @@
           <dt><%= link_to type.name, type_sites_path(type) %></dt> 
           <dd><%= truncate(strip_tags(type.description),
                  :length => 80) %></dd> 
+          <dd><%= type.updated_at %></dd> 
         </dl> 
       </td> 
  
@@ -24,6 +26,7 @@
   <% end %>
   </table> 
 </div> 
+
 
 <br />
 
