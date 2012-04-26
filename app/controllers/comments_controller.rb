@@ -1,3 +1,13 @@
+# Clase Ruby que hereda de +ApplicationController+. 
+# Cuando la aplicación reciba una petición referente a comentarios, la ruta determina qué controlador y acción realizar.
+# == Métodos para controlador comentarios
+# * index
+# * show
+# * new
+# * edit
+# * create
+# * update
+# * destroy
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json

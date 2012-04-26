@@ -1,3 +1,13 @@
+# Clase Ruby que hereda de +ApplicationController+. 
+# Cuando la aplicación reciba una petición referente a visitas, la ruta determina qué controlador y acción realizar
+# == Métodos para controlador visitas
+# * index
+# * show
+# * new
+# * edit
+# * create
+# * update
+# * destroy
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json

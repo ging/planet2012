@@ -32,15 +32,18 @@ class PlanetController < ApplicationController
   # Acción author
   def author
   end
-
+  # Método que define la búsqueda de palabras a encontrar en la aplicación
   def search
-    if params[:query].empty? or params[:query].length < 3
+    if params[:busqueda].empty? or params[:busqueda].length < 3
       @sites = []
       @trips = []    
     else
-      @sites = Site.where("name like ? or description like ?", "%"+params[:query]+"%", "%"+params[:query]+"%")
-      @trips = Trip.where("name like ? or description like ?", "%"+params[:query]+"%", "%"+params[:query]+"%")
+      @sites = Site.where("name like ? or description like ?", "%"+params[:busqueda]+"%", "%"+params[:busqueda]+"%")
+      @trips = Trip.where("name like ? or description like ?", "%"+params[:busqueda]+"%", "%"+params[:busqueda]+"%")
    end
   end
-    
+  
+  def 	table_of_contents
+  end
+  
 end

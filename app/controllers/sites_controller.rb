@@ -1,3 +1,14 @@
+# Clase Ruby que hereda de +ApplicationController+. 
+# Cuando la aplicación reciba una petición referente a sitios, la ruta determina qué controlador y acción realizar.
+# == Métodos para controlador sitios
+# * index
+# * show
+# * new
+# * edit
+# * create
+# * update
+# * destroy
+# * count_visita
 class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe
@@ -88,9 +99,10 @@ class SitesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  private
-  def count_visita
+
+private  
+# método cuenta visitas para gestionar el incremento de visitas a sitios   
+def count_visita
     @site.increment!(:visitas)
   end
 end

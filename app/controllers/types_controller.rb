@@ -1,3 +1,13 @@
+# Clase Ruby que hereda de +ApplicationController+. 
+# Cuando la aplicación reciba una petición referente a tipos, la ruta determina qué controlador y acción realizar
+# == Métodos para controlador tipos
+# * index
+# * show
+# * new
+# * edit
+# * create
+# * update
+# * destroy
 class TypesController < ApplicationController
   # GET /types
   # GET /types.json

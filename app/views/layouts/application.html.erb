@@ -5,7 +5,8 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
+  <link rel="icon" href="025/favicon.ico" type="image/ico"/>
+  <link rel="icon" href="favicon.ico" type="image/ico"/>
   <script type="text/javascript">
     $(function() {
       $( "#trip_description" ).cleditor();
@@ -36,9 +37,10 @@
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path unless current_user %>
+      <a href="app/table_of_contents.html">Documentacion</a>
 <div id="buscar">
 <form action='/planet/search'>
-  <input id="bs" name="query" type="text">
+  <input id="bs" name="busqueda" type="text">
   <input type='submit' value='Search' />
  </form>
 </div>
@@ -46,10 +48,14 @@
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
 
-<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', types_ordered_index_path) %> 
+<%= link_to('Home', planet_index_path) + "|" + link_to('Contact', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', types_ordered_index_path) %> 
       <%= yield %>
 </br>
-<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', types_ordered_index_path) %> 
+<%= link_to('Home', planet_index_path) + "|" + link_to('Contacts', planet_contact_path) + "|" + link_to('Ejemplo', planet_ejemplo_path) + "|" + link_to('Author', planet_author_path) + "|" + link_to('Tipos', types_path) + "|" + link_to('Sitios', sites_path) + "|" + link_to('Tipos_ordenados', types_ordered_index_path) %>
+</br>
+<div id="subirArriba">
+<a href='#' onclick='MGJS.goTop();return false;'><img src='http://3.bp.blogspot.com/_CJgyaq5cULk/S28wfgg3mPI/AAAAAAAAAoo/zr-uqDOmvho/s320/arriba.png' title='Ir arriba'/></a>
+</div> 
     </div> 
   </div> 
 </body> 

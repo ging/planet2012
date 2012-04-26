@@ -93,6 +93,10 @@
   background: #446;
 }
 
+#subirArriba {
+  float: right;
+}
+
 #bs{
 margin-top: 2em;
 width: 86px;
