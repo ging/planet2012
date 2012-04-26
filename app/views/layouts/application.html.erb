@@ -29,6 +29,15 @@
       <% end %>
     </div> 
   </div> 
+   
+<div class="search">
+       <%= form_tag({:controller => "planet", :action => "search"}, :method => "get") do %>
+        <%= label_tag(:q, "Search:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search", :class => "button") %>
+      <% end %>
+    </div>
+
   <div id="columns"> 
     <div id="side"> 
       <%= link_to "Home", planet_index_path %><br /> 
@@ -42,6 +51,9 @@
       <%= link_to "Sign up", new_user_registration_path unless current_user %><br />
 
     </div> 
+    
+
+
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
       <%= yield %>
