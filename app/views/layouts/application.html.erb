@@ -1,12 +1,23 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-  <title>Planet</title>
+  <title><%= @page_title || "Planet Travel Site" %></title>
+	
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
-  <script type="text/javascript">
+	<%# Load google maps API if %>
+	<% if (params[:controller] == 'sites' || params[:controller] == 'trips')&&(params[:action] == 'show') %> 
+		<script src="http://maps.google.com/maps/api/js?sensor=false"> </script>
+		<% if params[:controller] == 'sites'  %>
+			<%= javascript_include_tag "site_map" %>
+		<% else %>
+			<%= javascript_include_tag "trip_map" %>
+		<% end %>
+	<% end  %>
+	
+		<script type="text/javascript">
+		function myErrorFunction(position) {    alert('Error!');   }
     $(function() {
       $( "#trip_description" ).cleditor();
     });
@@ -18,6 +29,12 @@
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
     <%= @page_title || "Planet Travel Site" %><br />
+		<div class="search_box" >
+			<%=	form_tag planet_topsearch_path, :method => "get", :id => "top_search_box" do %>
+				Busca en Planet: <%= text_field_tag :query %>
+				<%= submit_tag :buscar %>
+			<% end %>
+		</div>
     <div class="user">
       <% if current_user %>
         <%= link_to current_user.name, 
@@ -33,10 +50,22 @@
     <div id="side"> 
       <%= link_to "Home", planet_index_path %><br /> 
       <%= link_to "Tipos",  types_path %><br /> 
-      <%= link_to "Sitios", sites_path %><br /> 
-      <%= link_to "Viajes", trips_path %><br /> 
+      <%= link_to "Sitios", sites_path %><br />
+			<ul class="types_list">
+				<% @types.each do |type| %>
+					<li><%= link_to type.name,  type %></li>
+				<% end %>
+			</ul>
+      <%= link_to "Viajes", trips_path %><br />
       <%= link_to "Contact", planet_contact_path %><br />
       <%= link_to "Sign up", new_user_registration_path unless current_user %>
+			<p>Minimo:<br />
+				<%=	form_tag planet_minsearch_path, :method => "get", :id => "searchbox" do %>
+					<%= text_field_tag :min_visits %><br />
+					(Visitas)
+					<%= submit_tag :buscar %>
+				<% end %>
+			</p>
     </div> 
 
     <div id="main">
@@ -52,22 +81,22 @@
 					# ordered_types_path)
 					# [@user, :posts]
 				%>
-
 			</span><br /> 
+			
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
+      <%= yield %><br />
 
-		<span class="footer">
-			<%= 
-			link_to(' Home ', planet_index_path)+" | "+ 
-			link_to(' Contact ', planet_contact_path)+" | "+ 
-			link_to(' Author ', planet_author_path)+" | "+ 
-			link_to(' Ejemplo ', planet_ejemplo_path)+" | "+
-			link_to(' Types', types_path) +" | "+
-			link_to(' Ordered Types ', ordered_types_path)
-			%>
-		</span>
+			<span class="footer">
+				<%= 
+				link_to(' Home ', planet_index_path)+" | "+ 
+				link_to(' Contact ', planet_contact_path)+" | "+ 
+				link_to(' Author ', planet_author_path)+" | "+ 
+				link_to(' Ejemplo ', planet_ejemplo_path)+" | "+
+				link_to(' Types', types_path) +" | "+
+				link_to(' Ordered Types ', ordered_types_path)
+				%>
+			</span>
+    </div>	
   </div> 
 </body> 
 </html> 

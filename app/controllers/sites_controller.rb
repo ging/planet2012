@@ -9,8 +9,10 @@ class SitesController < ApplicationController
   def index
     if params[:type_id].nil? or params[:type_id].empty?
       @sites = Site.all            # path: /types
-      else
+      @page_title = 'Todos los Sitios'
+    else
       @sites = Type.find(params[:type_id]).sites  # path: /types/id/sites
+      @page_title = Type.find(params[:type_id]).name
     end
     respond_to do |format|
       format.html # index.html.erb

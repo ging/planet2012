@@ -34,4 +34,34 @@ class PlanetController < ApplicationController
   def ejemplo
   end
   
+  def minsearch
+    if params[:min_visits].nil? || params[:min_visits].empty? || Integer(params[:min_visits]) < 2
+       flash[:notice] = "Busqueda no realizada informar numero minimo"
+    else
+      @sites = Site.find(:all,
+      :conditions => ["visitas > ?", params[:min_visits]])
+      if @sites.nil?
+        flash[:notice] = "Busqueda no resulto viajes con el numero minimo de viajes"
+      else
+        flash[:notice] = "Busqueda realizada con suceso"
+      end
+    end
+  end
+  
+  def topsearch
+    if params[:query].nil? || params[:query].empty? || params[:query].length < 3
+       flash[:notice] = "Busqueda no realizada informar numero minimo"
+    else
+      @sites = Site.find(:all,
+                :conditions => ["name LIKE ? OR description LIKE ?", "%"+params[:query]+"%", "%"+params[:query]+"%"])
+      @trips = Trip.find(:all,
+                :conditions => ["name LIKE ? OR description LIKE ?", "%"+params[:query]+"%", "%"+params[:query]+"%"])
+      if (@sites.nil?||@sites.empty?) && (@trips.nil?||@trips.empty?)
+        flash[:notice] = "Busqueda no resulto viajes con el numero minimo de viajes"
+      else
+        flash[:notice] = "Busqueda realizada con suceso"
+      end
+    end
+  end
+  
 end

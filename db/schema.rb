@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(:version => 20120411160519) do
     t.text     "description"
     t.integer  "type_id"
     t.string   "image_url"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.float    "zoom"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "user_id"

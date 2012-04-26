@@ -8,6 +8,7 @@ Planet::Application.routes.draw do
 
   resources :sites
 
+  
   resources :types do                     # Rutas anidadas /types/id/sites...,
     resources :sites, :only => [ :index ] # Restringe a acción “index”
     collection do
@@ -20,6 +21,9 @@ Planet::Application.routes.draw do
   get "planet/author"
   get "planet/contact"
   get "planet/ejemplo"
+  get "planet/minsearch"
+  get "planet/topsearch"
+
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
