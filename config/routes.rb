@@ -1,10 +1,9 @@
 Planet::Application.routes.draw do
   resources :comments
-
+  resources :visits
   devise_for :users
-
   resources :sites
-   
+  resources :trips 
   get "types/ordered_index"	
  
   resources :sites do
@@ -16,14 +15,11 @@ Planet::Application.routes.draw do
   end
   
   get "planet/index"
-
   get "planet/contact"
-
   get "planet/ejemplo"
-
   get "planet/author"
-
-  
+  get "planet/search"
+  get "/doc/app"
  
   
   # The priority is based upon order of creation:

@@ -7,10 +7,9 @@
  
       <td class="list_description"> 
         <dl> 
-          <dt><%= link_to type.name, type_sites_path(type) %></dt> 
+          <dt><%= link_to type.name, 'types/'+type.id.to_s+'/sites' %></dt> 
           <dd><%= truncate(strip_tags(type.description),
                  :length => 80) %></dd> 
-	  <dd><strong>Modified: </strong><%= type.updated_at %></dd> 
         </dl> 
       </td> 
  
@@ -29,3 +28,4 @@
 <br />
 
 <%= link_to 'New Type', new_type_path %>
+<br><br>

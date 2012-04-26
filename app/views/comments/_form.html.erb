@@ -13,8 +13,9 @@
 
   <div class="field">
     <%= f.label :comment %><br />
-    <%= f.text_field :comment, {:class=>"text-input", :maxlength=>"240"}  %>
+    <%= f.text_field :comment, {:class=>"text-input", :maxlength=>"140"}  %>
   </div>
+  
   <div class="field" style="visibility:hidden;display:none;">
     <%= f.label :site_id %><br />
     <%= f.text_field :site_id %>

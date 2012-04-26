@@ -45,7 +45,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.save
         format.html { redirect_to @visit.trip, notice: 'Visit was successfully created.' }
-        format.js
+        #format.js
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.html { render action: "new" }

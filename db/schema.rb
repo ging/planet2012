@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413165448) do
+ActiveRecord::Schema.define(:version => 20120411160519) do
 
   create_table "comments", :force => true do |t|
     t.string   "comment"
@@ -25,10 +25,23 @@ ActiveRecord::Schema.define(:version => 20120413165448) do
     t.string   "name"
     t.text     "description"
     t.integer  "type_id"
+    t.decimal  "latitude",    :precision => 8, :scale => 6
+    t.decimal  "longitude",   :precision => 8, :scale => 6
+    t.decimal  "zoom",        :precision => 8, :scale => 6
     t.string   "image_url"
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.integer  "user_id"
+    t.integer  "visits",                                    :default => 0
+  end
+
+  create_table "trips", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "date"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
   end
 
   create_table "types", :force => true do |t|
@@ -39,22 +52,30 @@ ActiveRecord::Schema.define(:version => 20120413165448) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "visits", :force => true do |t|
+    t.integer  "trip_id"
+    t.integer  "site_id"
+    t.integer  "hour"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

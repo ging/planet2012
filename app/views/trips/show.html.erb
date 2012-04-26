@@ -1,7 +1,7 @@
-<p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&sensor=false"></script><script type="text/javascript">    function displayLocations() {			var  total_latitude = 0;			var  total_longitude = 0;			var  mid_zoom = 0;			var  total_zoom = 0;						<% @sites = @trip.sites %>			<% @sites.each do  |site| %>			  total_latitude += <%= site.latitude %>;			  total_longitude += <%= site.longitude %>;			  total_zoom += <%= site.zoom %>;			<% end %>						<%= total_sites = @sites.length %>			center_latitude = total_latitude/<%= total_sites %>;			center_longitude = total_longitude /<%= total_sites %>;			mid_zoom = total_zoom /<%= total_sites %>;						var myOptions = {			  center: new google.maps.LatLng(center_latitude,center_longitude),			  zoom: 8,			  mapTypeId: google.maps.MapTypeId.ROADMAP			};			var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);	 		<% @trip.sites.each do |site| %>			var latitude = <%= site.latitude %>			var longitude = <%= site.longitude %>		   			var pos = new google.maps.LatLng(latitude,longitude);					var marker = new google.maps.Marker({				position: pos, 				map: map}			);			marker.setTitle("<%= site.name %>");		<% end %>	}</script><p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
   <b>Autor:</b>   <%= @trip.user.name if @trip.user %>
 </p> 
-<p>  <b>Description:</b>  <%= simple_format @trip.description %></p>
+<p>  <b>Description:</b>  <%= simple_format @trip.description %></p><div id="tripmap">	<div id="map_canvas"></div>	<script type="text/javascript">	   displayLocations();	</script></div><div id="trip_sites">
 <div id="site_list">
 
   <h1>Sitios a visitar</h1>
@@ -9,7 +9,7 @@
   <%= render(@trip) %>
 
   <% if @trip.user == current_user %>
-    <%= form_for(@visit, :remote => true) do |f| %>
+    <%= form_for(@visit) do |f| %>
   
       <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
       <%= f.collection_select(:site_id, 
@@ -25,4 +25,4 @@
 <br />
 
 <% if @trip.user == current_user %>   <%= link_to 'Edit', edit_trip_path(@trip) %> |<% end %><%= link_to 'Back', trips_path %>
-
+</div><br><br>

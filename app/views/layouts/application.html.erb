@@ -3,7 +3,11 @@
 <head> 
   <title>Planet</title>
   <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "nivo-slider" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery.nivo.slider" %>
+  <%= javascript_include_tag "custom" %>
+  <%= javascript_include_tag "jquery-1.5.1.min" %>
   <%= csrf_meta_tags %>
 
   <script type="text/javascript">
@@ -14,49 +18,68 @@
 
 </head>
 <body id="planet"> 
+   
   <div id="banner"> 
-    <%= image_tag("logo3.png") %>
-    <%= @page_title || "Planet Travel Site" %>
-    <div class="user">
-       <% if current_user %>
-         <%= link_to current_user.name,
-             edit_user_registration_path %> |
-         <%= link_to "Sign out", destroy_user_session_path,  :method => :delete %>
-       <% else %>
-         <%= link_to "Sign in", new_user_session_path %>
-       <% end %>
-    </div>
-
+	
+			<div id="search"> 
+				<%= form_tag planet_search_path, :method => 'get' do %>
+				  <%= text_field_tag(:query, nil, :placeholder => "Submit your search here...") %>
+				  <%= submit_tag "Search", :name => nil %>
+				<% end %>
+			</div>
+			<div id="user">
+			   <% if current_user %>
+				 <%= link_to current_user.name,
+					 edit_user_registration_path %> |
+				 <%= link_to "Sign out", destroy_user_session_path,  :method => :delete %>
+			   <% else %>
+				 <%= link_to "Sign in", new_user_session_path %>
+			   <% end %>
+			</div>
+		
   </div> 
-  <div id="footer">
-      <%= link_to "Home", planet_index_path %>
-      <%= link_to "Contact", planet_contact_path %>
-      <%= link_to "Ejemplo", planet_ejemplo_path %>
-      <%= link_to "Authors", planet_author_path %>
-      <%= link_to "Tipos",  types_path %> 
-      <%= link_to "Ordered Types",  types_ordered_index_path %> 	
-      <%= link_to "Sitios", sites_path %> 
-      <%= link_to "Contact", planet_contact_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-  </div>
-  <div id="columns"> 
+  <div id="top-navigation"></div>
+  <div id="columns">
+	<div id="full-menu">
+		<div id="menu">
+			<ul>
+			  <li id="li1"><%= link_to "Home", planet_index_path %></li>
+			  <li id="li2"><%= link_to "Ejemplo", planet_ejemplo_path %></li>
+			  <li id="li3"><%= link_to "Authors", planet_author_path %></li>
+			  <li id="li4"><%= link_to "Tipos",  types_path %> </li>
+			  <li id="li5"><%= link_to "Viajes",  trips_path %> </li>
+			  <li id="li6"><%= link_to "Ordered Types",  types_ordered_index_path %> 	</li>
+			  <li id="li7"><%= link_to "Sitios", sites_path %> </li>
+			  <li id="li8"><%= link_to "Contact", planet_contact_path %></li>
+			  <li id="li9"><%= link_to "RDoc", "/doc/app/index.html" %>
+			  <li id="li10"><%= link_to "Sign up", new_user_registration_path %></li>
+			 </ul>
+
+		</div>
+		
+	</div>
+	
+     
+  
    
     <div id="main"> 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>     
     </div> 
-  </div> 
+   <div id="full-footer">
   <div id="footer">
       <%= link_to "Home", planet_index_path %>
-      <%= link_to "Contact", planet_contact_path %>
       <%= link_to "Ejemplo", planet_ejemplo_path %>
       <%= link_to "Authors", planet_author_path %>
+	  <%= link_to "Viajes",  trips_path %> 
       <%= link_to "Tipos",  types_path %> 
       <%= link_to "Ordered Types",  types_ordered_index_path %> 	
       <%= link_to "Sitios", sites_path %>   
       <%= link_to "Contact", planet_contact_path %>
+	  <%= link_to "RDoc", "/doc/app/index.html" %>
       <%= link_to "Sign up", new_user_registration_path %>
-  </div>			
+  </div></div>
+  </div>  
 </body> 
 </html> 

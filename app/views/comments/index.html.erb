@@ -13,7 +13,7 @@
       <td class="list_description"> 
         <dl> 
 	  <% if comment.user_id %>
-          <dt><%= User.find(comment.user_id).name %>:</dt> 
+          <dt><%= User.find(comment.user_id).name %></dt> 
           <dd><%= comment.comment %></dd> 
           <% end %>
         </dl> 

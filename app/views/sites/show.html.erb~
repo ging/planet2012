@@ -1,0 +1,73 @@
+
+<div id="site">
+
+<h1><%= @site.type.name if @site.type %></h1> 
+
+<%= image_tag(@site.image_url, :class => 'site_image') %>
+<div id="map_canvas"></div>
+<h3><%= @site.name %></h3> 
+
+<p><%=sanitize @site.description %></p>
+  <% if @site.comments.present? %>
+  <p><b><%= link_to('Comentarios', site_comments_path(@site)) %></b></p>
+  <% end %>
+  <% if current_user %>
+  <p><%= link_to('Añada su comentario', new_site_comment_path(@site)) %></p>
+  <% else %>
+  <p><%= link_to "Sign in", new_user_session_path %></p>
+  <% end %>
+<div class="position"> 
+<span>
+<b>Latitude:</b>
+<%= @site.latitude %>
+</span>
+
+<span>
+<b>Longitude:</b>
+<%= @site.longitude %>
+</span>
+</div> 
+
+<div class="visits">
+<b>Visits:</b>
+<%= @site.visits %>
+</div>
+</div> 
+
+<p />
+<% if @site.user == current_user %>
+<%= link_to('Edit', edit_site_path(@site)) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+	navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+} else { alert('Geolocalizacion no soportada en este navegador'); }
+
+function displayPosition(pos) {
+
+	var mylat = <%= @site.latitude %>
+	var mylong = <%= @site.longitude %>
+
+	var latlng = new google.maps.LatLng(mylat, mylong);
+
+	var myOptions = {
+			zoom:     <%= @site.zoom %>, 
+			center: latlng, 
+			mapTypeId: google.maps.MapTypeId.ROADMAP 
+	};
+
+	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+	var marker = new google.maps.Marker({
+		position: latlng,
+		map: map,
+		title: " <%= @site.name.to_s %>  "
+	});
+}
+function errorFunction(pos) { alert('Error!'); }
+
+
+</script>

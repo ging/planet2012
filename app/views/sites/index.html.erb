@@ -14,21 +14,20 @@
           <dt><%= link_to site.name, site %></dt> 
           <dd><%= truncate(strip_tags(site.description),
                  :length => 80) %></dd>
-         <% if site.comments.present? %>
-	  <dd><b><%= link_to('Comentarios', site_comments_path(site)) %></b></dd> 
-	 <% end %>
+	<% if site.comments.present? %>
+	<dd><b><%= link_to('Comentarios', site_comments_path(site)) %></b></dd> 
+	<% end %>
         </dl> 
       </td>
  
       <td class="list_actions"> 
         <%= link_to 'Show', site %><br/>
         <% if site.user == current_user %>
-        <%= link_to 'Edit', edit_site_path(site) %><br/>
-        <%= link_to 'Destroy', site, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
+          <%= link_to 'Edit', edit_site_path(site) %><br/>
+          <%= link_to 'Destroy', site, 
+                      :confirm => 'Are you sure?',
+                      :method => :delete %>
         <% end %>
-	
       </td> 
     </tr> 
   <% end %>
@@ -38,3 +37,4 @@
 <br /> 
  
 <%= link_to 'New site', new_site_path %>
+<br><br>

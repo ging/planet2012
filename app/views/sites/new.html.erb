@@ -2,4 +2,25 @@
 
 <%= render 'form' %>
 
+<script type="text/javascript">
+	if (navigator.geolocation) {   //Check if browser supports W3C Geolocation API
+		navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+	}
+	else { 
+		alert('Geolocation is not supported in this browser.'); 
+	}
+	function successFunction(position) {
+		document.getElementById("site_latitude").value = position.coords.latitude;
+		document.getElementById("site_longitude").value = position.coords.longitude;
+	}
+
+	function errorFunction(position) {
+		alert('Error!');
+	}
+</script>
+<script type="text/javascript">
+	document.getElementById("site_zoom").value = 15;
+</script>
+
+
 <%= link_to 'Back', sites_path %>

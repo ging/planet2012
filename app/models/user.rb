@@ -11,5 +11,5 @@ class User < ActiveRecord::Base
 
   has_many :sites
   has_many :comments
-
+  has_many :trips
 end

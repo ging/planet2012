@@ -3,6 +3,13 @@ require 'test_helper'
 class TripsControllerTest < ActionController::TestCase
   setup do
     @trip = trips(:one)
+    @update = {   
+      :name         => 'AnotherType',
+      :description  => 'AnotherText',
+      :date         => '2012-04-09'
+    }
+    @user = @trip.user
+    sign_in @user
   end
 
   test "should get index" do
@@ -18,7 +25,7 @@ class TripsControllerTest < ActionController::TestCase
 
   test "should create trip" do
     assert_difference('Trip.count') do
-      post :create, trip: @trip.attributes
+      post :create, trip: @update
     end
 
     assert_redirected_to trip_path(assigns(:trip))
@@ -35,7 +42,7 @@ class TripsControllerTest < ActionController::TestCase
   end
 
   test "should update trip" do
-    put :update, id: @trip, trip: @trip.attributes
+    put :update, id: @trip, trip: @update
     assert_redirected_to trip_path(assigns(:trip))
   end
 

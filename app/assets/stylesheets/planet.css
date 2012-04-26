@@ -1,6 +1,12 @@
 /* Global styles (no utilizados de momento) */
-
+body {
+	width: 900px;
+	margin:0 auto 15px auto;
+	float: center;
+	background:url(background.jpg) top left repeat;
+}
 #planet #notice {
+		width: 900px;
         color: #000;
         border: 2px solid red;
         padding: 1em;
@@ -74,45 +80,57 @@
 /* Styles for main page */
 
 #banner {
-  background: #668;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid;  
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #bfb;
+  height: 200px;
+  background:url(header.jpg) top left no-repeat;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  color: #77E;
   text-align: center;
 }
 
-#banner img {
-  float: left;
-  padding-left: 10px;
+#site {
+ height: 450px;
 }
+#top-navigation{
+	width: 900px;
+	height: 4px;
+	background:url(topbar.png) top left no-repeat;
 
+}
 #columns {
- 
-}
+	width: 900px;
+	background:url(sidebar.png) top left repeat-y;
 
+}
 
 #main {
+  width: 850px;
   margin-left: 2em;  /* Ajuste de borde izquierdo */
   margin-right: 2em;  /* Ajuste de borde izquierdo */
   padding-top: 4ex;
   background: white;
 }
 
-
+#full-footer {
+  width: 900px;
+  height: 30px;
+  background: #000;
+}
 #footer {
-  background: #446;
+  width: 900px;
+  padding-top: 5px;
+  background: #000;
 }
 
 #footer a {  
-  background: #446;
+  background: #000;
   padding-left: 2em;
-  color: #bfb;
+  color: #F86;
   font-size: small;
+  text-decoration: none;
 }
 #footer a:hover {   
-  background: #446; 
+  background: #000; 
   color: #fff;
   font-size: small;
 }
@@ -177,3 +195,69 @@ margin-right: 5px;
   font-weight: bold;
   margin-right: 2em;
 }
+
+#map_canvas {
+ width: 400px;	
+ height: 400px;
+ float: right;	
+ margin-right: 100px;
+}
+
+#search {
+  position:relative;
+  float: left;
+  color: #000;
+  padding-left: 15px;
+  padding-top: 10px;
+  font-size: small;  
+  
+}
+
+#user {
+  position: absolute;
+  padding-top:35px;
+  padding-left: 18px;
+  float: left;
+  color: #000;
+  font-size: small;
+
+}
+#full-menu{
+	width:900px;
+	padding-top:1px;
+}
+
+#tripmap {
+	width: 800px;
+	position: absolute;
+	float: right;
+	margin-top: -160px;
+}
+
+#trip_sites{
+	padding-top: 250px;
+}
+
+#menu {width:800px; height:45px; margin:10px; background:url(home.png) left top; position:relative;}
+#menu ul {padding:0; margin:0; list-style:none; position:absolute; left:0; top:0; width:800px; height:45px; z-index:10;}
+#menu ul li {float:left; padding:0;}
+#menu ul li#li1 {padding-left:40px;}
+#menu li a {display:block; height:30px; float:left; color:#fff; text-decoration:none; line-height:30px; padding:0 10px; font-family:arial, sans-serif; font-size:14px; border-right:1px solid #bbb; margin-top:5px;}
+#menu li#li10 a {border:0;}
+
+#menu li#li1 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li2 a {background:url(home.png) no-repeat left 100px;}
+#menu li#li3 a {background:url(home.png) no-repeat left 100px;}
+#menu li#li4 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li5 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li6 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li7 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li8 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li9 a  {background:url(home.png) no-repeat left 100px;}
+#menu li#li10 a  {background:url(home.png) no-repeat left 100px;}
+
+#menu li a:hover {color:#000; white-space:nowrap;}
+#menu li a.current {color:#ff0;}
+#menu li a:hover.current {color:#ff0;}
+
+
