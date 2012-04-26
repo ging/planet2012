@@ -29,6 +29,8 @@ Planet::Application.routes.draw do
   
   get "planet/jsonp"
 
+  get "doc/app"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

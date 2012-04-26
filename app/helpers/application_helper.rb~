@@ -1,3 +1,4 @@
+# Helpers que estarán disponibles desde todas las vistas
 module ApplicationHelper
 
 def include_javascript (file)
@@ -9,9 +10,10 @@ end
 
 
 def get_address(latitude,longitude)
-		require 'open-uri'
-		require 'json'	
+			
 		if (!latitude.nil?)
+			require 'open-uri'
+			require 'json'
 			result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?latlng=#{latitude},#{longitude}&sensor=false").read)
 			localidad = "near "+result['results'][0]['address_components'][3]['long_name']
 		else

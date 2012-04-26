@@ -1,5 +1,8 @@
+# Helpers que estarán disponibles desde todas las vistas
 module ApplicationHelper
 
+# Nos permite incluir un javascript.
+#	Deprecated: Usar javascript_include_tag en su lugar
 def include_javascript (file)
     s = " <script type=\"text/javascript\">" + render(:file => file) + "</script>"
     content_for(:head, raw(s))
@@ -7,7 +10,7 @@ end
 
 
 
-
+# Nos permite obtener en formato string el nombre de la ciudad o región pasándo como parámetro latitud y longitud
 def get_address(latitude,longitude)
 			
 		if (!latitude.nil?)
@@ -24,9 +27,8 @@ end
 
 
 
-
-
-
+# Añade un marcador en un mapa de google
+#	IMPORTANTE: Ha de existir previamente un mapa en pantalla llamado 'map'
 def add_gmap_marker (latitude,longitude,text)
 	javascript = ""
 	if(!latitude.nil?)

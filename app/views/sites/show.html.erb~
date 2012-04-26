@@ -9,7 +9,7 @@
 	 $(document).ready(function() {
 		success();
 	 });
-	</script>
+	</script>ites has no column named latitud
  
 	<h1><%= @site.type.name if @site.type %></h1> 
 
@@ -28,9 +28,9 @@
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>  
 		  
-   <input type="hidden" id="latitude" name="latitude" value="<%= @site.latitude %>" />
-   <input type="hidden" id="longitude" name="longitude" value="<%= @site.longitude %>" />  
-   <input type="hidden" id="zoom" name="zoom" value="<%= @site.zoom %>" />  
+   <input type="hidden" id="latitude" name="site_latitude" value="<%= @site.latitude %>" />
+   <input type="hidden" id="longitude" name="site_longitude" value="<%= @site.longitude %>" />  
+   <input type="hidden" id="zoom" name="site_zoom" value="<%= @site.zoom %>" />  
         
 
 </div>
@@ -43,25 +43,26 @@
 
 <div class="comentarios">
 	
-	<h2>Comentarios:</h2>
-	<% @site.coments.each do |coment| %>
-	  <p>
-		<b><%= coment.user.name if coment.user %>:</b>	 
-		<%= coment.coment %>		
-	  </p>
-	  
-																		
-	  
-	  <p class="list_actions"> 
-		<% if coment.user == current_user %>
-			<%= link_to 'Edit', edit_coment_path(coment) %>
-			<%= link_to 'Destroy', coment, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
+	<h2>Comentarios:</h2>	
+		<% @site.coments.each do |coment| %>		 
+		  <p id="cadaComentario">
+		  
+				<div class="list_actions"> 
+				<% if coment.user == current_user %>
+					<%= link_to 'Edit', edit_coment_path(coment) %>
+					<%= link_to 'Destroy', coment, 
+							:confirm => 'Are you sure?',
+							:method => :delete %>
+				<% end %>
+			  </div>
+				<b><%= coment.user.name if coment.user %>:</b>	 
+				<%= coment.coment %> <br/>
+				<span class="dondeEstoy">(<%= get_address(coment.latitude,coment.longitude) if !coment.longitude.nil? %>)	</span>
+				<hr>
+			  
+		  </p>		
 		<% end %>
-      </p>
-	  
-	<% end %>
+	
 	
 	
 	<%= form_for([@site, @site.coments.build]) do |f| %>

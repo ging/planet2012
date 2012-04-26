@@ -1,3 +1,5 @@
+# TripsController nos permite controlar las acciones relacionadas con los viajes
+#	¡IMPORTANTE! Necesario haber iniciado sesión con un usuario, excepto para el index y para show
 class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe

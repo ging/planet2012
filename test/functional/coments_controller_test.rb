@@ -3,6 +3,8 @@ require 'test_helper'
 class ComentsControllerTest < ActionController::TestCase
   setup do
     @coment = coments(:one)
+    @user = @coment.user
+    sign_in @user
   end
 
   test "should get index" do
@@ -21,7 +23,7 @@ class ComentsControllerTest < ActionController::TestCase
       post :create, coment: @coment.attributes
     end
 
-    assert_redirected_to coment_path(assigns(:coment))
+    assert_redirected_to site_path(assigns(:site))
   end
 
   test "should show coment" do

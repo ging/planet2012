@@ -71,6 +71,22 @@
   text-align:   right;
   padding-left: 1em;
 }
+.comentarios .list_actions{
+	font-size:    x-small;
+	text-align:   right;
+	padding-left: 1em;
+	float: right;
+}
+.comentarios{
+	width: 75%; 
+	padding: 5px;
+}
+.cadaComentario{
+	border: solid;
+}
+.cadaComentario .dondeEstoy{
+	font-style: italic;
+}
 
 #site_list .list_line_even {
   background:   #a8b8f8;

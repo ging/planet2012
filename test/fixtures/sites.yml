@@ -6,8 +6,8 @@ one:
   type: one
   image_url: MyString
   user: one
-  latitud: 1
-  longitud: 1
+  latitude: 1
+  longitude: 1
   zoom: 5
 
 two:
@@ -16,6 +16,6 @@ two:
   type: two
   image_url: YourString
   user: two
-  latitud: 1
-  longitud: 1
+  latitude: 1
+  longitude: 1
   zoom: 5

@@ -1,7 +1,9 @@
+# Controlador de los tipos
 class TypesController < ApplicationController
  
   # GET /types
   # GET /types.json
+  # Devuelve una lista ordenada por nombre
   def ordered_index
 	@types = Type.find(:all, :order => :name) 
 

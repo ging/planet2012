@@ -1,6 +1,8 @@
+# ComentsController nos permite controlar las acciones relacionadas con los comentarios
+#	隆IMPORTANTE! Necesario haber iniciado sesi贸n con un usuario, excepto para el index y para show
 class ComentsController < ApplicationController
 
-  # authenticate_user! ejecuta acci髇 solo si sesi髇 existe
+  # authenticate_user! ejecuta acci贸n solo si sesi贸n existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
 
   # GET /coments
@@ -8,8 +10,8 @@ class ComentsController < ApplicationController
   def index
     
 
-	 if params[:site_id].nil? or params[:site_id].empty?	#Para que en el enlace de comentarios solo aparezcan los de el sitio en cuesti髇
-      @coments = Coment.all            						#si no, se pondr韆 solo esta linea
+	 if params[:site_id].nil?	#Para que en el enlace de comentarios solo aparezcan los de el sitio en cuesti贸n
+      @coments = Coment.all            						#si no, se pondr铆a solo esta linea
       else
       @coments = Site.find(params[:site_id]).coments  
     end
@@ -21,6 +23,7 @@ class ComentsController < ApplicationController
     end
   end
 
+  # Muestra un comentario especifico
   # GET /coments/1
   # GET /coments/1.json
   def show
@@ -32,12 +35,13 @@ class ComentsController < ApplicationController
     end
   end
 
+  # Nos permite crear un nuevo comentario
   # GET /coments/new
   # GET /coments/new.json
   def new
     @coment = Coment.new
     #@site = Site.find(params[:site_id])
-    if !params[:site_id].nil? or !params[:site_id].empty?	
+    if !params[:site_id].nil?	
 	@site = Site.find(params[:site_id])     	
     end
 	

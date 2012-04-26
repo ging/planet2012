@@ -1,6 +1,8 @@
+# VisitsController para las visitas
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
+  # Nos devuelve todas las visitas
   def index
     @visits = Visit.all
 
@@ -12,6 +14,7 @@ class VisitsController < ApplicationController
 
   # GET /visits/1
   # GET /visits/1.json
+  # Sólo aquella que coincide con el parámetro id
   def show
     @visit = Visit.find(params[:id])
 
@@ -23,6 +26,7 @@ class VisitsController < ApplicationController
 
   # GET /visits/new
   # GET /visits/new.json
+  # Para crear una nueva visita
   def new
     @visit = Visit.new
 

@@ -1,54 +1,34 @@
 <%
 require 'open-uri'
 require 'json'
-require 'pp'
-
-result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?latlng=41.761389,-2.461109&sensor=false").read)
-
-
-
+%>
  
- %>
- 
-
 
 <h1>Listing coments</h1>
-
-<table>
-  <tr>
-    <th>Coment</th>o e
-    <th>User</th>
-    <th>Site</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @coments.each do |coment| %>
-  <tr>
-	<td><%= truncate(strip_tags(coment.coment),
-                 :length => 80) %></td>
-  
-   
-    <td><%= coment.user.name if coment.user %></td>
-    <td><%= coment.site.name if coment.site %></td>
-	
-	
-	<td class="list_actions"> 
-        <%= link_to 'Show', coment %><br/>
-		<% if coment.user == current_user %>
-			<%= link_to 'Edit', edit_coment_path(coment) %><br/>
-			<%= link_to 'Destroy', coment, 
-                    :confirm => 'Are you sure?',
-                    :method => :delete %>
+	<div class="comentarios">
+		<% @coments.each do |coment| %>		 
+		  <p id="cadaComentario">		  
+			  <div class="list_actions"> 
+				<% if coment.user == current_user %>
+					<%= link_to 'Edit', edit_coment_path(coment) %>
+					<%= link_to 'Destroy', coment, 
+							:confirm => 'Are you sure?',
+							:method => :delete %>
+				<% end %>
+			  </div>
+			  <b>Sitio:</b><%= coment.site.name if coment.site %><br/>
+			  <b><%= coment.user.name if coment.user %>:</b>	 
+			  <%= coment.coment %> <br/>
+			  <span class="dondeEstoy"><%= image_tag('pedriza2-m.png') if !coment.longitude.nil? %><%= get_address(coment.latitude,coment.longitude) if !coment.longitude.nil? %> 	</span>
+			  <hr>			  
+		  </p>		
 		<% end %>
-      </td>
 	
-  </tr>
-<% end %>
-</table>
+	
+</div>
 
-<br />
+
+
 
 
 

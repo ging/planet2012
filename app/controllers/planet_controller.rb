@@ -1,20 +1,20 @@
-# PlanetController ilustra el uso de *RDoc*. La documentación de un proyecto en
+# PlanetController ilustra el uso de *RDoc*. La documentaciÃ³n de un proyecto en
 # genera en el directorio *proy/doc* en formato Web con
 #      $proy> rake doc:app
 #
 # == Algunos comandos de formateo
 #
 # Tal y como muestra el subitulo anterior, este se define empezando la 
-# línea con ==. En los títulos debe empezar por =.
+# lÃ­nea con ==. En los tÃ­tulos debe empezar por =.
 #
-# Un [ ... ] seguido de texto define una lista titulada, como aquí
-# [Clases, Módulos o Métodos] Se documentan con comentarios justo encima de sus definición, como aquí.
+# Un [ ... ] seguido de texto define una lista titulada, como aquÃ­
+# [Clases, MÃ³dulos o MÃ©todos] Se documentan con comentarios justo encima de sus definiciÃ³n, como aquÃ­.
 #
 # Un * o - definen las entradas de una lista itemizada
-# * Un URL se define así email[mailto:pepe@ejemplo.com] 
-# * o así {Pepe Rubio}[mailto:pepe@ejemplo.com]
+# * Un URL se define asÃ­ email[mailto:pepe@ejemplo.com] 
+# * o asÃ­ {Pepe Rubio}[mailto:pepe@ejemplo.com]
 #
-# Un número o letra seguido de punto genera una lista númerada
+# Un nÃºmero o letra seguido de punto genera una lista nÃºmerada
 # 1. + permite generar *negrita*, igual que <b>con HTML</b>
 # 2. _ permite generar _cursiva_, igual que <em>con HTML</em>
 # 3. * permite generar letra de +teletipo+, igual que <tt> con HTML</tt>
@@ -27,19 +27,21 @@ class PlanetController < ApplicationController
 	@trips = Trip.where("name like ? OR description like ?", "%#{params[:q]}%", "%#{params[:q]}%")  
   end
   
-  # Método que define una acción vacía del controlador
+  # MÃ©todo que define una acciÃ³n vacÃ­a del controlador
   def index
   end
-  # Método que define una acción vacía del controlador
+  # MÃ©todo que define una acciÃ³n vacÃ­a del controlador
   def contact
   end
-  # Método que define una acción vacía del controlador
+  # MÃ©todo que define una acciÃ³n vacÃ­a del controlador
   def author
   end
-  # Método que define una acción vacía del controlador
+  # MÃ©todo que define una acciÃ³n vacÃ­a del controlador
   def ejemplo
   end
   
+  # MÃ©todo para definir la acciÃ³n que nos permite parsear json de la API de googlemaps
+  # +No renderiza el layout+
    def jsonp
   	render :layout => false
   end

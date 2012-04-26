@@ -1,6 +1,8 @@
+# SitesController nos permite controlar las acciones relacionadas con los sitios
+#	¡IMPORTANTE! Necesario haber iniciado sesión con un usuario, excepto para el index y para show
 class SitesController < ApplicationController
 
-  # authenticate_user! ejecuta acci�n solo si sesi�n existe
+  # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
   after_filter :count_visita, :only => :show
   
