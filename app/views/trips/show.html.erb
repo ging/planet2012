@@ -6,34 +6,34 @@
   
 
   function getCenter() {
-    var nSitios = <% @trip.sites.length%>
+    var nSitios = @trip.sites.length;
     var c_lat;
     var c_lng;
     var lat = 0;
     var lng = 0;
-    <% Site.all.each do  |s| %>
-      lat += <%= s.latitud %>;
-      lng += <%= s.longitud %>;
-    <% end %>
+     @trip.sites.each do  |s|
+      lat += s.latitud ;
+      lng += s.longitud ;
+     end 
     c_lat = lat/ nSitios;
     c_lng = lng/nSitios;
     return new google.maps.LatLng(c_lat,c_lng);
   }
 
   function setMarkers() {
-    <% i = 1 %>
-    <% Site.all.each do  |s| %>
-      lat = <%= s.latitud %>;
-      lng = <%= s.longitud %>;
+    i = 1 
+     @trip.sites.each do  |s| 
+      lat = s.latitud ;
+      lng = s.longitud ;
       center = new google.maps.LatLng(lat,lng); 
-      var marker<%= i %> = new google.maps.Marker({
+      var marker= i  = new google.maps.Marker({
             map: map,
             position: center,
             animation: google.maps.Animation.DROP,
-            title: "<%= s.name%>"
+           title: s.name
         });     
-      <% i+= 1 %>
-    <% end %>
+      i+= 1 
+     end 
   }
 
   function iniMapa() {
@@ -49,7 +49,7 @@
 </script>
 
 
-<body onLoad iniMapa()>
+<body >
 <p>
   <b>Name:</b>
   <%= @trip.name %>
