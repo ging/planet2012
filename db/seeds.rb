@@ -118,7 +118,7 @@ trip1.user_id = user1.id ; trip1.save
 
 trip2 = Trip.create!(
             name: 'Sierra de Madrid',
-            description: 'Sua al Yelmo en la Pedriza',
+            description: 'Suba al Yelmo en la Pedriza',
             date: '2012-05-18')
 trip2.user_id = user2.id ; trip2.save 
 

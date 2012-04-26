@@ -26,10 +26,9 @@ ActiveRecord::Schema.define(:version => 20120417171854) do
     t.text     "description"
     t.integer  "type_id"
     t.string   "image_url"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "user_id"
-    t.integer  "visitas",     :default => 0
     t.float    "latitud"
     t.float    "longitud"
     t.integer  "zoom"
