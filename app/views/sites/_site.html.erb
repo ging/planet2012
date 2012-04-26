@@ -1,0 +1,33 @@
+<tr class="<%= cycle('odd', 'even') %>"> 
+
+  <td class =  "imagen"> 
+    <%= link_to image_tag(site.image_url, :class => 'imagen'), site %>
+  </td> 
+
+  <td class = "datos"> 
+    
+    <%= link_to site.name, site %><br> 
+    <%= truncate(strip_tags(site.description),
+             :length => 80) %><br>
+    <i>
+      Incluido <%=site.visits.length%>
+      ve<%if site.visits.length != 1%>ces<%else%>z<%end%>
+    </i>
+    <% if site.comments != [] %>
+      | <%=link_to "Comentarios", site_path(site) %> (<%= site.comments.length %>)
+    <% end %> 
+  </td>
+
+  <td class = "acciones"> 
+    <%= link_to 'Show', site %><br/>
+    <% if current_user != nil %>
+       <% if (site.user == current_user) or (current_user.name == 'admin') %>
+        <%= link_to 'Edit', edit_site_path(site) %><br/>
+        <%= link_to 'Destroy', site, 
+                :confirm => 'Are you sure?',
+                :method => :delete %>
+      <% end %>
+    <% end %>
+  </td> 
+  
+</tr>

@@ -1,15 +1,66 @@
-<p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
-  <b>Autor:</b>   <%= @trip.user.name if @trip.user %>
-</p> 
-<p>  <b>Description:</b>  <%= simple_format @trip.description %></p>
-<div id="site_list">
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-  <h1>Sitios a visitar</h1>
+<script type="text/javascript">
 
+  var map;
+
+  <% @sites = @trip.sites %>
+  <% num_sites = @sites.length %>
+
+  function getCenter() {
+    var c_lat;
+    var c_lng;
+    var lat = 0;
+    var lng = 0;
+    <% @sites.each do  |s| %>
+      lat += <%= s.latitud %>;
+      lng += <%= s.longitud %>;
+    <% end %>
+    c_lat = lat/<%= num_sites %>;
+    c_lng = lng/<%= num_sites %>;
+    return new google.maps.LatLng(c_lat,c_lng);
+  }
+
+  function setMarkers() {
+    <% i = 1 %>
+    <% @sites.each do  |s| %>
+      lat = <%= s.latitud %>;
+      lng = <%= s.longitud %>;
+      center = new google.maps.LatLng(lat,lng); 
+      var marker<%= i %> = new google.maps.Marker({
+            map: map,
+            position: center
+        });
+      marker<%= i %>.setTitle("<%= s.name %>");
+      <% i+= 1 %>
+    <% end %>
+  }
+
+  function iniMapa() {
+    var myOptions = {
+      zoom: 12,
+      center: getCenter(),
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    map = new google.maps.Map(document.getElementById("trip_canvas"), myOptions);
+    setMarkers();
+  }
+
+</script>
+
+<h1><%= @trip.name %></h1>
+<br>
+<p><b>Date: </b><%= @trip.date %></p>
+<p><b>Autor: </b><%= @trip.user.name if @trip.user %></p>
+<p><b>Description: </b><%= @trip.description %></p>
+<br>
+<p><h1>Sitios a visitar:</h1></p>
+
+<div id="trip_sites">
   <%= render(@trip) %>
-
+  <p>
   <% if @trip.user == current_user %>
-    <%= form_for(@visit, :remote => true) do |f| %>
+    <%= form_for(@visit) do |f| %>
   
       <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
       <%= f.collection_select(:site_id, 
@@ -20,9 +71,14 @@
       <%= f.submit "Añadir sitio" %>
     <% end %>
   <% end %>
+  </p>
+  <br>
+  <% if @trip.user == current_user %>
+    <%= link_to 'Edit', edit_trip_path(@trip) %> |
+  <% end %>
+  <%= link_to 'Back', trips_path %>
 </div>
-
-<br />
-
-<% if @trip.user == current_user %>   <%= link_to 'Edit', edit_trip_path(@trip) %> |<% end %><%= link_to 'Back', trips_path %>
-
+<% if @trip.sites != [] %>
+  <p><div id="trip_canvas"></div></p>
+<% end %>
+<br>

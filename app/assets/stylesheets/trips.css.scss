@@ -1,3 +1,19 @@
-// Place all the styles related to the trips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#trip_sites {
+	float: left;
+}
+
+#trip_datos {
+	width: 500px;
+}
+
+#trip_canvas {
+	float: right;
+	width: 450px;
+	height: 290px;
+	border: 1px solid black;
+}
+
+#trip_bottom {
+	background-color: #0f0;
+	margin-top: 300px;
+}

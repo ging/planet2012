@@ -1,0 +1,20 @@
+<tr class="<%= cycle('odd', 'even') %>"> 
+
+  <td class = "datos"> 
+      <b><%= link_to type.name, type_sites_path(type) %></b><br>
+      <%= truncate(strip_tags(type.description),
+            :length => 80) %><br>
+      Updated at: <%= type.updated_at %>
+  </td> 
+ 
+  <td class = "acciones"> 
+    <%= link_to 'Show', type %><br>
+    <% if current_user != nil %>
+      <%= link_to 'Edit', edit_type_path(type) %></br>
+      <%= link_to 'Destroy', type, 
+        :confirm => 'Are you sure?',
+        :method => :delete %>
+    <% end %>
+  </td> 
+
+</tr> 

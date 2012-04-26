@@ -1,0 +1,39 @@
+<h1>Search results</h1>
+<br>
+<div id = "col_search">
+<p><b>Sites</b></p>
+<ul>
+	<% @sites.each do |s| %>
+		<li><%= link_to s.name, s %></li>
+	<% end %>
+</ul>
+<p><i>
+	<% ns = @sites.length %>
+	<%= ns %>
+	<% if ns != 1 %>
+		results 
+	<% else %>
+		result 
+	<% end %>
+	found.
+</i></p>
+</div>
+
+<div id = "col_search">
+<p><b>Trips</b></p>
+<ul>
+	<% @trips.each do |t| %>
+		<li><%= link_to t.name, t %></li>
+	<% end %>
+</ul>
+<p><i>
+	<% nt = @trips.length %>
+	<%= nt %>
+	<% if nt != 1 %>
+		results 
+	<% else %>
+		result 
+	<% end %>
+	found.
+</i></p>
+</div>

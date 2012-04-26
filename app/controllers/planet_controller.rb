@@ -20,14 +20,31 @@
 # 3. * permite generar letra de +teletipo+, igual que <tt> con HTML</tt>
 #
 class PlanetController < ApplicationController
+
   # Método que define una acción vacía del controlador
   def index
   end
+
   # Método que define una acción vacía del controlador
   def contact
   end
+
   # Método que define una acción vacía del controlador
   def ejemplo
+  end
+
+  # Método que define una acción vacía del controlador
+  def author
+  end
+
+  # Método que define la acción de búsqueda de sitios y viajes en la página
+  def search
+    if params[:search].length >= 3
+      @sites = Site.where("name like ? OR description like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @trips = Trip.where("name like ? OR description like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      render action: "error_search"
+    end
   end
     
 end

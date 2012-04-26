@@ -6,30 +6,83 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript">    $(function() {      $( "#trip_description" ).cleditor();    });  </script>
+<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+  $(function() {
+    $( "#trip_description" ).cleditor();
+    $( "#site_description" ).cleditor();
+    $( "#comment_comment" ).cleditor();
+    $( "#type_description" ).cleditor();
+  });
+</script>
 
 </head>
 
-<body id="planet"> 
-  <div id="banner"> 
-    <%= image_tag("logo3.png") %>
-    <%= @page_title || "Planet Travel Site" %><br />
-    <div class="user">      <% if current_user %>        <%= link_to current_user.name,              edit_user_registration_path %> |        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>      <% else %>        <%= link_to "Sign in", new_user_session_path %>      <% end %>
-    </div> 
-  </div> 
-  <div id="columns"> 
-    <div id="side"> 
-      <%= link_to "Home", planet_index_path %><br /> 
-      <%= link_to "Tipos",  types_path %><br /> 
-      <%= link_to "Sitios", sites_path %><br /> 
-      <%= link_to "Viajes", trips_path %><br /> 
-      <%= link_to "Contact", planet_contact_path %><br />
-      <%= link_to "Sign up", new_user_registration_path unless current_user %>
-    </div> 
-    <div id="main"> 
-      <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div> 
-  </div> 
-</body> 
-</html> 
+<body onload = "iniMapa()" >
+
+  <div id="wrapper">
+
+    <div id="header-wrapper">
+      <div id="header">
+        <div id="logo">
+          <h1>Planet Travel</h1>
+          <p>your emotions abroad</p>
+        </div>
+      </div>
+    </div>
+    <!-- end #header -->
+
+    <div id="menu">
+    <ul>
+        <li><%= link_to "Home", planet_index_path %></li>
+        <li><%= link_to('Contact', planet_contact_path) %></li>
+        <li><%= link_to "Authors", planet_author_path %></li>
+        <li><%= link_to "Types",  types_path %></li>
+        <li><%= link_to('Ordered Types', ordered_index_types_path) %></li>
+        <li><%= link_to "Sites", sites_path %></li>
+        <li><%= link_to "Trips", trips_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li>
+          <div id ="search">
+          <p>
+            <%= form_tag planet_search_path, :method => 'get' do %>
+              <%= text_field_tag(:search, nil, :placeholder => "Search") %>
+              <%= submit_tag "Search" %>
+            <% end %>
+          </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- end #menu -->
+
+    <div id="page">
+      <div id="content">
+        <div class ="login">
+          <p>
+            <% if current_user %>
+              <%= link_to current_user.name, edit_user_registration_path %> |
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+              <%= link_to "Sign in", new_user_session_path %>
+            <% end %>
+          </p>
+        </div>
+        <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <!-- end page -->
+
+  <div id="footer">
+    <p><b>SOFTWARE DE COMUNICACIONES</b></p>
+    <p>Pedro Merlo Feter · Álvaro Sánchez Bravo</p>
+    <p><%= link_to "RDoc", "/doc/app/index.html" %></p>
+  </div>
+  <!-- end #footer -->
+
+</body>
+
+</html>
