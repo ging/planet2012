@@ -1,3 +1,14 @@
+# =Código del modelo de Site
+#
+# ==Los sites tienen los siguientes campos:
+# 1.* name: nombre 
+# 2.* description: texto para describir el sitio
+# 3.* type: tipo de sitio (monumento, ruina, etc)
+# 4.* image: imagen asociada al sitio
+# 5.* latitud_geo: para situar en google maps
+# 6.* longitud_geo: para situar en google maps
+# 7.* zoom_geo: para situar en google maps
+# 
 class Site < ActiveRecord::Base
   
   belongs_to :type

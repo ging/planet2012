@@ -75,6 +75,7 @@ class VisitsController < ApplicationController
   # DELETE /visits/1.json
   def destroy
     @visit = Visit.find(params[:id])
+    @visit.site.decrement!(:times_added)
     @visit.destroy
 
     respond_to do |format|

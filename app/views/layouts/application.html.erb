@@ -9,6 +9,7 @@
   <script type="text/javascript">
     $(function() {
        $( "#trip_description" ).cleditor();
+       $( "#comment_comment" ).cleditor();
     });
   </script>
 
@@ -46,9 +47,10 @@
       <%= link_to "Ejemplo", planet_ejemplo_path %> <br />           
       <%= link_to "Viajes", trips_path %><br /> 
       <%= link_to "Contact", planet_contact_path %><br />   
-      <%= link_to "Author",  planet_author_path %>  <br />       
+      <%= link_to "Author",  planet_author_path %><br /> 
+      <%= link_to "RDoc", "/doc/app/index.html" %><br />      
       <%= link_to "Sign up", new_user_registration_path unless current_user %><br />
-
+      
     </div> 
     
 

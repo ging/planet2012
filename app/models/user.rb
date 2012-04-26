@@ -1,3 +1,5 @@
+# =Código del modelo de User
+# ==Tiene todos los campos que nos crea la gema de Devise
 class User < ActiveRecord::Base
   
   has_many :sites

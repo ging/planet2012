@@ -1,9 +1,4 @@
-# PlanetController ilustra el uso de *RDoc*. La documentación de un proyecto en
-# genera en el directorio *proy/doc* en formato Web con
-#      $proy> rake doc:app
-#
-# == Algunos comandos de formateo
-#
+# PlanetController
 # Tal y como muestra el subitulo anterior, este se define empezando la 
 # línea con ==. En los títulos debe empezar por =.
 #
@@ -37,7 +32,7 @@ class PlanetController < ApplicationController
       @search=params[:search]
       if  @search.length>= 3
       @sites = Site.where("name like ? OR description like ?", "%"+@search+"%", "%"+@search+"%")
-      @trips = Trip.where("name like ? OR description like ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @trips = Trip.where("name like ? OR description like ?", "%"+@search+"%", "%"+@search+"%")
     else
       render action: "wrongsearch"
     end
