@@ -20,6 +20,13 @@
 # 3. * permite generar letra de +teletipo+, igual que <tt> con HTML</tt>
 #
 class PlanetController < ApplicationController
+  
+  # GET /sites /search
+  def search
+	@sites = Site.where("name like ? OR description like ?", "%#{params[:q]}%", "%#{params[:q]}%")
+	    
+  end
+  
   # Método que define una acción vacía del controlador
   def index
   end

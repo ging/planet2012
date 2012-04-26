@@ -1,0 +1,46 @@
+﻿<div id="site_list"> 
+  <h1>Listing Sites</h1> 
+ 
+  <table> 
+  <% @sites.each do |site| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+ 
+      <td> 
+        <%= link_to image_tag(site.image.url, :class => 'list_image'), site %>
+      </td> 
+ 
+      <td class="list_description"> 
+        <dl> 
+          <dt><%= link_to site.name, site %></dt> 
+          <dd><%= truncate(strip_tags(site.description),
+                 :length => 80) %></dd>
+			<p>
+			<div class="enlaceComentarios">
+			  <dt><%= link_to 'Comentarios', site_coments_path(site) %> 
+					<%= ':' %> <%= site.coments.length  %>
+					<% if site.coments.empty? %>
+						<%= 'Este sitio no tiene comentarios. ¿Añades uno?' %> 
+					<% end %>
+		      </dt>
+		    </div>
+			</p>
+        </dl> 
+      </td>
+ 
+      <td class="list_actions"> 
+        <%= link_to 'Show', site %><br/>
+		<% if site.user == current_user %>
+			<%= link_to 'Edit', edit_site_path(site) %><br/>
+			<%= link_to 'Destroy', site, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+		<% end %>
+      </td> 
+    </tr> 
+  <% end %>
+  </table> 
+</div> 
+ 
+<br /> 
+ 
+<%= link_to 'New site', new_site_path %>

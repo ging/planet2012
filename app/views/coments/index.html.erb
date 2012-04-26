@@ -1,13 +1,8 @@
 <%
 require 'open-uri'
 require 'json'
-require 'pp'
-
-result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?latlng=41.761389,-2.461109&sensor=false").read)
+%>
  
- %>
- 
-
 
 <h1>Listing coments</h1>
 
@@ -25,6 +20,8 @@ result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?latln
   <tr>
 	<td><%= truncate(strip_tags(coment.coment),
                  :length => 80) %></td>
+                 
+     
   
    
     <td><%= coment.user.name if coment.user %></td>

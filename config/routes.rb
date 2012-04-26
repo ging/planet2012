@@ -17,6 +17,8 @@ Planet::Application.routes.draw do
 	get "ordered_index", :on => :collection 
   end
   
+  get "planet/search"
+ 
   get "planet/index"
 
   get "planet/contact"

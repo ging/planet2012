@@ -18,6 +18,16 @@
 
 /* Styles for products/index */
 
+#site .site_image {
+  height:      200px;
+  padding-top: 40px;
+}
+
+#googlemap{
+  float: right;
+  padding-right: 50%;
+}
+
 #site_list table {
         border-collapse: collapse;
 }
@@ -91,6 +101,14 @@
 
 #banner .user {
   float: right;
+  color: #bfb;
+  font-size: small;
+}
+
+#banner .formulario {
+  float: right;
+  padding-right:65.6%;
+  padding-top:10px;
   color: #bfb;
   font-size: small;
 }

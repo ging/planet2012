@@ -1,6 +1,16 @@
 module SitesHelper
 	def new_gmap(latitude,longitude,zoom)    
-		s ="<script>new_gmap(#{latitude},#{longitude},#{zoom});</script>"
-		raw(s)
+	
+	end
+	
+	def get_address(latitude,longitude)	
+		if (!latitude.nil?)
+			result = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?latlng=#{latitude},#{longitude}&sensor=false").read)
+			localidad = "near "+result['results'][0]['address_components'][3]['long_name']
+		else
+			localidad = ""
+		end
+		
+		localidad	
 	end
 end

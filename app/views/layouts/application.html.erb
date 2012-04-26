@@ -28,6 +28,15 @@
       <% end %>
     </div>
 	
+	
+	
+	<div class="formulario">
+		<%= form_tag(planet_search_path, :method => "get") do %>
+		  <%= text_field_tag(:q, nil, :placeholder => "Search") %>
+		  <%= submit_tag("Search") %>
+		<% end %>
+	</div>
+	
   </div> 
   <div id="columns"> 
     <div id="side"> 

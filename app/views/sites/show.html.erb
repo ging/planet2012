@@ -1,23 +1,25 @@
 <%= javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=false' %>
 <%= javascript_include_tag 'sites.show.geolocation' %>
+<%= javascript_include_tag 'sites.coments.show.geolocation' %>
+
 
 <div id="site">
 
-<script>
- $(document).ready(function() {
-	success();
- });
-</script>
+	<script>
+	 $(document).ready(function() {
+		success();
+	 });
+	</script>
  
-  <h1><%= @site.type.name if @site.type %></h1> 
+	<h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
+	<%= image_tag(@site.image.url, :class => 'site_image') %>
   
-  <div id="googlemap"> 
-	 <article>
-	      <p><span id="status">Location</span></p>
-	 </article>
- </div>
+	<div id="googlemap"> 
+		 <article>
+			  <p><span id="status">Location</span></p>
+		 </article>
+	</div>
 
   <h3 style="clear: both"><%= @site.name %></h3> 
 
@@ -25,6 +27,7 @@
   
   <p><b>Autor:</b> 
           <%= @site.user.name if @site.user %></p>  
+		  
    <input type="hidden" id="latitude" name="latitude" value="<%= @site.latitude %>" />
    <input type="hidden" id="longitude" name="longitude" value="<%= @site.longitude %>" />  
    <input type="hidden" id="zoom" name="zoom" value="<%= @site.zoom %>" />  
@@ -44,7 +47,7 @@
 	<% @site.coments.each do |coment| %>
 	  <p>
 		<b><%= coment.user.name if coment.user %>:</b>	 
-		<%= coment.coment %>		
+		<%= coment.coment %> <b><%= get_address(coment.latitude,coment.longitude) if !coment.longitude.nil? %></b>	
 	  </p>
 	  
 																		
@@ -62,6 +65,16 @@
 	
 	
 	<%= form_for([@site, @site.coments.build]) do |f| %>
+	
+	<div class="field">
+	    <%= f.hidden_field :latitude %>
+	  </div>
+	  <div class="field">
+	    <%= f.hidden_field :longitude %>
+	  </div>
+	  <div class="field">
+	    <%= f.hidden_field :zoom %>
+	  </div>
 	  
 	  <div class="field">
 		<%= f.label :comentario %><br />
