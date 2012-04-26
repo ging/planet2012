@@ -9,5 +9,17 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require cleditor
  *= require_tree .
 */
+
+.search_box {
+	font-size:15px;
+	float:right;
+	color: black;
+	padding-left:15px;
+}
+
+#min_visits {
+	width:70%;	
+}

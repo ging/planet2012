@@ -1,4 +1,10 @@
-Planet::Application.routes.draw do  
+Planet::Application.routes.draw do
+
+  resources :visits
+
+  resources :trips
+
+  devise_for :users
 
   resources :sites
 
@@ -14,6 +20,9 @@ Planet::Application.routes.draw do
   get "planet/author"
   get "planet/contact"
   get "planet/ejemplo"
+  get "planet/minsearch"
+  get "planet/topsearch"
+
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

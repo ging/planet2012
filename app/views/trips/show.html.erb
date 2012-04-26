@@ -1,0 +1,57 @@
+<p>
+  <b>Name:</b>
+  <%= @trip.name %>
+</p>
+
+
+
+<p>
+  <b>Date:</b>
+  <%= @trip.date %>
+</p>
+
+<p>
+  <b>Autor:</b> 
+  <%= @trip.user.name if @trip.user %>
+</p>
+ 
+<p>
+  <b>Description:</b>
+  <%= simple_format @trip.description %>
+</p>
+
+<div id="site_list">
+
+  <h1>Sitios a visitar</h1>
+
+  <%= render(@trip) %>
+
+  <% if @trip.user == current_user %>
+    <%= form_for(@visit, :remote => true) do |f| %>
+  
+      <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
+      <%= f.collection_select(:site_id, 
+                            Site.all,
+                            :id, 
+                            :name) %>
+      <%= f.select(:hour, Array.new(24, 0).fill {|i| [(i.to_s + 'H'), i]}) %>
+      <%= f.submit "Añadir sitio" %>
+    <% end %>
+  <% end %>
+</div>
+
+<br />
+
+
+<% if @trip.user == current_user %>
+   <%= link_to 'Edit', edit_trip_path(@trip) %> |
+<% end %>
+
+<h1>Mapa del viaje</h1>
+<div class="trip_map" id="map_canvas"></div>
+
+<%= link_to 'Back', trips_path %>
+
+<script>
+	tripMapFunction()
+</script>

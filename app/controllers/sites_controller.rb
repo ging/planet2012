@@ -1,11 +1,18 @@
 class SitesController < ApplicationController
+
+  # authenticate_user! ejecuta acción solo si sesión existe
+  before_filter :authenticate_user!, :except => [ :index, :show ]
+  after_filter :count_visita, :only => :show
+  
   # GET /sites
   # GET /sites.json
   def index
     if params[:type_id].nil? or params[:type_id].empty?
       @sites = Site.all            # path: /types
-      else
+      @page_title = 'Todos los Sitios'
+    else
       @sites = Type.find(params[:type_id]).sites  # path: /types/id/sites
+      @page_title = Type.find(params[:type_id]).name
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -27,8 +34,8 @@ class SitesController < ApplicationController
   # GET /sites/new
   # GET /sites/new.json
   def new
-    @site = Site.new
-
+    @site = current_user.sites.build # crea sitio vacio asociado a current_user
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @site }
@@ -37,14 +44,14 @@ class SitesController < ApplicationController
 
   # GET /sites/1/edit
   def edit
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
   end
 
   # POST /sites
   # POST /sites.json
   def create
-    @site = Site.new(params[:site])
-
+    @site = current_user.sites.build(params[:site]) # Asigna solo si sitio asociado a current_user
+    
     respond_to do |format|
       if @site.save
         format.html { redirect_to @site, notice: 'Site was successfully created.' }
@@ -59,8 +66,8 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.json
   def update
-    @site = Site.find(params[:id])
-
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user 
+    
     respond_to do |format|
       if @site.update_attributes(params[:site])
         format.html { redirect_to @site, notice: 'Site was successfully updated.' }
@@ -75,12 +82,17 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
     @site.destroy
 
     respond_to do |format|
       format.html { redirect_to sites_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def count_visita
+    @site.increment!(:visitas)
   end
 end

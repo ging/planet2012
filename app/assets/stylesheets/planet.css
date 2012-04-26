@@ -1,5 +1,6 @@
 /* Global styles (no utilizados de momento) */
 
+
 #planet #notice {
         color: #000;
         border: 2px solid red;
@@ -15,6 +16,12 @@
         color: #226;
         border-bottom: 3px dotted #77d;
 }
+
+/* Types */
+
+.types_list li{
+	margin-left:-25px;
+} 
 
 /* Styles for products/index */
 
@@ -81,6 +88,12 @@
 #banner img {
   float: left;
   padding-left: 10px;
+}
+
+#banner .user {
+  float: right;
+  color: #bfb;
+  font-size: small;
 }
 
 #columns {
@@ -154,4 +167,13 @@
   color: #44a;
   font-weight: bold;
   margin-right: 2em;
+}
+
+
+#main .visitas {
+  text-indent:   70%;
+}
+
+.hidden {
+	display:none;
 }
