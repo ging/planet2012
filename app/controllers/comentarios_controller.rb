@@ -1,10 +1,14 @@
+#ComentariosController es la clase que aglutina los métodos 
+#necesarios para tratar con los comentarios creados en un determinado sitio
+#
 class ComentariosController < ApplicationController
+
+  
 
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
-  
-  # GET /comentarios
-  # GET /comentarios.json
+
+  # Método que devuelve todos los comentarios existentes
   def index
 
     @comentarios=Comentario.all
@@ -15,8 +19,7 @@ class ComentariosController < ApplicationController
     end
   end
 
-  # GET /comentarios/1
-  # GET /comentarios/1.json
+  #método que muestra los comentarios correspondientes a un determinado sitio
   def show
     @comentario = Comentario.find(params[:id])
 
@@ -26,8 +29,7 @@ class ComentariosController < ApplicationController
     end
   end
 
-  # GET /comentarios/new
-  # GET /comentarios/new.json
+  # método que crea un nuevo comentario "vacío"
   def new
     @comentario = Comentario.new
     
@@ -37,13 +39,12 @@ class ComentariosController < ApplicationController
     end
   end
 
-  # GET /comentarios/1/edit
+  #método que se emplea para editar un nuevo comentario
   def edit
     @comentario = Comentario.find(params[:id])  
   end
 
-  # POST /comentarios
-  # POST /comentarios.json
+  #método que crea un nuevo comentario asociado a un determinado sitio
   def create
     @site=Site.find(params[:site_id])
     @comentario=@site.comentarios.create(params[:comentario])
@@ -61,8 +62,7 @@ class ComentariosController < ApplicationController
     end
   end
 
-  # PUT /comentarios/1
-  # PUT /comentarios/1.json
+  #método empleado para actualizar un comentario
   def update
     @comentario = current_user.comentarios.find(params[:id])  
     
@@ -77,15 +77,14 @@ class ComentariosController < ApplicationController
     end
   end
 
-  # DELETE /comentarios/1
-  # DELETE /comentarios/1.json
+  #método para eliminar un comentario determinado
   def destroy
     @comentario = current_user.comentarios.find(params[:id]) 
     @comentario.destroy
 
     respond_to do |format|
-      format.html { redirect_to comentarios_url }
-      format.json { head :no_content }
+      format.html { redirect_to @comentario, notice: 'Comentario was successfully destroyed.' }
+        format.json { render json: @comentario, status: :created, location: @comentario }
     end
   end
 end

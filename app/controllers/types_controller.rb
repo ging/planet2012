@@ -1,6 +1,10 @@
+#TypesController es la clase que aglutina los métodos 
+#necesarios para tratar con las tipos de lugares del sistema
+#
 class TypesController < ApplicationController
-  # GET /types
-  # GET /types.json
+
+
+#método que muestra todos los tipos disponibles
   def index
     @types = Type.all
 
@@ -10,8 +14,7 @@ class TypesController < ApplicationController
     end
   end
 
-  # GET /types/1
-  # GET /types/1.json
+  #método qeu muestra un determinado tipo creado
   def show
     @type = Type.find(params[:id])
 
@@ -21,8 +24,7 @@ class TypesController < ApplicationController
     end
   end
 
-  # GET /types/new
-  # GET /types/new.json
+  #método que crea un nuevo tipo vacío
   def new
     @type = Type.new
 
@@ -32,13 +34,12 @@ class TypesController < ApplicationController
     end
   end
 
-  # GET /types/1/edit
+  #método que edita un tipo creado anteriormente
   def edit
     @type = Type.find(params[:id])
   end
 
-  # POST /types
-  # POST /types.json
+  #método que crea nuevo un tipo determinado
   def create
     @type = Type.new(params[:type])
 
@@ -53,8 +54,7 @@ class TypesController < ApplicationController
     end
   end
 
-  # PUT /types/1
-  # PUT /types/1.json
+  # método que actualiza un tipo creado previamente
   def update
     @type = Type.find(params[:id])
 
@@ -69,8 +69,7 @@ class TypesController < ApplicationController
     end
   end
 
-  # DELETE /types/1
-  # DELETE /types/1.json
+  # método para eliminar un tipo existente
   def destroy
     @type = Type.find(params[:id])
     @type.destroy
@@ -82,8 +81,7 @@ class TypesController < ApplicationController
   end
 
 
-#GET /types/ordered_index
-#GET /types/ordered_index.json
+#método que devuelve los tipos ordenados alfabéticamente
 
 def ordered_index
 

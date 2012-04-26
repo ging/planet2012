@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class PlanetController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/planet_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-author">#author</a>
+    
+    <li><a href="#method-i-contact">#contact</a>
+    
+    <li><a href="#method-i-ejemplo">#ejemplo</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-search">#search</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Comentario.html">Comentario</a>
+  
+    <li><a href="./ComentariosController.html">ComentariosController</a>
+  
+    <li><a href="./ComentariosHelper.html">ComentariosHelper</a>
+  
+    <li><a href="./PlanetController.html">PlanetController</a>
+  
+    <li><a href="./PlanetHelper.html">PlanetHelper</a>
+  
+    <li><a href="./Site.html">Site</a>
+  
+    <li><a href="./SitesController.html">SitesController</a>
+  
+    <li><a href="./SitesHelper.html">SitesHelper</a>
+  
+    <li><a href="./Trip.html">Trip</a>
+  
+    <li><a href="./TripsController.html">TripsController</a>
+  
+    <li><a href="./TripsHelper.html">TripsHelper</a>
+  
+    <li><a href="./Type.html">Type</a>
+  
+    <li><a href="./TypesController.html">TypesController</a>
+  
+    <li><a href="./TypesHelper.html">TypesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./Visit.html">Visit</a>
+  
+    <li><a href="./VisitsController.html">VisitsController</a>
+  
+    <li><a href="./VisitsHelper.html">VisitsHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class PlanetController</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="PlanetController.html">PlanetController</a> ilustra el uso de
+<strong>RDoc</strong>. La documentación de un proyecto en genera en el
+directorio <strong>proy/doc</strong> en formato Web con</p>
+
+<pre>$proy&gt; rake doc:app</pre>
+
+<h2 id="label-Algunos+comandos+de+formateo">Algunos comandos de formateo</h2>
+
+<p>Tal y como muestra el subitulo anterior, este se define empezando la  línea
+con ==. En los títulos debe empezar por =.</p>
+
+<p>Un [ … ] seguido de texto define una lista titulada, como aquí</p>
+<dl class="rdoc-list label-list"><dt>Clases, Módulos o Métodos
+<dd>
+<p>Se documentan con comentarios justo encima de sus definición, como aquí.</p>
+</dd></dl>
+
+<p>Un * o - definen las entradas de una lista itemizada</p>
+<ul><li>
+<p>Un URL se define así <a href="mailto:pepe@ejemplo.com">email</a></p>
+</li><li>
+<p>o así <a href="mailto:pepe@ejemplo.com">Pepe Rubio</a></p>
+</li></ul>
+
+<p>Un número o letra seguido de punto genera una lista númerada</p>
+<ol><li>
+<p>+ permite generar <strong>negrita</strong>, igual que <strong>con
+HTML</strong></p>
+</li><li>
+<p>_ permite generar <em>cursiva</em>, igual que <em>con HTML</em></p>
+</li><li><ul><li>
+<p>permite generar letra de <code>teletipo</code>, igual que <code> con
+HTML</code></p>
+</li></ul>
+</li></ol>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-author" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">author</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define una acción vacía del controlador</p>
+          
+
+          
+          <div class="method-source-code" id="author-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">author</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- author-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- author-method -->
+
+    
+      <div id="method-i-contact" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">contact</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define una acción vacía del controlador</p>
+          
+
+          
+          <div class="method-source-code" id="contact-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">contact</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- contact-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- contact-method -->
+
+    
+      <div id="method-i-ejemplo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ejemplo</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define una acción vacía del controlador</p>
+          
+
+          
+          <div class="method-source-code" id="ejemplo-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ejemplo</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ejemplo-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ejemplo-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define una acción vacía del controlador</p>
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que define la acción de buscar en el controlador</p>
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File app/controllers/planet_controller.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search</span>
+  
+    <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name like ? OR description like ?&quot;</span>, <span class="ruby-node">&quot;%#{params[:search]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:search]}%&quot;</span>)
+    <span class="ruby-ivar">@trips</span> = <span class="ruby-constant">Trip</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;name like ? OR description like ?&quot;</span>, <span class="ruby-node">&quot;%#{params[:search]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:search]}%&quot;</span>)
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

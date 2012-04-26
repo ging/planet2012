@@ -1,3 +1,11 @@
+#User muestra las relaciones de la tabla user en el modelo de datos.
+#
+# == Relaciones
+#
+# * Un usuario puede tener muchos sitios. 
+# * Un usuario puede tener muchos viajes. 
+# * Un usuario puede tener muchos comentarios. 
+#
 class User < ActiveRecord::Base
   
   has_many :sites

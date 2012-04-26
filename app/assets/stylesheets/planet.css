@@ -89,6 +89,16 @@
   font-size: small;
 }
 
+#search {
+  float: right;
+  position: relative;
+  
+margin-right: 1em;
+margin-top: 14px;
+  
+
+}
+
 #map_canvas {
   margin-left: 9em;  /* Ajuste de borde izquierdo */
   padding-top: 4ex;

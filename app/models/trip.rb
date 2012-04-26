@@ -1,3 +1,11 @@
+# Trip muestra las relaciones de la tabla trip en el modelo de datos.
+#
+# == Relaciones
+#
+# * Un viaje puede tener muchas visitas. 
+# * Un viaje puede tener muchos sitios. 
+# * Un viaje pertenece a un usuario.
+#
 class Trip < ActiveRecord::Base
   belongs_to :user
   has_many   :visits
