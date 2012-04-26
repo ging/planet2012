@@ -13,15 +13,17 @@
 <% @comments.each do |comment| %>
   <tr>
     <td><%= comment.comment %></td>
-    <td><%= comment.user.name %></td>
+    <td><%= comment.user.name if @comment.user%></td>
     <!-- <td><%= comment.site_id %></td> -->
     <td><%= link_to 'Show', comment %></td>
 <% if comment.user == current_user %>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %></td>
 <% end %>
   </tr>
 <% end %>
 </table>
+<%= link_to 'Nuevo comentario', new_comment_path %>
 <br />
 
 

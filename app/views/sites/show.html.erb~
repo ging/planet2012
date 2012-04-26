@@ -12,7 +12,7 @@
   <table>
   <% @site.comments.each do |comment| %>
     <tr>
-      <td><b><%= comment.user.name %>: </b><%= comment.comment %></td>
+      <td><b><%= comment.user.name if @comment.user %>: </b><%= comment.comment %></td>
       <td><%= link_to 'Show', comment %></td>
 <% if comment.user == current_user %>
       <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
@@ -24,7 +24,7 @@
 <% end %>
 
   <%= render 'geomapa' %>
-
+ <p><b>Numero de viajes en los que aparece: <%= @site.trips.size %> <b/></p>
   <h3>Añada su comentario:</h3>
   <%= link_to 'Click aqui', new_comment_path %>
   <p><b>Autor:</b> 

@@ -15,6 +15,6 @@
   <%= @comment.site.name %>
 </p>
 
-<% if comment.user == current_user %>
+<% if @comment.user == current_user %>
 <%= link_to 'Edit', edit_comment_path(@comment) %>
 <% end %>

@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
-    @comment = Comment.new
+    @comment = current_user.comments.build # crea comentario vacío asociado a current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,13 +48,13 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
   end
 
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment], params[:user_id]=>1)
+    @comment = current_user.comments.build(params[:comment])
 
     respond_to do |format|
       if @comment.save
@@ -70,7 +70,7 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
