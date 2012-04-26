@@ -9,14 +9,24 @@ Planet::Application.routes.draw do
   resources :sites
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
-    resources :sites, :only => [ :index ] # Restringe a acción “index” 
+    resources :sites, :only => [ :index ] # Restringe a acción “index”
+    collection do
+      get 'ordered'                       # Adds the ordered view to the routing
+    end
   end
   
+  # Planet Controller
   get "planet/index"
-
+  get "planet/author"
   get "planet/contact"
-
   get "planet/ejemplo"
+  get "planet/minsearch"
+  get "planet/topsearch"
+
+  
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => 'planet#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -65,15 +75,9 @@ Planet::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-    
-  root :to => "planet#index"
-    
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  # match ':controller(/:action(/:id))(.:format)'
 end

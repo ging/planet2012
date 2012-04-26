@@ -1,14 +1,24 @@
 <div id="site">
+
  
+
   <h1><%= @site.type.name if @site.type %></h1> 
 
   <%= image_tag(@site.image.url, :class => 'site_image') %>
+	<div class="site_map" id="map_canvas"></div>
 
   <h3><%= @site.name %></h3> 
-
+	<p><b>Position:</b><br /> 
+		LAT: <span id="latitude"><%= @site.latitude %></span> LONG:<span id="longitude"> <%= @site.longitude %> </span></p>
+		<span class="hidden"id="zoom"> <%= @site.zoom %> </span>
   <p><%=sanitize @site.description %></p>
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+  <p><b>Autor:</b> 
+    <%= @site.user.name if @site.user %>
+	</p>
+	
+	<div id="locationinfo"></div>
+
 </div> 
 
 <div class="visitas">
@@ -16,4 +26,11 @@
 </div>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
+
+<script>
+	siteMapFunction()
+</script>
