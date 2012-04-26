@@ -9,10 +9,12 @@
  
   <td class = "acciones"> 
     <%= link_to 'Show', type %><br>
-    <%= link_to 'Edit', edit_type_path(type) %></br>
-    <%= link_to 'Destroy', type, 
-      :confirm => 'Are you sure?',
-      :method => :delete %>
+    <% if current_user != nil %>
+      <%= link_to 'Edit', edit_type_path(type) %></br>
+      <%= link_to 'Destroy', type, 
+        :confirm => 'Are you sure?',
+        :method => :delete %>
+    <% end %>
   </td> 
 
 </tr> 

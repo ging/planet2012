@@ -5,14 +5,10 @@
 #comment table {
 }
 
-#comment .list_actions {
+.list_actions {
   text-align: right;
 }
 
-#comment .list_line_even {
-  background: #eef;
-}
-
-#comment .list_line_odd {
-  background:   #efe;
+.name {
+	color: #5c7c77;;
 }

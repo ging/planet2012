@@ -1,8 +1,9 @@
 <div id = "comment">
 <table>
-<tr class="<%= cycle('odd', 'even') %>"> 
+<tr> 
 	<td>
-	<%= comment.user.name %>: <i><%= comment.comment %></i><br>
+	<b class = "name"><%= comment.user.name %>:</b><br>
+	<i><%= comment.comment %></i><br>
 
 	<% if current_user != nil %>
 		<% if (comment.user_id == current_user.id) or (current_user.name == 'admin') %>
@@ -14,5 +15,6 @@
 	<% end %>
 	</td>
 </tr>
+<br>
 </table>
 </div>

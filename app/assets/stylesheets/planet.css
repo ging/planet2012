@@ -218,97 +218,6 @@ img.aligncenter {
 	width: 500px;
 }
 
-/* ######################## NO SE UTILIZA ###########################*/
-/* Sidebar - columna izquierda */
-
-#sidebar-bg {
-	float: left;
-	width: 330px;
-	background: url(images/sidebar-shadow-bg.png) repeat-y left top;
-	/*fondo gris de la columna izquierda*/
-}
-
-#sidebar {
-	overflow: hidden;
-	width: 270px;
-	padding: 30px 30px 20px 30px;
-	background: url(images/sidebar-bg-bottom.png) no-repeat left bottom;
-	/*borde redondeado de la columna izquierda*/
-}
-
-#sidebar ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#sidebar li {
-	margin: 0;
-	padding: 0;
-}
-
-#sidebar li ul {
-	margin: 0px 0px;
-	padding-bottom: 30px;
-}
-
-#sidebar li li {
-	padding-left: 30px;
-	line-height: 35px;
-	background: url(images/img01.gif) no-repeat left 5px;
-}
-
-#sidebar li li span {
-	display: block;
-	margin-top: -20px;
-	padding: 0;
-	font-size: 11px;
-	font-style: italic;
-}
-
-#sidebar h2 {
-	height: 38px;
-	margin-bottom: 20px;
-	padding: 12px 0 0 0px;
-	border-bottom: 1px solid #DEDEDE;
-	letter-spacing: -2px;
-	font-size: 30px;
-}
-
-#sidebar p {
-	margin: 0 0px;
-	padding: 0px 20px 20px 20px;
-	text-align: justify;
-}
-
-#sidebar a {
-	border: none;
-}
-
-#sidebar a:hover {
-	text-decoration: underline;
-}
-
-/* Calendar */
-
-#calendar {
-}
-
-#calendar_wrap {
-	padding: 20px;
-}
-
-#calendar table {
-	width: 100%;
-}
-
-#calendar tbody td {
-	text-align: center;
-}
-
-#calendar #next {
-	text-align: right;
-}
 
 /* ############################### Footer ############################ */
 
@@ -377,12 +286,22 @@ img.aligncenter {
 
 #tabla {}
 
+.imagen {
+	width: 60px;
+  	height: 70px;
+}
+
 .datos {
 	padding: 10px;
 }
 
 .acciones {
 	padding: 10px;
+}
+
+.imagen_show {
+	width: 150px;
+  	height: 200px;
 }
 
 .even {

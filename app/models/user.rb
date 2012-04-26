@@ -1,3 +1,7 @@
+# Esta clase representa un usuario.
+#
+# Tiene todos los campos que crea la gema {devise}[https://github.com/plataformatec/devise]
+
 class User < ActiveRecord::Base
   
   has_many :sites
