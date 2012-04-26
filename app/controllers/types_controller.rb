@@ -2,7 +2,7 @@
 
 class TypesController < ApplicationController
   # GET /types
-  # GET /types.json
+  # Muestra una lista de tipos
   def index
     @types = Type.all
 
@@ -12,6 +12,7 @@ class TypesController < ApplicationController
     end
   end
   
+  # Muestra una lista de tipos ordenados
   def ordered_index
     @types = Type.find(:all, :order => :name)
 
@@ -23,7 +24,7 @@ class TypesController < ApplicationController
   end
 
   # GET /types/1
-  # GET /types/1.json
+  # Muestra un tipo detalladamente
   def show
     @type = Type.find(params[:id])
 
@@ -34,7 +35,7 @@ class TypesController < ApplicationController
   end
 
   # GET /types/new
-  # GET /types/new.json
+  # Crea un nuevo tipo
   def new
     @type = Type.new
 
@@ -44,13 +45,13 @@ class TypesController < ApplicationController
     end
   end
 
-  # GET /types/1/edit
+  # Edita un tipo
   def edit
     @type = Type.find(params[:id])
   end
 
   # POST /types
-  # POST /types.json
+	# Crea un nuevo sitio
   def create
     @type = Type.new(params[:type])
 
@@ -66,7 +67,7 @@ class TypesController < ApplicationController
   end
 
   # PUT /types/1
-  # PUT /types/1.json
+  # Actualiza un tipo
   def update
     @type = Type.find(params[:id])
 
@@ -82,7 +83,7 @@ class TypesController < ApplicationController
   end
 
   # DELETE /types/1
-  # DELETE /types/1.json
+  # Elimina un sitio
   def destroy
     @type = Type.find(params[:id])
     @type.destroy

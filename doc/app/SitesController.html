@@ -189,12 +189,12 @@
 
         <div class="method-description">
           
-          <p>POST /sites POST /sites.json</p>
+          <p>POST /sites Crea un nuevo sitio</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 52</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site</span>]) <span class="ruby-comment"># Asigna solo si sitio asociado a current_user</span>
   
@@ -229,12 +229,12 @@
 
         <div class="method-description">
           
-          <p>DELETE /sites/1 DELETE /sites/1.json</p>
+          <p>DELETE /sites/1 ELimina un sitio</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 84</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
   <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">destroy</span>
@@ -265,12 +265,12 @@
 
         <div class="method-description">
           
-          <p>GET /sites/1/edit</p>
+          <p>GET /sites/1/edit Edita un sitio</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
 <span class="ruby-keyword">end</span></pre>
@@ -295,7 +295,7 @@
 
         <div class="method-description">
           
-          <p>GET /sites GET /sites.json</p>
+          <p>GET /sites Muestra una lista de todos los sitios</p>
           
 
           
@@ -333,7 +333,7 @@
 
         <div class="method-description">
           
-          <p>GET /sites/new GET /sites/new.json</p>
+          <p>GET /sites/new Crea un nuevo sitio</p>
           
 
           
@@ -368,7 +368,7 @@
 
         <div class="method-description">
           
-          <p>GET /sites/1 GET /sites/1.json</p>
+          <p>GET /sites/1 Muestra un sitio detallado</p>
           
 
           
@@ -403,12 +403,12 @@
 
         <div class="method-description">
           
-          <p>PUT /sites/1 PUT /sites/1.json</p>
+          <p>PUT /sites/1 Actualiza un sitio</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 68</span>
+            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user </span>
   

@@ -1,3 +1,10 @@
+# Modela los tipos
+#
+# == Relaciones
+#
+# * Tiene varios sitios
+
+
 class Type < ActiveRecord::Base
   has_many :sites
   

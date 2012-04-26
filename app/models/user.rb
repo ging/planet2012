@@ -1,3 +1,12 @@
+# Modela los usuarios
+#
+# == Relaciones
+#
+# * Tiene varios sitios
+# * Tiene varios viajes
+# * Tiene varios comentarios
+
+
 class User < ActiveRecord::Base
   
   has_many :sites

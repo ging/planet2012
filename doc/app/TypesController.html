@@ -191,12 +191,12 @@
 
         <div class="method-description">
           
-          <p>POST /types POST /types.json</p>
+          <p>POST /types Crea un nuevo sitio</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 54</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:type</span>])
 
@@ -231,12 +231,12 @@
 
         <div class="method-description">
           
-          <p>DELETE /types/1 DELETE /types/1.json</p>
+          <p>DELETE /types/1 Elimina un sitio</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 86</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@type</span>.<span class="ruby-identifier">destroy</span>
@@ -267,12 +267,12 @@
 
         <div class="method-description">
           
-          <p>GET /types/1/edit</p>
+          <p>Edita un tipo</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -297,7 +297,7 @@
 
         <div class="method-description">
           
-          <p>GET /types GET /types.json</p>
+          <p>GET /types Muestra una lista de tipos</p>
           
 
           
@@ -332,12 +332,12 @@
 
         <div class="method-description">
           
-          <p>GET /types/new GET /types/new.json</p>
+          <p>GET /types/new Crea un nuevo tipo</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 38</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">new</span>
 
@@ -367,12 +367,12 @@
 
         <div class="method-description">
           
-          
+          <p>Muestra una lista de tipos ordenados</p>
           
 
           
           <div class="method-source-code" id="ordered_index-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">ordered_index</span>
   <span class="ruby-ivar">@types</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">:all</span>, <span class="ruby-value">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:name</span>)
 
@@ -403,12 +403,12 @@
 
         <div class="method-description">
           
-          <p>GET /types/1 GET /types/1.json</p>
+          <p>GET /types/1 Muestra un tipo detalladamente</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -438,12 +438,12 @@
 
         <div class="method-description">
           
-          <p>PUT /types/1 PUT /types/1.json</p>
+          <p>PUT /types/1 Actualiza un tipo</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 70</span>
+            <pre><span class="ruby-comment"># File app/controllers/types_controller.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@type</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

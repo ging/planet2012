@@ -1,3 +1,15 @@
+# Modela los sitios
+#
+# == Relaciones
+#
+# * Pertenece a type
+# * Pertenece a user
+# * Tiene varias visitas, viajes -> por visitas
+# * Tiene varios comentarios
+
+
+
+
 class Site < ActiveRecord::Base
   belongs_to :type
   belongs_to :user
