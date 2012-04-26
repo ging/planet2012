@@ -1,3 +1,25 @@
+<script type="text/javascript">
+  var map;
+  var marker;
+  window.onload=function() {
+	    var latitude = <%= @site.latitud %>
+    	var longitude = <%= @site.longitud %>
+    	var zoom = <%= @site.zoom %>
+    
+    	var latlng = new google.maps.LatLng(latitude,longitude); 
+    	var myOptions = {
+    	  zoom: zoom,
+    	  center: latlng,
+    	  mapTypeId: google.maps.MapTypeId.HYBRID
+    	}
+   		 map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    	marker = new google.maps.Marker({
+        position: latlng,
+        map: map
+        });
+  }
+ </script>
+
 <div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
@@ -8,7 +30,14 @@
 
   <p><%=sanitize @site.description %></p>
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+  <div id="map_canvas" <%if @site.latitud==nil || @site.latitud==nil %> style="width: 0px; height: 0px;"></div><p><b>Este sitio no tiene mapa.</b></p><%end%>
+
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+ <p><b>Veces incluido en un viaje:</b> <%=@site.visits.length%></p>
+
+ <p><b>Actualizado: </b> <%=@site.updated_at%></p>
+
 </div> 
 
 <div class="visitas">
@@ -16,4 +45,13 @@
 </div>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
+
+<h2>Commentarios</h2>
+<%= render @site.comments %>
+
+<h2>Añadir comentario:</h2>
+<%= render "comments/form" %>

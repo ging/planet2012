@@ -29,5 +29,22 @@ class PlanetController < ApplicationController
   # Método que define una acción vacía del controlador
   def ejemplo
   end
+
+  def author
+  end
+
+  def search
+    if params[:q].length >= 3
+      @search= params[:q] 
+      @sites =  Site.where("name like ? or description like ?", "%"+@search+"%", "%"+@search+"%")
+      @trips =  Trip.where("name like ? or description like ?", "%"+@search+"%", "%"+@search+"%")
+    else
+      render action: "incorrectsearch"
+    end
+  end
+
+  def doc
+    redirect_to "/doc/app/index.html"
+  end
     
 end

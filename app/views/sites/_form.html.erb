@@ -1,3 +1,26 @@
+
+<script type="text/javascript">
+var lat
+var long
+
+window.onload=function() {
+   if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
+   } else { alert('Geolocation is not supported in this browser.'); }
+}
+function successFunction(position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    $("#site_latitud").val(lat);
+    $("#site_longitud").val(long);
+    $("#site_zoom").val(15);
+}
+
+function errorFunction(position) { alert('Calculo automatico de coordenadas con errores'); }
+
+
+</script>
+
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -24,10 +47,24 @@
     <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
   </div>
   <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :longitud %><br />
+    <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
+  <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
+
