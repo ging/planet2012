@@ -1,9 +1,9 @@
 <%= form_for([@site, @site.comments.build]) do |f| %>
 	<div class="field">    	
-   		<%= f.text_area :comment %>
+   		<%= f.text_area :comment, :rows=> 3 %>
   	</div>
   	
   <div class="actions">
-    	<%= f.submit %>
+    	<%= f.submit "Nuevo Comentario"%>
   </div>
 <% end %>

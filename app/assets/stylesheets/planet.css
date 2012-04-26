@@ -70,6 +70,13 @@
   background:   #88b0f8;
 }
 
+#map_canvas {
+height: 480px;
+width: 640px;
+text-align:left;
+ 
+}
+
 
 /* START:mainlayout */
 /* Styles for main page */
@@ -193,6 +200,8 @@
 #main .visitas {
   text-indent:   70%;
 }
+
+
 
 
 

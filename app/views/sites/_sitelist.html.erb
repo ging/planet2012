@@ -20,6 +20,9 @@
             <b>Viajes:</b> <%=site.visits.length%>
           </dd>
           <dd>
+            <b>Actualizado:</b> <%=site.updated_at%>
+          </dd>
+          <dd>
               <% if site.comments != [] %>
               <%=link_to "Comments", site_path(site) %> <%= site.comments.length %>
             <% end %>

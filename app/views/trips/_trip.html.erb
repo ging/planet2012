@@ -1,46 +1,43 @@
-<style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map_canvas { height: 100% }
-    </style>
 <script src="http://maps.google.com/maps/api/js?sensor=false">
 // Carga librería de Google Maps. Doc: http://code.google.com/apis/maps/documentation/javascript/
 ￼￼￼￼￼￼</script>
 <script type="text/javascript">
  
   window.onload=function() {
-   var myOptions = {
+    var myOptions = {
           center: new google.maps.LatLng(0,0 ),
           zoom: 1,
           mapTypeId: google.maps.MapTypeId.HYBRID
         };
-  var map = new google.maps.Map(document.getElementById("map_canvas"),
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
             myOptions);
 
       
-      <% @trip.sites.each do |site| %>
+  <% @trip.sites.each do |site| %>
+      <%if site.latitud!=nil && site.latitud!=nil %> 
       var latitude = <%= site.latitud %>
       var longitude = <%= site.longitud %>
-      var zoom = 12
-      var latlng = new google.maps.LatLng(latitude,longitude);
-      var myOptions = {
+        var zoom = 12
+        var latlng = new google.maps.LatLng(latitude,longitude);
+        var myOptions = {
         zoom: zoom,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.HYBRID
-      }
+        }
       
-       map.setOptions(myOptions);
+        map.setOptions(myOptions);
 
        var icon = new google.maps.MarkerImage ("<%= asset_path(site.image) %>", new google.maps.Size(100,75), new google.maps.Point(0,0), new google.maps.Point(0,30));
-      var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
         position: latlng,
         map: map,
         icon: icon
         });
+    <% end %>
         <% end %>
   }
  </script>
- <div id="map_canvas" style="width: 900px; height: 480px;"></div>
+ <div id="map_canvas"></div><br />
 <div id="visit">
   <table> 
    <%  trip.visits.order(:hour).each do |visit| %>
