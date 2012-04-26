@@ -42,5 +42,9 @@ class PlanetController < ApplicationController
       render action: "incorrectsearch"
     end
   end
+
+  def doc
+    redirect_to "/doc/app/index.html"
+  end
     
 end

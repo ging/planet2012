@@ -10,6 +10,7 @@ Planet::Application.routes.draw do
     resources :comments
   end
 
+
   get "types/ordered_index"
 
   resources :types do                     # Rutas anidadas /types/id/sites...,
@@ -27,8 +28,7 @@ Planet::Application.routes.draw do
 
   get "planet/search"
 
-  post "planet/search"
-
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
