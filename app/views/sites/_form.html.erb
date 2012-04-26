@@ -1,3 +1,4 @@
+<html>
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +12,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="name">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
@@ -20,14 +21,61 @@
     <%= f.text_area :description , :rows => 4 %>
   </div>
   <div class="field">
+    <%= f.label :longitud %><br />
+     <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br />
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :zoom %><br />
+    <%= f.text_field :zoom %>
+  </div>
+
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+var lat
+var long
+
+function geolocalizacion() {
+   if (navigator.geolocation) { //Check if browser supports W3C Geolocation API
+navigator.geolocation.getCurrentPosition (successFunction, errorFunction);
+   } else { alert('Geolocation is not supported in this browser.'); }
+}
+function successFunction(position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    $("#site_latitud").val(lat);
+    $("#site_longitud").val(long);
+    $("#site_zoom").val(4);
+}
+
+function errorFunction(position) { alert('Error. Introduzca las coordenadas de forma manual'); }
+</script>
+
+<div>
+    <input type="button" value="Captura de coordenadas" onclick="geolocalizacion();">
+  </div>
+</head>
+
+  <div class="field">
     <%= f.label :type_id %><br />
     <%= f.collection_select(:type_id, Type.find(:all, :order => :name), :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
+
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+</html>
+
+
+
 <% end %>
