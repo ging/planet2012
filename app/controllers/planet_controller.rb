@@ -34,12 +34,11 @@ class PlanetController < ApplicationController
   end
  # Método que define una acción de búsqueda del controlador
   def search
-     if params[:q].length >= 3
-      @search= params[:q] 
-      @sites =  Site.where("name like ? or description like ?", "%"+@search+"%", "%"+@search+"%")
-      @trips =  Trip.where("name like ? or description like ?", "%"+@search+"%", "%"+@search+"%")
+      @search=params[:search]
+      if  @search.length>= 3
+      @sites = Site.where("name like ? OR description like ?", "%"+@search+"%", "%"+@search+"%")
+      @trips = Trip.where("name like ? OR description like ?", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-
       render action: "wrongsearch"
     end
   end

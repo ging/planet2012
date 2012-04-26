@@ -74,7 +74,7 @@
 <div class="visitas">
   <b>Visitas:</b>  <%= @site.visitas %><p>
   
-  <b>Veces añadido a viaje:</b>  <%= @site.times_added %>
+  <% if @site.times_added %> <b>Veces añadido a viaje:</b>  <%= @site.times_added %><%end%>
 </div>
 
 <p />

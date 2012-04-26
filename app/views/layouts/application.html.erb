@@ -31,11 +31,10 @@
   </div> 
    
 <div class="search">
-       <%= form_tag({:controller => "planet", :action => "search"}, :method => "get") do %>
-        <%= label_tag(:q, "Search:") %>
-        <%= text_field_tag(:q) %>
-        <%= submit_tag("Search", :class => "button") %>
-      <% end %>
+       <%= form_tag planet_search_path, :method => 'get' do %>
+              <%= text_field_tag :search, nil, :placeholder => "Search" %>
+              <%= submit_tag "Search" %>
+            <% end %>
     </div>
 
   <div id="columns"> 
