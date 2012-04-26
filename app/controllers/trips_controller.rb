@@ -1,10 +1,12 @@
+#==Controlador de Viajes
+
 class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
   
   # GET /trips
-  # GET /trips.json
+  # Muestra una lista de los viajes almacenados
   def index
     @trips = Trip.all
 
@@ -15,7 +17,7 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1
-  # GET /trips/1.json
+  # Muestra un viaje
   def show
     @trip = Trip.find(params[:id])
     @visit = @trip.visits.build
@@ -27,7 +29,7 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/new
-  # GET /trips/new.json
+  # Define un nuevo viaje
   def new
     @trip = current_user.trips.build
     
@@ -38,12 +40,13 @@ class TripsController < ApplicationController
   end
 
   # GET /trips/1/edit
+  # Edita un viaje
   def edit
     @trip = current_user.trips.find(params[:id])
   end
 
   # POST /trips
-  # POST /trips.json
+  # Crea un nuevo viaje
   def create
     @trip = current_user.trips.build(params[:trip])
 
@@ -59,7 +62,7 @@ class TripsController < ApplicationController
   end
 
   # PUT /trips/1
-  # PUT /trips/1.json
+  # Atualiza un viaje
   def update
     @trip = current_user.trips.find(params[:id])
     
@@ -75,7 +78,7 @@ class TripsController < ApplicationController
   end
 
   # DELETE /trips/1
-  # DELETE /trips/1.json
+  # Elimina un viaje
   def destroy
     @trip = current_user.trips.find(params[:id])
     @trip.destroy

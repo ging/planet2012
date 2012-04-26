@@ -1,19 +1,104 @@
+﻿<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<style type="text/css">
+  #site_map {
+	width: 450px;
+	height: 290px;
+	border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+  var map;
+  var latlng;
+  var myOptions
+  var marker;
+
+  function initialize() {
+    var lat = <%= @site.latitud %>;
+    var lng = <%= @site.longitud %>;
+    latlng = new google.maps.LatLng(lat,lng);
+    myOptions = {
+      zoom: <%= @site.zoom %>,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("site_map"), myOptions);
+    marker = new google.maps.Marker({
+            map: map,
+            position: latlng
+        });
+    marker.setTitle("<%= @site.name %>");
+  }
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
 <div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image.url, :class => 'site_image') %>
+  <%= image_tag(@site.image_url, :class => "site_image") %>
 
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+	
+	<div id="site_map"></div>
+	
+<h3>Comentarios</h3>
+	<% if @site.comments.exists? %>
+		<% @site.comments.each do |comment| %>
+		
+			<p><b><%= comment.user.name if comment.user%>
+			: </b>
+			<%= comment.coment %>
+			<% if comment.user == current_user %>
+          <br/><%= link_to 'Edit', edit_comment_path(comment) %> 
+          <%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %>
+        <% end %></p>
+		<% end %>
+	<% end %>
+	
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+
+<h3>Añadir un comentario:</h3>
+	<% if current_user %>    
+   <%= form_for ([@site, @comment]) do |f| %>
+    <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+			<%= f.number_field :site_id, :value => @site.id, :hidden => true %>
+			<%= f.number_field :user_id, :value => current_user.id, :hidden => true %>
+ 			<%= f.text_area :coment, :rows => 4  %><br/>
+			<%= f.submit "Añadir comentario" %>
+		<% end %>
+	<% else %>  
+		<i><%= link_to "Ingrese", new_user_session_path %> para comentar:</i>
+	<% end %>
+	
+	
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+
 </div> 
 
 <div class="visitas">
-  <b>Visitas:</b>  <%= @site.visitas %>
+  <b>Visitas:</b>  <%= @site.visitas %></br>
+  Incluido en <%=@site.visits.length%> viajes
 </div>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<% if current_user %>
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<% end %>
+<%= link_to 'Back', sites_path %>

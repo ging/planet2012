@@ -1,3 +1,12 @@
+# Modela los viajes
+#
+# == Relaciones
+#
+# * Pertenece a user
+# * Tiene varias visitas
+# * Tiene varios sitios
+
+
 class Trip < ActiveRecord::Base
   belongs_to :user
   has_many   :visits

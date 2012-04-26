@@ -1,3 +1,5 @@
+#==Controlador de Sitios
+
 class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe
@@ -5,7 +7,7 @@ class SitesController < ApplicationController
   after_filter :count_visita, :only => :show
   
   # GET /sites
-  # GET /sites.json
+  # Muestra una lista de todos los sitios
   def index
     if params[:type_id].nil? or params[:type_id].empty?
       @sites = Site.all            # path: /types
@@ -19,10 +21,10 @@ class SitesController < ApplicationController
   end
 
   # GET /sites/1
-  # GET /sites/1.json
+  # Muestra un sitio detallado
   def show
     @site = Site.find(params[:id])
-
+	@comment = Comment.new(:site=>@site)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @site }
@@ -30,7 +32,7 @@ class SitesController < ApplicationController
   end
 
   # GET /sites/new
-  # GET /sites/new.json
+  # Crea un nuevo sitio
   def new
     @site = current_user.sites.build # crea sitio vacio asociado a current_user
     
@@ -41,12 +43,13 @@ class SitesController < ApplicationController
   end
 
   # GET /sites/1/edit
+  # Edita un sitio
   def edit
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
   end
 
   # POST /sites
-  # POST /sites.json
+  # Crea un nuevo sitio
   def create
     @site = current_user.sites.build(params[:site]) # Asigna solo si sitio asociado a current_user
     
@@ -62,7 +65,7 @@ class SitesController < ApplicationController
   end
 
   # PUT /sites/1
-  # PUT /sites/1.json
+  # Actualiza un sitio
   def update
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user 
     
@@ -78,7 +81,7 @@ class SitesController < ApplicationController
   end
 
   # DELETE /sites/1
-  # DELETE /sites/1.json
+  # ELimina un sitio
   def destroy
     @site = current_user.sites.find(params[:id])  # busca solo en sitios asociados a current_user
     @site.destroy
