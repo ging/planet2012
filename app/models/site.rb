@@ -4,11 +4,11 @@ class Site < ActiveRecord::Base
   has_many :comentarios
   has_many :visits
   has_many :trips, :through => :visits
-
+  has_attached_file :image
   
   # Debe estar protegido para evitar accesos indeseados
    attr_protected :user_id
 
   # Se añaden estas definiciones 
-  validates :name, :type_id,:image_url,    :presence => true   # campo obligatorio
+  validates :name, :type_id,    :presence => true   # campo obligatorio
 end

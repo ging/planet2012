@@ -15,6 +15,25 @@
                }
 #links a { color : #555;}
 
+
+#search {
+  
+      position: relative;
+        width: 310px;
+        top: 5px;
+        left: 5px;
+        
+        
+        
+
+}
+
+#search .notice {
+  
+  color : red;
+
+}
+
 #links  {  
 
 text-align:center;
@@ -102,6 +121,7 @@ word-spacing:25pt;
 #banner {
   background: #668;
   padding-top: 10px;
+ 
   padding-bottom: 10px;
   border-bottom: 2px solid;  
   font: small-caps 40px/40px "Times New Roman", serif;

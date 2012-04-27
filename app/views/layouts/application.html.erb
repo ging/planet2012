@@ -33,26 +33,31 @@ $('#site_longitud').val(mylong);
 
 
 
-function displayPosition(latitud , longitud , zom) {
+function displayPosition(latitud , longitud , zom, images) {
+
+
 
     if(latitud.length == null) {
     var mylat = latitud;
     var mylong = longitud;
+    var image_url = images;
 
-  } else {     
-
-var mylat = latitud[0];
-    var mylong = longitud[0];
-
-
-  }
-    var thediv = document.getElementById('locationinfo');
+  var thediv = document.getElementById('locationinfo');
     thediv.innerHTML = '<p>La localización exacta es longitud: ' +
         mylong + ' y latitud: ' + mylat + '</p>';
 
-//Load Google Map
+   var latlng = new google.maps.LatLng(mylat, mylong); 
 
- var latlng = new google.maps.LatLng(mylat, mylong); 
+   } else { 
+
+     var thediv = document.getElementById('locationinfo');
+    thediv.innerHTML = '<p>La localización exacta es longitud: ' +
+        longitud[0] + ' y latitud: ' + latitud[0] + '</p>';
+
+var latlng = new google.maps.LatLng(latitud[0], longitud[0]); 
+   
+
+ }
 
     var myOptions = {
       zoom: zom,
@@ -68,28 +73,42 @@ for(var i=0; i<latitud.length;i++) {
   
  var latlng2 = new google.maps.LatLng(latitud[i], longitud[i]); 
 
-
-
-
-  var marker = new google.maps.Marker({
-      
-       position: latlng2, 
-       map: map, 
-       title:"Localizacion del sitio2"
+ var image = new google.maps.MarkerImage(
+        images[i]
        
-   });
+        
+    );
+
+
+
+
+ var marker = new google.maps.Marker({
+            position: latlng2
+            , map: map
+            , title:"You are here"
+            , icon: image
+          
+        });
 
    
 
 }
 
 } else {
+
+  var image = new google.maps.MarkerImage(
+        image_url
+       
+        
+    );
   
 var marker = new google.maps.Marker({
-       position: latlng, 
-       map: map, 
-       title:"Localizacion del sitio2"
-   });
+            position: latlng
+            , map: map
+            , title:"You are here"
+            , icon: image
+          
+        });
 
 }
 
@@ -109,7 +128,23 @@ function errorFunction(pos) {
 
 </head>
 
+
+
+  
 <body id="planet"> 
+
+  <div id = "search">
+     <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+    <%= form_tag(planet_search_path, :method => "get") do %>
+  <%= label_tag(:busqueda, "Search for:") %>
+  <%= search_field_tag(:busqueda , nil ,  :minlength => 2) %>
+
+  <%= submit_tag("Search") %>
+  <%end%>
+
+   </div>
 
     <div id = "links">
 
@@ -121,6 +156,10 @@ function errorFunction(pos) {
     <%= link_to('Tipos_ordenados',types_ordered_index_path) %>
 
     </div>
+
+
+ 
+  
     
   <div id="banner"> 
     <%= image_tag("logo3.png") %>
@@ -134,14 +173,15 @@ function errorFunction(pos) {
     <% end %>
     </div>
   </div> 
-  <div id="columns"> 
+
+  <div id="columns">
+  
     <div id="side"> 
 
-    <%= form_tag(planet_search_path, :method => "get") do %>
-  <%= label_tag(:busqueda, "Search for:") %>
-  <%= text_field_tag(:busqueda) %>
-  <%= submit_tag("Search") %>
-<% end %>
+ 
+  
+
+  
        
           <%= link_to "Home", planet_index_path %><br /> 
           <%= link_to "Tipos",  types_path %><br /> 

@@ -2,7 +2,7 @@
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
-  <%= image_tag(@site.image_url, :class => 'site_image') %>
+  <%= image_tag(@site.image.url, :class => 'site_image') %>
 
   <h3><%= @site.name %></h3> 
 
@@ -39,7 +39,8 @@ Nº de viajes que lo incluyen : <%= @site.visits.size %>
 latitud = <%=@site.latitud%>;
 longitud = <%=@site.longitud%>;
 zoom = <%=@site.zoom%>;
-displayPosition( latitud, longitud,zoom);
+image= "/assets/" + "<%= @site.image_url %>"
+displayPosition( latitud, longitud,zoom, image);
 
 </script>
 <%end%>
