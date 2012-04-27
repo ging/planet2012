@@ -1,0 +1,28 @@
+<h1>Listing comments del sitio:</h1>
+
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>User</th>
+    <th>Site</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.comment %></td>
+    <td><%= comment.user.name if comment.user%></td>
+    <!-- <td><%= comment.site_id %></td> -->
+    <td><%= link_to 'Show', comment %></td>
+<% if comment.user == current_user %>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %></td>
+<% end %>
+  </tr>
+<% end %>
+</table>
+
+
+

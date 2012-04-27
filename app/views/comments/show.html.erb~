@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Comment:</b>
+  <%= @comment.comment %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @comment.user.name %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @comment.site.name %>
+</p>
+
+<% if @comment.user == current_user %>
+<%= link_to 'Edit', edit_comment_path(@comment) %>
+<% end %>

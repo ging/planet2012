@@ -25,16 +25,16 @@ type3 = Type.create!(
 User.delete_all
 
 user1 = User.create!( 
-            name: 'Jose Perez',
-            email: 'jose.perez@gmail.com', 
-            password: 'perez22',
-            password_confirmation: 'perez22')
+            name: 'Fernando Valdenebro',
+            email: 'fer.kmk@gmail.com', 
+            password: '123456',
+            password_confirmation: '123456')
 
 user2 = User.create!( 
-            name: 'Javier Sedano',
-            email: 'javier.sedano@me.com', 
-            password: 'sedano22',
-            password_confirmation: 'sedano22')
+            name: 'Antonio Turel',
+            email: 'toni@me.com', 
+            password: '123456',
+            password_confirmation: '123456')
 
 
 Site.delete_all

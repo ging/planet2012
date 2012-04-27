@@ -1,0 +1,27 @@
+<h2>Sitios encontrados</h2>
+<% if @sites.empty? %>
+        <span>No hay resultados</span><br/><br/>
+
+<% else %>
+  <%= render @sites %>
+ <% @sites.each do |site| %>
+  <li>Name:<%= site.name %>, Descripción: <%= site.description %></li>
+
+ <% end %>
+
+<% end %>
+
+<h2>Viajes encontrados</h2>
+<% if @trips.empty? %>
+        <span>No hay resultados</span><br/><br/>
+
+<% else %>
+ 
+ <% @trips.each do |trip| %>
+  <dl>
+    <li>Name: <%= trip.name %>, Descriptión: <%= trip.description %></li>
+  </dl>
+
+ <% end %>
+
+<% end %>

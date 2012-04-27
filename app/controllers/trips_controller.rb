@@ -1,3 +1,13 @@
+# Clase Ruby que hereda de +ApplicationController+. 
+# Cuando la aplicación reciba una petición referente a viajes, la ruta determina qué controlador y acción realizar.
+# == Métodos para controlador viajes
+# * index
+# * show
+# * new
+# * edit
+# * create
+# * update
+# * destroy
 class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe

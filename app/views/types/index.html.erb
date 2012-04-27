@@ -9,7 +9,8 @@
         <dl> 
           <dt><%= link_to type.name, type_sites_path(type) %></dt> 
           <dd><%= truncate(strip_tags(type.description),
-                 :length => 80) %></dd> 
+                 :length => 80) %></dd>
+          <dd>Fecha de modificación: <%= (type.updated_at)%></dd> 
         </dl> 
       </td> 
  

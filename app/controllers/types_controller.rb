@@ -1,8 +1,18 @@
+# Clase Ruby que hereda de +ApplicationController+. 
+# Cuando la aplicación reciba una petición referente a tipos, la ruta determina qué controlador y acción realizar
+# == Métodos para controlador tipos
+# * index
+# * show
+# * new
+# * edit
+# * create
+# * update
+# * destroy
 class TypesController < ApplicationController
   # GET /types
   # GET /types.json
-  def index
-    @types = Type.all
+  def index  
+    @types = Type.all  #busca colección de recursos
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +23,7 @@ class TypesController < ApplicationController
   # GET /types/1
   # GET /types/1.json
   def show
-    @type = Type.find(params[:id])
+    @type = Type.find(params[:id])  #busca elemento en la tabla
 
     respond_to do |format|
       format.html # show.html.erb
@@ -78,6 +88,15 @@ class TypesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to types_url }
       format.json { head :no_content }
+    end
+  end
+
+  # ordered_index
+  def ordered_index
+    @types = Type.find(:all, :order => :name)
+    respond_to do |format|
+      format.html { render action: "index" }
+      format.json { render json: @types }
     end
   end
 end

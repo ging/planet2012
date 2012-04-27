@@ -7,8 +7,29 @@
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
+<% if @site.comments!=[] %>
+  <h3>Comentarios:</h3> 
+  <table>
+  <% @site.comments.each do |comment| %>
+    <tr>
+      <td><b><%= comment.user.name if comment.user %>: </b><%= comment.comment %></td>
+      <td><%= link_to 'Show', comment %></td>
+<% if comment.user == current_user %>
+      <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+      <td><%= link_to 'Destroy', comment, confirm: 'Are you sure?', method: :delete %></td>
+<% end %>
+  </tr>
+  <% end %>
+  </table>
+<% end %>
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
+  <%= render 'geomapa' %>
+ <p><b>Numero de viajes en los que aparece: <%= @site.trips.size %> <b/></p>
+  <h3>Añada su comentario:</h3>
+  <%= render 'comments/form' %>
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+
 </div> 
 
 <div class="visitas">
@@ -16,4 +37,7 @@
 </div>
 
 <p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>
