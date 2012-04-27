@@ -44,7 +44,7 @@ function mapaMarcado(){
   <b>Mapa del viaje:</b>
   <div id="map_canvas"></div>
 </p>
-
+<input type="button" value= "Actualizar Mapa" onclick="mapaMarcado()">
 <p>
   <b>Date:</b>
   <%= @trip.date %>
@@ -80,7 +80,6 @@ function mapaMarcado(){
 </div>
 
 <br />
-<input type="button" value= "Actualizar Mapa" onclick="mapaMarcado()">
 <br />
 <% if @trip.user == current_user %>
    <%= link_to 'Edit', edit_trip_path(@trip) %> |

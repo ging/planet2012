@@ -3,7 +3,6 @@ class SitesController < ApplicationController
   # authenticate_user! ejecuta acción solo si sesión existe
   before_filter :authenticate_user!, :except => [ :index, :show ]
   after_filter :count_visita, :only => :show
-  before_filter :count_viaje
   
   # GET /sites
   # GET /sites.json
@@ -93,14 +92,5 @@ class SitesController < ApplicationController
   private
   def count_visita
     @site.increment!(:visitas)
-  end
-  def count_viaje
-    @sites = Site.all
-    @sites.each do |site|
-      site.viajes = 0
-      site.trips.each do
-      site.increment!(:viajes)
-    end
-    end
   end
 end

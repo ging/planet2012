@@ -1,10 +1,11 @@
 <div id="site_list"> 
   <h1>Sites encontrados</h1> 
-  <% if @sites.empty? %>
-    No se encuentran resultados
+  <% if @sites.empty? || params[:q].length<3 %>
+    No se encuentran resultados (Nota: la busqueda debe incluir al menos tres caracteres)
   <% else %> 
-<table> 
   <% @sites.each do |site| %>
+  <table>
+
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
  
       <td> 
@@ -36,13 +37,11 @@
       </td> 
     </tr> 
     </table> 
-    </div> <br /><br />
     
-    <div    id="site_list"     > 
-   	<h2>Viajes relacionados</h2> 
+   	<h3>Viajes relacionados</h3> 
  
-  	<table> 
   	<% site.trips.each do |trip| %>
+    <table> 
     	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
  
       	<td class="list_description"> 
@@ -65,17 +64,16 @@
    	 </tr> 
   	<% end %>
   	</table> 
-	</div> <br />
+	 <br /><br />
 	<%end%>
    <%end%>
 
-<div    id="site_list"     > 
  <h1>Viajes encontrados</h1> 
-   <% if @sites.empty? %>
-    No se encuentran resultados
+   <% if @trips.empty? %>
+    No se encuentran resultados (Nota: la busqueda debe incluir mas de tres caracteres)
   <% else %> 
-  <table> 
   <% @trips.each do |trip| %>
+  <table> 
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
  
       <td class="list_description"> 
@@ -98,7 +96,7 @@
     </tr> 
   <% end %>
   <% end %>
-  </table> 
-</div> <br />
+  </table>
+</div> <br /><br />
  
  

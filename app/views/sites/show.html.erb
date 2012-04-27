@@ -9,6 +9,9 @@
   <div id="map_canvas"></div>
   </p>
 
+  <P><b>Latitud:</b><%= @site.latitud %></p>
+  <P><b>Longitud:</b><%= @site.longitud %></p>
+
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
@@ -29,7 +32,7 @@
  	 <b>Visitas:</b>  <%= @site.visitas %>
 	</div>
 	<div class="Viajes">
- 	 <b>Viajes:</b>  <%= @site.viajes %>
+ 	 <b>Viajes:</b>  <%= @site.visits.size %>
 	</div>
 
 

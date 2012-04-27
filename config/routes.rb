@@ -27,6 +27,8 @@ Planet::Application.routes.draw do
 
   get "planet/busqueda"
 
+  get "planet/public/doc/app/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

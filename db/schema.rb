@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(:version => 20120418115604) do
     t.string   "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "visitas",            :default => 0
-    t.integer  "longitud"
-    t.integer  "latitud"
+    t.float    "longitud"
+    t.float    "latitud"
     t.integer  "zoom"
     t.integer  "viajes",             :default => 0
   end
