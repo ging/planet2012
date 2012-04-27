@@ -48,7 +48,8 @@
       <%= link_to "Authors", planet_author_path %><br /> 
       <%= link_to "Ordenados", ordered_index_types_path %><br /> 
       <%= link_to "Viajes", trips_path %><br /> 
-      <%= link_to "Sign up", new_user_registration_path if !current_user %>
+      <%= link_to "Sign up", new_user_registration_path if !current_user %><br />
+      <%= link_to('Documentacion',  "/doc/app/index.html")%>
     </div> 
     <div id="main"> 
       <%= link_to "Home", planet_index_path %> 
@@ -60,6 +61,7 @@
       <%= link_to "Ordenados", ordered_index_types_path %> 
       <%= link_to "Viajes", trips_path %> 
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
+      <%= link_to('Documentacion', "/doc/app/index.html")%>
       <br /><br />
       <%= yield %> 
       <br /><br />
@@ -72,6 +74,7 @@
       <%= link_to "Ordenados", ordered_index_types_path %> 
       <%= link_to "Viajes", trips_path %> 
       <%= link_to "Sign up", new_user_registration_path if !current_user %>
+      <%= link_to('Documentacion', "/doc/app/index.html")%>
     </div> 
     <div id="main"> 
       <p class="notice"><%= notice %></p> <p class="alert"><%= alert %></p>
