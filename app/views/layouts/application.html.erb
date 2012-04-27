@@ -27,6 +27,13 @@
         <%= link_to "Sign in", new_user_session_path %>
       <% end %>
     </div> 
+    <div class="search">
+      <%= form_tag({:controller => "planet", :action => "search"}, :method => "get") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search", :class => "button") %>
+      <% end %>
+      </div>
   </div> 
   <div id="columns"> 
     <div id="side"> 
