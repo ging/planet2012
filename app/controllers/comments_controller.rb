@@ -1,3 +1,7 @@
+# == Controlador de Comments
+#
+# Incluye la lógica de la clase Comments
+
 class CommentsController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe

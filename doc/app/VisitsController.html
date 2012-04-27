@@ -109,6 +109,12 @@
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
     <li><a href="./PlanetController.html">PlanetController</a>
   
     <li><a href="./PlanetHelper.html">PlanetHelper</a>
@@ -150,6 +156,10 @@
 
   <div id="description" class="description">
     
+<h2 id="label-Controlador+de+Visits">Controlador de Visits</h2>
+
+<p>Incluye la lógica de la clase Visits</p>
+
   </div><!-- description -->
 
   
@@ -186,7 +196,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:visit</span>])
 
@@ -227,7 +237,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 75</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@visit</span>.<span class="ruby-identifier">destroy</span>
@@ -263,7 +273,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -293,7 +303,7 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@visits</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">all</span>
 
@@ -328,7 +338,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">new</span>
 
@@ -363,7 +373,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -398,7 +408,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/visits_controller.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@visit</span> = <span class="ruby-constant">Visit</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

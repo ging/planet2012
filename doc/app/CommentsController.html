@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-<title>class SitesController - Rails Application Documentation</title>
+<title>class CommentsController - Rails Application Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>app/controllers/sites_controller.rb
+    <li>app/controllers/comments_controller.rb
   </ul>
 </nav>
 
@@ -152,13 +152,13 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class SitesController</h1>
+  <h1 class="class">class CommentsController</h1>
 
   <div id="description" class="description">
     
-<h2 id="label-Controlador+de+Sites">Controlador de Sites</h2>
+<h2 id="label-Controlador+de+Comments">Controlador de Comments</h2>
 
-<p>Incluye la lógica de la clase Sites</p>
+<p>Incluye la lógica de la clase Comments</p>
 
   </div><!-- description -->
 
@@ -191,24 +191,26 @@
 
         <div class="method-description">
           
-          <p>POST /sites POST /sites.json</p>
+          <p>POST /coments POST /coments.json</p>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 55</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-  <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site</span>]) <span class="ruby-comment"># Asigna solo si sitio asociado a current_user</span>
-  
-  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">save</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Site was successfully created.'</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span> }
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
+              <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])
+              <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>])
+              <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+              
+              <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">save</span>
+              <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Comentario creado'</span> }
+              <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+      <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
+              <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- create-source -->
           
@@ -231,18 +233,18 @@
 
         <div class="method-description">
           
-          <p>DELETE /sites/1 DELETE /sites/1.json</p>
+          <p>DELETE /coments/1 DELETE /coments/1.json</p>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 87</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-  <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
-  <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">destroy</span>
-
+  <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">sites_url</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">site_path</span>(<span class="ruby-ivar">@site</span>) }
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
@@ -267,14 +269,15 @@
 
         <div class="method-description">
           
-          <p>GET /sites/1/edit</p>
+          <p>GET /coments/1/edit</p>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 49</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 86</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
-  <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user</span>
+      <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])
+      <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div><!-- edit-source -->
           
@@ -297,21 +300,21 @@
 
         <div class="method-description">
           
-          <p>GET /sites GET /sites.json</p>
+          <p>GET /coments GET /coments.json</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>].<span class="ruby-identifier">empty?</span>
-    <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">all</span>            <span class="ruby-comment"># path: /types</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>].<span class="ruby-identifier">empty?</span>
+    <span class="ruby-ivar">@comments</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">all</span>            <span class="ruby-comment"># path: /sites</span>
     <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@sites</span> = <span class="ruby-constant">Type</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:type_id</span>]).<span class="ruby-identifier">sites</span>  <span class="ruby-comment"># path: /types/id/sites</span>
+    <span class="ruby-ivar">@comments</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>]).<span class="ruby-identifier">comments</span>  <span class="ruby-comment"># path: /sites/id/comentarios</span>
   <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># index.html.erb</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@sites</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comments</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->
@@ -335,18 +338,22 @@
 
         <div class="method-description">
           
-          <p>GET /sites/new GET /sites/new.json</p>
+          <p>Nos permite crear un nuevo comentario GET /coments/new GET
+/coments/new.json</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 39</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-  <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">build</span> <span class="ruby-comment"># crea sitio vacio asociado a current_user</span>
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">new</span>
   
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>].<span class="ruby-identifier">nil?</span> 
+<span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])       
+  <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
@@ -370,19 +377,18 @@
 
         <div class="method-description">
           
-          <p>GET /sites/1 GET /sites/1.json</p>
+          <p>GET /comentarios/1 GET /comentarios/1.json</p>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 93</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  
+  <span class="ruby-ivar">@comentario</span> = <span class="ruby-constant">Comment</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># show.html.erb</span>
-    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span> }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- show-source -->
@@ -406,24 +412,25 @@
 
         <div class="method-description">
           
-          <p>PUT /sites/1 PUT /sites/1.json</p>
+          <p>PUT /comments/1 PUT /comments/1.json</p>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/sites_controller.rb, line 71</span>
+            <pre><span class="ruby-comment"># File app/controllers/comments_controller.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
-  <span class="ruby-ivar">@site</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">sites</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])  <span class="ruby-comment"># busca solo en sitios asociados a current_user </span>
-  
-  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site</span>])
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Site was successfully updated.'</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
-      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
+       <span class="ruby-ivar">@site</span> = <span class="ruby-constant">Site</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:site_id</span>])
+       <span class="ruby-ivar">@comment</span> = <span class="ruby-ivar">@site</span>.<span class="ruby-identifier">comments</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+       <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:comment</span>])
+                    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@site</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">'Comentario actualizado'</span> }
+                    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+                <span class="ruby-keyword">else</span>
+                       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span> }
+                    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@comment</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- update-source -->
           

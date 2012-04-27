@@ -1,3 +1,7 @@
+# == Controlador de Sites
+#
+# Incluye la lógica de la clase Sites
+
 class SitesController < ApplicationController
 
   # authenticate_user! ejecuta acción solo si sesión existe

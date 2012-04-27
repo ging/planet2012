@@ -1,3 +1,7 @@
+# == Controlador de Types
+#
+# Incluye la lógica de la clase Types
+
 class TypesController < ApplicationController
   # GET /types
   # GET /types.json
