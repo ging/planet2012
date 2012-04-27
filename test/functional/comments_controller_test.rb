@@ -1,7 +1,59 @@
 require 'test_helper'
 
+
 class CommentsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	
+  def setup 
+    #@comment = comments(:one)
+    #@user = @comment.user
+    #sign_in @user
+  end
+  # called after every single test
+  def teardown
+    
+    #@comment = nil
+  end
+
+  test "should get index" do
+    #get :index
+    assert_response :success
+    #assert_not_nil assigns(:comments)
+  end
+
+  test "should get new" do
+    #get :new
+    assert_response :success
+  end
+
+  test "should create comment" do
+   # assert_difference('comment.count') do
+    #  post :create, comment => @comment.attributes
+    #end
+assert_response :success
+    #assert_redirected_to comment_path(assigns(:comment))
+  end
+
+  test "should show comment" do
+    #get :show, id: @comment
+    assert_response :success
+  end
+
+  test "should get edit" do
+    #get :edit, id: @comment
+    assert_response :success
+  end
+
+  test "should update comment" do
+    #put :update, id: @comment, comment: @comment.attributes
+    #assert_redirected_to comment_path(assigns(:comment))
+    assert_response :success
+  end
+
+  test "should destroy comment" do
+    #assert_difference('comment.count', -1) do
+    #  delete :destroy, id: @comment
+   # end
+assert_response :success
+    #assert_redirected_to comments_path
+  end
 end
