@@ -29,6 +29,10 @@ Planet::Application.routes.draw do
 
   get "planet/author"
 
+  get "planet/doc"
+  #match "planet/doc" => redirect("/app/views/planet/doc")
+
+
   get "planet/search"
 
   post "planet/search"

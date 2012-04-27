@@ -15,6 +15,10 @@ class PlanetController < ApplicationController
   def author
   end
 
+  def doc
+    #render 'doc.html', :layout =>false
+   redirect_to "/doc/app/index.html"
+  end
   def search
     if params[:q].length >= 3
       @search= params[:q] 

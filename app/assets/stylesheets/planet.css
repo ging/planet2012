@@ -175,3 +175,9 @@
   color: #306e2c;
   font-size: 1.3em;
 }
+.user a:visited{
+  color: white;
+}
+.user a{
+  color: white;
+}

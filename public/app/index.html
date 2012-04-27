@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body>
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Comment.html">Comment</a>
+  
+    <li><a href="./CommentsController.html">CommentsController</a>
+  
+    <li><a href="./CommentsHelper.html">CommentsHelper</a>
+  
+    <li><a href="./PlanetController.html">PlanetController</a>
+  
+    <li><a href="./PlanetHelper.html">PlanetHelper</a>
+  
+    <li><a href="./Site.html">Site</a>
+  
+    <li><a href="./SitesController.html">SitesController</a>
+  
+    <li><a href="./SitesHelper.html">SitesHelper</a>
+  
+    <li><a href="./Trip.html">Trip</a>
+  
+    <li><a href="./TripsController.html">TripsController</a>
+  
+    <li><a href="./TripsHelper.html">TripsHelper</a>
+  
+    <li><a href="./Type.html">Type</a>
+  
+    <li><a href="./TypesController.html">TypesController</a>
+  
+    <li><a href="./TypesHelper.html">TypesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./Visit.html">Visit</a>
+  
+    <li><a href="./VisitsController.html">VisitsController</a>
+  
+    <li><a href="./VisitsHelper.html">VisitsHelper</a>
+  
+  </ul>
+</nav>
+  
+  </div>
+</nav>
+
+<p>This is the API documentation for Rails Application Documentation.
+asaasa
+
+<div id="documentation">
+  <h1 class="class">Proyecto Planet</h1>
+
+  <div id="description" class="description">
+
+    <h2>Resumen del proyecto</h2>
+      <p>El proyecto planet2012 pretende ser una red social de viajes, lugares y sitios. El usuario podrá crear sitios en los que ha estado o planea estar para así poder planificarse viajes.</p>
+
+      <h2>Conocimientos adquiridos</h2>
+      <br/>
+      <ul>
+        <li>Ruby on Rails</li>
+        <li>Gestionar proyectos mediante git</li>
+        <li>Tecnología sqlite</li>
+        <li>Tecnología html.erb</li>
+        <li>Modelo vista controlador</li>
+        <li>Desplegar servicios web online mediante la plataforma Heroku</li>
+        <li>HTML5 Canvas</li>
+        <li>API de google maps</li>
+        <li>Testing</li>
+        <li>Gema de autenticación Devise</li>
+        <li>Aplicación directa de conocimientos previos html, javascript, Ruby</li>
+
+      </ul>
+    <h2>Resumen detallado de las prácticas</h2>
+      <h3>Práctica 1: </h3>
+      <div class="no-overflow"><p class="p1">Añadir las siguientes mejoras al commit "df46232 se añade seeds.rb" proyecto planet:</p>
+<p class="p1">1) Definir una nueva acción en el controlador planet, denominada “author”. La nueva acción debe dar acceso a una página Web con los datos de los autores de este portal Web, incluyendo</p>
+<p class="p1">- nombre, direccion postal y electrónica, foto y breve curriculum</p>
+<p class="p1">2) Definir tests de funcionalidad para ejemplo y author, y comprobar que los tests pasan correctamente</p>
+<p class="p2">3) Añadir a las vistas index.html.erb y show.html.erb de”types” la fecha en la que fueron modificados por última vez</p>
+<p class="p1">- Dicha fecha está accesible en el campo “updated_at” de los objetos de la BBDD (ver fichero schema.rb)</p>
+<p class="p1">4) Añadir una nueva acción al controlador de “types” denominada “ordered_index”, que liste los monumentos ordenados alfabeticamente por nombre. Utilizar función Type.find(:all, :order =&gt; :name) </p>
+<ul>
+<li>El nuevo controlador debe atender a comando HTTP: "GET /types/ordered_index" (o con otro URL)</li>
+<ul>
+<li>Se debe definir la nueva ruta</li>
+<ul>
+<li>La vista y controlador pueden definirse nuevos o también se pueden reutilizar los de index</li>
+</ul>
+</ul>
+</ul>
+<p class="p1">5) Incluir 6 hiperenlaces en parte superior e inferior de todas las páginas, enlazados con:</p>
+<ul>
+<li>planet/index</li>
+<li>planet/contact</li>
+<li>planet/ejemplo</li>
+<li>planet/author</li>
+<li>types/index</li>
+<li>types/ordered_index</li>
+</ul>
+<p class="p1">Se recomienda definir hiperenlaces utilizando path_helpers, por ejemplo: &lt;%= link_to('Index', planet_index_path) +  ... %&gt; en “app/views/layouts/application.html.erb” antes y despues de &lt;% yield %&gt;</p>
+<p class="p1">6) Integrar todas las modificaciones en un clón de ging/planet y hacer un pull request a ging/planet con las modificaciones</p>
+
+<h3>Práctica 2: </h3>
+
+<p class="p1"><span class="s1">Crear una tabla de gestión de comentarios de los sitios que pueda contener comentarios de 240 caracteres como máximo.</span></p>
+<p class="p2">Cada comentario pertenecerá a un usuario y a un sitio por lo que deberá crease una tabla con 3 campos ("coment:string", "user_id:integer" y site_id:integer") que relacione cada comentario con un sitio y un usuario.</p>
+<p class="p1"><span class="s1">Un usuario podrá tener muchos comentarios y un sitio tambien podra tener muchos comentarios, por lo que habra que definir una relación uno_a_muchos entre comentarios y sitio, y entre comentarios y usuario.</span></p>
+<p class="p1"><span class="s1"><b>La vista de la lista de sitios ("index")</b> deberán modificarse para que si existen comentarios a un sitio, aparezca al final de la descripción la palabra <b>comentarios</b>, resaltada en negrita con un hiperenlace a la lista de comentarios. </span></p>
+<p class="p1"><span class="s1"><b>La vista de un sitio ("show")</b> deberán modificarse para que si existen comentarios a un sitio, estos se adjunten al final de la descripción del sitio. </span></p>
+<p class="p1"><span class="s1">La lista de comentarios incluirá el nombre del autor al principio, seguido de “: ” y del comentario. Las acciones deberán estar filtradas para que reflejen correctamente los permisos, es decir, solo los autores de un comentario podrán editarlo o borrarlo.</span></p>
+<p class="p1"><span class="s1">Justo detras de los comentarios aparecerá el texto "Añada su comentario" con un campo de entrada de comentario y un boton de “nuevo comentario”.</span></p>
+<p class="p1"><span class="s1">Nota.</span><span class="s2"><b> </b><a href="http://guides.rubyonrails.org/getting_started.html"><span class="s3">http://guides.rubyonrails.org/getting_started.html</span></a></span><span class="s1"> añade comentarios a posts de un blog (similar).</span>
+
+<h3>Práctica 3: </h3>
+<p>Añadir a la tabla de sitios la captura automatica de sus coordenadas, de forma que al crear un sitio y utilizando el API de geoposicionamiento de HTML5 se añadan las coordenadas obtenidas al sitio.</p>
+<ul>
+<li>Las coordenadas obtenidas deberan poder ser editadas por el usuario en el formulario </li>
+<li>Habra que enriquecer también la tabla de sitios con 3 nuevos campos: longitud, latitud y zoom, doinde guardar dichos valores.</li>
+</ul>
+<p>Añadir ademas:</p>
+<ol>
+<li>A cada sitio de planet un mapa (de Google Maps), que muestre su posicion en el mapa.</li>
+<li>A cada viaje de planet un mapa (de Google Maps), que muestre la foto de todas las visitas del viaje  geoposicionados en sus coordenadas en el mapa </li>
+</ol>
+<p>Indicar ademas para cada sitio (lista de sites), el número de veces que ha sido incluido en algún viaje, tanto en la vista individual, como en la lista de sitios.</p></div>
+
+<h3>Práctica 4 </h3>
+<div class="no-overflow"><p>Añadir a planet un buscador de sitios y viajes que este en todas las páginas en el mismo lugar (en application.html.erb)</p>
+<p>El buscador tendra un cajetín para introducir un string de 3 o mas caracteres. Tendrá además un botón para lanzar la busqueda de sitios y viajes que contengan el string en el nombre o en la descripción.</p>
+<p>La lista de sitios y viajes se presentará en 2 apartados, el primero contendrá los sitios y el segundo los viajes encontrados.</p>
+<p>Se recomienda asociar la acción de busqueda al controlador planet, debido a que integra vistas parciales de sites y trips.</p>
+<p>Además hay que arreglar todos los tests generados por rails para que pasen correctamente al ejecutar “rake test”.  Y añadir un test de funcionalidad para la nueva acción buscar.</p>
+<p>Por último se deberá documentar las páginas de esta entrega en formato RDoc  y ejecutar “rake doc:app” para generar doc del proyecto.</p>
+<p>La documentación generada se deberá enlazar con una nueva entrada de la barra de navegación.</p>
+<p>También se deberá desplegar el proyecto en Heroku.</p></div></div>
+
+
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
