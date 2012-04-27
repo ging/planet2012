@@ -1,7 +1,65 @@
-<p>  <b>Name:</b>  <%= @trip.name %></p><p>  <b>Date:</b>  <%= @trip.date %></p><p>
-  <b>Autor:</b>   <%= @trip.user.name if @trip.user %>
-</p> 
-<p>  <b>Description:</b>  <%= simple_format @trip.description %></p>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+var map;
+// Success callback function
+function initialize(){
+//MAP
+  var latlng = new google.maps.LatLng(0,0);
+  var options = {
+    zoom: 5,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  };
+        
+  map = new google.maps.Map(document.getElementById("map_canvas"), options);
+        
+  //GEOCODER
+  var geocoder = new google.maps.Geocoder();
+                        
+}
+
+function mapaMarcado(){
+  <% i=1 %>
+  <% @trip.sites.each do |site| %>;
+  var lat = <%= site.latitud %>;
+  var lng = <%= site.longitud %>;
+  pos = new google.maps.LatLng(lat,lng);
+  var marker<%= i%> = new google.maps.Marker({
+    map: map,
+    position: pos
+  });
+  marker<%= i %>.setTitle("<%= site.name %>");
+  <% i+= 1 %>
+  <%end%>
+}
+</script>
+<p>
+  <b>Name:</b>
+  <%= @trip.name %>
+</p>
+
+<p>
+  <b>Mapa del viaje:</b>
+  <div id="map_canvas"></div>
+</p>
+<input type="button" value= "Actualizar Mapa" onclick="mapaMarcado()">
+<p>
+  <b>Date:</b>
+  <%= @trip.date %>
+</p>
+
+<p>
+  <b>Autor:</b> 
+  <%= @trip.user.name if @trip.user %>
+</p>
+ 
+<p>
+  <b>Description:</b>
+  <%= simple_format @trip.description %>
+</p>
+
 <div id="site_list">
 
   <h1>Sitios a visitar</h1>
@@ -10,7 +68,6 @@
 
   <% if @trip.user == current_user %>
     <%= form_for(@visit, :remote => true) do |f| %>
-  
       <%= f.number_field :trip_id, :value => @trip.id, :hidden => true %>
       <%= f.collection_select(:site_id, 
                             Site.all,
@@ -23,6 +80,8 @@
 </div>
 
 <br />
-
-<% if @trip.user == current_user %>   <%= link_to 'Edit', edit_trip_path(@trip) %> |<% end %><%= link_to 'Back', trips_path %>
-
+<br />
+<% if @trip.user == current_user %>
+   <%= link_to 'Edit', edit_trip_path(@trip) %> |
+<% end %>
+<%= link_to 'Back', trips_path %>

@@ -1,0 +1,18 @@
+<p>
+		<b>Author:</b>
+		<%= comment.user.name if comment.user %>
+		</p>
+
+		<p>
+		<b>Comment:</b>
+		<%= comment.coment %>
+		</p>
+
+		<p>
+		<% if comment.user == current_user %>
+			<%= link_to 'Edit',edit_site_comment_path(@site,:id => comment.id)%>
+			<%= link_to 'Eliminar Comentario',[comment.site,comment],
+				:confirm => 'Are you sure?',
+				:method => :delete %>
+		<% end %>
+</p>

@@ -1,19 +1,42 @@
+<%= render 'mapshow'%>
 <div id="site">
  
   <h1><%= @site.type.name if @site.type %></h1> 
 
   <%= image_tag(@site.image.url, :class => 'site_image') %>
 
+    <p><b>Mapa:</b>
+  <div id="map_canvas"></div>
+  </p>
+
+  <P><b>Latitud:</b><%= @site.latitud %></p>
+  <P><b>Longitud:</b><%= @site.longitud %></p>
+
   <h3><%= @site.name %></h3> 
 
   <p><%=sanitize @site.description %></p>
 
-  <p><b>Autor:</b>           <%= @site.user.name if @site.user %></p>
-</div> 
-
-<div class="visitas">
-  <b>Visitas:</b>  <%= @site.visitas %>
+  <p><b>Autor:</b> 
+          <%= @site.user.name if @site.user %></p>
+  
+	<h2>Comments</h2>
+	<%= render @site.comments%>
 </div>
+	<h2>Añade un comentario:</h2>(240 caracteres max)
+<% if current_user %>
+	<%= render "comments/form"%>
+<% else %>
+	<h3> Para añadir un comentario debe estar registrado</h3>
+<% end %>
+	<div class="visitas">
+ 	 <b>Visitas:</b>  <%= @site.visitas %>
+	</div>
+	<div class="Viajes">
+ 	 <b>Viajes:</b>  <%= @site.visits.size %>
+	</div>
 
-<p />
-<% if @site.user == current_user %>  <%= link_to 'Edit', edit_site_path(@site) %> |<% end %><%= link_to 'Back', sites_path %>
+
+<% if @site.user == current_user %>
+  <%= link_to 'Edit', edit_site_path(@site) %> |
+<% end %>
+<%= link_to 'Back', sites_path %>

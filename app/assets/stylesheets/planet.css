@@ -166,4 +166,18 @@
 #main .visitas {
   text-indent:   70%;
 }
+#main .viajes {
+  text-indent:   70%;
+}
+#main .ui-autocomplete {
+    background-color: white;
+    width: 300px;
+    border: 1px solid #cfcfcf;
+    list-style-type: none;
+    padding-left: 0px;
+}
 
+#map_canvas {
+    width: 750px;
+    height: 400px;
+}

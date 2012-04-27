@@ -29,5 +29,14 @@ class PlanetController < ApplicationController
   # Método que define una acción vacía del controlador
   def ejemplo
   end
-    
+  
+  # Método que define una acción vacía del controlador  
+  def author
+  end 
+  
+  # Método que define una acción de búsqueda en los sitios y los viajes
+  def busqueda
+    @sites = Site.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%"])
+    @trips = Trip.find(:all, :conditions => ['name LIKE ? OR description LIKE ?', "%#{params[:q]}%", "%#{params[:q]}%"])
+  end 
 end

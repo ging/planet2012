@@ -1,0 +1,14 @@
+<h1>Edite su comentario:</h1>
+
+<%= form_for([@site,@comment]) do |f| %>
+		<div class="field">
+		<%= f.text_area :coment, :rows => 4 %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		</div>
+		<div class="actions">
+		<%= f.submit %>
+		</div>
+<% end %>
+
+<%= link_to 'Show', @site %> |
+<%= link_to 'Back', sites_path %>
