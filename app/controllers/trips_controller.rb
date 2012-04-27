@@ -1,3 +1,7 @@
+# == Controlador de Trips
+#
+# Incluye la lógica de la clase Trips
+
 class TripsController < ApplicationController
   
   # authenticate_user! ejecuta acción solo si sesión existe

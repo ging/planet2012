@@ -1,33 +1,31 @@
-# PlanetController ilustra el uso de *RDoc*. La documentación de un proyecto en
-# genera en el directorio *proy/doc* en formato Web con
-#      $proy> rake doc:app
+# == Controlador de Planet
 #
-# == Algunos comandos de formateo
-#
-# Tal y como muestra el subitulo anterior, este se define empezando la 
-# línea con ==. En los títulos debe empezar por =.
-#
-# Un [ ... ] seguido de texto define una lista titulada, como aquí
-# [Clases, Módulos o Métodos] Se documentan con comentarios justo encima de sus definición, como aquí.
-#
-# Un * o - definen las entradas de una lista itemizada
-# * Un URL se define así email[mailto:pepe@ejemplo.com] 
-# * o así {Pepe Rubio}[mailto:pepe@ejemplo.com]
-#
-# Un número o letra seguido de punto genera una lista númerada
-# 1. + permite generar *negrita*, igual que <b>con HTML</b>
-# 2. _ permite generar _cursiva_, igual que <em>con HTML</em>
-# 3. * permite generar letra de +teletipo+, igual que <tt> con HTML</tt>
-#
+# Incluye la lógica de la clase Planet
 class PlanetController < ApplicationController
-  # Método que define una acción vacía del controlador
+  # Método para mostrar la página inicial
   def index
   end
-  # Método que define una acción vacía del controlador
+  # Método para contactar
   def contact
   end
-  # Método que define una acción vacía del controlador
+  # Método ejemplo
   def ejemplo
   end
-    
+
+  def author
+  end
+
+  def doc
+    #render 'doc.html', :layout =>false
+   redirect_to "/doc/app/index.html"
+  end
+  def search
+    if params[:q].length >= 3
+      @search= params[:q] 
+      @sites =  Site.where("name like ? or description like ?", "%"+@search+"%", "%"+@search+"%")
+      @trips =  Trip.where("name like ? or description like ?", "%"+@search+"%", "%"+@search+"%")
+    else
+      render action: "incorrectsearch"
+    end
+  end
 end

@@ -163,7 +163,31 @@
 }
 
 
+
 #main .visitas {
   text-indent:   70%;
 }
-
+#shortcuts a{
+  color: #2c556e;
+  font-size: 1.3em;
+}
+#shortcuts a:visited{
+  color: #306e2c;
+  font-size: 1.3em;
+}
+.user a:visited{
+  color: black;
+}
+.user a{
+  color: black;
+}
+#search{
+  position:absolute;
+  right:0px;
+  width:300px;
+  color: black;
+  font-size: small;
+}
+#shortcuts{
+ 
+}
