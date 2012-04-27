@@ -1,0 +1,14 @@
+<p>
+
+    <b><%= comment.user.name if comment.user %></b>
+    <%= comment.coment %>
+  </p>
+
+  <p>
+  <% if (comment.user == current_user) %>
+  <%= link_to 'Edit', edit_site_comment_path(@site, comment) %>
+  <%= link_to 'Destroy', [comment.site, comment],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+  <% end %>
+</p>

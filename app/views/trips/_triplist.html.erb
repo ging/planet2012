@@ -1,0 +1,29 @@
+<!-- vista igual a index.html.erb de types con modificaciones indicadas∫ -->
+<div    id="site_list"     > 
+ <h1>Viajes</h1> 
+ 
+  <table> 
+  <% @trips.each do |trip| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+ 
+      <td class="list_description"> 
+        <dl> 
+          <dt><%= link_to trip.name, trip_path(trip) %></dt> 
+          <dd><%= truncate(strip_tags(trip.description),
+                 :length => 80) + ',   ' + trip.date.to_s %></dd> 
+        </dl> 
+      </td> 
+ 
+      <td class="list_actions"> 
+        <%= link_to 'Show', trip %><br/> 
+        <% if trip.user == current_user %>
+           <%= link_to 'Edit', edit_trip_path(trip) %><br/> 
+           <%= link_to 'Destroy', trip, 
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+        <% end %>
+      </td> 
+    </tr> 
+  <% end %>
+  </table> 
+</div> <br />

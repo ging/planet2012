@@ -1,3 +1,7 @@
+# == Controlador de Visits
+#
+# Incluye la lógica de la clase Visits
+
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json

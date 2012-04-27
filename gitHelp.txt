@@ -1,0 +1,15 @@
+Para hacer merge con los cambios del principal:
+
+git remote rm ging
+
+git remote add ging git://github.com/ging/planet2012.git
+
+git pull ging master
+
+(resolver conflictos)
+
+git add -A
+
+git commit -m 'solved conflicts'
+
+git push -u
