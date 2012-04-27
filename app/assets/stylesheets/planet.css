@@ -176,8 +176,18 @@
   font-size: 1.3em;
 }
 .user a:visited{
-  color: white;
+  color: black;
 }
 .user a{
-  color: white;
+  color: black;
+}
+#search{
+  position:absolute;
+  right:0px;
+  width:300px;
+  color: black;
+  font-size: small;
+}
+#shortcuts{
+ 
 }
