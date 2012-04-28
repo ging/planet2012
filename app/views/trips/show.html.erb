@@ -18,19 +18,20 @@
 
  var i = 0;
  latitud = new Array();
-
+  images = new Array();
   longitud = new Array();
 <%  @trip.visits.order(:hour).each do |visit| %>
+<% if visit.site %>
 latitud[i]= <%=visit.site.latitud%> ;
-
+images[i] = "<%= visit.site.image.url %>" ;
 longitud[i] = <%=visit.site.longitud%> ;
 i= i + 1;
-
+<% end %>
 <% end %>
 
 
 
-displayPosition(latitud, longitud, 1);
+displayPosition(latitud, longitud, 1 , images);
 
 
 
@@ -45,7 +46,7 @@ displayPosition(latitud, longitud, 1);
 
     <%= render(@trip) %>
 
-    <% if @trip.user == current_user%>
+    <% if (@trip.user == current_user) && current_user %>
         <%=form_for(@visit, :remote => true) do |f| %>
            
            <%= f.hidden_field :trip_id, :value => @trip.id%>
@@ -63,7 +64,7 @@ displayPosition(latitud, longitud, 1);
 
 
 
-<% if @trip.user == current_user %>
+<% if (@trip.user == current_user) && current_user %>
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
 <% end %>
 <%= link_to 'Back', trips_path %>

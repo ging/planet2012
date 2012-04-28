@@ -1,5 +1,10 @@
 class SitesController < ApplicationController
 
+after_filter :count_visit, :only => :show
+
+def count_visit
+  @site.increment!(:visitas)
+end
   before_filter :authenticate_user!, :except => [:index,:show]
   # GET /sites
   # GET /sites.json

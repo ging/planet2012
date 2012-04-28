@@ -25,13 +25,14 @@
         <%= link_to 'Comentarios', site_comentarios_path(site) %>
 
         <% end %>
-
-        <% if site.user == current_user %>
+       
+        <% if (site.user == current_user) && current_user %>
         <%= link_to 'Edit', edit_site_path(site) %><br/>
         <%= link_to 'Destroy', site, 
                     :confirm => 'Are you sure?',
                     :method => :delete %>
         <% end %>
+        
       </td> 
     </tr> 
   <% end %>

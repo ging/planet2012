@@ -1,8 +1,15 @@
 require 'test_helper'
 
 class SitesControllerTest < ActionController::TestCase
-  setup do
+   setup do
     @site = sites(:one)
+    @update = {   # @update:  parametros diferentes
+      :name         => 'AnotherType',
+      :description  => 'AnotherText',
+      :type_id => types(:one).id
+    }
+    @user = @site.user
+    sign_in @user
   end
 
   test "should get index" do
@@ -17,8 +24,10 @@ class SitesControllerTest < ActionController::TestCase
   end
 
   test "should create site" do
+    #Comprueba que tabla crece (+1)
+   
     assert_difference('Site.count') do
-      post :create, site: @site.attributes
+      post :create, site: @update
     end
 
     assert_redirected_to site_path(assigns(:site))
@@ -35,7 +44,7 @@ class SitesControllerTest < ActionController::TestCase
   end
 
   test "should update site" do
-    put :update, id: @site, site: @site.attributes
+    put :update, id: @site, site: @update
     assert_redirected_to site_path(assigns(:site))
   end
 

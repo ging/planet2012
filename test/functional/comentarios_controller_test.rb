@@ -11,23 +11,17 @@ class ComentariosControllerTest < ActionController::TestCase
     assert_not_nil assigns(:comentarios)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+
 
   test "should create comentario" do
     assert_difference('Comentario.count') do
       post :create, comentario: @comentario.attributes
     end
 
-    assert_redirected_to comentario_path(assigns(:comentario))
+    assert_redirected_to comentarios_path(assigns(:comentario))
   end
 
-  test "should show comentario" do
-    get :show, id: @comentario
-    assert_response :success
-  end
+
 
   test "should get edit" do
     get :edit, id: @comentario
@@ -36,7 +30,7 @@ class ComentariosControllerTest < ActionController::TestCase
 
   test "should update comentario" do
     put :update, id: @comentario, comentario: @comentario.attributes
-    assert_redirected_to comentario_path(assigns(:comentario))
+    assert_redirected_to comentarios_path(assigns(:comentario))
   end
 
   test "should destroy comentario" do

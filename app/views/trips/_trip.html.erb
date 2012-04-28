@@ -2,7 +2,7 @@
   <table> 
    <%  trip.visits.order(:hour).each do |visit| %>
     
-   
+   <% if visit.site %>
 
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
       <td> 
@@ -26,6 +26,9 @@
 
       </td> 
     </tr> 
+    <% else %>
+    <% trip.visits.delete(visit) %>
+    <% end %>
    <% end %>
   </table> 
 </div>
